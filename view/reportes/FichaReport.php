@@ -1,6 +1,6 @@
 <?php
 
-$base_url = "http://186.71.249.121:4000/Vademano/";
+$base_url = "http://192.168.10.10:4000/Vademano/";
 
 
 $id_fichas                             = "";
