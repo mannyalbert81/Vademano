@@ -54,6 +54,7 @@
 
 	</script>
 	<script >
+	/*
 		$(document).ready(function(){
 
 		    // cada vez que se cambia el valor del combo
@@ -103,7 +104,7 @@
 	        
 				    
 		}); 
-
+*/
 	</script>
 
 
@@ -138,81 +139,77 @@
 				  	<button type="submit" id="btn_agregar_fichas" name="btn_agregar_fichas"  class="btn btn-primary"><span class="glyphicon glyphicon-plus	" ><?php echo "" ;?> </span></button>
 			 </div>
              </form>
-            <hr/>
+            
         </div>
+       
+         <form action="<?php echo $helper->url("FichasAlimentos","index"); ?>" method="post">
        
         <div class="col-lg-6">
 	          <div class="col-xs-4 col-md-4"  >
-	          	<input type="search" class="form-control" name="contenido_busqueda" id="criterio_busqueda" placeholder="texto a buscar">
+	          	<input type="search" class="form-control" name="contenido_busqueda" id="contenido_busqueda" placeholder="texto a buscar">
 	          	<div id="mensaje_contenido_busqueda" class="errores"></div>
 	          </div>
-	          <div class="col-xs-4 col-md-4"  >	
-	             <select name="criterios_busqueda" id="criterio_busqueda" name="criterio_busqueda" class="form-control">
-					<option value="0"  > --TODOS--</option>
-					<option value="1"  >Nombre Distribuidor</option>
-					<option value="2"  >Nombre Persona Contacto</option>
-					<option value="3"  >Provincia Distribuidor</option>
-					<option value="4"  >Canton Distribuidor</option>
-					
-			     </select>
-			  	 <div id="mensaje_criterio_busqueda" class="errores"></div>
-			  </div>				   		
+	         <div class="col-lg-4">
+           <select name="criterio_busqueda" id="criterio_busqueda"  class="form-control">
+                                    <?php foreach($resultMenu as $val=>$desc) {?>
+                                         <option value="<?php echo $val ?>" <?php //if ($resRol->id_rol == $resEdit->id_rol )  echo  ' selected="selected" '  ;  ?> ><?php echo $desc ?> </option>
+                                    <?php } ?>
+                                        
+           </select>
+           <div id="mensaje_criterio_busqueda" class="errores"></div>
+           </div>			   		
 	          <div class="col-xs-4 col-md-4"  >	
 	          	<button type="submit" id="btn_buscar" name="btn_buscar" class="btn btn-primary"><span class="glyphicon glyphicon-search	" ><?php echo "" ;?> </span></button>
 	          </div>
             
-            <hr/>
+           
         </div>
-       
+        </form>
        <form action=""  >
         <section class="col-lg-12 usuario" style="height:400px;overflow-y:scroll;">
         <table class="table table-hover">
-	         <tr>
-	    		<th></th>
-	    		<th>Id</th>
-	    		<th>Nombre Producto</th>
-	    		<th>Tipo Alimento</th>
-	    		<th>Distribuidor</th>
-	    		<th>Laboratorio</th>
-	    		<th>Registro Sanitario</th>
-	    		<th>Indicaciones de Uso</th>
-	    		<th>Periodo de Retiro</th>
-	    		<th>Presentacion</th>
-	    		<th>Conservacion</th>
-	    		<th>Ingredientes</th>
+	         <tr class="info">
+	    		<th style="text-align: left;  font-size: 14px;"></th>
+	    		<th style="text-align: left;  font-size: 14px;">Id</th>
+	    		<th style="text-align: left;  font-size: 14px;">Nombre Producto</th>
+	    		<th style="text-align: left;  font-size: 14px;">Tipo Alimento</th>
+	    		<th style="text-align: left;  font-size: 14px;">Registro Sanitario</th>
+	    		<th style="text-align: left;  font-size: 14px;">Indicaciones de Uso</th>
+	    		<th style="text-align: left;  font-size: 14px;">Periodo de Retiro</th>
+	    		<th style="text-align: left;  font-size: 14px;">Presentacion</th>
+	    		<th style="text-align: left;  font-size: 14px;">Conservacion</th>
+	    		<th style="text-align: left;  font-size: 14px;">Ingredientes</th>
 	    		
-	    		<th></th>
-	    		<th></th>
+	    		<th style="text-align: left;  font-size: 14px;"></th>
+	    		<th style="text-align: left;  font-size: 14px;"></th>
 	  		</tr>
                 
 	            <?php foreach($resultSet as $res) {?>
 	        		<tr>
-	                  <td> <input type="image" name="image" src="view/DevuelveImagen.php?id_valor=<?php echo $res->id_fichas; ?>&id_nombre=id_fichas&tabla=fichas_fotos&campo=foto_fichas_fotos"  alt="<?php echo $res->nombre_fichas; ?>" width="80" height="60" >      </td>
+	                  <td style="font-size: 13px;"> <input type="image" name="image" src="view/DevuelveImagen.php?id_valor=<?php echo $res->id_fichas; ?>&id_nombre=id_fichas&tabla=fichas_fotos&campo=foto_fichas_fotos"  alt="<?php echo $res->nombre_fichas; ?>" width="80" height="60" >      </td>
 	                  
-	                   <td> <?php echo $res->id_fichas; ?>  </td>
-		               <td> <?php echo $res->nombre_fichas; ?>     </td> 
-		               <td> <?php echo $res->tipo_alimento_fichas; ?>     </td> 
-		               <td> <?php echo $res->nombre_distribuidores; ?>     </td> 
-		               <td> <?php echo $res->nombre_laboratorios; ?>     </td>
-		               <td> <?php echo $res->registro_sanitario_fichas; ?>     </td> 
-		               <td> <?php echo $res->indicaciones_uso_fichas; ?>     </td> 
-		               <td> <?php echo $res->periodo_retiro_fichas; ?>     </td> 
-		               <td> <?php echo $res->presentacion_fichas; ?>     </td> 
-		               <td> <?php echo $res->conservacion_fichas; ?>     </td> 
-		               <td> <?php echo $res->ingredientes_fichas; ?>     </td>
+	                   <td style="font-size: 13px;"> <?php echo $res->id_fichas; ?>  </td>
+		               <td style="font-size: 13px;"> <?php echo $res->nombre_fichas; ?>     </td> 
+		               <td style="font-size: 13px;"> <?php echo $res->tipo_alimento_fichas; ?>     </td> 
+		               <td style="font-size: 13px;"> <?php echo $res->registro_sanitario_fichas; ?>     </td> 
+		               <td style="font-size: 13px;"> <?php echo $res->indicaciones_uso_fichas; ?>     </td> 
+		               <td style="font-size: 13px;"> <?php echo $res->periodo_retiro_fichas; ?>     </td> 
+		               <td style="font-size: 13px;"> <?php echo $res->presentacion_fichas; ?>     </td> 
+		               <td style="font-size: 13px;"> <?php echo $res->conservacion_fichas; ?>     </td> 
+		               <td style="font-size: 13px;"> <?php echo $res->ingredientes_fichas; ?>     </td>
 		               
 		               
 		               
 		               
 		               <td>
 			           		<div class="right">
-			                    <a href="<?php echo $helper->url("FichasAlimentos","index_dos"); ?>&id_fichas_edit=<?php echo $res->id_fichas; ?>" class="btn btn-warning">Editar</a>
+			                    <a href="<?php echo $helper->url("FichasAlimentos","index_dos"); ?>&id_fichas_edit=<?php echo $res->id_fichas; ?>" class="btn btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
 			                </div>
 			            
 			             </td>
 			             <td>   
 			                	<div class="right">
-			                    <a href="<?php echo $helper->url("FichasAlimentos","borrarId"); ?>&id_fichas=<?php echo $res->id_fichas; ?>" class="btn btn-danger">Borrar</a>
+			                    <a href="<?php echo $helper->url("FichasAlimentos","borrarId"); ?>&id_fichas=<?php echo $res->id_fichas; ?>" class="btn btn-danger"><i class="glyphicon glyphicon-trash"></i></a>
 			                </div>
 			                <hr/>
 		               </td>

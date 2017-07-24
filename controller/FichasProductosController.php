@@ -11,17 +11,80 @@ class FichasProductosController extends ControladorBase{
 public function index(){
 	
 	session_start();
+	
+
+	
+	
 	    $fichas = new FichasModel();
-	    $columnas = "fichas.id_fichas, fichas.nombre_fichas,
+	    $columnas = "fichas_fotos.id_fichas_fotos, 
+  					 fichas_fotos.foto_fichas_fotos, fichas.id_fichas, fichas.nombre_fichas,
                      fichas.registro_sanitario_fichas,  fichas.accion_terapeutica_fichas,  fichas.clasificacion_farmacologica_fichas, 
                      fichas.forma_terapeutica_fichas, fichas.indicaciones_uso_fichas, fichas.interacciones_fichas, 
   					 fichas.contraindicaciones_fichas, fichas.periodo_retiro_fichas, fichas.advertencias_fichas, fichas.presentacion_fichas, fichas.mecanismo_accion_fichas, fichas.efectos_colaterales_fichas, fichas.conservacion_fichas, fichas.encabezado_dosificacion_fichas, fichas.encabezado_tabla_fichas";
 	    
-	   $tablas   = "public.fichas, public.distribuidores, public.fichas_distribuidores";
-	   $where    = "fichas_distribuidores.id_fichas = fichas.id_fichas AND fichas_distribuidores.id_distribuidores=distribuidores.id_distribuidores";
+	   $tablas   = "public.fichas, public.fichas_fotos";
+	   $where    = "fichas_fotos.id_fichas = fichas.id_fichas AND fichas.tipo_ficha='P'";
 	   $id = "fichas.nombre_fichas";
 	   $resultSet = $fichas->getCondiciones($columnas, $tablas, $where, $id);
 		
+	   $resultMenu=array(0=>'--TODOS--',1=>'Nombre Producto');
+	   	
+	   
+	   if (isset($_POST["btn_buscar"]))
+	   {
+	   		
+	   
+	    $columnas1 = "fichas_fotos.id_fichas_fotos, 
+  					 fichas_fotos.foto_fichas_fotos, fichas.id_fichas, fichas.nombre_fichas,
+                     fichas.registro_sanitario_fichas,  fichas.accion_terapeutica_fichas,  fichas.clasificacion_farmacologica_fichas, 
+                     fichas.forma_terapeutica_fichas, fichas.indicaciones_uso_fichas, fichas.interacciones_fichas, 
+  					 fichas.contraindicaciones_fichas, fichas.periodo_retiro_fichas, fichas.advertencias_fichas, fichas.presentacion_fichas, fichas.mecanismo_accion_fichas, fichas.efectos_colaterales_fichas, fichas.conservacion_fichas, fichas.encabezado_dosificacion_fichas, fichas.encabezado_tabla_fichas";
+	    
+	   $tablas1   = "public.fichas, public.fichas_fotos";
+	   $where1    = "fichas_fotos.id_fichas = fichas.id_fichas AND fichas.tipo_ficha='P'";
+	   $id1 = "fichas.nombre_fichas";
+	   		
+	   		
+	   	$criterio = $_POST["criterio_busqueda"];
+	   	$contenido = $_POST["contenido_busqueda"];
+	   		
+	   		
+	   		
+	   	if ($contenido !="")
+	   	{
+	   
+	   		$where_0 = "";
+	   		$where_2 = "";
+	   		
+	   			
+	   
+	   		switch ($criterio) {
+	   			case 0:
+	   				$where_0 = " ";
+	   				break;
+	   			case 1:
+	   
+	   				$where_2 = " AND fichas.nombre_fichas LIKE '$contenido%'  ";
+	   				break;
+	   			
+	   		}
+	   
+	   
+	   
+	   		$where_to  = $where1 .  $where_0.  $where_2;
+	   
+	   
+	   		$resul = $where_to;
+	   			
+	   		//Conseguimos todos los usuarios con filtros
+	   		$resultSet=$fichas->getCondiciones($columnas1 ,$tablas1 ,$where_to, $id1);
+	   
+	   
+	   
+	   
+	   	}
+	   }
+	   
 		$resultEdit = "";
 			
 		if (isset ($_GET["id_fichas"])   )
@@ -33,10 +96,15 @@ public function index(){
 				
 			}
 			
+			
+			
+			
+			
+			
 				
 			
 		$this->view("FichasProductos",array(
-				"resultSet"=>$resultSet, "resultEdit" =>$resultEdit
+				"resultSet"=>$resultSet, "resultEdit" =>$resultEdit, "resultMenu"=>$resultMenu
 			));
 		
 		
@@ -57,7 +125,7 @@ public function index(){
 		$especies = new EspeciesModel();
 		$resultEsp = $especies->getAll("nombre_especies");
 		
-		$especies1 = new Especies1Model();
+		$especies1 = new EspeciesModel();
 		$resultEspe = $especies1->getAll("nombre_especies");
 		
 		$formas_administracion = new FormasAdministracionModel();
@@ -90,8 +158,9 @@ public function index(){
 		{
 			$_nueva_ficha = TRUE;
 			$_nombre_fichas   = strtoupper ( $_POST["nombre_fichas"] );
+			$_tipo_ficha='P';
 			$funcion = "ins_fichas";
-			$parametros = " '$_nombre_fichas'  ";
+			$parametros = " '$_nombre_fichas', '$_tipo_ficha' ";
 			$fichas->setFuncion($funcion);
 			$fichas->setParametros($parametros);
 			$resultado=$fichas->Insert();
@@ -156,13 +225,13 @@ public function index(){
 		if (isset($_POST["btn_agregar_dosificacion"]) )
 		{
 			
-			$_id_especies = $_POST["id_especies"];
+			$_id_especies1 = $_POST["id_especies_dosificacion"];
 			$_dosis_fichas_dosificacion   = $_POST["dosis_fichas_dosificacion"];
 		     $_id_fichas        = $_POST["id_fichas"];
 		
 			$funcion = "ins_fichas_dosificacion";
 		
-			$parametros = "'$_id_especies' , '$_dosis_fichas_dosificacion' , '$_id_fichas'";
+			$parametros = "'$_id_especies1' , '$_dosis_fichas_dosificacion' , '$_id_fichas'";
 			$fichas_dosificacion->setFuncion($funcion);
 		
 			$fichas_dosificacion->setParametros($parametros);
@@ -344,39 +413,39 @@ public function index(){
 		//guardamos la ficha
 		if (isset($_POST["btn_guardar"]) )
 		{
+			
 			$fichas_fotos = new FichasFotosModel();
-			$directorio = $_SERVER['DOCUMENT_ROOT'].'/uploads/';
 			
-			$nombre = $_FILES['foto_fichas_fotos']['name'];
-			$tipo = $_FILES['foto_fichas_fotos']['type'];
-			$tamano = $_FILES['foto_fichas_fotos']['size'];
 			
-			// temporal al directorio definitivo
-			
-			move_uploaded_file($_FILES['foto_fichas_fotos']['tmp_name'],$directorio.$nombre);
-			
-			$data = file_get_contents($directorio.$nombre);
-			
-			$foto_fichas_fotos = pg_escape_bytea($data);
-				
-			if ($foto_fichas_fotos != "" )
+			if ($_FILES['foto_fichas_fotos']['tmp_name']!="")
 			{
+			
+				//para la foto
+				$directorio = $_SERVER['DOCUMENT_ROOT'].'/Vademano/uploads/';
+				$nombre = $_FILES['foto_fichas_fotos']['name'];
+				$tipo = $_FILES['foto_fichas_fotos']['type'];
+				$tamano = $_FILES['foto_fichas_fotos']['size'];
+			
+				// temporal al directorio definitivo
+				move_uploaded_file($_FILES['foto_fichas_fotos']['tmp_name'],$directorio.$nombre);
+				$data = file_get_contents($directorio.$nombre);
+				$imagen_usuarios = pg_escape_bytea($data);
+			
+			
 				$_id_fichas   =  $_POST["id_fichas"];
-				$_foto_fichas_fotos = $foto_fichas_fotos;
+				
 					
 				$funcion = "ins_fichas_fotos";
-			
-				$parametros = " '$_id_fichas' ,'{$_foto_fichas_fotos}' ";
+				$parametros = " '$_id_fichas' ,'$imagen_usuarios' ";
 				$fichas_fotos->setFuncion($funcion);
-			
 				$fichas_fotos->setParametros($parametros);
-			
-			
 				$resultado=$fichas_fotos->Insert();
-			
+					
+				
 			
 			}
 			
+		
 			//busco la id_foto_fichas-foto
 			$_id_fichas_fotos = 0;
 				
@@ -422,29 +491,10 @@ public function index(){
 			'$conservacion_fichas',
 			'$encabezado_dosificacion_fichas'";
 			$fichas->setFuncion($funcion);
-				
 			$fichas->setParametros($parametros);
+			$resultado=$fichas->Insert();
 				
-				
-		//	try {
-					
-				$resultado=$fichas->Insert();
-				
-					
-					
-			//} catch (Exception $e) {
-					
-				//echo $e;
-					
-		//	}		
-			
-			
-
-			//$this->view("Error",array(
-			
-				//	"resultado"=>$parametros
-			
-			//));
+		
 			
 			$this->redirect("FichasProductos", "index");
 			

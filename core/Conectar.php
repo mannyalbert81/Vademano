@@ -24,7 +24,7 @@ class Conectar{
         
         if($this->driver=="pgsql" || $this->driver==null){
        
-        	$con = pg_connect("host=186.71.179.29 port=5432 dbname=vade user=postgres password=.Romina.2012 ");
+        	$con = pg_connect("host=192.168.10.10 port=5432 dbname=vademano user=postgres password=.Romina.2012 ");
         	if(!$con){
         		echo "No se puedo Conectar a la Base";
         	} else {
@@ -37,7 +37,7 @@ class Conectar{
         require_once "FluentPDO/FluentPDO.php";
         
         if($this->driver=="pgsql" || $this->driver==null){
-        	$pdo = new PDO('pgsql:host=186.71.179.29;port=5432;dbname=vade', 'postgres', '.Romina.2012' );
+        	$pdo = new PDO('pgsql:host=192.168.10.10;port=5432;dbname=vademano', 'postgres', '.Romina.2012' );
             //$pdo = new PDO($this->driver.":dbname=".$this->database, $this->user, $this->pass);
             
             try 

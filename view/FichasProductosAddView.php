@@ -96,7 +96,7 @@
 		    $("#btn_agregar_dosificacion").click(function() 
 			{
 		    	
-		    	var id_especies = $("#id_especies").val();
+		    	var id_especies = $("#id_especies_dosificacion").val();
 		    	var dosis_fichas_dosificacion = $("#dosis_fichas_dosificacion").val();
 		    	
 		    	if (dosis_fichas_dosificacion == "")
@@ -129,7 +129,7 @@
 
 			}); 
 			
-			$( "#id_especies" ).focus(function() {
+			$( "#id_especies_dosificacion" ).focus(function() {
 				$("#mensaje_id_especies").fadeOut("slow");
     		});
 		
@@ -838,14 +838,14 @@
 			  	<div class="col-xs-3 col-md-3">
 			  		<?php $cantidad = 0;?>
 			  		<p class="formulario-subtitulo" >Especies  </p>
-			  		<select name="id_especies" id="id_especies"  class="form-control" >
+			  		<select name="id_especies_dosificacion" id="id_especies_dosificacion"  class="form-control" >
 						<option value="0"  > --SELECCIONE--</option>
 						<?php foreach($resultEspe as $resEsp) {?>
 							<option value="<?php echo $resEsp->id_especies; ?>"  ><?php echo $resEsp->nombre_especies; ?> </option>
 							
 			        	<?php } ?>
 					</select> 
-					<div id="mensaje_id_especies" class="errores"></div>
+					<div id="mensaje_id_especies" class="errores"></div>	
 				</div>
 				<div class="col-xs-3 col-md-3">
 					<p class="formulario-subtitulo" >Dosis  </p>
@@ -922,7 +922,7 @@
 							
 			        	<?php } ?>
 					</select> 
-					<div id="mensaje_id_especies" class="errores"></div>
+					<div id="mensaje_id_especies_1" class="errores"></div>
 				</div>
 				
 			  	
@@ -1249,8 +1249,8 @@
 		    <div class="row">
 		    	<div class="col-xs-2 col-md-2">
 			  	<p  class="formulario-subtitulo" >Imagen del Producto </p>
-			  	    <input type="file" name="foto_fichas_fotos" id="foto_fichas_fotos" value="" accept="png|jpg|jpeg" onKeyDown="return intro(event)" class="form-control"/>
-			        <div id="mensaje_foto_fichas_fotos" class="errores"></div>
+			  	    <input type="file" name="foto_fichas_fotos" id="foto_fichas_fotos" class="form-control" value="">
+			  	    <div id="mensaje_foto_fichas_fotos" class="errores"></div>
 			  	</div>
 		    </div>
 		<hr>
@@ -1437,7 +1437,7 @@
 			  	<div class="col-xs-3 col-md-3">
 			  		<?php $cantidad = 0;?>
 			  		<p class="formulario-subtitulo" >Especies  </p>
-			  		<select name="id_especies" id="id_especies"  class="form-control" >
+			  		<select name="id_especies_dosificacion" id="id_especies_dosificacion"  class="form-control" >
 						<option value="0"  > --SELECCIONE--</option>
 						<?php foreach($resultEspe as $resEsp) {?>
 							<option value="<?php echo $resEsp->id_especies; ?>"  ><?php echo $resEsp->nombre_especies; ?> </option>
@@ -1520,7 +1520,7 @@
 							
 			        	<?php } ?>
 					</select> 
-					<div id="mensaje_id_especies" class="errores"></div>
+					<div id="mensaje_id_especies_1" class="errores"></div>
 				</div>
 				
 			  	
@@ -1744,7 +1744,6 @@
 					        		<tr>
 					                   <td> <?php echo $res->id_fichas_distribuidores; ?>  </td>
 						               <td> <?php echo $res->nombre_distribuidores; ?>     </td> 
-						               
 						                
 						                   
 						                 <td>   
@@ -1850,7 +1849,7 @@
 		    <div class="row">
 		    	<div class="col-xs-2 col-md-2">
 			  	<p  class="formulario-subtitulo" >Imagen del Producto </p>
-			  	    <input type="file" name="foto_fichas_fotos" id="foto_fichas_fotos" value="" accept="png|jpg|jpeg" onKeyDown="return intro(event)" class="form-control"/>
+			  	    <input type="file" name="foto_fichas_fotos" id="foto_fichas_fotos" value=""  class="form-control"/>
 			        <div id="mensaje_foto_fichas_fotos" class="errores"></div>
 			  	</div>
 		    </div>

@@ -25,7 +25,7 @@ if (isset ($_GET["id_valor"]))
 
 }
 $image = "";
-$conn  = pg_connect("user=postgres port=5432 password=.Romina.2012 dbname=vade host=186.71.249.121");
+$conn  = pg_connect("user=postgres port=5432 password=.Romina.2012 dbname=vademano host=192.168.10.10");
 if(!$conn)
 {
 	echo  "No se pudo conectar";

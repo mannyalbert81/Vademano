@@ -27,28 +27,36 @@
 		    // cada vez que se cambia el valor del combo
 		    $("#btn_agregar_usuario").click(function() 
 			{
-		    	
-		    	var nombre_usuario = $("#nombre_usuario").val();
-		    
+		    	var regex = /[\w-\.]{2,}@([\w-]{2,}\.)*([\w-]{2,}\.)[\w-]{2,4}/;
+		    	var nombre_usuario = $("#usuario_usuario").val();
+
+
+
 		    	if (nombre_usuario == "")
 		    	{
-					
-			    	$("#mensaje_nombre").text("Introduzca un Correo de Usuario");
+			    	
+		    		$("#mensaje_nombre").text("Introduzca un correo");
 		    		$("#mensaje_nombre").fadeIn("slow"); //Muestra mensaje de error
 		            return false;
 			    }
+		    	else if (regex.test($('#usuario_usuario').val().trim()))
+		    	{
+		    		$("#mensaje_nombre").fadeOut("slow"); //Muestra mensaje de error
+		            
+				}
 		    	else 
 		    	{
-					
-			    	$("#mensaje_nombre").fadeOut("slow"); //Muestra mensaje de error
-		            
+		    		$("#mensaje_nombre").text("Introduzca un correo Valido");
+		    		$("#mensaje_nombre").fadeIn("slow"); //Muestra mensaje de error
+		            return false;	
 			    }
+
 
 
 			    	    		    				    
 
 			}); 
-			$( "#nombre_usuario" ).focus(function() {
+			$( "#usuario_usuario" ).focus(function() {
 					$("#mensaje_nombre").fadeOut("slow");
     			});
 		      
@@ -56,7 +64,10 @@
 		}); 
 
 	</script>
+	
+	
 	<script >
+	/*
 		$(document).ready(function(){
 
 		    // cada vez que se cambia el valor del combo
@@ -64,18 +75,18 @@
 			{
 		    	
 		    	var contenido_busqueda = $("#contenido_busqueda").val();
-		    	var criterio_busqueda = $("#criterio_busqueda").val();
+		    	//var criterio_busqueda = $("#criterio_busqueda").val();
 		    	if (contenido_busqueda == "")
 		    	{
 					
-			    	$("#contenido_busqueda").text("Introduzca un Contenido a Buscar");
-		    		$("#contenido_busqueda").fadeIn("slow"); //Muestra mensaje de error
+			    	$("#mensaje_contenido_busqueda").text("Introduzca un Contenido a Buscar");
+		    		$("#mensaje_contenido_busqueda").fadeIn("slow"); //Muestra mensaje de error
 		            return false;
 			    }
 		    	else 
 		    	{
 					
-			    	$("#contenido_busqueda").fadeOut("slow"); //Muestra mensaje de error
+			    	$("#mensaje_contenido_busqueda").fadeOut("slow"); //Muestra mensaje de error
 		            
 			    }
 
@@ -100,13 +111,14 @@
 			$( "#contenido_busqueda" ).focus(function() {
 					$("#mensaje_contenido_busqueda").fadeOut("slow");
     			});
+
 			$( "#criterio_busqueda" ).focus(function() {
 				$("#mensaje_criterio_busqueda").fadeOut("slow");
 			});
 	        
 				    
 		}); 
-
+*/
 	</script>
 
 
@@ -140,81 +152,89 @@
 				  	
 				  	<button type="submit" id="btn_agregar_usuario" name="btn_agregar_usuario"  class="btn btn-primary"><span class="glyphicon glyphicon-plus	" ><?php echo "" ;?> </span></button>
 			 </div>
-             </form>
-            <hr/>
+           
+           
         </div>
-       
+        
+        </form>
+       <form action="<?php echo $helper->url("Usuarios","index"); ?>" method="post" >
+            
         <div class="col-lg-6">
-	          <div class="col-xs-4 col-md-4"  >
-	          	<input type="search" class="form-control" name="contenido_busqueda" id="criterio_busqueda" placeholder="texto a buscar">
+	          <div class="col-xs-4 col-md-4 col-lg-4"  >
+	          	<input type="text" class="form-control" name="contenido_busqueda" id="contenido_busqueda" placeholder="texto a buscar">
 	          	<div id="mensaje_contenido_busqueda" class="errores"></div>
 	          </div>
-	          <div class="col-xs-4 col-md-4"  >	
-	             <select name="criterios_busqueda" id="criterio_busqueda" name="criterio_busqueda" class="form-control">
-					<option value="0"  > --TODOS--</option>
-
-					
-			     </select>
-			  	 <div id="mensaje_criterio_busqueda" class="errores"></div>
-			  </div>				   		
-	          <div class="col-xs-4 col-md-4"  >	
+	          <div class="col-lg-4">
+           <select name="criterio_busqueda" id="criterio_busqueda"  class="form-control">
+                                    <?php foreach($resultMenu as $val=>$desc) {?>
+                                         <option value="<?php echo $val ?>" <?php //if ($resRol->id_rol == $resEdit->id_rol )  echo  ' selected="selected" '  ;  ?> ><?php echo $desc ?> </option>
+                                    <?php } ?>
+                                        
+           </select>
+           <div id="mensaje_criterio_busqueda" class="errores"></div>
+           </div>				   		
+	          <div class="col-xs-4 col-md-4 col-lg-4"  >	
 	          	<button type="submit" id="btn_buscar" name="btn_buscar" class="btn btn-primary"><span class="glyphicon glyphicon-search	" ><?php echo "" ;?> </span></button>
 	          </div>
             
-            <hr/>
+          
         </div>
        
+      
+       
+         
         <table class="table table-hover">
-	         <tr>
-	    		<th>Id</th>
-	    		<th>Usuario</th>
-	    		<th>Nombres</th>
-	    		<th>Apellidos</th>
-	    		<th>Fecha Nacimineto</th>
-	    		<th>Pais</th>
-	    		<th>Provincia</th>
-	    		<th>Telefono</th>
-	    		<th>Celular</th>
-	    		<th>Correo</th>
-	    		<th>Rol</th>
-	    		<th>Estado</th>
-	    		<th>Ocupacion</th>
-	    		<th>Especificacion Ocupacion</th>
-	    		<th>Modificado</th>
-	    		<th></th>
-	    		<th></th>
+	         <tr class="info">
+	    		<th style="text-align: left;  font-size: 12px;">Id</th>
+	    		<th style="text-align: left;  font-size: 12px;">Usuario</th>
+	    		<th style="text-align: left;  font-size: 12px;">Nombres</th>
+	    		<th style="text-align: left;  font-size: 12px;">Apellidos</th>
+	    		<th style="text-align: left;  font-size: 12px;">Fecha Nacimineto</th>
+	    		<th style="text-align: left;  font-size: 12px;">Pais</th>
+	    		<th style="text-align: left;  font-size: 12px;">Provincia</th>
+	    		<th style="text-align: left;  font-size: 12px;">Telefono</th>
+	    		<th style="text-align: left;  font-size: 12px;">Celular</th>
+	    		<th style="text-align: left;  font-size: 12px;">Correo</th>
+	    		<th style="text-align: left;  font-size: 12px;">Rol</th>
+	    		<th style="text-align: left;  font-size: 12px;">Estado</th>
+	    		<th style="text-align: left;  font-size: 12px;">Ocupacion</th>
+	    		<th style="text-align: left;  font-size: 12px;">Especificacion Ocupacion</th>
+	    		<th style="text-align: left;  font-size: 12px;">Creado</th>
+	    		<th style="text-align: left;  font-size: 12px;">Modificado</th>
+	    		<th style="text-align: left;  font-size: 12px;"></th>
+	    		<th style="text-align: left;  font-size: 12px;"></th>
 	    		
 	  		</tr>
                 
 	            <?php foreach($resultSet as $res) {?>
 	        		<tr>
-	                   <td> <?php echo $res->id_usuario; ?>  </td>
-		                 <td> <?php echo $res->usuario_usuario; ?>     </td>	
-		               <td> <?php echo $res->nombres_usuario; ?>     </td> 
-		               <td> <?php echo $res->apellidos_usuario; ?>     </td> 
-		               <td> <?php echo $res->fecha_nacimiento_usuario; ?>     </td>
-		               <td> <?php echo $res->nombre_pais; ?>     </td> 
-		               <td> <?php echo $res->nombre_provincia; ?>     </td>
-		               <td> <?php echo $res->telefono_usuario; ?>     </td>
-		               <td> <?php echo $res->celular_usuario; ?>     </td>
-		               <td> <?php echo $res->correo_usuario; ?>     </td>
-		               <td> <?php echo $res->nombre_rol; ?>     </td>
-		               <td> <?php echo $res->nombre_estado; ?>     </td>
-		               <td> <?php echo $res->nombre_ocupaciones; ?>     </td>
-		               <td> <?php echo $res->extra_ocupacion_usuario; ?>     </td>
-		               <td> <?php echo $res->creado; ?>     </td>
-		               <td> <?php echo $res->modificado; ?>     </td> 
+	                   <td style="font-size: 11px;"> <?php echo $res->id_usuario; ?>  </td>
+		               <td style="font-size: 11px;"> <?php echo $res->usuario_usuario; ?>     </td>	
+		               <td style="font-size: 11px;"> <?php echo $res->nombres_usuario; ?>     </td> 
+		               <td style="font-size: 11px;"> <?php echo $res->apellidos_usuario; ?>     </td> 
+		               <td style="font-size: 11px;"> <?php echo $res->fecha_nacimiento_usuario; ?>     </td>
+		               <td style="font-size: 11px;"> <?php echo $res->nombre_pais; ?>     </td> 
+		               <td style="font-size: 11px;"> <?php echo $res->nombre_provincia; ?>     </td>
+		               <td style="font-size: 11px;"> <?php echo $res->telefono_usuario; ?>     </td>
+		               <td style="font-size: 11px;"> <?php echo $res->celular_usuario; ?>     </td>
+		               <td style="font-size: 11px;"> <?php echo $res->correo_usuario; ?>     </td>
+		               <td style="font-size: 11px;"> <?php echo $res->nombre_rol; ?>     </td>
+		               <td style="font-size: 11px;"> <?php echo $res->nombre_estado; ?>     </td>
+		               <td style="font-size: 11px;"> <?php echo $res->nombre_ocupaciones; ?>     </td>
+		               <td style="font-size: 11px;"> <?php echo $res->extra_ocupacion_usuario; ?>     </td>
+		               <td style="font-size: 11px;"> <?php echo $res->creado; ?>     </td>
+		               <td style="font-size: 11px;"> <?php echo $res->modificado; ?>     </td> 
 		               
 		               
 		               <td>
 			           		<div class="right">
-			                    <a href="<?php echo $helper->url("Usuarios","index_dos"); ?>&id_usuario_edit=<?php echo $res->id_usuario; ?>" class="btn btn-warning">Editar</a>
+			                    <a href="<?php echo $helper->url("Usuarios","index_dos"); ?>&id_usuario_edit=<?php echo $res->id_usuario; ?>" class="btn btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
 			                </div>
 			            
 			             </td>
 			             <td>   
 			                	<div class="right">
-			                    <a href="<?php echo $helper->url("Usuarios","borrarId"); ?>&id_usuario=<?php echo $res->id_usuario; ?>" class="btn btn-danger">Borrar</a>
+			                    <a href="<?php echo $helper->url("Usuarios","borrarId"); ?>&id_usuario=<?php echo $res->id_usuario; ?>" class="btn btn-danger"><i class="glyphicon glyphicon-trash"></i></a>
 			                </div>
 			                <hr/>
 		               </td>
@@ -224,12 +244,12 @@
             
             <?php 
             
-            //echo "<script type='text/javascript'> alert('Hola')  ;</script>";
+           
             
             ?>
             
        	</table>     
-       	
+       	 </form>
        <div> 
    		 <?php include("view/modulos/servicios.php"); ?>	
    		  </div>

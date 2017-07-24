@@ -15,7 +15,7 @@ public function index(){
 		
 	session_start();
 			//Creamos el objeto usuario
-			
+	
 			$usuarios = new UsuariosModel();
 
 			$columnas = "usuarios.id_usuario, usuarios.nombres_usuario, usuarios.apellidos_usuario, paises.nombre_pais, 
@@ -28,7 +28,84 @@ public function index(){
 			$id       = "usuarios.nombres_usuario"; 
 			
 			$resultSet=$usuarios->getCondiciones($columnas ,$tablas ,$where, $id);
+			
+			$resultMenu=array(0=>'--TODOS--',1=>'Nombre', 2=>'Apellido', 3=>'Usuario', 4=>'Rol', 5=>'Provincia');
+			
+			if (isset($_POST["btn_buscar"]))
+			{
+			
+		
+				$columnas1 = "usuarios.id_usuario, usuarios.nombres_usuario, usuarios.apellidos_usuario, paises.nombre_pais,
+  						   provincias.nombre_provincia, usuarios.fecha_nacimiento_usuario, usuarios.usuario_usuario,
+  						   usuarios.telefono_usuario, usuarios.celular_usuario, usuarios.correo_usuario,
+  						   rol.nombre_rol, estado.nombre_estado, ocupaciones.nombre_ocupaciones, usuarios.extra_ocupacion_usuario , usuarios.creado, usuarios.modificado ";
+				$tablas1   = "public.usuarios, public.estado, public.paises, public.provincias, public.rol, public.ocupaciones";
+				$where1    = "estado.id_estado = usuarios.id_estado AND paises.id_pais = usuarios.id_pais AND
+  						 provincias.id_provincia = usuarios.id_provincia AND rol.id_rol = usuarios.id_rol AND ocupaciones.id_ocupaciones = usuarios.id_ocupaciones ";
+				$id1       = "usuarios.nombres_usuario";
+					
+			
+				$criterio = $_POST["criterio_busqueda"];
+				$contenido = $_POST["contenido_busqueda"];
+			
+			
+					
+				if ($contenido !="")
+				{
+						
+					$where_0 = "";
+					$where_2 = "";
+					$where_3 = "";
+					$where_4 = "";
+					$where_5 = "";
+					$where_6 = "";
+			
+						
+					switch ($criterio) {
+						case 0:
+							$where_0 = " ";
+							break;
+						case 1:
+								
+								$where_6 = " AND  usuarios.nombres_usuario LIKE '$contenido%'  ";
+								break;
+						case 2:
+								
+								$where_2 = " AND usuarios.apellidos_usuario LIKE '$contenido%'  ";
+								break;
+								
+						case 3:
+									
+								$where_3 = " AND  usuarios.usuario_usuario LIKE '$contenido%'  ";
+								break;
+						case 4:
 							
+								$where_4 = " AND rol.nombre_rol LIKE '$contenido%'  ";
+							    break;
+									
+						case 5:
+								
+								$where_5 = " AND provincias.nombre_provincia LIKE '$contenido%'  ";
+								break;
+								
+					}
+						
+						
+						
+					$where_to  = $where1 .  $where_0.  $where_2.  $where_3.  $where_4.  $where_5 .  $where_6;
+						
+						
+					$resul = $where_to;
+			
+					//Conseguimos todos los usuarios con filtros
+					$resultSet=$usuarios->getCondiciones($columnas1 ,$tablas1 ,$where_to, $id1);
+						
+						
+						
+						
+				}
+			}
+			
 			
 			$resultEdit = "";
 			
@@ -41,7 +118,7 @@ public function index(){
 			
 					
 			$this->view("Usuarios",array(
-					"resultSet"=>$resultSet
+					"resultSet"=>$resultSet, "resultMenu"=>$resultMenu
 			));
 		
 		
@@ -87,6 +164,14 @@ public function index(){
 		}
 	
 	
+		
+		
+		
+		
+		
+		
+		
+		
 		//AGREGO EL NOMBRE Y DEVUELVO EL ID
 		if (isset($_POST["btn_agregar_usuario"]) )
 		{
@@ -142,20 +227,35 @@ public function index(){
 			$_telefono_usuario  = $_POST["telefono_usuario"];
 			$_celular_usuario   = $_POST["celular_usuario"];
 			$_correo_usuario    = $_POST["correo_usuario"];
-			$_id_rol            = 3;   // afiliados
-			$_id_estado         = 2; //sin activar
+			$_id_usuario    = $_POST["id_usuario"];
+			$_id_rol            = 3;   
+			$_id_estado         = 2; 
+			$_id_ocupaciones = 8;
 			$_clave_activacion_usuario = $usuario->encrypt($_POST["correo_usuario"]);
 			$_fecha_nacimiento = $_POST["fecha_nacimiento_usuario"];
 			
+			
+			
+			$usuario->UpdateBy("nombres_usuario='$_nombres_usuario', apellidos_usuario='$_apellidos_usuario',correo_usuario='$_usuario_usuario',
+					clave_usuario='$_clave_usuario',id_pais='$_id_pais', id_provincia='$_id_provincia',telefono_usuario='$_telefono_usuario', celular_usuario='$_celular_usuario',id_rol='$_id_rol', id_estado='$_id_estado',fecha_nacimiento_usuario='$_fecha_nacimiento', clave_activacion_usuario='$_clave_activacion_usuario', id_ocupaciones='$_id_ocupaciones'", 
+					"usuarios", "id_usuario='$_id_usuario'");
+			
+			/*
 			$funcion = "ins_usuarios";
 			$parametros = " '$_nombres_usuario','$_apellidos_usuario', '$_usuario_usuario', '$_clave_usuario'
 			,'$_id_pais', '$_id_provincia', '$_telefono_usuario', '$_celular_usuario'
 			,'$_correo_usuario', '$_id_rol','$_id_estado', '$_clave_activacion_usuario'
-			, '$_fecha_nacimiento' ";
+			,'$_fecha_nacimiento' ";
 			$usuario->setFuncion($funcion);
 			$usuario->setParametros($parametros);
 			$resultado=$usuario->Insert();
 				
+			*/
+			
+			
+			
+			
+			
 			
 			
 			$baseUrl = URLVADEMANO;
@@ -230,7 +330,8 @@ public function index(){
 			$_clave_usuario  = $_POST["clave_usuario"];
 			
 			$encryp_pass = $usuarios->encrypt($_clave_usuario);
-			$where = "usuario_usuario = '$_usuario_usuario' AND clave_usuario = '$encryp_pass' ";
+			//$where = "usuario_usuario = '$_usuario_usuario' AND clave_usuario = '$encryp_pass' ";
+			$where = "usuario_usuario = '$_usuario_usuario' ";
 			
 			$resultado =  $usuarios->getBy($where);
 			

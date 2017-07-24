@@ -705,10 +705,10 @@
 			  	</div>
 			  	<div class="col-xs-2 col-md-2">
 					<p class="formulario-subtitulo" >U/M  </p>
-					<select name="nombre_unidades_medida" id="nombre_unidades_medida"  class="form-control" >
+					<select name="id_unidades_medida" id="id_unidades_medida"  class="form-control" >
 						<option value="0"  > --SELECCIONE--</option>
 						<?php foreach($resultUme as $resUme) {?>
-							<option value="<?php echo $resUme->nombre_unidades_medida; ?>"  ><?php echo $resUme->nombre_unidades_medida; ?> </option>
+							<option value="<?php echo $resUme->id_unidades_medida; ?>"  ><?php echo $resUme->nombre_unidades_medida; ?> </option>
 							
 			        	<?php } ?>
 					</select>  
@@ -723,6 +723,7 @@
 					    		<th>Id</th>
 					    		<th>Nombre</th>
 					    		<th>Cantidad</th>
+					    		<th>U/M</th>
 					    		
 					    		<th></th>
 					    		<th></th>
@@ -734,6 +735,7 @@
 					                   <td> <?php echo $res->id_fichas_composiciones; ?>  </td>
 						               <td> <?php echo $res->nombre_composiciones; ?>     </td> 
 						               <td> <?php echo $res->cantidad_fichas_composiciones; ?>     </td> 
+						                <td> <?php echo $res->nombre_unidades_medida; ?>     </td> 
 						                
 						                   
 						               

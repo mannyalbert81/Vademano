@@ -66,7 +66,7 @@ public function index(){
 				$_nombres_usuario 	= strtoupper ( $_POST["nombres_usuario"] ); 
 				$_apellidos_usuario  = strtoupper ( $_POST["apellidos_usuario"] );
 				$_usuario_usuario   = $_POST["correo_usuario"];
-				$_clave_usuario     = $$usuarios->encrypt(_POST["clave_usuario"]);
+				$_clave_usuario     = $afiliaciones->encrypt($_POST["clave_usuario"]);
 				$_id_pais           = $_POST["paises"];
 				$_id_provincia      = $_POST["provincias"];
 				$_telefono_usuario  = $_POST["telefono_usuario"];
