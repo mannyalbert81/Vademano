@@ -77,15 +77,6 @@
 			<hr>	 	
  		</div>
  		
- 		<div class="col-xs-4 col-md-4">
- 		<hr>
- 		<hr>
- 		</div>
- 		<div class="col-xs-4 col-md-4">
- 		<hr>
- 		<hr>
- 		</div>	
- 	
  	</div>
  	<div class="col-xs-2 col-md-2">
  	</div>

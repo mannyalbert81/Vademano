@@ -40,7 +40,7 @@
 	    </div>
 <p style="text-align: center;"><iframe width="1340" height="47" scrolling="no" src="http://pagina-del-dia.euroresidentes.es/gadget-dia-de-hoyH.php?fondo=Negro.png&texto=FFFFFF"  frameborder="0"></iframe></p>
 	
-<div class="footer"   >
+<div class="footer">
 
 
        <footer  style="background:#000000; text-align: center; color: #FFFFFF;">   	 

@@ -1,11 +1,11 @@
 ﻿
 <div class="container" >
     <div class="col-md-12" style="margin-top: 40px; ">
-    	<div class="col-md-2">     
+    	<div class="col-md-2 col-lg-2 col-xs-2">     
 		</div>
     	
 		
-		<div class="col-md-8">   
+		<div class="col-md-8 col-lg-8 col-xs-8">   
         <div class="well">
             <div id="myCarousel" class="carousel slide">
                 
@@ -41,7 +41,8 @@
 		        </div>
 		        <!--/well-->
 		        </div>
-		    <div class="col-md-2">     
-			</div>
+		   
 		    </div>
+		     <div class="col-md-2 col-lg-2 col-xs-2">     
+			</div>
 		</div>
