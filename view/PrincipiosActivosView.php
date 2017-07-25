@@ -57,6 +57,7 @@
 
 	</script>
 	<script >
+	/*
 		$(document).ready(function(){
 
 		    // cada vez que se cambia el valor del combo
@@ -106,7 +107,7 @@
 	        
 				    
 		}); 
-
+*/
 	</script>
 
 
@@ -143,71 +144,73 @@
              </form>
             <hr/>
         </div>
-       
+         <form action="<?php echo $helper->url("PrincipiosActivos","index"); ?>" method="post">
+           
         <div class="col-lg-6">
 	          <div class="col-xs-4 col-md-4"  >
-	          	<input type="search" class="form-control" name="contenido_busqueda" id="criterio_busqueda" placeholder="texto a buscar">
+	          	<input type="search" class="form-control" name="contenido_busqueda" id="contenido_busqueda" placeholder="texto a buscar">
 	          	<div id="mensaje_contenido_busqueda" class="errores"></div>
 	          </div>
-	          <div class="col-xs-4 col-md-4"  >	
-	             <select name="criterios_busqueda" id="criterio_busqueda" name="criterio_busqueda" class="form-control">
-					<option value="0"  > --SELECCIONE--</option>
-					<option value="1"  >Nombre Principio</option>
-					
-			     </select>
-			  	 <div id="mensaje_criterio_busqueda" class="errores"></div>
-			  </div>				   		
+	          <div class="col-lg-4">
+             <select name="criterio_busqueda" id="criterio_busqueda"  class="form-control">
+                                    <?php foreach($resultMenu as $val=>$desc) {?>
+                                         <option value="<?php echo $val ?>" <?php //if ($resRol->id_rol == $resEdit->id_rol )  echo  ' selected="selected" '  ;  ?> ><?php echo $desc ?> </option>
+                                    <?php } ?>
+                                        
+           </select>
+           <div id="mensaje_criterio_busqueda" class="errores"></div>
+           </div>				   		
 	          <div class="col-xs-4 col-md-4"  >	
 	          	<button type="submit" id="btn_buscar" name="btn_buscar" class="btn btn-primary"><span class="glyphicon glyphicon-search	" ><?php echo "" ;?> </span></button>
 	          </div>
             
             <hr/>
         </div>
-       
+       </form>
        <form action=""  >
         <section class="col-lg-12 usuario" >
         <table class="table table-hover">
-	         <tr>
-	    		<th>Id</th>
-	    		<th>Nombre Principio</th>
-	    		<th>Categoria Farmacologica</th>
-	    		<th>Subcategoria Farmacologica</th>
-	    		<th>Indicaciones de Uso</th>
-	    		<th>Forma Administracion</th>
-	    		<th>Efectos Secundarioses</th>
-	    		<th>Mecanismo de Accion</th>
-	    		<th>Precausiones</th>
-	    		<th>Interacciones</th>
-	    		<th>Contraindicaciones</th>
-	    		<th>Periodo Retirio</th>
-	    		<th></th>
-	    		<th></th>
+	         <tr class="info">
+	    		<th style="text-align: left;  font-size: 13px;">Id</th>
+	    		<th style="text-align: left;  font-size: 13px;">Nombre Principio</th>
+	    		<th style="text-align: left;  font-size: 13px;">Categoria Farmacologica</th>
+	    		<th style="text-align: left;  font-size: 13px;">Subcategoria Farmacologica</th>
+	    		<th style="text-align: left;  font-size: 13px;">Indicaciones de Uso</th>
+	    		<th style="text-align: left;  font-size: 13px;">Forma Administracion</th>
+	    		<th style="text-align: left;  font-size: 13px;">Efectos Secundarioses</th>
+	    		<th style="text-align: left;  font-size: 13px;">Mecanismo de Accion</th>
+	    		<th style="text-align: left;  font-size: 13px;">Precausiones</th>
+	    		<th style="text-align: left;  font-size: 13px;">Interacciones</th>
+	    		<th style="text-align: left;  font-size: 13px;">Contraindicaciones</th>
+	    		<th style="text-align: left;  font-size: 13px;">Periodo Retirio</th>
+	    		<th style="text-align: left;  font-size: 13px;"></th>
+	    		<th style="text-align: left;  font-size: 13px;"></th>
 	  		</tr>
                 <?php $registro = 1;?>
 	            <?php foreach($resultSet as $res) {?>
 	        		<tr>
-	            	   <td> <?php echo $registro; ?>     </td>
-		               <td> <?php echo $res->nombre_composiciones; ?>     </td> 
-		               <td> <?php echo $res->categoria_farmacologica_composicion; ?>     </td> 
-		               <td> <?php echo $res->subcategoria_farmacologica_composiciones; ?>     </td>
-		               <td> <?php echo $res->indicaciones_uso_composiciones; ?>     </td> 
-		               <td> <?php echo $res->forma_administracion_composiciones; ?>     </td> 
-		               <td> <?php echo $res->efectos_secundarios_composiciones; ?>     </td> 
-		               <td> <?php echo $res->mecanismo_accion_composiciones; ?>     </td> 
-		               <td> <?php echo $res->precausiones_composiociones; ?>     </td>
-		               <td> <?php echo $res->interacciones_composiciones; ?>     </td> 
-		               <td> <?php echo $res->contraindicaciones_composiciones; ?>     </td> 
-		               <td> <?php echo $res->periodo_retirio_composiciones; ?>     </td>
+	            	   <td style="font-size: 13px;"> <?php echo $registro; ?>     </td>
+		               <td style="font-size: 13px;"> <?php echo $res->nombre_composiciones; ?>     </td> 
+		               <td style="font-size: 13px;"> <?php echo $res->categoria_farmacologica_composicion; ?>     </td> 
+		               <td style="font-size: 13px;"> <?php echo $res->subcategoria_farmacologica_composiciones; ?>     </td>
+		               <td style="font-size: 13px;"> <?php echo $res->indicaciones_uso_composiciones; ?>     </td> 
+		               <td style="font-size: 13px;"> <?php echo $res->forma_administracion_composiciones; ?>     </td> 
+		               <td style="font-size: 13px;"> <?php echo $res->efectos_secundarios_composiciones; ?>     </td> 
+		               <td style="font-size: 13px;"> <?php echo $res->mecanismo_accion_composiciones; ?>     </td> 
+		               <td style="font-size: 13px;"> <?php echo $res->precausiones_composiociones; ?>     </td>
+		               <td style="font-size: 13px;"> <?php echo $res->interacciones_composiciones; ?>     </td> 
+		               <td style="font-size: 13px;"> <?php echo $res->contraindicaciones_composiciones; ?>     </td> 
+		               <td style="font-size: 13px;"> <?php echo $res->periodo_retirio_composiciones; ?>     </td>
 		              <?php $registro ++ ;?> 
-		               <td>
+		               <td style="font-size: 13px;">
 			           		<div class="right">
-			                    <a href="<?php echo $helper->url("PrincipiosActivos","index_dos"); ?>&id_composiciones_edit=<?php echo $res->id_composiciones; ?>" class="btn btn-warning">Editar</a>
+			                    <a href="<?php echo $helper->url("PrincipiosActivos","index_dos"); ?>&id_composiciones_edit=<?php echo $res->id_composiciones; ?>" class="btn btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
 			                </div>
 			            
 			             </td>
-			             <td>   
+			             <td style="font-size: 13px;">   
 			                	<div class="right">
-			                    <a href="<?php echo $helper->url("PrincipiosActivos","borrarId"); ?>&id_composiciones=<?php echo $res->id_composiciones; ?>" class="btn btn-danger">Borrar</a>
+			                    <a href="<?php echo $helper->url("PrincipiosActivos","borrarId"); ?>&id_composiciones=<?php echo $res->id_composiciones; ?>" class="btn btn-danger"><i class="glyphicon glyphicon-trash"></i></a>
 			                </div>
 			                <hr/>
 		               </td>

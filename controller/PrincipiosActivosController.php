@@ -12,6 +12,75 @@ public function index(){
 		
 		$resultEdit = "";
 			
+		$resultMenu=array(0=>'--TODOS--',1=>'Nombre Principio');
+		
+		
+		if (isset($_POST["btn_buscar"]))
+		{
+		
+		
+			$columnas1 = "composiciones.id_composiciones, 
+  composiciones.nombre_composiciones, 
+  composiciones.creado, 
+  composiciones.modificado, 
+  composiciones.buscador, 
+  composiciones.categoria_farmacologica_composicion, 
+  composiciones.subcategoria_farmacologica_composiciones, 
+  composiciones.indicaciones_uso_composiciones, 
+  composiciones.forma_administracion_composiciones, 
+  composiciones.efectos_secundarios_composiciones, 
+  composiciones.mecanismo_accion_composiciones, 
+  composiciones.precausiones_composiociones, 
+  composiciones.interacciones_composiciones, 
+  composiciones.contraindicaciones_composiciones, 
+  composiciones.periodo_retirio_composiciones";
+			 
+			$tablas1   = "public.composiciones";
+			$where1    = "composiciones.id_composiciones>0";
+			$id1 = "composiciones.id_composiciones";
+		
+		
+			$criterio = $_POST["criterio_busqueda"];
+			$contenido = $_POST["contenido_busqueda"];
+		
+		
+		
+			if ($contenido !="")
+			{
+		
+				$where_0 = "";
+				$where_2 = "";
+		
+				 
+		
+				switch ($criterio) {
+					case 0:
+						$where_0 = " ";
+						break;
+					case 1:
+		
+						$where_2 = " AND composiciones.nombre_composiciones LIKE '$contenido%'  ";
+						break;
+						 
+				}
+		
+		
+		
+				$where_to  = $where1 .  $where_0.  $where_2;
+		
+		
+				$resul = $where_to;
+				 
+				//Conseguimos todos los usuarios con filtros
+				$resultSet=$composiciones->getCondiciones($columnas1 ,$tablas1 ,$where_to, $id1);
+		
+		
+		
+		
+			}
+		}
+		
+		
 		if (isset ($_GET["id_composiciones"])   )
 			{
 				$_id_composiciones = $_GET["id_composiciones"];
@@ -21,7 +90,7 @@ public function index(){
 			}
 		
 		$this->view("PrincipiosActivos",array(
-				"resultSet"=>$resultSet, "resultEdit" =>$resultEdit
+				"resultSet"=>$resultSet, "resultEdit" =>$resultEdit, "resultMenu"=>$resultMenu
 			));
 		
 		

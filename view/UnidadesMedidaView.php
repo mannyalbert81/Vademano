@@ -120,29 +120,29 @@
        <form action="" method="get" >
         <section class="col-lg-6 usuario">
         <table class="table table-hover">
-	         <tr>
-	    		<th>Id</th>
-	    		<th>Unidad de Medida</th>
+	         <tr class="info">
+	    		<th style="text-align: left;  font-size: 13px;">Id</th>
+	    		<th style="text-align: left;  font-size: 13px;">Unidad de Medida</th>
 	    		
-	    		<th></th>
-	    		<th></th>
+	    		<th style="text-align: left;  font-size: 13px;"></th>
+	    		<th style="text-align: left;  font-size: 13px;"></th>
 	  		</tr>
                 <?php $registros = 1;?>
 	            <?php foreach($resultSet as $res) {?>
 	        		<tr>
-	                   <td> <?php echo $registros; ?>  </td>
-		               <td> <?php echo $res->nombre_unidades_medida; ?>     </td> 
-		               <td>	
+	                   <td style="font-size: 13px;"> <?php echo $registros; ?>  </td>
+		               <td style="font-size: 13px;"> <?php echo $res->nombre_unidades_medida; ?>     </td> 
+		               <td style="font-size: 13px;">	
 		               		<div class="right">
-			                    <a href="<?php echo $helper->url("UnidadesMedida","index"); ?>&id_unidades_medida=<?php echo $res->id_unidades_medida; ?>" class="btn btn-warning">Editar</a>
+			                    <a href="<?php echo $helper->url("UnidadesMedida","index"); ?>&id_unidades_medida=<?php echo $res->id_unidades_medida; ?>" class="btn btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
 			                </div>
 			            
 			            </td>
-			             <td>   
+			             <td style="font-size: 13px;">   
 			                	<div class="right">
-			                    <a href="<?php echo $helper->url("UnidadesMedida","borrarId"); ?>&id_unidades_medida=<?php echo $res->id_unidades_medida; ?>" class="btn btn-danger">Borrar</a>
+			                    <a href="<?php echo $helper->url("UnidadesMedida","borrarId"); ?>&id_unidades_medida=<?php echo $res->id_unidades_medida; ?>" class="btn btn-danger"><i class="glyphicon glyphicon-trash"></i></a>
 			                </div>
-			                <hr/>
+			               
 		                 </td>
 		    		</tr>
 		    		<?php $registros ++; ?>

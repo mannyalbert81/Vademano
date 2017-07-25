@@ -12,7 +12,91 @@ public function index(){
 		$resultSet = $laboratorios->getAll("id_laboratorios");
 		
 		$resultEdit = "";
-			
+		$resultMenu=array(0=>'--TODOS--',1=>'Nombre Laboratorio',2=>'Nombre Persona Contacto',3=>'Email Laboratorio',4=>'Web Laboratorio');
+		
+		
+		if (isset($_POST["btn_buscar"]))
+		{
+		
+		
+			$columnas1 = "laboratorios.id_laboratorios, 
+					  laboratorios.nombre_laboratorios, 
+					  laboratorios.persona_contacto_laboratorios, 
+					  laboratorios.telefono_persona_contacto_laboratorios, 
+					  laboratorios.email_laboratorios, 
+					  laboratorios.web_laboratorios, 
+					  laboratorios.logo_laboratorios, 
+					  laboratorios.creado, 
+					  laboratorios.modificado, 
+					  laboratorios.buscador";
+		
+			$tablas1   = "public.laboratorios";
+			$where1    = "laboratorios.id_laboratorios>0";
+			$id1 = "laboratorios.id_laboratorios";
+		
+		
+			$criterio = $_POST["criterio_busqueda"];
+			$contenido = $_POST["contenido_busqueda"];
+		
+		
+		
+			if ($contenido !="")
+			{
+		
+				$where_0 = "";
+				$where_2 = "";
+				$where_3 = "";
+				$where_4 = "";
+				$where_5 = "";
+		
+		
+					
+		
+				switch ($criterio) {
+					case 0:
+						$where_0 = " ";
+						break;
+					case 1:
+		
+						$where_2 = " AND laboratorios.nombre_laboratorios LIKE '$contenido%'  ";
+						break;
+					case 2:
+		
+						$where_3 = " AND laboratorios.persona_contacto_laboratorios LIKE '$contenido%'  ";
+						break;
+					case 3:
+							
+						$where_4 = " AND laboratorios.email_laboratorios LIKE '$contenido%'  ";
+						break;
+		
+					case 4:
+		
+						$where_5 = " AND laboratorios.web_laboratorios LIKE '$contenido%'  ";
+						break;
+							
+							
+							
+				}
+		
+		
+		
+				$where_to  = $where1 .  $where_0.  $where_2.  $where_3.  $where_4.  $where_5;
+		
+		
+				$resul = $where_to;
+					
+				//Conseguimos todos los usuarios con filtros
+				$resultSet=$laboratorios->getCondiciones($columnas1 ,$tablas1 ,$where_to, $id1);
+		
+		
+		
+		
+			}
+		}
+		
+		
+		
+		
 		if (isset ($_GET["id_laboratorios"])   )
 			{
 				$_id_laboratorios = $_GET["id_laboratorios"];
@@ -22,7 +106,7 @@ public function index(){
 			}
 		
 		$this->view("Laboratorios",array(
-				"resultSet"=>$resultSet, "resultEdit" =>$resultEdit
+				"resultSet"=>$resultSet, "resultEdit" =>$resultEdit, "resultMenu"=>$resultMenu
 			));
 		
 		

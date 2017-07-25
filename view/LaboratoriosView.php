@@ -25,7 +25,7 @@
 		$(document).ready(function(){
 
 		    // cada vez que se cambia el valor del combo
-		    $("#btn_agregar_distribuidor").click(function() 
+		    $("#btn_agregar_laboratorio").click(function() 
 			{
 		    	
 		    	var nombre_laboratorios = $("#nombre_laboratorios").val();
@@ -57,6 +57,7 @@
 
 	</script>
 	<script >
+	/*
 		$(document).ready(function(){
 
 		    // cada vez que se cambia el valor del combo
@@ -106,7 +107,7 @@
 	        
 				    
 		}); 
-
+*/
 	</script>
 
 
@@ -144,74 +145,75 @@
             <hr/>
         </div>
        
+          <form action="<?php echo $helper->url("Laboratorios","index"); ?>" method="post">
+          
         <div class="col-lg-6">
 	          <div class="col-xs-4 col-md-4"  >
-	          	<input type="search" class="form-control" name="contenido_busqueda" id="criterio_busqueda" placeholder="texto a buscar">
+	          	<input type="search" class="form-control" name="contenido_busqueda" id="contenido_busqueda" placeholder="texto a buscar">
 	          	<div id="mensaje_contenido_busqueda" class="errores"></div>
 	          </div>
-	          <div class="col-xs-4 col-md-4"  >	
-	             <select name="criterios_busqueda" id="criterio_busqueda" name="criterio_busqueda" class="form-control">
-					<option value="0"  > --TODOS--</option>
-					<option value="1"  >Nombre Laboratorio</option>
-					<option value="2"  >Nombre Persona Contacto</option>
-					<option value="3"  >Provincia Laboratorio</option>
-					<option value="4"  >Canton Laboratorio</option>
-					
-			     </select>
-			  	 <div id="mensaje_criterio_busqueda" class="errores"></div>
-			  </div>				   		
+	          <div class="col-lg-4">
+             <select name="criterio_busqueda" id="criterio_busqueda"  class="form-control">
+                                    <?php foreach($resultMenu as $val=>$desc) {?>
+                                         <option value="<?php echo $val ?>" <?php //if ($resRol->id_rol == $resEdit->id_rol )  echo  ' selected="selected" '  ;  ?> ><?php echo $desc ?> </option>
+                                    <?php } ?>
+                                        
+           </select>
+           <div id="mensaje_criterio_busqueda" class="errores"></div>
+           </div>					   		
 	          <div class="col-xs-4 col-md-4"  >	
 	          	<button type="submit" id="btn_buscar" name="btn_buscar" class="btn btn-primary"><span class="glyphicon glyphicon-search	" ><?php echo "" ;?> </span></button>
 	          </div>
-            
-            <hr/>
+        
         </div>
-       
+       </form>
        <form action=""  >
         <section class="col-lg-12 usuario">
         <table class="table table-hover">
-	         <tr>
-	    		<th>Id</th>
-	    		<th>Nombre Laboratorio</th>
-	    		<th>Persona Contacto</th>
-	    		<th>Telefono Persona Contacto</th>
-	    		<th>Email Laboratorio</th>
-	    		<th>Web Laboratorio</th>
-	    		<th>Logo</th>
+	         <tr class="info">
+	    		<th style="text-align: left;  font-size: 14px;">Id</th>
+	    		<th style="text-align: left;  font-size: 14px;">Nombre Laboratorio</th>
+	    		<th style="text-align: left;  font-size: 14px;">Persona Contacto</th>
+	    		<th style="text-align: left;  font-size: 14px;">Telefono Persona Contacto</th>
+	    		<th style="text-align: left;  font-size: 14px;">Email Laboratorio</th>
+	    		<th style="text-align: left;  font-size: 14px;">Web Laboratorio</th>
+	    		<th style="text-align: left;  font-size: 14px;">Logo</th>
 	    		
-	    		<th></th>
-	    		<th></th>
-	    		<th></th>
+	    		<th style="text-align: left;  font-size: 14px;"></th>
+	    		<th style="text-align: left;  font-size: 14px;"></th>
+	    		<th style="text-align: left;  font-size: 14px;"></th>
 	  		</tr>
                 <?php $registros = 1;?>
 	            <?php foreach($resultSet as $res) {?>
 	        		<tr>
-	                   <td> <?php echo $registros; ?>  </td>
-		               <td> <?php echo $res->nombre_laboratorios; ?>     </td> 
-		               <td> <?php echo $res->persona_contacto_laboratorios; ?>     </td> 
-		               <td> <?php echo $res->telefono_persona_contacto_laboratorios; ?>     </td>
-		               <td> <?php echo $res->email_laboratorios; ?>     </td> 
-		               <td> <?php echo $res->web_laboratorios; ?>     </td> 
+	                   <td style="font-size: 13px;"> <?php echo $registros; ?>  </td>
+		               <td style="font-size: 13px;"> <?php echo $res->nombre_laboratorios; ?>     </td> 
+		               <td style="font-size: 13px;"> <?php echo $res->persona_contacto_laboratorios; ?>     </td> 
+		               <td style="font-size: 13px;"> <?php echo $res->telefono_persona_contacto_laboratorios; ?>     </td>
+		               <td style="font-size: 13px;"> <?php echo $res->email_laboratorios; ?>     </td> 
+		               <td style="font-size: 13px;"> <?php echo $res->web_laboratorios; ?>     </td> 
 		               
-		               <td> <input type="image" name="image" src="view/DevuelveImagen.php?id_valor=<?php echo $res->id_laboratorios; ?>&id_nombre=id_laboratorios&tabla=laboratorios&campo=logo_laboratorios"  alt="<?php echo $res->nombre_laboratorios; ?>" width="80" height="60" >      </td>
-		               <td>
+		               <td style="font-size: 13px;"> <input type="image" name="image" src="view/DevuelveImagen.php?id_valor=<?php echo $res->id_laboratorios; ?>&id_nombre=id_laboratorios&tabla=laboratorios&campo=logo_laboratorios"  alt="<?php echo $res->nombre_laboratorios; ?>" width="80" height="60" >      </td>
+		               <td style="font-size: 13px;">
 			           		<div class="right">
-			                    <a href="<?php echo $helper->url("Laboratorios","index_dos"); ?>&id_laboratorios_edit=<?php echo $res->id_laboratorios; ?>" class="btn btn-warning">Editar</a>
+			                    <a href="<?php echo $helper->url("Laboratorios","index_dos"); ?>&id_laboratorios_edit=<?php echo $res->id_laboratorios; ?>" class="btn btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
 			                </div>
 			            
 			             </td>
-			             <td>   
+			             <td style="font-size: 13px;">   
 			                	<div class="right">
-			                    <a href="<?php echo $helper->url("Laboratorios","borrarId"); ?>&id_laboratorios=<?php echo $res->id_laboratorios; ?>" class="btn btn-danger">Borrar</a>
+			                    <a href="<?php echo $helper->url("Laboratorios","borrarId"); ?>&id_laboratorios=<?php echo $res->id_laboratorios; ?>" class="btn btn-danger"><i class="glyphicon glyphicon-trash"></i></a>
 			                </div>
 			                <hr/>
 		               </td>
-		               <td>   
+		                <!--  
+		               <td style="font-size: 13px;">   
 			                <div class="right">
 			                    <a href="<?php echo $helper->url("Laboratorios",""); ?>&id_laboratorios=<?php echo $res->id_laboratorios; ?>" class="btn btn-info">Productos</a>
 			                </div>
 			                <hr/>
 		               </td>
+		                 -->
 		    		</tr>
 		    		<?php $registros ++; ?>
 		        <?php } ?>

@@ -166,7 +166,7 @@
         </div>
         </form>
        <form action=""  >
-        <section class="col-lg-12 usuario" style="height:400px;overflow-y:scroll;">
+        
         <table class="table table-hover">
 	         <tr class="info">
 	    		<th style="text-align: left;  font-size: 14px;"></th>
@@ -224,7 +224,7 @@
             ?>
             
        	</table>     
-      </section>
+    
        </form>
         	<div class="col-lg-12">
   					

@@ -11,8 +11,88 @@ public function index(){
 		$resultSet = $distribuidores->getAll("id_distribuidores");
 	   
 		$resultEdit = "";
-
+		$resultMenu=array(0=>'--TODOS--',1=>'Nombre Distribuidor',2=>'Nombre Persona Contacto',3=>'Email Distribuidor',4=>'Web Distribuidor');
 			
+		if (isset($_POST["btn_buscar"]))
+		{
+		
+		
+			$columnas1 = "distribuidores.id_distribuidores, 
+					  distribuidores.nombre_distribuidores, 
+					  distribuidores.persona_contacto_distribuidores, 
+					  distribuidores.telefono_persona_contacto_distribuidores, 
+					  distribuidores.email_distribuidores, 
+					  distribuidores.web_distribuidores, 
+					  distribuidores.logo_distribuidores, 
+					  distribuidores.creado, 
+					  distribuidores.modificado, 
+					  distribuidores.buscador";
+		
+			$tablas1   = "public.distribuidores";
+			$where1    = "distribuidores.id_distribuidores>0";
+			$id1 = "distribuidores.id_distribuidores";
+		
+		
+			$criterio = $_POST["criterio_busqueda"];
+			$contenido = $_POST["contenido_busqueda"];
+		
+		
+		
+			if ($contenido !="")
+			{
+		
+				$where_0 = "";
+				$where_2 = "";
+				$where_3 = "";
+				$where_4 = "";
+				$where_5 = "";
+				
+		
+					
+		
+				switch ($criterio) {
+					case 0:
+						$where_0 = " ";
+						break;
+					case 1:
+		
+						$where_2 = " AND distribuidores.nombre_distribuidores LIKE '$contenido%'  ";
+						break;
+						case 2:
+						
+							$where_3 = " AND distribuidores.persona_contacto_distribuidores LIKE '$contenido%'  ";
+							break;
+							case 3:
+							
+								$where_4 = " AND distribuidores.email_distribuidores LIKE '$contenido%'  ";
+								break;
+								
+								case 4:
+								
+									$where_5 = " AND distribuidores.web_distribuidores LIKE '$contenido%'  ";
+									break;
+									
+									
+							
+				}
+		
+		
+		
+				$where_to  = $where1 .  $where_0.  $where_2.  $where_3.  $where_4.  $where_5;
+		
+		
+				$resul = $where_to;
+					
+				//Conseguimos todos los usuarios con filtros
+				$resultSet=$distribuidores->getCondiciones($columnas1 ,$tablas1 ,$where_to, $id1);
+		
+		
+		
+		
+			}
+		}
+		
+		
 		if (isset ($_GET["id_distribuidores"])   )
 			{
 				$_id_distribuidores = $_GET["id_distribuidores"];
@@ -22,7 +102,7 @@ public function index(){
 			}
 		
 		$this->view("Distribuidores",array(
-				"resultSet"=>$resultSet, "resultEdit" =>$resultEdit
+				"resultSet"=>$resultSet, "resultEdit" =>$resultEdit, "resultMenu"=>$resultMenu
 			));
 			
 			

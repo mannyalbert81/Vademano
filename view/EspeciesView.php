@@ -177,32 +177,32 @@
        <form action="" method="get" >
         <section class="col-lg-7 usuario">
         <table class="table table-hover">
-	         <tr>
-	    		<th>Id</th>
-	    		<th>Nombre Especie</th>
-	    		<th>Logo Especie</th>
-	    		<th></th>
-	    		<th></th>
+	         <tr class="info">
+	    		<th style="text-align: left;  font-size: 14px;">Id</th>
+	    		<th style="text-align: left;  font-size: 14px;">Nombre Especie</th>
+	    		<th style="text-align: left;  font-size: 14px;">Logo Especie</th>
+	    		<th style="text-align: left;  font-size: 14px;"></th>
+	    		<th style="text-align: left;  font-size: 14px;"></th>
 	  		</tr>
                 <?php $registros = 1;?>
                  <?php foreach($resultSet as $res) {?>
 	        		<tr>
 	        		   
-	                   <td> <?php echo $registros; ?>  </td>
-		               <td> <?php echo $res->nombre_especies; ?>     </td> 
+	                   <td style="font-size: 13px;"> <?php echo $registros; ?>  </td>
+		               <td style="font-size: 13px;"> <?php echo $res->nombre_especies; ?>     </td> 
 		               
-		               <td> <input type="image" name="image" src="view/DevuelveImagen.php?id_valor=<?php echo $res->id_especies; ?>&id_nombre=id_especies&tabla=especies&campo=logo_especies"  alt="<?php echo $res->nombre_especies; ?>" width="80" height="60" >      </td>
-		               <td>
+		               <td style="font-size: 13px;"> <input type="image" name="image" src="view/DevuelveImagen.php?id_valor=<?php echo $res->id_especies; ?>&id_nombre=id_especies&tabla=especies&campo=logo_especies"  alt="<?php echo $res->nombre_especies; ?>" width="80" height="60" >      </td>
+		               <td style="font-size: 13px;">
 			           		<div class="right">
-			                    <a href="<?php echo $helper->url("Especies","index"); ?>&id_especies=<?php echo $res->id_especies; ?>" class="btn btn-warning">Editar</a>
+			                    <a href="<?php echo $helper->url("Especies","index"); ?>&id_especies=<?php echo $res->id_especies; ?>" class="btn btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
 			                </div>
 			            
 			             </td>
-			             <td>   
+			             <td style="font-size: 13px;">   
 			                	<div class="right">
-			                    <a href="<?php echo $helper->url("Especies","borrarId"); ?>&id_especies=<?php echo $res->id_especies; ?>" class="btn btn-danger">Borrar</a>
+			                    <a href="<?php echo $helper->url("Especies","borrarId"); ?>&id_especies=<?php echo $res->id_especies; ?>" class="btn btn-danger"><i class="glyphicon glyphicon-trash"></i></a>
 			                </div>
-			                <hr/>
+			               
 		               </td>
 		    		</tr>
 		    		<?php $registros ++?>
