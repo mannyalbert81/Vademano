@@ -19,7 +19,7 @@
 			body {
 			
 			    /* Ubicación de la imagen */
-		  background-image: url(view/images/templatemo_bg_homepage.jpg);
+		 background-image: url(view/images/templatemo_bg_homepage.jpg);
 		  
 		
 		
@@ -28,9 +28,9 @@
    	 </head>
    
    
-   
+    
      <body class="img-responsive" >
-    	 <div style="background-color: #4bae4f;  " >
+    	<div style="background-color: #4bae4f;  " >
     	 	<?php include("view/modulos/head.php"); ?>
     	 </div >
     	 <div  >
@@ -49,5 +49,7 @@
      	 	<?php include("view/modulos/footer.php"); ?>
     	 </footer> 
 		 </div>
+        
     </body>
+    
 </html>

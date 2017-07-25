@@ -1,9 +1,9 @@
-<div class="row" style="text-align: center; margin-top:20px;"  >
-
- <div class="col-xs-1 col-md-1">
+<div style="margin-top:20px;"  >
+<div class="col-xs-12 col-md-12 col-lg-12">
+ <div class="col-xs-1 col-md-1 col-lg-1">
  </div>
 
- <div class="col-xs-10 col-md-10">
+ <div class="col-xs-10 col-md-10 col-lg-10">
  
  <div id="myCarousel2" class="carousel slide" data-ride="carousel">
   <!-- Indicators -->
@@ -39,7 +39,9 @@
 </div>
 
  </div>
- <div class="col-xs-1 col-md-1">
+ 
+ </div>
+ <div class="col-xs-1 col-md-1 col-lg-1">
  </div>
  </div>
- </div>
+  </div>
