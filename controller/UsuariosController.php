@@ -330,8 +330,8 @@ public function index(){
 			$_clave_usuario  = $_POST["clave_usuario"];
 			
 			$encryp_pass = $usuarios->encrypt($_clave_usuario);
-			//$where = "usuario_usuario = '$_usuario_usuario' AND clave_usuario = '$encryp_pass' ";
-			$where = "usuario_usuario = '$_usuario_usuario' ";
+			$where = "usuario_usuario = '$_usuario_usuario' AND clave_usuario = '$_clave_usuario' ";
+			//$where = "usuario_usuario = '$_usuario_usuario' ";
 			
 			$resultado =  $usuarios->getBy($where);
 			
