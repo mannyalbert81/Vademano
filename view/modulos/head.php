@@ -390,7 +390,7 @@
  	</div>
  	<div class="pull-right" >
    
-   		<nav class="navbar navbar-default " style="height: 40px;" >
+   		<nav class="navbar navbar-default " style="height: 10px;" >
 		  <div class="container-fluid"  >
 		    <!-- Brand and toggle get grouped for better mobile display -->
 			 <div class="navbar-header" >
