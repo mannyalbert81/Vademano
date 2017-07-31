@@ -1,6 +1,8 @@
 <?php
 
-$base_url = "http://192.168.10.10:4000/Vademano/";
+$base_url = "http://192.168.10.154:4000/Vademano/";
+
+
 
 
 $id_fichas                             = "";
@@ -24,7 +26,7 @@ $encabezado_dosificacion_fichas         = "";
 
 //require('view/fpdf/fpdf.php');
 
-require_once('view/dompdf/dompdf_config.inc.php' );;
+require_once('view/dompdf/dompdf_config.inc.php' );
 
 foreach($resultRep as $res) 
 {
@@ -63,7 +65,7 @@ foreach($resultDis as $res)
 	$web_distribuidores                        = $res->web_distribuidores;
     $logo_distribuidores = '<img src="'. $base_url.'view/DevuelveImagen.php?id_valor='.$id_distribuidores.'&id_nombre=id_distribuidores&tabla=distribuidores&campo=logo_distribuidores" width="120" height="80" />';
                            
-	}
+}
 
 $id_laboratorios               ="";
 $nombre_laboratorios           ="";
@@ -230,23 +232,28 @@ $html =
   
   '<div style=" position: absolute;  margin-left: 0%; width:49%;">'.
   	    
-		'<if>'.($clasificacion_farmacologica_fichas != "").'<{>'.
 		'<div style="margin-top:10px; background-color:#999E9A; color:#FFFFFF; font-family: sans-serif; font-size:75%; width:100%;">'.
   			'<strong>'. 'CATEGORÍA FARMACOLÓGICA:'. '</strong>'.
   		'</div>'.
+  		
+  		/*
         '<div style="color:#010a01; font-family: sans-serif; font-size:55%; width:100%; text-align: center;">'.
   		'<p> '.$clasificacion_farmacologica_fichas.'</p>'.
   		'</div>'.
-  		'<}>'. 
+  		 
 		
-		'<if>'.($forma_terapeutica_fichas != "").'<{>'.
+  		
+  		
+  		
+  		
+  		
 		'<div style="margin-top:10px; background-color:#999E9A; color:#FFFFFF; font-family: sans-serif; font-size:75%; width:100%;">'.
   			'<strong>'. 'FORMA FARMACÉUTICA:'. '</strong>'.
   		'</div>'.
         '<div style="color:#010a01; font-family: sans-serif; font-size:55%; width:100%; text-align: center;">'.
   		'<p> '.$forma_terapeutica_fichas.'</p>'.
   		'</div>'.
-        '<}>'. 
+         
          
   	     '<div style="text-align: center; width:100%;" >'.
     
@@ -259,78 +266,70 @@ $html =
   			'<strong>'. 'COMPOSICIÓN:'. '</strong>'.
   			
   		'</div>'.
-           '<if>'.($encabezado_tabla_fichas != "").'<{>'.
-		   '<div style="color:#010a01; font-family: sans-serif; font-size:55%; width:100%;">'.
+            '<div style="color:#010a01; font-family: sans-serif; font-size:55%; width:100%;">'.
   			'<p>'.$encabezado_tabla_fichas.'</p>'.	
   			'</div>'.
-			'<}>'.			
+					
 			'<div style="color:#010a01; font-family: sans-serif; font-size:55%; width:100%;">'.
   			''.	$tabla_composiciones .''.
   		'</div>'.
              
-		  '<if>'.($accion_terapeutica_fichas != "").'<{>'.	 
-         '<div style="margin-top:10px; background-color:#999E9A; color:#FFFFFF; font-family: sans-serif; font-size:75%; width:100%;">'.
+		   '<div style="margin-top:10px; background-color:#999E9A; color:#FFFFFF; font-family: sans-serif; font-size:75%; width:100%;">'.
   			'<strong>'. 'CARACTERISTICAS: '. '</strong>'.
   		'</div>'.
   		'<div style="color:#010a01; font-family: sans-serif; font-size:55%; width:100%;">'.
   			'<p> '.$accion_terapeutica_fichas.'</p>'.
   		'</div>'.
-  		'<}>'.			
+  				
 		
-	    '<if>'.($mecanismo_accion_fichas != "").'<{>'.	 
-        '<div style="margin-top:10px; background-color:#999E9A; color:#FFFFFF; font-family: sans-serif; font-size:75%; width:100%;">'.
+	    '<div style="margin-top:10px; background-color:#999E9A; color:#FFFFFF; font-family: sans-serif; font-size:75%; width:100%;">'.
   			'<strong>'. 'MECANISMOS DE ACCIÓN: '. '</strong>'.
   		'</div>'.
   		'<div style="color:#010a01; font-family: sans-serif; font-size:55%; width:100%;">'.
   			'<p> '.$mecanismo_accion_fichas.'</p>'.
   		'</div>'.
-  		'<}>'.			
+  					
 		
-  		'<if>'.($indicaciones_uso_fichas != "").'<{>'.	 
-        '<div style="margin-top:10px; background-color:#999E9A; color:#FFFFFF; font-family: sans-serif; font-size:75%; width:100%;">'.
+  		 '<div style="margin-top:10px; background-color:#999E9A; color:#FFFFFF; font-family: sans-serif; font-size:75%; width:100%;">'.
   			'<strong>'. 'INDICACIONES DE USO:  '. '</strong>'.
   		'</div>'.
   		'<div style="color:#010a01; font-family: sans-serif; font-size:55%; width:100%;">'.
   			'<p> '.$indicaciones_uso_fichas.'</p>'.
   		'</div>'.
-  		'<}>'.
+  		
 		
-		'<if>'.($encabezado_dosificacion_fichas != "").'<{>'.
-  		'<div style="margin-top:10px; background-color:#999E9A; color:#FFFFFF; font-family: sans-serif; font-size:75%; width:100%;">'.
+		'<div style="margin-top:10px; background-color:#999E9A; color:#FFFFFF; font-family: sans-serif; font-size:75%; width:100%;">'.
   			'<strong>'. 'DOSIFICACIÓN DE  '. '</strong>'.
 			'<strong>'.$nombre_fichas. '</strong>'.
   		'</div>'.
 		'<div style="color:#010a01; font-family: sans-serif; font-size:55%; width:100%;">'.
   			''.	$encabezado_dosificacion_fichas .''.	
   			'</div>'.
-  		'<}>'.
+  		
 		
-		'<if>'.($periodo_retiro_fichas != "").'<{>'.
-  		'<div style="margin-top:10px; background-color:#999E9A; color:#FFFFFF; font-family: sans-serif; font-size:75%; width:100%;">'.
+		'<div style="margin-top:10px; background-color:#999E9A; color:#FFFFFF; font-family: sans-serif; font-size:75%; width:100%;">'.
   		'<strong>'. 'PERIODO DE RETIRO:  '. '</strong>'.
   		'</div>'.
   		'<div style="color:#010a01; font-family: sans-serif; font-size:55%; width:100%;">'.
   		'<p> '.$periodo_retiro_fichas.'</p>'.
   		'</div>'.
-  		'<}>'.
+  		
 		
-		'<if>'.($advertencias_fichas != "").'<{>'.
-  		'<div style="margin-top:10px; background-color:#999E9A; color:#FFFFFF; font-family: sans-serif; font-size:75%; width:100%;">'.
+		'<div style="margin-top:10px; background-color:#999E9A; color:#FFFFFF; font-family: sans-serif; font-size:75%; width:100%;">'.
   		'<strong>'. 'ADVERTENCIAS:'. '</strong>'.
   		'</div>'.
   		'<div style="margin-top:10px; color:#010a01; font-family: sans-serif; font-size:55%; width:100%;">'.
   		'<p>'.$advertencias_fichas .'</p>'.
   		'</div>'.
-  		'<}>'.
+  		
 		
-		'<if>'.($tabla_administracion != "").'<{>'.
-  		'<div style="background-color:#999E9A; color:#FFFFFF; font-family: sans-serif; font-size:75%; width:100%;">'.
+		'<div style="background-color:#999E9A; color:#FFFFFF; font-family: sans-serif; font-size:75%; width:100%;">'.
 			'<strong>'. 'VÍA DE ADMINISTRACIÓN:'. '</strong>'.
 		'</div>'.
 		'<div style="color:#010a01; font-family: sans-serif; font-size:55%; width:100%;">'.
 			''. $tabla_administracion .''.
 		'</div>'.
-		'<}>'.
+		
 		
   	'</div>'.
   	
@@ -341,59 +340,53 @@ $html =
           $logo_fichas_fotos .
     	'</div>'.
 		
-		'<if>'.($interacciones_fichas != "").'<{>'.
 		'<div style="margin-top:10px; background-color:#999E9A; color:#FFFFFF; font-family: sans-serif; font-size:75%; width:100%;">'.
 		'<strong>'. 'INTERACCIONES:  '. '</strong>'.
 		'</div>'.
 		'<div style="color:#010a01; font-family: sans-serif; font-size:55%; width:100%;">'.
 		'<p> '.$interacciones_fichas.'</p>'.
 		'</div>'.
-          '<}>'.
+         
 		
-        '<if>'.($contraindicaciones_fichas != "").'<{>'.		
-		'<div style="margin-top:10px; background-color:#999E9A; color:#FFFFFF; font-family: sans-serif; font-size:75%; width:100%;">'.
+       '<div style="margin-top:10px; background-color:#999E9A; color:#FFFFFF; font-family: sans-serif; font-size:75%; width:100%;">'.
 		'<strong>'. 'CONTRAINDICACIONES:  '. '</strong>'.
 		'</div>'.
 		'<div style="color:#010a01; font-family: sans-serif; font-size:55%; width:100%;">'.
 		'<p> '.$contraindicaciones_fichas.'</p>'.
 		'</div>'.
-           '<}>'.
+          
 		
-          '<if>'.($efectos_colaterales_fichas != "").'<{>'.		
-		'<div style="margin-top:10px; background-color:#999E9A; color:#FFFFFF; font-family: sans-serif; font-size:75%; width:100%;">'.
+       '<div style="margin-top:10px; background-color:#999E9A; color:#FFFFFF; font-family: sans-serif; font-size:75%; width:100%;">'.
 		'<strong>'. 'EFECTOS COLATERALES:  '. '</strong>'.
 		'</div>'.
 		'<div style="color:#010a01; font-family: sans-serif; font-size:55%; width:100%;">'.
 		'<p> '.$efectos_colaterales_fichas.'</p>'.
 		'</div>'.
-		'<}>'.
 		
-		'<if>'.($conservacion_fichas != "").'<{>'.
+		
 		'<div style="margin-top:10px; background-color:#999E9A; color:#FFFFFF; font-family: sans-serif; font-size:75%; width:100%;">'.
 		'<strong>'. 'CONSERVACIÓN:  '. '</strong>'.
 		'</div>'.
 		'<div style="color:#010a01; font-family: sans-serif; font-size:55%; width:100%;">'.
 		'<p> '.$conservacion_fichas.'</p>'.
 		'</div>'.
-		'<}>'.
 		
-		'<if>'.($presentacion_fichas != "").'<{>'.
+		
 		'<div style="margin-top:10px; background-color:#999E9A; color:#FFFFFF; font-family: sans-serif; font-size:75%; width:100%;">'.
 		'<strong>'. 'PRESENTACIONES:  '. '</strong>'.
 		'</div>'.
 		'<div style="color:#010a01; font-family: sans-serif; font-size:55%; width:100%;">'.
 		'<p> '.$presentacion_fichas.'</p>'.
 		'</div>'.
-		'<}>'.
 		
-		'<if>'.($registro_sanitario_fichas != "").'<{>'.
+		
 		'<div style="margin-top:10px; background-color:#999E9A; color:#FFFFFF; font-family: sans-serif; font-size:75%; width:100%;">'.
 			'<strong>'. 'REGISTRO AGROCALIDAD:'. '</strong>'.
 		'</div>'.
 		'<div style="margin-top:10px; color:#010a01; font-family: sans-serif; font-size:55%; width:100%;">'.
 			'<p>'.	$registro_sanitario_fichas .'</p>'.
 		'</div>'.
-		'<}>'.
+		
 		
         '<if>'.($logo_laboratorios != "").'<{>'.
 		'<div style="margin-top:10px; background-color:#999E9A; color:#FFFFFF; font-family: sans-serif; font-size:75%; width:100%;">'.
@@ -403,7 +396,7 @@ $html =
 		'<p>'.$logo_laboratorios .'</p>'.
 		'</div>'.
          '<}>'.
-		/*
+       
 		'<if>'.($logo_distribuidores != "").'<{>'.
 		'<div style="margin-top:10px; background-color:#999E9A; color:#FFFFFF; font-family: sans-serif; font-size:75%; width:100%;">'.
 		'<strong>'. 'DISTRIBUIDO POR:'. '</strong>'.
@@ -412,22 +405,17 @@ $html =
 		'<p>'.$logo_distribuidores .'</p>'.
 		'</div>'.
 		'<}>'.
+		
 		*/
-		'<div style="margin-top:10px; background-color:#999E9A; color:#FFFFFF; font-family: sans-serif; font-size:75%; width:100%;">'.
-		'<strong>'. 'DECLARACIÓN LEGAL:'. '</strong>'.
-		'</div>'.
-		'<div style="color:#010a01; font-family: sans-serif; font-size:55%; width:100%;">'.
-		''.'El contenido de este sitio es sólo para motivos informativos y de ninguna manera se debe utilizar sin consultar a un médico veterinario. Toda la información es proporcionada por el fabricante y / o distribuidor del producto por lo tanto Vademano no asume responsabilidad por errores u omisiones en los contenidos que se publican aquí..'.''.
-		'</div>'.
 		
 	'</div>'.
 		
 		
-	
+	/*
 	'<div style="background-color:#000000;  position: fixed; bottom: 0; width: 100%; color:#ffffff; font-family: sans-serif; font-size:55%; text-align: center; ">'.
 	'Copyright © Vademano 2015'.
 	'</div>'.
-  	
+  	*/
   	
 
   

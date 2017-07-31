@@ -699,6 +699,9 @@ public function index(){
    			$resultUpd =  $fichas->UpdateBy($colval_upd, $tabla_upd, $where_upd);
    			
 			
+   			
+   		
+   			
 			//muestro el reporte
 	
 			$this->report("Ficha",array( "resultRep"=>$resultRep, "id_fichas"=>$_id_fichas, "nombre_fichas"=>$_nombre_fichas,

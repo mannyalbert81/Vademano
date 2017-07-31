@@ -1,44 +1,83 @@
-﻿<!DOCTYPE HTML>
-<html lang="es">
-      <head>
-        <meta charset="utf-8"/>
-        <title>Login - Vademano 2015</title>
-   
-   		  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-		  			   
-          <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-	      <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-		  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-		
-		<link rel="stylesheet" href="http://jqueryvalidation.org/files/demo/site-demos.css">
-        <script src="http://jqueryvalidation.org/files/dist/jquery.validate.min.js"></script>
-        <script src="http://jqueryvalidation.org/files/dist/additional-methods.min.js"></script>
- 		
- 		<script src="//cdn.jsdelivr.net/webshim/1.14.5/polyfiller.js"></script>
-		
- 			
-        <style>
-            input{
-                margin-top:5px;
-                margin-bottom:5px;
-            }
-            .right{
-                float:right;
-            }
-                
-            
-        </style>
-    </head>
-    <body>
-    
-       <div style="background-color: #4bae4f; " >
-    	 	<?php include("view/modulos/head.php"); ?>
-    	 </div>
+﻿  <div class="head" style=" -webkit-box-shadow: 0px 2px 2px 4px rgba(0,0,0,0.69);">
+ <?php include("view/modulos/head.php"); ?>
+ </div>
   
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>Login Pasantias</title>
+	<link rel="stylesheet" href="view/css/bootstrap.css">
     
-       
-      <form id="form" action="<?php echo $helper->url("Usuarios","Loguear"); ?>" method="post" class="col-lg-6">
-            <h4>Login</h4>
+  <script src="view/js/jquery.js"></script>
+  <script src="view/js/bootstrapValidator.min.js"></script>
+  <script src="view/js/noty.js"></script>
+  <script src="view/js/ValidarLogin.js"></script>
+	
+	
+	<script>
+   function verificar(){
+	   usuario = $('#usuarios').val();
+       pass = $('#clave').val();
+
+       //Comparamos si el usuario y la contraseña son correctos
+       if(usuario == "" || pass == ""){
+       	 nota("error","Los Datos Son Incorrectos.");
+       }
+
+        else{
+          
+        	
+       }
+       function nota(op,msg,time){
+   	    if(time == undefined)time = 1000;
+   	    var n = noty({text:msg,maxVisible: 1,type:op,killer:true,timeout:time,layout: 'inline'});
+   	  }
+        }
+   	
+	</script>
+  
+		<script>
+    var imagenes=new Array(
+
+        'view/images/publicidad/1.jpg',
+        'view/images/publicidad/2.jpg',
+        'view/images/publicidad/3.jpg',
+        'view/images/publicidad/4.jpg',
+        'view/images/publicidad/5.jpg',
+        'view/images/publicidad/6.jpg',
+        'view/images/publicidad/7.jpg',
+        'view/images/publicidad/8.jpg',
+        'view/images/publicidad/9.jpg'
+
+    );
+
+    function rotarImagenes()
+    {
+        var index=Math.floor((Math.random()*imagenes.length));
+        document.getElementById("imagen").src=imagenes[index];
+        
+    }
+
+    onload=function()
+    {
+        rotarImagenes();
+        setInterval(rotarImagenes,3000);
+    }
+    </script>
+
+</head >
+
+<body class="cuerpo">
+
+    
+   
+  		
+   <form id="form-login"  action="<?php echo $helper->url("Usuarios","Loguear"); ?>" method="post" class="col-lg-12" >
+  
+   <div class="col-lg-5 division"; style="-webkit-box-shadow: 0px 2px 2px 2px rgba(0,0,0,0.69); border-radius: 24px 24px 24px 24px; margin-top: 20px;" >
+   <h4>Login</h4>
             <hr/>
            <?php if (isset($resultado)) {?>
         	<?php if ($resultado == "true") {?>
@@ -53,63 +92,74 @@
 				<?php } ?>
 	        <?php } ?>
 	        
-     
-          	   <div class="row">
-					  <div class="col-xs-4 col-md-4">
-					  </div>
-					  <div class="col-xs-4 col-md-4">
-					  	<p  class="formulario-subtitulo" >Usuario </p>
-					  	<input type="text" name="usuario_usuario" id="usuario_usuario" value="" class="form-control"/>
-					  	<div id="mensaje_usuario_usuario" class="errores"></div>
-					  </div>
-					  <div class="col-xs-4 col-md-4">
-					  </div>
-				</div>
-				 <div class="row">
-				 	<div class="col-xs-4 col-md-4">
-					  </div>
-					  <div class="col-xs-4 col-md-4">
-					  	<p  class="formulario-subtitulo" >Contraseña</p>
-					  	<input type="password" name="clave_usuario" id="clave_usuario" value="" class="form-control"/>
-					  	<div id="mensje_clave_usuario" class="errores"></div>
-					  	
-					  </div>
-					<div class="col-xs-4 col-md-4">
-					  </div>
-				</div>
-			
-			 <hr>
-			 
-		   <div class="row">
-		      <div class="col-xs-3 col-md-3">
-			  </div>
-			  
-			  <div class="col-xs-3 col-md-3"  >
-			  	 <p><a href="<?php echo $helper->url("Usuarios","Reset"); ?>" >Reestablecer Cuenta</a> </p>
-			  	
-			  </div>
-			  <div class="col-xs-3 col-md-3"  >
-			  	 
-			  	<input type="submit" id="btn_login" name="btn_login" value="Login" class="btn btn-success"/>
-			  </div>
-			  <div class="col-xs-3 col-md-3">
-					  </div>
-			</div>     
-           
-          <hr>	
-          </form>
        
-      <form id="form" action="<?php echo $helper->url("Afiliaciones","InsertaAfiliados"); ?>" method="post" class="col-lg-6">
-            <h4>Publicidad Aqui</h4>
-            <hr>
-            <div class="img-responsive">
-             <img alt="publicidad" src="view/images/publicidad.png" width="645" height="350">
-             
+          <div class="well">        
+        <div class="row" style="padding-top: 10px">
+    
+               <div class="col-lg-6 col-md-3" >
+                     
+                              <div class="form-group">
+                                  <label for="usuarios" class="control-label">Usuario</label>
+                                  <input type="text" class="form-control" id="usuarios" name="usuarios" value=""  placeholder="Usuario">
+                                  <span class="help-block"></span>
+                              </div>
+                              <div class="form-group">
+                                  <label for="clave" class="control-label">Password</label>
+                                  <input type="password" class="form-control" id="clave" name="clave" value="" placeholder="Password">
+                                  <span class="help-block"></span>
+                              </div>
+                             
+                              
+                            
+						    <div class="col-xs-12 col-md-12 col-lg-12" style="text-align: center; ">
+						    <div class="col-xs-3 col-md-3 col-lg-3" style="text-align: center;">
+						    </div>
+						     <div class="col-xs-6 col-md-6 col-lg-6" style="text-align: center;">
+						      <div class="form-group">
+				                                 <button type="submit" class="btn btn-success btn-block" onclick="verificar()" >Login</button>
+				          
+				            </div>
+						    </div>
+						     <div class="col-xs-3 col-md-3 col-lg-3" style="text-align: center;">
+						    </div>
+						    </div>
+						   
+                      
+                       
+                             
+                  </div>
+                  
+                		  <div class="col-lg-6 col-md-3">
+		                      <p class="lead">Consejos de Seguridad <span class="text-success"></span></p>
+		                      <ul class="list-unstyled" style="line-height: 2">
+		                          <li><span class="fa fa-check text-success"></span> Recuerda tu usuario y tu clave.</li>
+		                          <li><span class="fa fa-check text-success"></span> No enseñes a nadie tu clave.</li>
+		                          <li><span class="fa fa-check text-success"></span> La clave es personal.</li>
+		                          <li><span class="fa fa-check text-success"></span> Cuidala.</li>
+		                          <p><a href="<?php echo $helper->url("Usuarios","Reset"); ?>" >Olvidaste tu Cuenta</a> </p>
+		                      </ul>
+		                  </div>
+              </div>
+              </div>
+           <br><br><br><br><br><br><br><br><br> 
+      </div>
+      
+      
+            <div class="col-lg-7 col-md-3 division" style="-webkit-box-shadow: 0px 2px 2px 2px rgba(0,0,0,0.69); border-radius: 24px 24px 24px 24px; margin-top: 20px">
+            <h4>Informate</h4>
+            <hr/>
+           <img src="" id="imagen" width="835" height="430">
+            <br><br>
             </div>
             
-      </form>
-
-   <div> 
+ </form>
+       </br>
+       </br>
+       </br>
+       </br>
+    
+      
+       <div> 
    		 <?php include("view/modulos/servicios.php"); ?>	
    		  </div>
    		 <div style="margin-top: 20px; background-color: #4bae4f;">
@@ -117,13 +167,10 @@
    		 <?php include("view/modulos/small_slide.php"); ?>
    		 
    		 </div>
-   		 
-   	 	<div style="background-color: #7acb5a;">
-   	 	 <footer class="col-lg-12">
-     	 	<?php include("view/modulos/footer.php"); ?>
-    	 </footer> 
-		 
-    	    
-    	</div>
-     </body>  
-    </html>   
+        <div style="background-color: #7acb5a;">
+        <footer class="col-lg-12">
+           <?php include("view/modulos/footer.php"); ?>
+        </footer> 
+        </div>
+</body>
+</html>
