@@ -377,17 +377,15 @@
 				
 				<div class="col-xs-1 col-md-1">
 				<?php if ($resultRep !="" ) {  foreach($resultRep as $res) {?>
+				
+				<!-- cambio eliminacion de repeticion enlace -->
+				
 	      		<div style="margin-top:200px; position: fixed;">
 						 <a href="<?php echo $helper->url("FichasProductos","ReporteFicha"); ?>&id_fichas=<?php echo $res->id_fichas; ?>&nombre_fichas=<?php echo $res->nombre_fichas; ?>" class="btn btn-info"><span class="glyphicon glyphicon-paperclip" aria-hidden="true"></span> Version Imprimible</a>
 					</div>
 					     
 				</div>
-				<div class="col-xs-5 col-md-5">
-					<div style="margin-top:200px; position: fixed;">
-						 <a href="<?php echo $helper->url("FichasProductos","ReporteFicha"); ?>&id_fichas=<?php echo $res->id_fichas; ?>&nombre_fichas=<?php echo $res->nombre_fichas; ?>" class="btn btn-info"><span class="glyphicon glyphicon-paperclip" aria-hidden="true"></span> Version Imprimible</a>
-					</div>
-					
-				</div>
+				
 				<?php }}?>
 			</div>
 			

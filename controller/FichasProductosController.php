@@ -862,5 +862,38 @@ public function index(){
    		
    		
    	}
+   	
+   	public function verFicha()
+   	{
+   		
+   		//creacion del diccionario de datos
+   		$dicContenido = array(
+   				'COACTIVADOPRI'=>"",
+   				'GARANTEPRI'=>"",
+   				'CIUDAD'=>"",
+   				'FECHA'=>"",
+   				'HORA'=>"",
+   				'OPERACION'=>"",
+   				'NOMBRESEC'=>"",
+   				'CARGOSEC'=>"",
+   				'NOMBREABG'=>"",
+   				'CARGOABG'=>"",
+   				'NOMBRECIT'=>'',
+   				'CARGOCIT'=>'',
+   				'RAZON2'=>"",
+   				'COACTIVADOS'=>"",
+   				'GARANTES'=>"",
+   				'DIRIGIDOS'=>"",
+   				'NOTIFICADOR'=>""
+		
+   		);
+   		
+   			
+   			
+   		//echo 'llego'; die();
+   		$this->verReporte('FichaProductoas',array('dicContenido'=>$dicContenido,'dtdatos'=>$dtdatos,'razon_avoco'=>$razon_avoco));
+   			
+   	}
+   	
 }
 ?>
