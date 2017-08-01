@@ -894,7 +894,9 @@ public function index(){
    			
    			
    		//echo 'llego'; die();
-   		$this->verReporte('FichaProductoas',array('dicContenido'=>$dicContenido,'dtdatos'=>$dtdatos,'razon_avoco'=>$razon_avoco));
+   		$this->verReporte('FichaProductoas',array(
+   				'dicContenido'=>$dicContenido,
+   				));
    			
    	}
    	
