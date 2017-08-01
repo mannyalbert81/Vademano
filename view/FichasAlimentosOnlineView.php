@@ -6,15 +6,11 @@
         <meta charset="utf-8"/>
         <title>Fichas de Alimentos OnLine- Vademano 2015</title>
    
-   		  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-		  			   
-          <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-	      <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-		  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-		
-		<link rel="stylesheet" href="http://jqueryvalidation.org/files/demo/site-demos.css">
-        <script src="http://jqueryvalidation.org/files/dist/jquery.validate.min.js"></script>
-        <script src="http://jqueryvalidation.org/files/dist/additional-methods.min.js"></script>
+   		  <link rel="stylesheet" href="view/css/bootstrap.css">
+     <link rel="stylesheet" href="view/css/estilos.css">
+  <script src="view/js/jquery.js"></script>
+  <script src="view/js/bootstrapValidator.min.js"></script>
+  <script src="view/js/noty.js"></script>
  		
  		<script src="//cdn.jsdelivr.net/webshim/1.14.5/polyfiller.js"></script>
 		
@@ -38,7 +34,7 @@
             
         </style>
     </head>
-    <body>
+    <body class="cuerpo">
     
        <?php include("view/modulos/headadmin.php"); ?>
        

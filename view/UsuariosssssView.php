@@ -16,7 +16,7 @@
             
         </style>
     </head>
-    <body>
+    <body class="cuerpo">
     
        <?php include("view/modulos/head.php"); ?>
        

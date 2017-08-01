@@ -98,7 +98,7 @@
             
         </style>
     </head>
-    <body>
+    <body class="cuerpo">
     
        <div style=" -webkit-box-shadow: 0px 2px 2px 4px rgba(0,0,0,0.69);">
      <?php include("view/modulos/menuadmin.php"); ?>

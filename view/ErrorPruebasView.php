@@ -3,7 +3,11 @@
     <head>
         <meta charset="utf-8"/>
         <title>Error - aDocument 2015</title>
-   
+   <link rel="stylesheet" href="view/css/bootstrap.css">
+     <link rel="stylesheet" href="view/css/estilos.css">
+  <script src="view/js/jquery.js"></script>
+  <script src="view/js/bootstrapValidator.min.js"></script>
+  <script src="view/js/noty.js"></script>
         
         <style>
             input{
@@ -17,7 +21,7 @@
             
         </style>
     </head>
-      <body>
+      <body class="cuerpo">
     
           <?php include("view/modulos/head.php"); ?>
           <?php include("view/modulos/menu.php"); ?>
