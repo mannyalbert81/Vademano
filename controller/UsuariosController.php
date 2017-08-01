@@ -576,16 +576,7 @@ public function index(){
 	{
 		session_start();
 		session_destroy();
-		$resultado = "";
-		$fichas = new FichasModel();
-		
-		$where = "nombre_fichas LIKE '%%' ORDER by consultas_fichas DESC LIMIT 4";
-		$resultVis = $fichas->getBy($where);
-		
-		$this->view("Index",array(
-				"resultado"=>$resultado, "resultVis"=>$resultVis
-		
-		));
+		$this->redirect("Usuarios", "Loguear");
 		
 	}
 	
