@@ -49,8 +49,7 @@
  </div>  
            
 </div>
-<?php include("view/modulos/menuadmin.php"); ?>
-	
+
 
 </body>
 </html>
