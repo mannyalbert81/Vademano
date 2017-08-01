@@ -4,7 +4,7 @@ include('view/mpdf60/mpdf.php');
 
 //echo getcwd().'\n'; //para ver ubicacion de directorio
 
-$template = file_get_contents('view/reportes/template/pLevantamiento.html');
+$template = file_get_contents('view/reportes/template/Ficha.html');
 
 //para la numeracion de pagina
 $footer = "<table width=\"100%\"><tr>
@@ -16,6 +16,7 @@ $footer = "<table width=\"100%\"><tr>
 //cuando ya viene el diccionario de datos
 if(!empty($dicContenido))
 {
+	
 	foreach ($dicContenido as $clave=>$valor) {
 		$template = str_replace('{'.$clave.'}', $valor, $template);
 	}
