@@ -463,7 +463,7 @@
 		    <div class="col-xs-6 col-md-6">
 		    <div class="form-group ">
 		                          <label for="clave_usuario" class="control-label">Clave Usuario:</label>
-                                  <input type="password" class="form-control" id="clave_usuario" name="clave_usuario" value="<?php echo $resEdit->clave_usuario; ?>"  placeholder="Clave">
+                                  <input type="password" class="form-control" id="clave_usuario" name="clave_usuario" value=""  placeholder="Clave">
                                   <span class="help-block"></span>
             </div>
 		    </div>
@@ -471,7 +471,7 @@
 		    <div class="col-xs-6 col-md-6">
 		    <div class="form-group ">
 		                          <label for="cclave_usuario" class="control-label">Confirme Clave:</label>
-                                  <input type="password" class="form-control" id="cclave_usuario" name="cclave_usuario" value="<?php echo $resEdit->clave_usuario; ?>"  placeholder="Confirme Clave">
+                                  <input type="password" class="form-control" id="cclave_usuario" name="cclave_usuario" value=""  placeholder="Confirme Clave">
                                   <span class="help-block"></span>
             </div>
 		    </div>
