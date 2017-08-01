@@ -34,6 +34,7 @@ $mpdf->charset_in = 'UTF-8';
 //$mpdf->SetHTMLHeader('<div><img src="bnf_logo.jpg" alt="" width="100px" height="40px"></div>');
 $mpdf->SetHTMLFooter($footer);
 $mpdf->WriteHTML($template);
+$mpdf->Image($file, $x, $y);
 $mpdf->debug = true;
  
 $mpdf->Output();
