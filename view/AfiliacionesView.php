@@ -524,17 +524,17 @@
                                   <span class="help-block"></span>
             </div>
 		    </div>
-		    
-		    <div class="col-xs-6 col-md-6">
+		    </div>
+           
+          <div class="row">
+           <div class="col-xs-6 col-md-6">
 		    <div class="form-group ">
 		                          <label for="celular_usuario" class="control-label">Celular:</label>
                                   <input type="text" class="form-control" id="celular_usuario" name="celular_usuario" value="<?php echo $resEdit->celular_usuario; ?>"  placeholder="Celular">
                                   <span class="help-block"></span>
             </div>
 		    </div>
-		    </div>
-           
-        
+           </div>
         
             <div class="row">
 		    <div class="col-xs-12 col-md-12 col-lg-12" style="text-align: center; margin-top: 20px;">
@@ -680,16 +680,18 @@
             </div>
 		    </div>
 		    
-		    <div class="col-xs-6 col-md-6">
+		   
+		    </div>
+           
+          <div class="row">
+           <div class="col-xs-6 col-md-6">
 		    <div class="form-group ">
 		                          <label for="celular_usuario" class="control-label">Celular:</label>
                                   <input type="text" class="form-control" id="celular_usuario" name="celular_usuario" value=""  placeholder="Celular">
                                   <span class="help-block"></span>
             </div>
 		    </div>
-		    </div>
-           
-        
+           </div>
         
             <div class="row">
 		    <div class="col-xs-12 col-md-12 col-lg-12" style="text-align: center; margin-top: 20px;">

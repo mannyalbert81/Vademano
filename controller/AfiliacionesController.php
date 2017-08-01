@@ -506,6 +506,7 @@ public function index(){
 						  usuarios.fecha_nacimiento_usuario, 
 						  usuarios.usuario_usuario, 
 						  usuarios.clave_usuario, 
+					 	  paises.id_pais, 
 						  paises.nombre_pais, 
 						  provincias.nombre_provincia, 
 						  usuarios.telefono_usuario, 
@@ -515,6 +516,7 @@ public function index(){
 						  estado.nombre_estado, 
 						  usuarios.clave_activacion_usuario, 
 						  usuarios.extra_ocupacion_usuario, 
+					      ocupaciones.id_ocupaciones,
 						  ocupaciones.nombre_ocupaciones"; 
 			$tablas   = "public.usuarios, 
 						  public.rol, 

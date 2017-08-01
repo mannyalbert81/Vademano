@@ -31,18 +31,47 @@ public function index(){
 	}
 	
 	
+	public function InsertaFavoritos(){
+	
+		session_start();
+	
+		
+		if(isset($_GET["id_fichas"]))
+		{
+		$fichas_favoritos = new FichasFavoritosModel();
+		$id_fichas=(int)$_GET["id_fichas"];
+		$id_usuario =$_SESSION["id_usuario"];
+		
+		
+		$funcion = "ins_fichas_favoritos";
+			
+		$parametros = " '$id_fichas' ,'$id_usuario' ";
+		$fichas_favoritos->setFuncion($funcion);
+		$fichas_favoritos->setParametros($parametros);
+		$resultSes=$fichas_favoritos->Insert();
+	
+		}
+	
+		$this->redirect("Buscador", "index");
+	
+	
+	}
+	
 	public function borrarId()
 	{
 		session_start();
 		if(isset($_GET["id_fichas"]))
 		{
 			
+			
+			
+		
 			$id_usuario =$_SESSION["id_usuario"];
 			$id_fichas=(int)$_GET["id_fichas"];
 	
 			$fichas_favoritos=new FichasFavoritosModel();
 			$where= "id_fichas= '$id_fichas' AND id_usuario ='$id_usuario'";
-			$resultado =   $fichas_favoritos->deleteBy($where);
+			$resultado =$fichas_favoritos->deleteById($where);
 			
 		}
 		$this->redirect("FichasFavoritos", "index");

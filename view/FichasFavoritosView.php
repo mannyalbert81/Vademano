@@ -1,3 +1,7 @@
+ <div class="head" style=" -webkit-box-shadow: 0px 2px 2px 4px rgba(0,0,0,0.69);">
+ <?php include("view/modulos/head.php"); ?>
+ </div>
+
 <!DOCTYPE HTML>
 <html lang="es">
       <head>
@@ -13,46 +17,63 @@
  		<script src="//cdn.jsdelivr.net/webshim/1.14.5/polyfiller.js"></script>
 		
  			
-        <style>
-            input{
-                margin-top:5px;
-                margin-bottom:5px;
-            }
-            .right{
-                float:right;
-            }
-                
-            
-        </style>
+       <script>
+    var imagenes=new Array(
+
+        'view/images/publicidad/1.jpg',
+        'view/images/publicidad/2.jpg',
+        'view/images/publicidad/3.jpg',
+        'view/images/publicidad/4.jpg',
+        'view/images/publicidad/5.jpg',
+        'view/images/publicidad/6.jpg',
+        'view/images/publicidad/7.jpg',
+        'view/images/publicidad/8.jpg',
+        'view/images/publicidad/9.jpg'
+
+    );
+
+    function rotarImagenes()
+    {
+        var index=Math.floor((Math.random()*imagenes.length));
+        document.getElementById("imagen").src=imagenes[index];
+        
+    }
+
+    onload=function()
+    {
+        rotarImagenes();
+        setInterval(rotarImagenes,3000);
+    }
+    </script>
     </head>
     <body class="cuerpo">
     
-       <div style="background-color: #4bae4f; " >
-    	 	<?php include("view/modulos/head.php"); ?>
-    	 </div>
-  
-    
+     <br>
        
-        <section class="col-lg-6 usuario" style="height:400px;overflow-y:scroll;">
+         <form id="form" action="<?php echo $helper->url("Afiliaciones","InsertaAfiliados"); ?>" method="post" class="col-lg-12">
+    
+         <div class="col-lg-6 division"; style="-webkit-box-shadow: 0px 2px 2px 2px rgba(0,0,0,0.69); border-radius: 24px 24px 24px 24px; margin-top: 20px; "   >
+          
+        <section class="col-lg-12 usuario" style="height:540px;overflow-y:scroll;">
         <table class="table table-hover">
 	         <tr>
-	            <th>#</th>
-	    		<th>Nombre Producto</th>
-	    		<th>Logo Producto</th>
+	            <th style="text-align: left;  font-size: 12px;">#</th>
+	    		<th style="text-align: left;  font-size: 12px;">Nombre Producto</th>
+	    		<th style="text-align: left;  font-size: 12px;">Logo Producto</th>
 	    		
-	    		<th></th>
+	    		<th style="text-align: left;  font-size: 12px;"></th>
 	  		</tr>
                 <?php $registros = 1;?>
                  <?php foreach($resultSet as $res) {?>
 	        		<tr>
 	        		   
-	                   <td> <?php echo $registros; ?>  </td>
-		               <td> <?php echo $res->nombre_fichas; ?>     </td> 
+	                   <td style="font-size: 11px;"> <?php echo $registros; ?>  </td>
+		               <td style="font-size: 11px;"> <?php echo $res->nombre_fichas; ?>     </td> 
 		               
-		               <td> <input type="image" name="image" src="view/DevuelveImagen.php?id_valor=<?php echo $res->id_fichas; ?>&id_nombre=id_fichas&tabla=fichas_fotos&campo=foto_fichas_fotos"  alt="<?php echo $res->nombre_fichas; ?>" width="80" height="60" >      </td>
-		                 <td>   
+		               <td style="font-size: 11px;"> <input type="image" name="image" src="view/DevuelveImagen.php?id_valor=<?php echo $res->id_fichas; ?>&id_nombre=id_fichas&tabla=fichas_fotos&campo=foto_fichas_fotos"  alt="<?php echo $res->nombre_fichas; ?>" width="80" height="60" >      </td>
+		                 <td style="font-size: 11px;">   
 			                	<div class="right">
-			                    <a href="<?php echo $helper->url("FichasFavoritos","borrarId"); ?>&id_fichas=<?php echo $res->id_fichas; ?>" class="btn btn-danger">Borrar</a>
+			                    <a href="<?php echo $helper->url("FichasFavoritos","borrarId"); ?>&id_fichas=<?php echo $res->id_fichas; ?>" class="btn btn-danger"><i class="glyphicon glyphicon-trash"></i></a>
 			                </div>
 			                <hr/>
 		               </td>
@@ -68,15 +89,15 @@
             
        	</table>     
       </section>
-   
+   </div>
        
-      <form id="form" action="<?php echo $helper->url("Afiliaciones","InsertaAfiliados"); ?>" method="post" class="col-lg-6">
-            
-            <hr>
-            <div class="img-responsive">
-             <img alt="publicidad" src="view/images/publicidad.png" width="630" height="350">
-             
-            </div>
+     <div class="col-lg-6 col-md-6 division" style="-webkit-box-shadow: 0px 2px 2px 2px rgba(0,0,0,0.69); border-radius: 24px 24px 24px 24px; margin-top: 20px">
+          <h4>Informate</h4>
+            <hr/>
+           <img src="" id="imagen" width="715" height="430">
+            <br><br>
+             </div>       
+       
             
       </form>
 

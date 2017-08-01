@@ -54,8 +54,7 @@
 		          <ul class="dropdown-menu">
 		        	<li><a href="index.php?controller=Usuarios&action=QuienesSomos">Quienes Somos</a>
 				    </li>
-					<li><a href="index.php?controller=Usuarios&action=PreguntasFrecuentes">Preguntas Frecuentes</a>
-				    </li>
+					
 				  </ul>
 		        </li>
 		        <li  ><a href="index.php?controller=Afiliaciones&action=index"><span class="glyphicon glyphicon-folder-open" ><?php echo " Afiliarse" ;?></span> <span class="sr-only">(current)</span></a></li>  
@@ -65,11 +64,9 @@
 			 		<li class="dropdown">
 			          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user" ><?php echo " " . $_SESSION['nombres_usuario'] ;?></span> <span class="caret"></span></a>
 			          <ul class="dropdown-menu">
-			        	<li><a href="#"><span class="glyphicon glyphicon-star-empty" ><?php echo " Productos Favoritos" ;?></span> </a>
+			        	<li><a href="<?php echo $helper->url("FichasFavoritos","index"); ?>"><span class="glyphicon glyphicon-star-empty" ><?php echo " Productos Favoritos" ;?></span> </a>
 					  	</li>
-					  	<li><a href="#"><span class="glyphicon glyphicon-heart" ><?php echo " Productos Recientes" ;?></span> </a>
-					  	</li>
-					  	<li><a href="#"><span class="glyphicon glyphicon-list-alt" ><?php echo " Actualizar Datos" ;?></span> </a>
+					  		<li><a href="<?php echo $helper->url("Afiliaciones","VistaActualizarDatos"); ?>"><span class="glyphicon glyphicon-list-alt" ><?php echo " Actualizar Datos" ;?></span> </a>
 					  	</li>
 					  	<li><a href="<?php echo $helper->url("Usuarios","cerrar_sesion"); ?>"><span class="glyphicon glyphicon-lock" ><?php echo " Cerrar Sesion" ;?></span> </a>
 					  	</li>
