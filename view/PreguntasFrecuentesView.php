@@ -1,8 +1,16 @@
+ <div class="head" style=" -webkit-box-shadow: 0px 2px 2px 4px rgba(0,0,0,0.69);">
+ <?php include("view/modulos/head.php"); ?>
+ </div>
 <!DOCTYPE HTML>
 <html lang="es">
    	 <head>
         <meta charset="utf-8"/>
         <title>Vademano 2015</title>
+       	<link rel="stylesheet" href="view/css/bootstrap.css">
+     <link rel="stylesheet" href="view/css/estilos.css">
+  <script src="view/js/jquery.js"></script>
+  <script src="view/js/bootstrapValidator.min.js"></script>
+  <script src="view/js/noty.js"></script>
        
        
           
@@ -15,28 +23,17 @@
                 float:right;
             }
         </style>
-        <style>
-			body {
-			
-			    /* Ubicación de la imagen */
-		  background-image: url(view/images/templatemo_bg_homepage.jpg);
-		  
-		
-		
-			}
-			</style>
+        
    	 </head>
    
  
    
-     <body class="img-responsive" >
-    	<div style="background-color: #4bae4f; " >
-    	 	<?php include("view/modulos/head.php"); ?>
-    	 </div>
+     <body class="cuerpo" >
+    	
     	
    
    	
-   			<div class="row" style="margin-top: 20px; background-color:#c6c8c6; " >
+   			<div class="row" style="margin-top: 20px; " >
 			  <div class="col-xs-1 col-md-1">
 			  </div>
 			  
