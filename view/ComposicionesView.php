@@ -60,7 +60,7 @@
             
         </style>
     </head>
-    <body class="cuerpo">
+    <body style="background-color: #FAFAFA;">
     
        <?php include("view/modulos/headadmin.php"); ?>
        
