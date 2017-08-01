@@ -136,17 +136,17 @@
             
         </style>
     </head>
-    <body class="cuerpo">
+    <body style="background-color: #FAFAFA;">
     
       <div style=" -webkit-box-shadow: 0px 2px 2px 4px rgba(0,0,0,0.69);">
      <?php include("view/modulos/menuadmin.php"); ?>
      </div>
        
-  	    <div class="col-lg-6">
+  	   
              <form action="<?php echo $helper->url("Usuarios","index_dos"); ?>" method="post"   class="col-lg-6">
             
               
-			  <div class="col-xs-8 col-md-8"  >
+			  <div class="col-xs-6 col-md-6"  >
 				  <input type="email" id="usuario_usuario" name="usuario_usuario" value=""  placeholder="Correo Usuario" class="form-control"/>
 				  <div id="mensaje_nombre" class="errores"></div>
 			 </div>	
@@ -156,7 +156,7 @@
 			 </div>
            
            
-        </div>
+     
         
         </form>
        <form action="<?php echo $helper->url("Usuarios","index"); ?>" method="post" >
