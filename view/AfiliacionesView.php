@@ -1,18 +1,24 @@
+  <div class="head" style=" -webkit-box-shadow: 0px 2px 2px 4px rgba(0,0,0,0.69);">
+ <?php include("view/modulos/head.php"); ?>
+ </div>
+
+
 <!DOCTYPE HTML>
 <html lang="es">
       <head>
         <meta charset="utf-8"/>
         <title>Afiliaciones - Vademano 2015</title>
    
-   		  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-		  			   
-          <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-	      <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-		  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-		
-		<link rel="stylesheet" href="http://jqueryvalidation.org/files/demo/site-demos.css">
-        <script src="http://jqueryvalidation.org/files/dist/jquery.validate.min.js"></script>
-        <script src="http://jqueryvalidation.org/files/dist/additional-methods.min.js"></script>
+   		<link rel="stylesheet" href="view/css/bootstrap.css">
+     <link rel="stylesheet" href="view/css/estilos.css">
+  <script src="view/js/jquery.js"></script>
+  <script src="view/js/bootstrapValidator.min.js"></script>
+  <script src="view/js/noty.js"></script>
+
+ 		
+ 		
+ 		
+ 		
  		
  		<script src="//cdn.jsdelivr.net/webshim/1.14.5/polyfiller.js"></script>
 		
@@ -21,7 +27,34 @@
 			webshims.polyfill('forms forms-ext');
 		</script>
  		
- 		
+ 		<script>
+    var imagenes=new Array(
+
+        'view/images/publicidad/1.jpg',
+        'view/images/publicidad/2.jpg',
+        'view/images/publicidad/3.jpg',
+        'view/images/publicidad/4.jpg',
+        'view/images/publicidad/5.jpg',
+        'view/images/publicidad/6.jpg',
+        'view/images/publicidad/7.jpg',
+        'view/images/publicidad/8.jpg',
+        'view/images/publicidad/9.jpg'
+
+    );
+
+    function rotarImagenes()
+    {
+        var index=Math.floor((Math.random()*imagenes.length));
+        document.getElementById("imagen").src=imagenes[index];
+        
+    }
+
+    onload=function()
+    {
+        rotarImagenes();
+        setInterval(rotarImagenes,3000);
+    }
+    </script>
 
 
  		<script >
@@ -107,9 +140,6 @@
 		    });
 
 		    $("#ocupaciones").change(function() {
-				
-	               
-
 	               var id_ocupaciones = $(this).val();
 
 					
@@ -337,28 +367,15 @@
 
 	</script>
  		
- 			
-        <style>
-            input{
-                margin-top:5px;
-                margin-bottom:5px;
-            }
-            .right{
-                float:right;
-            }
-                
-            
-        </style>
+ 		
     </head>
-    <body>
-    <div style="background-color: #4bae4f; " >
-    	 	<?php include("view/modulos/head.php"); ?>
-    	 </div>
-  
-    
-       
-      <form id="form" action="<?php echo $helper->url("Afiliaciones","InsertaAfiliados"); ?>" method="post" class="col-lg-6">
-            <h4>Afiliacion</h4>
+    <body class="cuerpo">
+
+     
+      <form id="form" action="<?php echo $helper->url("Afiliaciones","InsertaAfiliados"); ?>" method="post" class="col-lg-12">
+          
+            <div class="col-lg-6 division"; style="-webkit-box-shadow: 0px 2px 2px 2px rgba(0,0,0,0.69); border-radius: 24px 24px 24px 24px; margin-top: 20px; "   >
+            <h4>Afiliación</h4>
             <hr/>
            <?php if (isset($resultado)) {?>
         	<?php if ($resultado == "true") {?>
@@ -376,208 +393,326 @@
 		     
             <?php if ($resultEdit !="" ) { foreach($resultEdit as $resEdit) {?>
            
-           <div class="row">
-			  <div class="col-xs-6 col-md-6">
-			  	<p  class="formulario-subtitulo" >Email </p>
-			  	<input type="email" name="correo_usuario" id="correo_usuario" value="<?php echo $resEdit->correo_usuario; ?>" class="form-control"/>
-			  </div>
-			  <div class="col-xs-6 col-md-6">
-			  	<p  class="formulario-subtitulo" >Confirme Email </p>
-			  	<input type="email" name="ccorreo_usuario" id="ccorreo_usuario" value="<?php echo $resEdit->correo_usuario; ?>" class="form-control"/>
-			  </div>
-			</div>
-			
-			<div class="row">
-			  <div class="col-xs-6 col-md-4">
-			  	<p  class="formulario-subtitulo" >Nombres</p>
-			  	<input type="text" name="nombres_usuario" value="<?php echo $resEdit->nombres_usuario; ?>" class="form-control"/> 
-			  </div>
-			  <div class="col-xs-6 col-md-4">
-			  	<p   class="formulario-subtitulo" >Apellidos </p>
-			  	<input type="text" name="apellidos_usuario" value="<?php echo $resEdit->apellidos_usuario; ?>" class="form-control"/>
-			  </div>
-			   <div class="col-xs-12 col-md-4">
-			  	<p  class="formulario-subtitulo" >Ocupacion</p>
-			  	<select name="paises" id="paises"  class="form-control">
-					<?php foreach($resultOcu as $resOcu) {?>
-						<option value="<?php echo $resOcu->id_ocupaciones; ?>"  ><?php echo $resOcu->nombre_ocupaciones; ?> </option>
-			        <?php } ?>
-				</select> 
-			  </div>
-			</div>
-			<div class="row">
-			  <div class="col-xs-12 col-md-12" id="div_extra_ocupaciones_usuario" style="display: none;" >
-			  	<p  class="formulario-subtitulo" >Especifique su Ocupacion</p>
-			  	<input type="text" name="extra_ocupaciones_usuario" id="extra_ocupaciones_usuario"  value="<?php echo $resEdit->extra_ocupaciones_usuario; ?>" class="form-control"  /> 
-			  </div>
-			  
-			</div>
-			
-			
-			
-			
-           <div class="row">
-			  <div class="col-xs-6 col-md-3">
-			  	<p class="formulario-subtitulo" >Clave Usuario </p>
-			  	<input type="password" name="clave_usuario" value="" class="form-control"/>
-			 	</div>
-			  <div class="col-xs-6 col-md-3">
-			  	<p  class="formulario-subtitulo" >Confirme Clave </p>
-			  	<input type="password" name="cclave_usuario" value="" class="form-control"/>
-			  	
-			  </div>
-			  <div class="col-xs-6 col-md-3">
-			  	<p  class="formulario-subtitulo" >Pais</p>
-			  	<select name="paises" id="paises"  class="form-control" style="	width: 200px;">
-					<?php foreach($resultPais as $resPais) {?>
-						<option value="<?php echo $resPais->id_pais; ?>"  ><?php echo $resPais->nombre_pais; ?> </option>
-			        <?php } ?>
-				</select> 
-			  </div>
-			  <div class="col-xs-6 col-md-3">
-			  	<p   class="formulario-subtitulo" >Provincia </p>
-				<select name="provincias" id="provincias"  class="form-control" style="	width: 200px;">
-					<option value="0"  > -- SIN ESPECIFICAR -- </option>
-				</select>
-		   	  </div>
+           
+
+  			<div class="row">
+		    <div class="col-xs-6 col-md-6">
+		    <div class="form-group ">
+		                          <label for="correo_usuario" class="control-label">Email:</label>
+                                  <input type="email" class="form-control" id="correo_usuario" name="correo_usuario" value="<?php echo $resEdit->correo_usuario; ?>"  placeholder="Email">
+                                  <span class="help-block"></span>
+            </div>
+		    </div>
+		    
+		    <div class="col-xs-6 col-md-6">
+		    <div class="form-group ">
+		                          <label for="ccorreo_usuario" class="control-label">Confirme Email:</label>
+                                  <input type="email" class="form-control" id="ccorreo_usuario" name="ccorreo_usuario" value="<?php echo $resEdit->correo_usuario; ?>"  placeholder="Confirme Email">
+                                  <span class="help-block"></span>
+            </div>
+		    </div>
 			</div>
            
-           <div class="row">
-			  <div class="col-xs-4 col-md-4">
-			  	<p class="formulario-subtitulo" >Fecha Nacimiento  </p>
-			  	<input type="date" name="fecha_nacimiento_usuario" id="fecha_nacimiento_usuario" value="<?php $resEdit->fecha_nacimiento_usuario; ?>" class="form-control"/>
-			  </div>
-			  <div class="col-xs-4 col-md-4">
-			  	<p  class="formulario-subtitulo" >Teléfono Usuario </p>
-			  	<input type="text" name="telefono_usuario" value="<?php echo $resEdit->telefono_usuario; ?>" class="form-control"/>
-			  </div>
-			  <div class="col-xs-4 col-md-4">
-			  	<p  class="formulario-subtitulo" >Celular  Usuario</p>
-			  	<input type="text" name="celular_usuario" value="<?php echo $resEdit->celular_usuario; ?>" class="form-control"/> 
-			  </div>
-			</div>
            
-            <hr>
-		   <div class="row">
-			  <div class="col-xs-12 col-md-12" style="text-align: center;" >
-			  	<input type="submit" id="btn_guardar" name="btn_guardar" value="Guardar" class="btn btn-success"/>
-			  </div>
-			</div>     
+           
+           <div class="row">
+		    <div class="col-xs-6 col-md-6">
+		    <div class="form-group ">
+		                          <label for="nombres_usuario" class="control-label">Nombres:</label>
+                                  <input type="text" class="form-control" id="nombres_usuario" name="nombres_usuario" value="<?php echo $resEdit->nombres_usuario; ?>"  placeholder="Nombres">
+                                  <span class="help-block"></span>
+            </div>
+		    </div>
+		    
+		    <div class="col-xs-6 col-md-6">
+		    <div class="form-group ">
+		                          <label for="apellidos_usuario" class="control-label">Apellidos:</label>
+                                  <input type="text" class="form-control" id="apellidos_usuario" name="apellidos_usuario" value="<?php echo $resEdit->apellidos_usuario; ?>"  placeholder="Apellidos">
+                                  <span class="help-block"></span>
+            </div>
+		    </div>
+			</div>
+         
+			
+			<div class="row">
+			<div class="col-xs-6 col-md-6">
+		    <div class="form-group">
+                                  <label for="ocupaciones" class="control-label">Ocupación:</label>
+                                  <select name="ocupaciones" id="ocupaciones"  class="form-control" >
+                                  <option value="" selected="selected">--Seleccione--</option>
+									<?php foreach($resultOcu as $res) {?>
+										<option value="<?php echo $res->id_ocupaciones; ?>" <?php if ($res->id_ocupaciones == $resEdit->id_ocupaciones )  echo  ' selected="selected" '  ;  ?> ><?php echo $res->nombre_ocupaciones; ?> </option>
+							        <?php } ?>
+								   </select> 
+                                  <span class="help-block"></span>
+            </div>
+            </div>
+            
+            <div class="col-xs-6 col-md-6" id="div_extra_ocupaciones_usuario" style="display: none;" >
+		    <div class="form-group ">
+		                          <label for="extra_ocupaciones_usuario" class="control-label">Especifique su Ocupación:</label>
+                                  <input type="text" class="form-control" id="extra_ocupaciones_usuario" name="extra_ocupaciones_usuario" value="<?php echo $resEdit->extra_ocupaciones_usuario; ?>"  placeholder="Ocupación">
+                                  <span class="help-block"></span>
+            </div>
+		    </div>
+            </div>
+			
+			
+			 
+            <div class="row">
+		    <div class="col-xs-6 col-md-6">
+		    <div class="form-group ">
+		                          <label for="clave_usuario" class="control-label">Clave Usuario:</label>
+                                  <input type="password" class="form-control" id="clave_usuario" name="clave_usuario" value="<?php echo $resEdit->clave_usuario; ?>"  placeholder="Clave">
+                                  <span class="help-block"></span>
+            </div>
+		    </div>
+		    
+		    <div class="col-xs-6 col-md-6">
+		    <div class="form-group ">
+		                          <label for="cclave_usuario" class="control-label">Confirme Clave:</label>
+                                  <input type="password" class="form-control" id="cclave_usuario" name="cclave_usuario" value="<?php echo $resEdit->clave_usuario; ?>"  placeholder="Confirme Clave">
+                                  <span class="help-block"></span>
+            </div>
+		    </div>
+			</div>
+			
+			
+			
+			
+			
+			
+            <div class="row">
+			<div class="col-xs-6 col-md-6">
+		    <div class="form-group">
+                                  <label for="paises" class="control-label">Pais:</label>
+                                  <select name="paises" id="paises"  class="form-control" >
+                                  <option value="" selected="selected">--Seleccione--</option>
+									<?php foreach($resultPais as $res) {?>
+										<option value="<?php echo $res->id_pais; ?>" <?php if ($res->id_pais == $resEdit->id_pais )  echo  ' selected="selected" '  ;  ?> ><?php echo $res->nombre_pais; ?> </option>
+							        <?php } ?>
+								   </select> 
+                                  <span class="help-block"></span>
+            </div>
+            </div>
+			
+		    <div class="col-xs-6 col-md-6">
+		    <div class="form-group">
+                                  <label for="provincias" class="control-label">Provincia:</label>
+                                  <select name="provincias" id="provincias"  class="form-control" >
+                                  <option value="0"> -- SIN ESPECIFICAR -- </option>
+								   </select> 
+                                  <span class="help-block"></span>
+            </div>
+            </div>
+			</div>
+			
+			
+			<div class="row">
+		    <div class="col-xs-6 col-md-6">
+		    <div class="form-group ">
+		                          <label for="fecha_nacimiento_usuario" class="control-label">Fecha Nacimiento:</label>
+                                  <input type="date" class="form-control" id="fecha_nacimiento_usuario" name="fecha_nacimiento_usuario" value="<?php echo $resEdit->fecha_nacimiento_usuario; ?>"  placeholder="Fecha Nacimiento">
+                                  <span class="help-block"></span>
+            </div>
+		    </div>
+		    
+		    <div class="col-xs-6 col-md-6">
+		    <div class="form-group ">
+		                          <label for="telefono_usuario" class="control-label">Teléfono:</label>
+                                  <input type="text" class="form-control" id="telefono_usuario" name="telefono_usuario" value="<?php echo $resEdit->telefono_usuario; ?>"  placeholder="Teléfono">
+                                  <span class="help-block"></span>
+            </div>
+		    </div>
+		    
+		    <div class="col-xs-6 col-md-6">
+		    <div class="form-group ">
+		                          <label for="celular_usuario" class="control-label">Celular:</label>
+                                  <input type="text" class="form-control" id="celular_usuario" name="celular_usuario" value="<?php echo $resEdit->celular_usuario; ?>"  placeholder="Celular">
+                                  <span class="help-block"></span>
+            </div>
+		    </div>
+		    </div>
+           
+        
+        
+            <div class="row">
+		    <div class="col-xs-12 col-md-12 col-lg-12" style="text-align: center; margin-top: 20px;">
+		    <div class="form-group">
+                                  <button type="submit" id="btn_guardar" name="btn_guardar" class="btn btn-success">Actualizar</button>
+            </div>
+		    </div>
+		    </div>
+        
+        
+          
            
              <?php } } else {?>
-				   <div class="row">
-					  <div class="col-xs-6 col-md-6">
-					  	<p  class="formulario-subtitulo" >Email </p>
-					  	<input type="email" name="correo_usuario" id="correo_usuario" value="" class="form-control"/>
-					  	<div id="mensaje_correo" class="errores"></div>
-					  </div>
-					  <div class="col-xs-6 col-md-6">
-					  	<p  class="formulario-subtitulo" >Confirme Email </p>
-					  	<input type="email" name="ccorreo_usuario" id="ccorreo_usuario" value="" class="form-control"/>
-					  	<div id="mensaje_ccorreo" class="errores"></div>
-					  	
-					  </div>
-					</div>
-			
-				   <div class="row">
-					  <div class="col-xs-6 col-md-4">
-					  	<p  class="formulario-subtitulo" >Nombres</p>
-					  	<input type="text" name="nombres_usuario" value="" class="form-control"/>
-					  	<div id="mensaje_nombres" class="errores"></div> 
-					  </div>
-					  <div class="col-xs-6 col-md-4">
-					  	<p   class="formulario-subtitulo" >Apellidos </p>
-					  	<input type="text" name="apellidos_usuario" value="" class="form-control"/>
-					  	<div id="mensaje_apellidos" class="errores"></div>
-					  </div>
-		    		  <div class="col-xs-12 col-md-4">
-					  	<p  class="formulario-subtitulo" >Ocupacion</p>
-					  	<select name="ocupaciones" id="ocupaciones"  class="form-control">
-							<?php foreach($resultOcu as $resOcu) {?>
-								<option value="<?php echo $resOcu->id_ocupaciones; ?>"  ><?php echo $resOcu->nombre_ocupaciones; ?> </option>
-					        <?php } ?>
-						</select> 
-					  </div>
-							  
-				</div>
-			
-			<div class="row"  id="div_extra_ocupaciones_usuario" style="display: none;">
-			  <div class="col-xs-12 col-md-12">
-			  	<p  class="formulario-subtitulo" >Especifique su Ocupacion</p>
-			  	<input type="text" name="extra_ocupaciones_usuario" id="extra_ocupaciones_usuario"  value="" class="form-control"  /> 
-			  </div>
-			  
+				   
+
+  			<div class="row">
+		    <div class="col-xs-6 col-md-6">
+		    <div class="form-group ">
+		                          <label for="correo_usuario" class="control-label">Email:</label>
+                                  <input type="email" class="form-control" id="correo_usuario" name="correo_usuario" value=""  placeholder="Email">
+                                  <span class="help-block"></span>
+            </div>
+		    </div>
+		    
+		    <div class="col-xs-6 col-md-6">
+		    <div class="form-group ">
+		                          <label for="ccorreo_usuario" class="control-label">Confirme Email:</label>
+                                  <input type="email" class="form-control" id="ccorreo_usuario" name="ccorreo_usuario" value=""  placeholder="Confirme Email">
+                                  <span class="help-block"></span>
+            </div>
+		    </div>
 			</div>
-			
+           
+           
+           
            <div class="row">
-			  <div class="col-xs-6 col-md-3">
-			  	<p class="formulario-subtitulo" >Clave Usuario </p>
-			  	<input type="password" name="clave_usuario" id="clave_usuario" value="" class="form-control"/>
-			  	<div id="mensaje_clave" class="errores"></div>
-			  </div>
-			  <div class="col-xs-6 col-md-3">
-			  	<p  class="formulario-subtitulo" >Confirme Clave </p>
-			  	<input type="password" name="cclave_usuario" id="cclave_usuario" value="" class="form-control"/>
-			  	<div id="mensaje_cclave" class="errores"></div>
-			  </div>
-			  <div class="col-xs-6 col-md-3">
-			  	<p  class="formulario-subtitulo" >Pais</p>
-			  	<select name="paises" id="paises"  class="form-control" >
-					<?php foreach($resultPais as $resPais) {?>
-						<option value="<?php echo $resPais->id_pais; ?>"  ><?php echo $resPais->nombre_pais; ?> </option>
-			        <?php } ?>
-				</select> 
-				<div id="mensaje_paises" class="errores"></div>
-			  </div>
-			  <div class="col-xs-6 col-md-3">
-			  	<p   class="formulario-subtitulo" >Provincia </p>
-				<select name="provincias" id="provincias"  class="form-control" >
-					<option value="0"  > -- SIN ESPECIFICAR -- </option>
-				</select>
-				<div id="mensaje_provincias" class="errores"></div>
-		   	  </div>
+		    <div class="col-xs-6 col-md-6">
+		    <div class="form-group ">
+		                          <label for="nombres_usuario" class="control-label">Nombres:</label>
+                                  <input type="text" class="form-control" id="nombres_usuario" name="nombres_usuario" value=""  placeholder="Nombres">
+                                  <span class="help-block"></span>
+            </div>
+		    </div>
+		    
+		    <div class="col-xs-6 col-md-6">
+		    <div class="form-group ">
+		                          <label for="apellidos_usuario" class="control-label">Apellidos:</label>
+                                  <input type="text" class="form-control" id="apellidos_usuario" name="apellidos_usuario" value=""  placeholder="Apellidos">
+                                  <span class="help-block"></span>
+            </div>
+		    </div>
 			</div>
+         
+			
+			<div class="row">
+			<div class="col-xs-6 col-md-6">
+		    <div class="form-group">
+                                  <label for="ocupaciones" class="control-label">Ocupación:</label>
+                                  <select name="ocupaciones" id="ocupaciones"  class="form-control" >
+                                  <option value="" selected="selected">--Seleccione--</option>
+									<?php foreach($resultOcu as $res) {?>
+										<option value="<?php echo $res->id_ocupaciones; ?>"  ><?php echo $res->nombre_ocupaciones; ?> </option>
+							        <?php } ?>
+								   </select> 
+                                  <span class="help-block"></span>
+            </div>
+            </div>
+            
+            <div class="col-xs-6 col-md-6" id="div_extra_ocupaciones_usuario" style="display: none;" >
+		    <div class="form-group ">
+		                          <label for="extra_ocupaciones_usuario" class="control-label">Especifique su Ocupación:</label>
+                                  <input type="text" class="form-control" id="extra_ocupaciones_usuario" name="extra_ocupaciones_usuario" value=""  placeholder="Ocupación">
+                                  <span class="help-block"></span>
+            </div>
+		    </div>
+            </div>
+			
+			
+			 
             <div class="row">
-			  <div class="col-xs-4 col-md-4">
-			  	<p class="formulario-subtitulo" >Fecha Nacimiento  </p>
-			  	<input type="date" name="fecha_nacimiento_usuario" id="fecha_nacimiento_usuario" value="" class="form-control"/>
-			  	<div id="mensaje_fecha_nacimiento" class="errores"></div>
-			  </div>
-			  <div class="col-xs-4 col-md-4">
-			  	<p  class="formulario-subtitulo" >Teléfono Usuario </p>
-			  	<input type="text" name="telefono_usuario" value="" class="form-control"/>
-			  	<div id="mensaje_telefono" class="errores"></div>
-			  </div>
-			  <div class="col-xs-4 col-md-4">
-			  	<p  class="formulario-subtitulo" >Celular  Usuario</p>
-			  	<input type="text" name="celular_usuario" value="" class="form-control"/>
-			  	<div id="mensaje_celular" class="errores"></div> 
-			  </div>
-		 	</div>
+		    <div class="col-xs-6 col-md-6">
+		    <div class="form-group ">
+		                          <label for="clave_usuario" class="control-label">Clave Usuario:</label>
+                                  <input type="password" class="form-control" id="clave_usuario" name="clave_usuario" value=""  placeholder="Clave">
+                                  <span class="help-block"></span>
+            </div>
+		    </div>
+		    
+		    <div class="col-xs-6 col-md-6">
+		    <div class="form-group ">
+		                          <label for="cclave_usuario" class="control-label">Confirme Clave:</label>
+                                  <input type="password" class="form-control" id="cclave_usuario" name="cclave_usuario" value=""  placeholder="Confirme Clave">
+                                  <span class="help-block"></span>
+            </div>
+		    </div>
+			</div>
+			
+			
+			
+			
+			
+			
+            <div class="row">
+			<div class="col-xs-6 col-md-6">
+		    <div class="form-group">
+                                  <label for="paises" class="control-label">Pais:</label>
+                                  <select name="paises" id="paises"  class="form-control" >
+                                  <option value="" selected="selected">--Seleccione--</option>
+									<?php foreach($resultPais as $res) {?>
+										<option value="<?php echo $res->id_pais; ?>" ><?php echo $res->nombre_pais; ?> </option>
+							        <?php } ?>
+								   </select> 
+                                  <span class="help-block"></span>
+            </div>
+            </div>
+			
+		    <div class="col-xs-6 col-md-6">
+		    <div class="form-group">
+                                  <label for="provincias" class="control-label">Provincia:</label>
+                                  <select name="provincias" id="provincias"  class="form-control" >
+                                  <option value="0"> -- SIN ESPECIFICAR -- </option>
+								   </select> 
+                                  <span class="help-block"></span>
+            </div>
+            </div>
+			</div>
+			
+			
+			<div class="row">
+		    <div class="col-xs-6 col-md-6">
+		    <div class="form-group ">
+		                          <label for="fecha_nacimiento_usuario" class="control-label">Fecha Nacimiento:</label>
+                                  <input type="date" class="form-control" id="fecha_nacimiento_usuario" name="fecha_nacimiento_usuario" value=""  placeholder="Fecha Nacimiento">
+                                  <span class="help-block"></span>
+            </div>
+		    </div>
+		    
+		    <div class="col-xs-6 col-md-6">
+		    <div class="form-group ">
+		                          <label for="telefono_usuario" class="control-label">Teléfono:</label>
+                                  <input type="text" class="form-control" id="telefono_usuario" name="telefono_usuario" value=""  placeholder="Teléfono">
+                                  <span class="help-block"></span>
+            </div>
+		    </div>
+		    
+		    <div class="col-xs-6 col-md-6">
+		    <div class="form-group ">
+		                          <label for="celular_usuario" class="control-label">Celular:</label>
+                                  <input type="text" class="form-control" id="celular_usuario" name="celular_usuario" value=""  placeholder="Celular">
+                                  <span class="help-block"></span>
+            </div>
+		    </div>
+		    </div>
+           
         
-		
-		 <hr>
-		   <div class="row">
-			  <div class="col-xs-12 col-md-12" style="text-align: center;" >
-			  	<input type="submit" id="btn_guardar" name="btn_guardar" value="Guardar" class="btn btn-success"/>
-			  </div>
-			</div>     
+        
+            <div class="row">
+		    <div class="col-xs-12 col-md-12 col-lg-12" style="text-align: center; margin-top: 20px;">
+		    <div class="form-group">
+                                  <button type="submit" id="btn_guardar" name="btn_guardar" class="btn btn-success">Afiliarse</button>
+            </div>
+		    </div>
+		    </div>
+        
            
 		<?php }?>    
 	               	
 		     <?php } ?>
-		  
-          <hr>	
-          </form>
+			  <br><br>
+           </div>
        
-        <form id="form" action="<?php echo $helper->url("Afiliaciones","InsertaAfiliados"); ?>" method="post" class="col-lg-6">
-            
-            <hr>
-            <div class="img-responsive">
-             <img alt="publicidad" src="view/images/publicidad.png" width="630" height="350">
-             
-            </div>
-            
+       
+           <div class="col-lg-6 col-md-6 division" style="-webkit-box-shadow: 0px 2px 2px 2px rgba(0,0,0,0.69); border-radius: 24px 24px 24px 24px; margin-top: 20px">
+          <h4>Informate</h4>
+            <hr/>
+           <img src="" id="imagen" width="715" height="430">
+            <br><br>
+             </div>
       </form>
 
    <div> 

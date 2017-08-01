@@ -314,6 +314,8 @@ public function index(){
 	public function Loguear()
 	{
 		
+		
+		
 		$fichas = new FichasModel();
 		
 		$where = "nombre_fichas LIKE '%%' ORDER by consultas_fichas DESC LIMIT 4";
@@ -326,11 +328,15 @@ public function index(){
 		
 		if (isset ($_POST["usuario_usuario"]) && isset ($_POST["clave_usuario"]) )
 		{
+			
+			
 			$_usuario_usuario = $_POST["usuario_usuario"];
 			$_clave_usuario  = $_POST["clave_usuario"];
 			
 			$encryp_pass = $usuarios->encrypt($_clave_usuario);
-			$where = "usuario_usuario = '$_usuario_usuario' AND clave_usuario = '$_clave_usuario' ";
+			
+			
+			$where = "usuario_usuario = '$_usuario_usuario' AND clave_usuario = '$encryp_pass'";
 			//$where = "usuario_usuario = '$_usuario_usuario' ";
 			
 			$resultado =  $usuarios->getBy($where);

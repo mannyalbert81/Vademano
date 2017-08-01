@@ -56,7 +56,7 @@
     </head>
     <body class="cuerpo">
 	
-    
+      <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
        
       <form id="form" action="<?php echo $helper->url("Usuarios","Reset"); ?>" method="post" class="col-lg-5">
             <div class="col-lg-12 division"; style="-webkit-box-shadow: 0px 2px 2px 2px rgba(0,0,0,0.69); border-radius: 24px 24px 24px 24px; margin-top: 20px;" >

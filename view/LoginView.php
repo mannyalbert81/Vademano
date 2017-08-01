@@ -18,8 +18,8 @@
 	
 	<script>
    function verificar(){
-	   usuario = $('#usuarios').val();
-       pass = $('#clave').val();
+	   usuario = $('#usuario_usuario').val();
+       pass = $('#clave_usuario').val();
 
        //Comparamos si el usuario y la contraseña son correctos
        if(usuario == "" || pass == ""){
@@ -72,7 +72,7 @@
 <body class="cuerpo">
 
     
-   
+     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
   		
    <form id="form-login"  action="<?php echo $helper->url("Usuarios","Loguear"); ?>" method="post" class="col-lg-12" >
   
@@ -99,13 +99,13 @@
                <div class="col-lg-6 col-md-3" >
                      
                               <div class="form-group">
-                                  <label for="usuarios" class="control-label">Usuario</label>
-                                  <input type="text" class="form-control" id="usuarios" name="usuarios" value=""  placeholder="Usuario">
+                                  <label for="usuario_usuario" class="control-label">Usuario</label>
+                                  <input type="text" class="form-control" id="usuario_usuario" name="usuario_usuario" value=""  placeholder="Usuario">
                                   <span class="help-block"></span>
                               </div>
                               <div class="form-group">
-                                  <label for="clave" class="control-label">Password</label>
-                                  <input type="password" class="form-control" id="clave" name="clave" value="" placeholder="Password">
+                                  <label for="clave_usuario" class="control-label">Password</label>
+                                  <input type="password" class="form-control" id="clave_usuario" name="clave_usuario" value="" placeholder="Password">
                                   <span class="help-block"></span>
                               </div>
                              
