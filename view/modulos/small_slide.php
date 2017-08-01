@@ -1,5 +1,5 @@
 
-<?php if (isset(  $_SESSION['usuario_usuario'])) {?>
+<?php if (isset(  $_SESSION['id_usuario'])) {?>
 <div >
 <div class="row"  >
 </div>

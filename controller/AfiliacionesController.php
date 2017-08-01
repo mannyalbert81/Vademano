@@ -28,15 +28,10 @@ public function index(){
 		
 		
 		$afiliaciones = new UsuariosModel();
-/*
-		$columnas = " id_usuario, nombres_usuario, apellidos_usuario, fecha_nacimiento_usuario, usuario_usuario, clave_usuario, id_pais, id_provincia, telefono_usuario, celular_usuario, correo_usuario "; 
-		$tablas   = "usuario";
-		$where    = "";
-		$id       = "usuarios.nombres_usuario"; 
-*/			
-					
-					//Conseguimos todos los usuarios
-		//$resultSet=$usuarios->getCondiciones($columnas ,$tablas ,$where, $id);
+		$fichas = new FichasModel();
+		$where = "nombre_fichas LIKE '%%' ORDER by consultas_fichas DESC LIMIT 4";
+		$resultVis = $fichas->getBy($where);
+		
 		$resultEdit = "";
 			
 		if (isset ($_GET["id_usuario"])   )
@@ -46,7 +41,7 @@ public function index(){
 				$resultEdit = $usuarios->getCondiciones($columnas ,$tablas ,$where, $id); 
 			}
 		$this->view("Afiliaciones",array(
-				"resultSet"=>"", "resultPais"=>$resultPais, "resultProv" =>$resultProv, "resultEdit" =>"", "resultOcu"=>$resultOcu
+				"resultSet"=>"", "resultPais"=>$resultPais, "resultProv" =>$resultProv, "resultEdit" =>"", "resultOcu"=>$resultOcu, "resultVis"=>$resultVis
 			));
 		
 		

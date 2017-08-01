@@ -20,10 +20,15 @@ public function index(){
 	    $id     = "fichas.nombre_fichas"; 
 		$resultSet = $fichas_favoritos->getCondiciones($columnas, $tablas, $where, $id);
 		
-			
+		
+		
+		$fichas = new FichasModel();
+		
+		$where = "nombre_fichas LIKE '%%' ORDER by consultas_fichas DESC LIMIT 4";
+		$resultVis = $fichas->getBy($where);
 		
 		$this->view("FichasFavoritos",array(
-				"resultSet"=>$resultSet
+				"resultSet"=>$resultSet, "resultVis"=>$resultVis
 				
 		));
 		
