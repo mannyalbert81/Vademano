@@ -408,7 +408,7 @@
 		    <!-- Collect the nav links, forms, and other content for toggling -->
 		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 		      <ul class="nav navbar-nav" >
-		        <li  ><a href="index.php?controller=Usuarios&action=Home"><span class="glyphicon glyphicon-home" ><?php echo " Inicio" ;?></span> <span class="sr-only">(current)</span></a></li>
+		        <li  ><a href="index.php?controller=Usuarios&action=cerrar_sesion"><span class="glyphicon glyphicon-home" ><?php echo " Inicio" ;?></span> <span class="sr-only">(current)</span></a></li>
 		        <li  ><a href="index.php?controller=Buscador&action=index"><span class="glyphicon glyphicon-folder-open" ><?php echo " Vademecum" ;?></span> <span class="sr-only">(current)</span></a></li>
 		        <li class="dropdown">
 		          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-briefcase" ><?php echo " Nosotros" ;?></span> <span class="caret"></span></a>
