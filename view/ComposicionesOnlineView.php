@@ -1,3 +1,7 @@
+  <div class="head" style=" -webkit-box-shadow: 0px 2px 2px 4px rgba(0,0,0,0.69);">
+ <?php include("view/modulos/head.php"); ?>
+ </div>
+
 <!DOCTYPE HTML>
 <?php require_once 'config/global.php';?> 
 
@@ -35,9 +39,7 @@
         </style>
     </head>
     <body class="cuerpo">
-    <div style="background-color: #4bae4f; " >
-    <?php include("view/modulos/head.php"); ?>
-      </div> 
+     
        
        
        <p></p>

@@ -241,7 +241,7 @@ public function index(){
 		//guardamos el distribuidores
 		if (isset($_POST["btn_guardar"]) )
 		{
-			$directorio = $_SERVER['DOCUMENT_ROOT'].'/uploads/';
+			$directorio = $_SERVER['DOCUMENT_ROOT'].'/Vademano/uploads/';
 				
 
 			$_nombre_distribuidores             = strtoupper ( $_POST["nombre_distribuidores"]   );
@@ -293,7 +293,7 @@ public function index(){
 	public function Inserta(){
 		session_start();
 		$distribuidores = new DistribuidoresModel();
-		$directorio = $_SERVER['DOCUMENT_ROOT'].'/uploads/';
+		$directorio = $_SERVER['DOCUMENT_ROOT'].'/Vademano/uploads/';
 		
 		if (isset($_POST["nombre_distribuidores"]) )
 		{

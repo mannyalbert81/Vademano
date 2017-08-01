@@ -244,7 +244,7 @@ public function index(){
 		//guardamos el laboratorios
 		if (isset($_POST["btn_guardar"]) )
 		{
-			$directorio = $_SERVER['DOCUMENT_ROOT'].'/uploads/';
+			$directorio = $_SERVER['DOCUMENT_ROOT'].'/Vademano/uploads/';
 				
 
 			$_nombre_laboratorios             = strtoupper ( $_POST["nombre_laboratorios"]   );
@@ -297,7 +297,7 @@ public function index(){
 			
 		session_start();
 		$laboratorios = new LaboratoriosModel();
-		$directorio = $_SERVER['DOCUMENT_ROOT'].'/uploads/';
+		$directorio = $_SERVER['DOCUMENT_ROOT'].'/Vademano/uploads/';
 		
 		if (isset($_POST["nombre_laboratorios"]) )
 		{
@@ -376,7 +376,7 @@ public function index(){
 		session_start();
 		if(isset($_GET["id_laboratorios"]))
 		{
-			$_id_laboratorios = $_GET["laboratorios"];
+			$_id_laboratorios = $_GET["id_laboratorios"];
 		
 		
 			//Creamos el objeto usuario

@@ -1,3 +1,7 @@
+  <div class="head" style=" -webkit-box-shadow: 0px 2px 2px 4px rgba(0,0,0,0.69);">
+ <?php include("view/modulos/head.php"); ?>
+ </div>
+
 <!DOCTYPE HTML>
 <?php require_once 'config/global.php';?> 
 
@@ -6,8 +10,8 @@
         <meta charset="utf-8"/>
         <title>Fichas de Productos OnLine- Vademano 2015</title>
    
-   		 <link rel="stylesheet" href="view/css/bootstrap.css">
-     <link rel="stylesheet" href="view/css/estilos.css">
+  <link rel="stylesheet" href="view/css/bootstrap.css">
+  <link rel="stylesheet" href="view/css/estilos.css">
   <script src="view/js/jquery.js"></script>
   <script src="view/js/bootstrapValidator.min.js"></script>
   <script src="view/js/noty.js"></script>
@@ -36,9 +40,7 @@
     </head>
     <body class="cuerpo">
     
-      <div style="background-color: #4bae4f; " >
-    <?php include("view/modulos/head.php"); ?>
-      </div> 
+     
        
        <p></p>
   		 <form action="<?php echo $helper->url("Distribuidores","index_dos"); ?>" method="post" enctype="multipart/form-data"  class="col-lg-12">
@@ -67,6 +69,13 @@
 						 </div>
 						
 						
+						
+					  		
+					  		
+					  		
+					  		
+					  		
+					  		
 						
 						<div class="row">
 						 <div style=" position: absolute;  margin-left: 5%; width:40%;">
