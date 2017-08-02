@@ -98,8 +98,7 @@
 								 	<div class="alert alert-danger" role="alert"><?php echo $resultSet; ?></div>
 								 <?php } else {?>			
 								    <div class="alert alert-success" role="alert"><?php echo $resultSet; ?></div>
-									<div class="alert alert-success" role="alert"><strong>Te redirecionaremos a la pagina de Login</strong></div>	
-					  			 <?php sleep(5); ?>
+								 <?php sleep(5); ?>
 				     
 				     			 <?php }?>
 							

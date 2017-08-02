@@ -77,7 +77,7 @@
             			   id_pais : $(this).val()
                    };
 
-                  $provincias.append("<option value= " +"0" +" > --SIN PROVINCIA--</option>");
+                  $provincias.append("<option value= " +"" +" > --SIN ESPECIFICAR--</option>");
             	           
                    
                   
@@ -161,6 +161,7 @@
 	
  
  		<script >
+
 		$(document).ready(function(){
 
 		    // cada vez que se cambia el valor del combo
@@ -175,6 +176,10 @@
 		    	var cclave_usuario = $("#cclave_usuario").val();	
 		    	var nombres_usuario = $("#nombres_usuario").val();
 		    	var apellidos_usuario = $("#apellidos_usuario").val();
+		    	var ocupaciones = $("#ocupaciones").val();
+		    	var paises = $("#paises").val();
+		    	var provincias = $("#provincias").val();
+		    	
 		    	var telefono_usuario = $("#telefono_usuario").val();
 		    	var celular_usuario = $("#celular_usuario").val();
 				
@@ -255,7 +260,20 @@
 		    		$("#mensaje_apellidos").fadeOut("slow"); //Muestra mensaje de error
 		            
 				}
-		    	
+
+
+		    	if (ocupaciones == "")
+		    	{
+			    	
+		    		$("#mensaje_ocupaciones").text("Seleccione");
+		    		$("#mensaje_ocupaciones").fadeIn("slow"); //Muestra mensaje de error
+		            return false;
+			    }
+		    	else 
+		    	{
+		    		$("#mensaje_ocupaciones").fadeOut("slow"); //Muestra mensaje de error
+		            
+				}
 				
 						    	
 				//la clave
@@ -299,7 +317,34 @@
 		    		$("#mensaje_cclave").fadeOut("slow"); 
 			        
 		    	}	
-				
+
+
+		    	if (paises == "")
+		    	{
+			    	
+		    		$("#mensaje_paises").text("Seleccione");
+		    		$("#mensaje_paises").fadeIn("slow"); //Muestra mensaje de error
+		            return false;
+			    }
+		    	else 
+		    	{
+		    		$("#mensaje_paises").fadeOut("slow"); //Muestra mensaje de error
+		            
+				}
+		    	if (provincias == "")
+		    	{
+			    	
+		    		$("#mensaje_provincias").text("Seleccione");
+		    		$("#mensaje_provincias").fadeIn("slow"); //Muestra mensaje de error
+		            return false;
+			    }
+		    	else 
+		    	{
+		    		$("#mensaje_provincias").fadeOut("slow"); //Muestra mensaje de error
+		            
+				}
+
+		    	
 
 				// la fecha
 
@@ -316,18 +361,7 @@
 
 
 				//los telefonos
-		    	if (telefono_usuario == "" || celular_usuario == "")
-		    	{
-			    	
-		    		$("#mensaje_celular").text("Al menos indique un telefono de Contacto");
-		    		$("#mensaje_celular").fadeIn("slow"); //Muestra mensaje de error
-		            return false;
-			    }
-		    	else 
-		    	{
-		    		$("#mensaje_celular").fadeOut("slow"); //Muestra mensaje de error
-		            
-				}
+		    	
 		    			    				    
 
 			}); 
@@ -347,20 +381,30 @@
 				$( "#apellidos_usuario" ).focus(function() {
 					$("#mensaje_apellidos").fadeOut("slow");
     			});
+				$( "#ocupaciones" ).focus(function() {
+					$("#mensaje_ocupaciones").fadeOut("slow");
+    			});
 				$( "#clave_usuario" ).focus(function() {
 					$("#mensaje_clave").fadeOut("slow");
     			});
 				$( "#cclave_usuario" ).focus(function() {
 					$("#mensaje_cclave").fadeOut("slow");
     			});
+				$( "#paises" ).focus(function() {
+					$("#mensaje_paises").fadeOut("slow");
+    			});
+				$( "#provincias" ).focus(function() {
+					$("#mensaje_provincias").fadeOut("slow");
+    			});
+
+				
 				$( "#fecha_nacimiento_usuario" ).focus(function() {
 					$("#mensaje_fecha_nacimiento").fadeOut("slow");
     			});
-		
+				
 		      
 				    
 		}); 
-
 	</script>
  		
  			
@@ -404,21 +448,23 @@
             <?php if ($resultEdit !="" ) { foreach($resultEdit as $resEdit) {?>
            
           
-        
+           
+           
   			<div class="row">
 		    <div class="col-xs-6 col-md-6">
 		    <div class="form-group ">
 		                          <label for="correo_usuario" class="control-label">Email:</label>
                                   <input type="email" class="form-control" id="correo_usuario" name="correo_usuario" value="<?php echo $resEdit->correo_usuario; ?>"  placeholder="Email">
-                                  <span class="help-block"></span>
+                                 <div id="mensaje_correo" class="errores"></div>
             </div>
+            
 		    </div>
 		    
 		    <div class="col-xs-6 col-md-6">
 		    <div class="form-group ">
 		                          <label for="ccorreo_usuario" class="control-label">Confirme Email:</label>
                                   <input type="email" class="form-control" id="ccorreo_usuario" name="ccorreo_usuario" value="<?php echo $resEdit->correo_usuario; ?>"  placeholder="Confirme Email">
-                                  <span class="help-block"></span>
+                                 <div id="mensaje_ccorreo" class="errores"></div>
             </div>
 		    </div>
 			</div>
@@ -430,7 +476,7 @@
 		    <div class="form-group ">
 		                          <label for="nombres_usuario" class="control-label">Nombres:</label>
                                   <input type="text" class="form-control" id="nombres_usuario" name="nombres_usuario" value="<?php echo $resEdit->nombres_usuario; ?>"  placeholder="Nombres">
-                                  <span class="help-block"></span>
+                                  <div id="mensaje_nombres" class="errores"></div>
             </div>
 		    </div>
 		    
@@ -438,7 +484,7 @@
 		    <div class="form-group ">
 		                          <label for="apellidos_usuario" class="control-label">Apellidos:</label>
                                   <input type="text" class="form-control" id="apellidos_usuario" name="apellidos_usuario" value="<?php echo $resEdit->apellidos_usuario; ?>"  placeholder="Apellidos">
-                                  <span class="help-block"></span>
+                                   <div id="mensaje_apellidos" class="errores"></div>
             </div>
 		    </div>
 			</div>
@@ -454,7 +500,7 @@
 										<option value="<?php echo $res->id_ocupaciones; ?>" <?php if ($res->id_ocupaciones == $resEdit->id_ocupaciones )  echo  ' selected="selected" '  ;  ?> ><?php echo $res->nombre_ocupaciones; ?> </option>
 							        <?php } ?>
 								   </select> 
-                                  <span class="help-block"></span>
+                                   <div id="mensaje_ocupaciones" class="errores"></div>
             </div>
             </div>
             
@@ -474,7 +520,7 @@
 		    <div class="form-group ">
 		                          <label for="clave_usuario" class="control-label">Clave Usuario:</label>
                                   <input type="password" class="form-control" id="clave_usuario" name="clave_usuario" value=""  placeholder="Clave">
-                                  <span class="help-block"></span>
+                                    <div id="mensaje_clave" class="errores"></div>
             </div>
 		    </div>
 		    
@@ -482,7 +528,7 @@
 		    <div class="form-group ">
 		                          <label for="cclave_usuario" class="control-label">Confirme Clave:</label>
                                   <input type="password" class="form-control" id="cclave_usuario" name="cclave_usuario" value=""  placeholder="Confirme Clave">
-                                  <span class="help-block"></span>
+                                  <div id="mensaje_cclave" class="errores"></div>
             </div>
 		    </div>
 			</div>
@@ -502,7 +548,7 @@
 										<option value="<?php echo $res->id_pais; ?>" <?php if ($res->id_pais == $resEdit->id_pais )  echo  ' selected="selected" '  ;  ?> ><?php echo $res->nombre_pais; ?> </option>
 							        <?php } ?>
 								   </select> 
-                                  <span class="help-block"></span>
+                                    <div id="mensaje_paises" class="errores"></div>
             </div>
             </div>
 			
@@ -510,9 +556,9 @@
 		    <div class="form-group">
                                   <label for="provincias" class="control-label">Provincia:</label>
                                   <select name="provincias" id="provincias"  class="form-control" >
-                                  <option value="0"> -- SIN ESPECIFICAR -- </option>
+                                  <option value=""> -- SIN ESPECIFICAR -- </option>
 								   </select> 
-                                  <span class="help-block"></span>
+                                  <div id="mensaje_provincias" class="errores"></div>
             </div>
             </div>
 			</div>
@@ -522,8 +568,8 @@
 		    <div class="col-xs-6 col-md-6">
 		    <div class="form-group ">
 		                          <label for="fecha_nacimiento_usuario" class="control-label">Fecha Nacimiento:</label>
-                                  <input type="date" class="form-control" id="fecha_nacimiento_usuario" name="fecha_nacimiento_usuario" value="<?php echo $resEdit->fecha_nacimiento_usuario; ?>"  placeholder="Fecha Nacimiento">
-                                  <span class="help-block"></span>
+                                  <input type="date" class="form-control" id="fecha_nacimiento_usuario" name="fecha_nacimiento_usuario" data-date-format="YYYY-MM-DD" value="<?php echo $resEdit->fecha_nacimiento_usuario; ?>"  placeholder="Fecha Nacimiento">
+                                   <div id="mensaje_fecha_nacimiento" class="errores"></div>
             </div>
 		    </div>
 		    
@@ -534,11 +580,9 @@
                                   <span class="help-block"></span>
             </div>
 		    </div>
-		    
-		    
 		    </div>
-          
-           <div class="row">
+           
+          <div class="row">
            <div class="col-xs-6 col-md-6">
 		    <div class="form-group ">
 		                          <label for="celular_usuario" class="control-label">Celular:</label>
@@ -556,23 +600,27 @@
 		    </div>
 		    </div>
         
+        
+        
          
            
              <?php } } else {?>
-            <div class="row">
+           <div class="row">
 		    <div class="col-xs-6 col-md-6">
 		    <div class="form-group ">
 		                          <label for="correo_usuario" class="control-label">Email:</label>
                                   <input type="email" class="form-control" id="correo_usuario" name="correo_usuario" value=""  placeholder="Email">
-                                  <span class="help-block"></span>
+                                  <div id="mensaje_correo" class="errores"></div>
             </div>
+            
+                                  
 		    </div>
 		    
 		    <div class="col-xs-6 col-md-6">
 		    <div class="form-group ">
 		                          <label for="ccorreo_usuario" class="control-label">Confirme Email:</label>
                                   <input type="email" class="form-control" id="ccorreo_usuario" name="ccorreo_usuario" value=""  placeholder="Confirme Email">
-                                  <span class="help-block"></span>
+                                  <div id="mensaje_ccorreo" class="errores"></div>
             </div>
 		    </div>
 			</div>
@@ -584,7 +632,7 @@
 		    <div class="form-group ">
 		                          <label for="nombres_usuario" class="control-label">Nombres:</label>
                                   <input type="text" class="form-control" id="nombres_usuario" name="nombres_usuario" value=""  placeholder="Nombres">
-                                  <span class="help-block"></span>
+                                  <div id="mensaje_nombres" class="errores"></div>
             </div>
 		    </div>
 		    
@@ -592,7 +640,7 @@
 		    <div class="form-group ">
 		                          <label for="apellidos_usuario" class="control-label">Apellidos:</label>
                                   <input type="text" class="form-control" id="apellidos_usuario" name="apellidos_usuario" value=""  placeholder="Apellidos">
-                                  <span class="help-block"></span>
+                                  <div id="mensaje_apellidos" class="errores"></div>
             </div>
 		    </div>
 			</div>
@@ -608,8 +656,9 @@
 										<option value="<?php echo $res->id_ocupaciones; ?>"  ><?php echo $res->nombre_ocupaciones; ?> </option>
 							        <?php } ?>
 								   </select> 
-                                  <span class="help-block"></span>
+                                  <div id="mensaje_ocupaciones" class="errores"></div>
             </div>
+            
             </div>
             
             <div class="col-xs-6 col-md-6" id="div_extra_ocupaciones_usuario" style="display: none;" >
@@ -628,7 +677,7 @@
 		    <div class="form-group ">
 		                          <label for="clave_usuario" class="control-label">Clave Usuario:</label>
                                   <input type="password" class="form-control" id="clave_usuario" name="clave_usuario" value=""  placeholder="Clave">
-                                  <span class="help-block"></span>
+                                <div id="mensaje_clave" class="errores"></div>
             </div>
 		    </div>
 		    
@@ -636,7 +685,7 @@
 		    <div class="form-group ">
 		                          <label for="cclave_usuario" class="control-label">Confirme Clave:</label>
                                   <input type="password" class="form-control" id="cclave_usuario" name="cclave_usuario" value=""  placeholder="Confirme Clave">
-                                  <span class="help-block"></span>
+                               <div id="mensaje_cclave" class="errores"></div>
             </div>
 		    </div>
 			</div>
@@ -656,18 +705,20 @@
 										<option value="<?php echo $res->id_pais; ?>" ><?php echo $res->nombre_pais; ?> </option>
 							        <?php } ?>
 								   </select> 
-                                  <span class="help-block"></span>
+                                  <div id="mensaje_paises" class="errores"></div>
             </div>
+            
             </div>
 			
 		    <div class="col-xs-6 col-md-6">
 		    <div class="form-group">
                                   <label for="provincias" class="control-label">Provincia:</label>
                                   <select name="provincias" id="provincias"  class="form-control" >
-                                  <option value="0"> -- SIN ESPECIFICAR -- </option>
+                                  <option value=""> -- SIN ESPECIFICAR -- </option>
 								   </select> 
-                                  <span class="help-block"></span>
+                             <div id="mensaje_provincias" class="errores"></div>
             </div>
+            
             </div>
 			</div>
 			
@@ -677,7 +728,7 @@
 		    <div class="form-group ">
 		                          <label for="fecha_nacimiento_usuario" class="control-label">Fecha Nacimiento:</label>
                                   <input type="date" class="form-control" id="fecha_nacimiento_usuario" name="fecha_nacimiento_usuario" value=""  placeholder="Fecha Nacimiento">
-                                  <span class="help-block"></span>
+                                  <div id="mensaje_fecha_nacimiento" class="errores"></div>
             </div>
 		    </div>
 		    
@@ -685,17 +736,19 @@
 		    <div class="form-group ">
 		                          <label for="telefono_usuario" class="control-label">Teléfono:</label>
                                   <input type="text" class="form-control" id="telefono_usuario" name="telefono_usuario" value=""  placeholder="Teléfono">
-                                  <span class="help-block"></span>
+                                 
             </div>
 		    </div>
-		     </div>
+		    
+		   
+		    </div>
            
           <div class="row">
            <div class="col-xs-6 col-md-6">
 		    <div class="form-group ">
 		                          <label for="celular_usuario" class="control-label">Celular:</label>
                                   <input type="text" class="form-control" id="celular_usuario" name="celular_usuario" value=""  placeholder="Celular">
-                                  <span class="help-block"></span>
+                                
             </div>
 		    </div>
            </div>
