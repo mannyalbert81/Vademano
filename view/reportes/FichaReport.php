@@ -227,7 +227,7 @@ $html =
   	
   '</div>'.
   
-
+  //$encabezado_dosificacion_fichas
   ///TABLA una COLUMNAS
   
   '<div style=" position: absolute;  margin-left: 0%; width:49%;">'.

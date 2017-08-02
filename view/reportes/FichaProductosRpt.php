@@ -7,9 +7,8 @@ include('view/mpdf60/mpdf.php');
 $template = file_get_contents('view/reportes/template/Ficha.html');
 
 //para la numeracion de pagina
-$footer = "<table width=\"100%\"><tr>
-		<td style='font-size: 10px; padding: 5px;' align=\"right\">{PAGENO}</td>
-        </tr></table>";
+$footer = file_get_contents('view/reportes/template/pieficha.html');
+
 
 //$template = str_replace('{detalle}', $detalle, $template);
 
@@ -21,9 +20,10 @@ if(!empty($dicContenido))
 		$template = str_replace('{'.$clave.'}', $valor, $template);
 	}
 }
-//var_dump($dicContenido);
 
-//die();
+
+// var_dump($template);
+// die();
 ob_end_clean();
 
 
@@ -34,7 +34,6 @@ $mpdf->charset_in = 'UTF-8';
 //$mpdf->SetHTMLHeader('<div><img src="bnf_logo.jpg" alt="" width="100px" height="40px"></div>');
 $mpdf->SetHTMLFooter($footer);
 $mpdf->WriteHTML($template);
-$mpdf->Image($file, $x, $y);
 $mpdf->debug = true;
  
 $mpdf->Output();

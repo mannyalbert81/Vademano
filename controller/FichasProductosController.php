@@ -868,36 +868,297 @@ public function index(){
    	
    	public function verFicha()
    	{
+
+   		//para url
+   		$urlimag=$_SERVER['SERVER_NAME'].':'.$_SERVER['SERVER_PORT'];
+   		//importacion de clases
+   		$fichas=new FichasModel();
+   		$fichas_composiciones = new FichasComposicionesModel();
    		
-   		//creacion del diccionario de datos
-   		$dicContenido = array(
-   				'COACTIVADOPRI'=>"",
-   				'GARANTEPRI'=>"",
-   				'CIUDAD'=>"",
-   				'FECHA'=>"",
-   				'HORA'=>"",
-   				'OPERACION'=>"",
-   				'NOMBRESEC'=>"",
-   				'CARGOSEC'=>"",
-   				'NOMBREABG'=>"",
-   				'CARGOABG'=>"",
-   				'NOMBRECIT'=>'',
-   				'CARGOCIT'=>'',
-   				'RAZON2'=>"",
-   				'COACTIVADOS'=>"",
-   				'GARANTES'=>"",
-   				'DIRIGIDOS'=>"",
-   				'NOTIFICADOR'=>""
-		
-   		);
    		
+   		$fichas_dosificacion = new FichasDosificacionModel();
+   		 
+   		$fichas_especies = new FichasEspeciesModel();
+   		$fichas_formas_administracion = new FichasFormasAdministracionModel();
+   		$fichas_distribuidores = new FichasDistribuidoresModel();
+   		$fichas_laboratorios = new FichasLaboratoriosModel();
+   		 
+   		
+   		$fichas_fotos = new FichasFotosModel();
+   		
+   		$distribuidores = new DistribuidoresModel();
+   		$laboratorios = new LaboratoriosModel();
+   		
+   		
+   		if(isset($_REQUEST['id_fichas'])&&isset($_REQUEST['nombre_fichas']))
+   		{
    			
+   			$id_fichas = $_REQUEST["id_fichas"];
+   			$nombre_fichas = $_REQUEST["nombre_fichas"];
    			
-   		//echo 'llego'; die();
-   		$this->verReporte('FichaProductos',array(
-   				'dicContenido'=>$dicContenido,
-   				));
+   			//para la ficha general
+   			$columnas = " fichas.id_fichas,fichas.nombre_fichas,  fichas.encabezado_tabla_fichas,
+  						fichas.accion_terapeutica_fichas,  fichas.clasificacion_farmacologica_fichas,
+					  fichas.forma_terapeutica_fichas,  fichas.indicaciones_uso_fichas,
+					  fichas.interacciones_fichas,  fichas.contraindicaciones_fichas,
+					  fichas.periodo_retiro_fichas,  fichas.advertencias_fichas,
+					  fichas.presentacion_fichas,  fichas.registro_sanitario_fichas,
+					  fichas.efectos_colaterales_fichas,  fichas.encabezado_dosificacion_fichas,
+					  fichas.mecanismo_accion_fichas,  fichas.interacciones_fichas,
+					  fichas.conservacion_fichas";
    			
+   			$tablas   = " public.fichas";
+   			$where    = " fichas.id_fichas = '$id_fichas' ";
+   			$id       = "fichas.id_fichas";
+   			
+   			$dtFichas = $fichas->getCondiciones($columnas, $tablas, $where, $id);
+   			
+   			//para la tabla especies
+   			$columnasEsp="e.nombre_especies,fd.dosis_fichas_dosificacion,fd.id_fichas,fd.id_especies";
+   			
+   			$tablasEsp =" public.fichas_dosificacion fd 
+   					INNER JOIN public.especies e
+   					ON fd.id_especies = e.id_especies";
+   			 
+   			$whereEsp="fd.id_fichas = '$id_fichas'";
+   			
+   			$idEsp="e.nombre_especies";
+   			
+   			//para la tabla Administracion
+   			$columnasAdm =  "fia.id_fichas_formas_administracion,
+   					fa.nombre_formas_administracion";
+   			$tablasAdm = "public.fichas_formas_administracion fia INNER JOIN public.formas_administracion fa
+   					ON fia.id_formas_administracion = fa.id_formas_administracion";
+   			$whereAdm  = "fia.id_fichas = '$id_fichas'";
+   			$id_adm     = "fa.nombre_formas_administracion";
+   			
+   			//para la tabla fabricado por
+   			$columnasLab = "fichas_laboratorios.id_laboratorios,
+					  laboratorios.nombre_laboratorios,
+					  	 laboratorios.telefono_persona_contacto_laboratorios,
+  							 laboratorios.email_laboratorios,
+  							 laboratorios.web_laboratorios";
+   			$tablasLab   = "public.laboratorios, public.fichas_laboratorios";
+   			$whereLab    = "fichas_laboratorios.id_laboratorios = laboratorios.id_laboratorios
+   			AND fichas_laboratorios.id_fichas = '$id_fichas'	";
+   			
+   			$idlab = "laboratorios.nombre_laboratorios";
+   			
+   			//para la tabla composicion   			
+   			$columnasComp = "co.nombre_composiciones,
+  							fc.cantidad_fichas_composiciones, um.nombre_unidades_medida";
+   			$tablasComp   = "public.fichas_composiciones fc
+				INNER JOIN public.composiciones co
+				ON co.id_composiciones = fc.id_composiciones
+				INNER JOIN public.unidades_medida um
+			    ON  fc.id_unidades_medida = um.id_unidades_medida";
+   			
+   			$whereComp    = "fc.id_fichas = '$id_fichas'";
+   			
+   			$idComp	  = "co.nombre_composiciones";
+   			
+   			//para la tablas distribuido por
+   			$columnas_dis = "fichas_distribuidores.id_distribuidores,
+					  distribuidores.nombre_distribuidores,
+					  	 distribuidores.telefono_persona_contacto_distribuidores,
+  							 distribuidores.email_distribuidores,
+  							 distribuidores.web_distribuidores";
+   			$tablas_dis   = "public.distribuidores,
+  							 public.fichas_distribuidores";
+   			$where_dis    = "fichas_distribuidores.id_distribuidores = distribuidores.id_distribuidores
+   			AND fichas_distribuidores.id_fichas = '$id_fichas'	";
+   			$id_dis = "distribuidores.nombre_distribuidores";
+   			
+   			  			
+   			//parametros para el diccionario
+   			$aficha = array();
+   			if(!empty($dtFichas))
+   			{
+   				$aficha['nombre']=$dtFichas[0]->nombre_fichas;
+   				$aficha['id']=$dtFichas[0]->id_fichas;
+   				$aficha['clasiFarma']=$dtFichas[0]->clasificacion_farmacologica_fichas;
+   				$aficha['formaTerapeutica']=$dtFichas[0]->forma_terapeutica_fichas;
+   				$aficha['accion']=$dtFichas[0]->accion_terapeutica_fichas;
+   				$aficha['mecanismo']=$dtFichas[0]->mecanismo_accion_fichas;
+   				$aficha['indicaciones']=$dtFichas[0]->indicaciones_uso_fichas;
+   				$aficha['periodo']=$dtFichas[0]->periodo_retiro_fichas;
+   				$aficha['advertencias']=$dtFichas[0]->advertencias_fichas;
+   				$aficha['interaccion']=$dtFichas[0]->interacciones_fichas;
+   				$aficha['contraindicaciones']=$dtFichas[0]->contraindicaciones_fichas;
+   				$aficha['efectos']=$dtFichas[0]->efectos_colaterales_fichas;
+   				$aficha['conservacion']=$dtFichas[0]->conservacion_fichas;
+   				$aficha['presentacion']=$dtFichas[0]->presentacion_fichas;
+   				$aficha['registro']=$dtFichas[0]->registro_sanitario_fichas;
+   				$aficha['dosificacion']=$dtFichas[0]->encabezado_dosificacion_fichas;
+   				$aficha['encabezado']=$dtFichas[0]->encabezado_tabla_fichas;
+   			}
+   			
+   			$dtFichasEspecies=$fichas_especies->getCondiciones($columnasEsp, $tablasEsp, $whereEsp, $idEsp);
+   			
+   			$tablaEspcies="<table>";
+   			if(!empty($dtFichasEspecies))
+   			{
+   				$tablaEspcies.="<tr >";
+   				$tablaEspcies.="<th>";
+   				$tablaEspcies.="Especie";
+   				$tablaEspcies.="</th>";
+   				$tablaEspcies.="<th>";
+   				$tablaEspcies.="Dosis";
+   				$tablaEspcies.="</th>";
+   				$tablaEspcies.="</tr>";
+   				
+   				foreach($dtFichasEspecies as $res)
+   				{
+   					$tablaEspcies.="<tr style='text-align: center;'>";
+   					$tablaEspcies.="<td>";
+   					$tablaEspcies.=$res->nombre_especies;
+   					$tablaEspcies.="</td>";
+   					$tablaEspcies.="<td>";
+   					$tablaEspcies.=$res->dosis_fichas_dosificacion;
+   					$tablaEspcies.="</td>";
+   					$tablaEspcies.="<td>";
+   					//$tablaEspcies.='<img src="'.$urlimag.'/Vademano/view/DevuelveImagen.php?id_valor='.$res->id_especies.'&id_nombre=id_especies&tabla=especies&campo=logo_especies"  width="40" height="40" />';
+   					$tablaEspcies.='<img src="view/DevuelveImagen.php?id_valor='.$res->id_especies.'&id_nombre=id_especies&tabla=especies&campo=logo_especies"  width="40" height="40" />';
+   					$tablaEspcies.="</td>";
+   					$tablaEspcies.="</tr>";
+   			
+   				}
+   			}
+   			$tablaEspcies.="</table>";
+   			
+   			$dtAdministracion=$fichas_formas_administracion->getCondiciones($columnasAdm, $tablasAdm, $whereAdm, $id_adm);
+   			
+//    			var_dump($dtAdministracion);
+//    			die();
+   			
+   			$tablaAdministracion="<table>";
+   			if(!empty($dtAdministracion))
+   			{
+   				$tablaAdministracion.="<tr><th>";
+   				$tablaAdministracion.="Forma de Administracion";
+   				$tablaAdministracion.="</th><th></tr>";
+   				
+	   			foreach($dtAdministracion as $res)
+	   			{
+	   				$tablaAdministracion.= "<tr style='text-align: center;'>";
+	   				$tablaAdministracion.="<td>";
+	   				$tablaAdministracion.=$res->nombre_formas_administracion;
+	   				$tablaAdministracion.="</td>";
+	   				$tablaAdministracion.="</tr>";
+	   			}
+   			}
+   			$tablaAdministracion.="</table>";
+   			
+   			//para la seccion fabricado por 
+   			
+   			$dtLaboratorio=$fichas_laboratorios->getCondiciones($columnasLab, $tablasLab, $whereLab, $idlab);
+   			$tablaLab="";
+   			if(!empty($dtLaboratorio))
+   			{
+   				$tablaLab.="<div style='margin-top:10px; background-color:#999E9A; color:#FFFFFF; font-family: sans-serif; font-size:75%; width:100%;'>";
+   				//$tablaLab.="<div style=\"margin-top:10px; background-color:#999E9A; color:#FFFFFF; font-family: sans-serif; font-size:75%; width:100%;\">";
+   				$tablaLab.="<strong>FABRICADO POR:</strong>";
+   				$tablaLab.="</div>";
+   				
+   				foreach($dtLaboratorio as $res)
+   				{
+   					$tablaLab.="<div style=\"color:#010a01; font-family: sans-serif; font-size:55%; width:100%;\">";
+   					$tablaLab.='<img src="view/DevuelveImagen.php?id_valor='.$res->id_laboratorios.'&id_nombre=id_laboratorios&tabla=laboratorios&campo=logo_laboratorios" width="120" height="80" />';
+   					$tablaLab.="</div>";
+   					 
+   				}
+   				
+   			}
+   			
+   			//para la seccion distribuido por
+   			
+   			$dtDistribuido = $fichas_distribuidores->getCondiciones($columnas_dis, $tablas_dis, $where_dis, $id_dis);
+   			$tablaDis="";
+   			if(!empty($dtDistribuido))
+   			{
+   				$tablaDis="<div style='margin-top:10px; background-color:#999E9A; color:#FFFFFF; font-family: sans-serif; font-size:75%; width:100%;'>";
+   				$tablaDis.="<strong>DISTIBUIDO POR:</strong>";
+   				$tablaDis.="</div>";
+   				
+   				foreach($dtDistribuido as $res)
+   				{
+   					$tablaDis.="<div style=\"color:#010a01; font-family: sans-serif; font-size:55%; width:100%;\">";
+   					$tablaDis.='<img src="view/DevuelveImagen.php?id_valor='.$res->id_distribuidores.'&id_nombre=id_distribuidores&tabla=distribuidores&campo=logo_distribuidores" width="120" height="80" />';
+   					$tablaDis.="</div>";
+   				}
+   					
+   			}
+   			
+
+   			
+   			//para la seccion de composicion
+   			
+   			$dtComposicion = $fichas_composiciones->getCondiciones($columnasComp, $tablasComp, $whereComp, $idComp);
+   			$tablaComp = "<table>";
+   			
+   			if (!empty($dtComposicion))
+   			{
+   				$tablaComp.= "<tr >";
+   				$tablaComp.="<th>";
+   				$tablaComp.= "Principio Activo";
+   				$tablaComp.="</th>";
+   				$tablaComp.="<th>";
+   				$tablaComp.="Contenido";
+   				$tablaComp.="</th>";
+   				$tablaComp.="</tr>";
+   				
+   				foreach($dtComposicion as $res)
+   				{
+   					$tablaComp.="<tr style='text-align: center;'>";
+   					$tablaComp.="<td>";
+   					$tablaComp.=$res->nombre_composiciones;;
+   					$tablaComp.="</td>";
+   					$tablaComp.="<td>";
+   					$tablaComp.=$res->cantidad_fichas_composiciones;
+   					$tablaComp.="</td>";
+   					$tablaComp.="</tr>";
+   				}
+   				
+   			}
+   			$tablaComp.="</table>";
+   			
+   			//die();
+   			
+   			//creacion del diccionario de datos
+   			$dicContenido = array(
+   					'TITULOPAG'=>"Vademano 2015",
+   					'NOMBREFICHA'=>$aficha['nombre'],
+   					'IDFICHA'=>$aficha['id'],
+   					'CLASIFICACION'=>$aficha['clasiFarma'],
+   					'FORMA'=>$aficha['formaTerapeutica'],
+   					'ACCIONTERAPEUTICA'=>$aficha['accion'],
+   					'MECANISMOACCION'=>$aficha['mecanismo'],
+   					'INDICACIONES'=>$aficha['indicaciones'],
+   					'DOSIFICACION'=>$aficha['dosificacion'],
+   					'PERIODORETIRO'=>$aficha['periodo'],
+   					'ADVERTENCIAS'=>$aficha['advertencias'],
+   					'INTERACIONES'=>$aficha['interaccion'],
+   					'CONTRAINDICACIONES'=>$aficha['contraindicaciones'],
+   					'EFECTOS'=>$aficha['efectos'],
+   					'CONSERVACION'=>$aficha['conservacion'],
+   					'PRESENTACION'=>$aficha['presentacion'],
+   					'REGISTO'=>$aficha['registro'],
+   					'ENCABEZADO'=>$aficha['encabezado'],
+   					'TABLAESPECIES'=>$tablaEspcies,
+   					'TABLAADMINISTRACION'=>$tablaAdministracion, 
+   					'TABLACOMP'=>$tablaComp,
+   					'FABRICADOPOR'=>$tablaLab,
+   					'DISTIBUIDOPOR'=>$tablaDis
+   			
+   			);
+   			
+   			$this->verReporte('FichaProductos',array(
+   					'dicContenido'=>$dicContenido
+   			));
+   			
+   		}
+   		
+   		
    	}
    	
 }
