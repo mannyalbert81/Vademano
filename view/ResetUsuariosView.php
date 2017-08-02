@@ -8,8 +8,15 @@
       <head>
         <meta charset="utf-8"/>
         <title>Login - Vademano 2015</title>
-   <link rel="stylesheet" href="view/css/bootstrap.css">
-   		 	
+   
+   			<link rel="stylesheet" href="view/css/bootstrap.css">
+    
+  <script src="view/js/jquery.js"></script>
+  <script src="view/js/bootstrap.min.js"></script>
+  <script src="view/js/bootstrapValidator.min.js"></script>
+  <script src="view/js/noty.js"></script>
+  <script src="view/js/ValidarReset.js"></script>
+	 	
         <style>
             input{
                 margin-top:5px;
@@ -58,7 +65,7 @@
 	
       <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
        
-      <form id="form" action="<?php echo $helper->url("Usuarios","Reset"); ?>" method="post" class="col-lg-5">
+      <form id="form-reset" action="<?php echo $helper->url("Usuarios","Reset"); ?>" method="post" class="col-lg-5">
             <div class="col-lg-12 division"; style="-webkit-box-shadow: 0px 2px 2px 2px rgba(0,0,0,0.69); border-radius: 24px 24px 24px 24px; margin-top: 20px;" >
   
            
@@ -75,7 +82,7 @@
                      
                               <div class="form-group">
                                   <label for="reestablecer_usuario" class="control-label">Usuario</label>
-                                  <input type="text" class="form-control" id="reestablecer_usuario" name="reestablecer_usuario" value=""  placeholder="Usuario o Email">
+                                  <input type="email" class="form-control" id="reestablecer_usuario" name="reestablecer_usuario" value=""  placeholder="Usuario o Email">
                                   <span class="help-block"></span>
                               </div>
                             

@@ -8,35 +8,16 @@
 <head>
 	<meta charset="utf-8">
 	<title>Login Pasantias</title>
-	<link rel="stylesheet" href="view/css/bootstrap.css">
+		<link rel="stylesheet" href="view/css/bootstrap.css">
     
   <script src="view/js/jquery.js"></script>
+  <script src="view/js/bootstrap.min.js"></script>
   <script src="view/js/bootstrapValidator.min.js"></script>
   <script src="view/js/noty.js"></script>
   <script src="view/js/ValidarLogin.js"></script>
 	
 	
-	<script>
-   function verificar(){
-	   usuario = $('#usuario_usuario').val();
-       pass = $('#clave_usuario').val();
-
-       //Comparamos si el usuario y la contraseña son correctos
-       if(usuario == "" || pass == ""){
-       	 nota("error","Los Datos Son Incorrectos.");
-       }
-
-        else{
-          
-        	
-       }
-       function nota(op,msg,time){
-   	    if(time == undefined)time = 1000;
-   	    var n = noty({text:msg,maxVisible: 1,type:op,killer:true,timeout:time,layout: 'inline'});
-   	  }
-        }
-   	
-	</script>
+	
   
 		<script>
     var imagenes=new Array(
@@ -116,7 +97,7 @@
 						    </div>
 						     <div class="col-xs-6 col-md-6 col-lg-6" style="text-align: center;">
 						      <div class="form-group">
-				                                 <button type="submit" class="btn btn-success btn-block" onclick="verificar()" >Login</button>
+				                                 <button type="submit" class="btn btn-success btn-block">Login</button>
 				          
 				            </div>
 						    </div>
