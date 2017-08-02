@@ -178,33 +178,33 @@
 	          <div class="col-xs-4 col-md-4 col-lg-4"  >	
 	          	<button type="submit" id="btn_buscar" name="btn_buscar" class="btn btn-primary"><span class="glyphicon glyphicon-search	" ><?php echo "" ;?> </span></button>
 	          </div>
-            
           
         </div>
-       
+       </form>
       
        
-         
+        
+        <section class="col-lg-12" >  
         <table class="table table-hover">
 	         <tr class="info">
-	    		<th style="text-align: left;  font-size: 12px;">Id</th>
-	    		<th style="text-align: left;  font-size: 12px;">Usuario</th>
-	    		<th style="text-align: left;  font-size: 12px;">Nombres</th>
-	    		<th style="text-align: left;  font-size: 12px;">Apellidos</th>
-	    		<th style="text-align: left;  font-size: 12px;">Fecha Nacimineto</th>
-	    		<th style="text-align: left;  font-size: 12px;">Pais</th>
-	    		<th style="text-align: left;  font-size: 12px;">Provincia</th>
-	    		<th style="text-align: left;  font-size: 12px;">Telefono</th>
-	    		<th style="text-align: left;  font-size: 12px;">Celular</th>
-	    		<th style="text-align: left;  font-size: 12px;">Correo</th>
-	    		<th style="text-align: left;  font-size: 12px;">Rol</th>
-	    		<th style="text-align: left;  font-size: 12px;">Estado</th>
-	    		<th style="text-align: left;  font-size: 12px;">Ocupacion</th>
-	    		<th style="text-align: left;  font-size: 12px;">Especificacion Ocupacion</th>
-	    		<th style="text-align: left;  font-size: 12px;">Creado</th>
-	    		<th style="text-align: left;  font-size: 12px;">Modificado</th>
-	    		<th style="text-align: left;  font-size: 12px;"></th>
-	    		<th style="text-align: left;  font-size: 12px;"></th>
+	    		<th style="text-align: left;  font-size: 11px;">Id</th>
+	    		<th style="text-align: left;  font-size: 11px;">Usuario</th>
+	    		<th style="text-align: left;  font-size: 11px;">Nombres</th>
+	    		<th style="text-align: left;  font-size: 11px;">Apellidos</th>
+	    		<th style="text-align: left;  font-size: 11px;">Fecha Nacimineto</th>
+	    		<th style="text-align: left;  font-size: 11px;">Pais</th>
+	    		<th style="text-align: left;  font-size: 11px;">Provincia</th>
+	    		<th style="text-align: left;  font-size: 11px;">Telefono</th>
+	    		<th style="text-align: left;  font-size: 11px;">Celular</th>
+	    		<th style="text-align: left;  font-size: 11px;">Correo</th>
+	    		<th style="text-align: left;  font-size: 11px;">Rol</th>
+	    		<th style="text-align: left;  font-size: 11px;">Estado</th>
+	    		<th style="text-align: left;  font-size: 11px;">Ocupacion</th>
+	    		<th style="text-align: left;  font-size: 11px;">Especificacion Ocupacion</th>
+	    		<th style="text-align: left;  font-size: 11px;">Creado</th>
+	    		<th style="text-align: left;  font-size: 11px;">Modificado</th>
+	    		<th style="text-align: left;  font-size: 11px;"></th>
+	    		<th style="text-align: left;  font-size: 11px;"></th>
 	    		
 	  		</tr>
                 
@@ -251,7 +251,7 @@
             ?>
             
        	</table>     
-       	 </form>
+       	 
        <div> 
    		 <?php include("view/modulos/servicios.php"); ?>	
    		  </div>

@@ -427,7 +427,9 @@ public function index(){
 
 	public function Home()
 	{
+		
 		session_start();
+		session_destroy();
 		$resultado = "";
 	
 		$fichas = new FichasModel();
@@ -439,6 +441,8 @@ public function index(){
 				"resultado"=>$resultado, "resultVis"=>$resultVis
 	
 		));
+		
+		
 	
 	
 	}
@@ -576,7 +580,7 @@ public function index(){
 	{
 		session_start();
 		session_destroy();
-		$this->redirect("Usuarios", "Loguear");
+		$this->redirect("Usuarios", "Home");
 		
 	}
 	
