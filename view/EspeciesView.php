@@ -106,8 +106,8 @@
      <?php include("view/modulos/menuadmin.php"); ?>
      </div>
        
-  		 <form action="<?php echo $helper->url("Especies","Inserta"); ?>" method="post" enctype="multipart/form-data"  class="col-lg-5">
-        	 <div class="col-lg-12 division"; style="-webkit-box-shadow: 0px 2px 2px 2px rgba(0,0,0,0.69); border-radius: 24px 24px 24px 24px; margin-top: 20px; "   >
+  		 <form action="<?php echo $helper->url("Especies","Inserta"); ?>" method="post" enctype="multipart/form-data"  class="col-lg-12">
+        	 <div class="col-lg-5 division"; style="-webkit-box-shadow: 0px 2px 2px 2px rgba(0,0,0,0.69); border-radius: 24px 24px 24px 24px; margin-top: 20px; "   >
        
         	    <h4>Insertar Especies</h4>
             	<hr/>
@@ -201,17 +201,16 @@
 		  
 		  <br> <br><br>     
           </div>
-          
-          </form>
        
        
-        <div class="col-lg-7">
-            <h4>Especies</h4>
-            <hr/>
-        </div>
+       
         
-       <form action="" method="get" >
-        <section class="col-lg-7 usuario">
+       
+        <div class="col-lg-7 division"; style="-webkit-box-shadow: 0px 2px 2px 2px rgba(0,0,0,0.69); border-radius: 24px 24px 24px 24px; margin-top: 20px; "   >
+         <h4>Especies</h4>
+            <hr/>
+      
+        <section class="col-lg-12 usuario">
         <table class="table table-hover">
 	         <tr class="info">
 	    		<th style="text-align: left;  font-size: 14px;">Id</th>
@@ -252,7 +251,9 @@
             
        	</table>     
       </section>
+      </div>
        </form>
+       
         	<div class="col-lg-12">
   					
    		     <?php include("view/modulos/servicios.php"); ?>	
