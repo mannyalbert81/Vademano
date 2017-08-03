@@ -128,31 +128,40 @@
      <?php include("view/modulos/menuadmin.php"); ?>
      </div>
        
-  	    <div class="col-lg-6">
+  	    
              <form action="<?php echo $helper->url("FichasProductos","index_dos"); ?>" method="post"   class="col-lg-6">
-            
+             
+             <div class="panel panel-info">
+            <div class="panel-heading">
+	         <h4><i class='glyphicon glyphicon-plus'></i> Nueva Ficha de Productos</h4>
+	         </div>
+	         <div class="panel-body">
               
 			  <div class="col-xs-8 col-md-8"  >
 				  <input type="text" id="nombre_fichas" name="nombre_fichas" value=""  placeholder="Nombre de Producto" class="form-control"/>
 				  <div id="mensaje_nombre" class="errores"></div>
 			 </div>	
-              <div class="col-xs-2 col-md-2"  >
+              <div class="col-xs-2 col-md-2"   style="margin-top: 7px;">
 				  	
 				  	<button type="submit" id="btn_agregar_fichas" name="btn_agregar_fichas"  class="btn btn-primary"><span class="glyphicon glyphicon-plus	" ><?php echo "" ;?> </span></button>
-			 </div>
+			 </div></div></div>
              </form>
-            <hr/>
-        </div>
+           
        
          <form action="<?php echo $helper->url("FichasProductos","index"); ?>" method="post">
            
         <div class="col-lg-6">
+        <div class="panel panel-info">
+         <div class="panel-heading">
+	         <h4><i class='glyphicon glyphicon-search'></i> Buscar Ficha de Productos</h4>
+	         </div>
+	         <div class="panel-body"> 
 	          <div class="col-xs-4 col-md-4"  >
 	          	<input type="search" class="form-control" name="contenido_busqueda" id="contenido_busqueda" placeholder="texto a buscar">
 	          	<div id="mensaje_contenido_busqueda" class="errores"></div>
 	          </div>
 	          
-	       <div class="col-lg-4">
+	       <div class="col-lg-4" style="margin-top: 4px;">
            <select name="criterio_busqueda" id="criterio_busqueda"  class="form-control">
                                     <?php foreach($resultMenu as $val=>$desc) {?>
                                          <option value="<?php echo $val ?>" <?php //if ($resRol->id_rol == $resEdit->id_rol )  echo  ' selected="selected" '  ;  ?> ><?php echo $desc ?> </option>
@@ -162,11 +171,10 @@
            <div id="mensaje_criterio_busqueda" class="errores"></div>
            </div>	
 	         				   		
-	          <div class="col-xs-4 col-md-4"  >	
+	          <div class="col-xs-4 col-md-4"  style="margin-top: 6px;">	
 	          	<button type="submit" id="btn_buscar" name="btn_buscar" class="btn btn-primary"><span class="glyphicon glyphicon-search	" ><?php echo "" ;?> </span></button>
 	          </div>
-            
-            <hr/>
+            </div></div>
         </div>
         </form>
        <form action=""  >

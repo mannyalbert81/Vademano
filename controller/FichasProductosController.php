@@ -46,7 +46,7 @@ public function index(){
 	   		
 	   		
 	   	$criterio = $_POST["criterio_busqueda"];
-	   	$contenido = $_POST["contenido_busqueda"];
+	   	$contenido = strtoupper ($_POST["contenido_busqueda"]);
 	   		
 	   		
 	   		
