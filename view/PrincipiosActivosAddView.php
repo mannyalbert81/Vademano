@@ -145,16 +145,16 @@
 			<div class="col-xs-6 col-md-6">
 		    <div class="form-group ">
 		                          <label for="subcategoria_farmacologica_composiciones" class="control-label">Subcategoria Farmacológica:</label>
-                                  <input type="text" class="form-control" id="subcategoria_farmacologica_composiciones" name="subcategoria_farmacologica_composiciones" value="<?php echo $resEdit->subcategoria_farmacologica_composiciones; ?>"  placeholder="Subcategoria Farmacológica">
-                                  
+                                  <textarea type="text"  class="form-control" id="subcategoria_farmacologica_composiciones" name="subcategoria_farmacologica_composiciones" value=""  placeholder="Subcategoria Farmacológica"><?php echo $resEdit->subcategoria_farmacologica_composiciones; ?></textarea>
+                                 
             </div>
 		    </div>  
 				  
 		    <div class="col-xs-6 col-md-6">
 		    <div class="form-group ">
 		                          <label for="indicaciones_uso_composiciones" class="control-label">Indicaciones de Uso:</label>
-                                  <input type="text" class="form-control" id="indicaciones_uso_composiciones" name="indicaciones_uso_composiciones" value="<?php echo $resEdit->indicaciones_uso_composiciones; ?>"  placeholder="Indicaciones de Uso">
-                                  
+                                  <textarea type="text"  class="form-control" id="indicaciones_uso_composiciones" name="indicaciones_uso_composiciones" value=""  placeholder="Indicaciones de Uso"><?php echo $resEdit->indicaciones_uso_composiciones; ?></textarea>
+                                 
             </div>
 		    </div>   
 			</div>
@@ -164,16 +164,16 @@
 			<div class="col-xs-6 col-md-6">
 		    <div class="form-group ">
 		                          <label for="forma_administracion_composiciones" class="control-label">Forma de Administración:</label>
-                                  <input type="text" class="form-control" id="forma_administracion_composiciones" name="forma_administracion_composiciones" value="<?php echo $resEdit->forma_administracion_composiciones; ?>"  placeholder="Forma de Administración">
-                                  
+                                  <textarea type="text"  class="form-control" id="forma_administracion_composiciones" name="forma_administracion_composiciones" value=""  placeholder="Forma de Administración"><?php echo $resEdit->forma_administracion_composiciones; ?></textarea>
+                                 
             </div>
 		    </div>  
 				  
 		    <div class="col-xs-6 col-md-6">
 		    <div class="form-group ">
 		                          <label for="efectos_secundarios_composiciones" class="control-label">Efectos Secundarios:</label>
-                                  <input type="text" class="form-control" id="efectos_secundarios_composiciones" name="efectos_secundarios_composiciones" value="<?php echo $resEdit->efectos_secundarios_composiciones; ?>"  placeholder="Efectos Secundarios">
-                                  
+                                  <textarea type="text"  class="form-control" id="efectos_secundarios_composiciones" name="efectos_secundarios_composiciones" value=""  placeholder="Efectos Secundarios"><?php echo $resEdit->efectos_secundarios_composiciones; ?></textarea>
+                                 
             </div>
 		    </div>   
 			</div>
@@ -182,16 +182,16 @@
 			<div class="col-xs-6 col-md-6">
 		    <div class="form-group ">
 		                          <label for="mecanismo_accion_composiciones" class="control-label">Mecanismo de Acción:</label>
-                                  <input type="text" class="form-control" id="mecanismo_accion_composiciones" name="mecanismo_accion_composiciones" value="<?php echo $resEdit->mecanismo_accion_composiciones; ?>"  placeholder="Mecanismo de Acción">
-                                  
+                                  <textarea type="text"  class="form-control" id="mecanismo_accion_composiciones" name="mecanismo_accion_composiciones" value=""  placeholder="Mecanismo de Acción"><?php echo $resEdit->mecanismo_accion_composiciones; ?></textarea>
+                                 
             </div>
 		    </div>  
 				  
 		    <div class="col-xs-6 col-md-6">
 		    <div class="form-group ">
 		                          <label for="precausiones_composiociones" class="control-label">Precauciones:</label>
-                                  <input type="text" class="form-control" id="precausiones_composiociones" name="precausiones_composiociones" value="<?php echo $resEdit->precausiones_composiociones; ?>"  placeholder="Precauciones">
-                                  
+                                  <textarea type="text"  class="form-control" id="precausiones_composiociones" name="precausiones_composiociones" value=""  placeholder="Precauciones"><?php echo $resEdit->precausiones_composiociones; ?></textarea>
+                                 
             </div>
 		    </div>   
 			</div>
@@ -201,16 +201,16 @@
 			<div class="col-xs-6 col-md-6">
 		    <div class="form-group ">
 		                          <label for="interacciones_composiciones" class="control-label">Interacciones:</label>
-                                  <input type="text" class="form-control" id="interacciones_composiciones" name="interacciones_composiciones" value="<?php echo $resEdit->interacciones_composiciones; ?>"  placeholder="Interacciones">
-                                  
+                                  <textarea type="text"  class="form-control" id="interacciones_composiciones" name="interacciones_composiciones" value=""  placeholder="Interacciones"><?php echo $resEdit->interacciones_composiciones; ?></textarea>
+                                 
             </div>
 		    </div>  
 				  
 		    <div class="col-xs-6 col-md-6">
 		    <div class="form-group ">
 		                          <label for="contraindicaciones_composiciones" class="control-label">Contraindicaciones:</label>
-                                  <input type="text" class="form-control" id="contraindicaciones_composiciones" name="contraindicaciones_composiciones" value="<?php echo $resEdit->contraindicaciones_composiciones; ?>"  placeholder="Contraindicaciones">
-                                  
+                                  <textarea type="text"  class="form-control" id="contraindicaciones_composiciones" name="contraindicaciones_composiciones" value=""  placeholder="Contraindicaciones"><?php echo $resEdit->contraindicaciones_composiciones; ?></textarea>
+                                 
             </div>
 		    </div>   
 			</div>
@@ -222,8 +222,8 @@
 			<div class="col-xs-6 col-md-6">
 		    <div class="form-group ">
 		                          <label for="periodo_retirio_composiciones" class="control-label">Periodo de Retiro:</label>
-                                  <input type="text" class="form-control" id="periodo_retirio_composiciones" name="periodo_retirio_composiciones" value="<?php echo $resEdit->periodo_retirio_composiciones; ?>"  placeholder="Periodo de Retiro">
-                                  
+                                  <textarea type="text"  class="form-control" id="periodo_retirio_composiciones" name="periodo_retirio_composiciones" value=""  placeholder="Periodo de Retiro"><?php echo $resEdit->periodo_retirio_composiciones; ?></textarea>
+                                 
             </div>
 		    </div> 
 		    </div>
@@ -247,7 +247,7 @@
 	         	   
        	     <?php } } else {?>
 
-
+ 			
 
 			<div class="row">
 		    <div class="col-xs-6 col-md-6">
@@ -262,8 +262,8 @@
 		    <div class="col-xs-6 col-md-6">
 		    <div class="form-group ">
 		                          <label for="categoria_farmacologica_composicion" class="control-label">Categoria Farmacológica:</label>
-                                  <input type="text" class="form-control" id="categoria_farmacologica_composicion" name="categoria_farmacologica_composicion" value=""  placeholder="Categoria Farmacológica">
-                                  
+                                  <input type="text" class="form-control" id="categoria_farmacologica_composicion" name="categoria_farmacologica_composicion" value=""  placeholder="Categoria Farmacológica"/>
+                                
             </div>
 		    </div>
 			</div>
@@ -274,16 +274,16 @@
 			<div class="col-xs-6 col-md-6">
 		    <div class="form-group ">
 		                          <label for="subcategoria_farmacologica_composiciones" class="control-label">Subcategoria Farmacológica:</label>
-                                  <input type="text" class="form-control" id="subcategoria_farmacologica_composiciones" name="subcategoria_farmacologica_composiciones" value=""  placeholder="Subcategoria Farmacológica">
-                                  
+                                  <textarea type="text"  class="form-control" id="subcategoria_farmacologica_composiciones" name="subcategoria_farmacologica_composiciones" value=""  placeholder="Subcategoria Farmacológica"></textarea>
+                                 
             </div>
 		    </div>  
 				  
 		    <div class="col-xs-6 col-md-6">
 		    <div class="form-group ">
 		                          <label for="indicaciones_uso_composiciones" class="control-label">Indicaciones de Uso:</label>
-                                  <input type="text" class="form-control" id="indicaciones_uso_composiciones" name="indicaciones_uso_composiciones" value=""  placeholder="Indicaciones de Uso">
-                                  
+                                  <textarea type="text"  class="form-control" id="indicaciones_uso_composiciones" name="indicaciones_uso_composiciones" value=""  placeholder="Indicaciones de Uso"></textarea>
+                                 
             </div>
 		    </div>   
 			</div>
@@ -293,16 +293,16 @@
 			<div class="col-xs-6 col-md-6">
 		    <div class="form-group ">
 		                          <label for="forma_administracion_composiciones" class="control-label">Forma de Administración:</label>
-                                  <input type="text" class="form-control" id="forma_administracion_composiciones" name="forma_administracion_composiciones" value=""  placeholder="Forma de Administración">
-                                  
+                                  <textarea type="text"  class="form-control" id="forma_administracion_composiciones" name="forma_administracion_composiciones" value=""  placeholder="Forma de Administración"></textarea>
+                                 
             </div>
 		    </div>  
 				  
 		    <div class="col-xs-6 col-md-6">
 		    <div class="form-group ">
 		                          <label for="efectos_secundarios_composiciones" class="control-label">Efectos Secundarios:</label>
-                                  <input type="text" class="form-control" id="efectos_secundarios_composiciones" name="efectos_secundarios_composiciones" value=""  placeholder="Efectos Secundarios">
-                                  
+                                  <textarea type="text"  class="form-control" id="efectos_secundarios_composiciones" name="efectos_secundarios_composiciones" value=""  placeholder="Efectos Secundarios"></textarea>
+                                 
             </div>
 		    </div>   
 			</div>
@@ -311,16 +311,16 @@
 			<div class="col-xs-6 col-md-6">
 		    <div class="form-group ">
 		                          <label for="mecanismo_accion_composiciones" class="control-label">Mecanismo de Acción:</label>
-                                  <input type="text" class="form-control" id="mecanismo_accion_composiciones" name="mecanismo_accion_composiciones" value=""  placeholder="Mecanismo de Acción">
-                                  
+                                  <textarea type="text"  class="form-control" id="mecanismo_accion_composiciones" name="mecanismo_accion_composiciones" value=""  placeholder="Mecanismo de Acción"></textarea>
+                                 
             </div>
 		    </div>  
 				  
 		    <div class="col-xs-6 col-md-6">
 		    <div class="form-group ">
 		                          <label for="precausiones_composiociones" class="control-label">Precauciones:</label>
-                                  <input type="text" class="form-control" id="precausiones_composiociones" name="precausiones_composiociones" value=""  placeholder="Precauciones">
-                                  
+                                  <textarea type="text"  class="form-control" id="precausiones_composiociones" name="precausiones_composiociones" value=""  placeholder="Precauciones"></textarea>
+                                 
             </div>
 		    </div>   
 			</div>
@@ -330,16 +330,16 @@
 			<div class="col-xs-6 col-md-6">
 		    <div class="form-group ">
 		                          <label for="interacciones_composiciones" class="control-label">Interacciones:</label>
-                                  <input type="text" class="form-control" id="interacciones_composiciones" name="interacciones_composiciones" value=""  placeholder="Interacciones">
-                                  
+                                  <textarea type="text"  class="form-control" id="interacciones_composiciones" name="interacciones_composiciones" value=""  placeholder="Interacciones"></textarea>
+                                 
             </div>
 		    </div>  
 				  
 		    <div class="col-xs-6 col-md-6">
 		    <div class="form-group ">
 		                          <label for="contraindicaciones_composiciones" class="control-label">Contraindicaciones:</label>
-                                  <input type="text" class="form-control" id="contraindicaciones_composiciones" name="contraindicaciones_composiciones" value=""  placeholder="Contraindicaciones">
-                                  
+                                  <textarea type="text"  class="form-control" id="contraindicaciones_composiciones" name="contraindicaciones_composiciones" value=""  placeholder="Contraindicaciones"></textarea>
+                                 
             </div>
 		    </div>   
 			</div>
@@ -351,8 +351,8 @@
 			<div class="col-xs-6 col-md-6">
 		    <div class="form-group ">
 		                          <label for="periodo_retirio_composiciones" class="control-label">Periodo de Retiro:</label>
-                                  <input type="text" class="form-control" id="periodo_retirio_composiciones" name="periodo_retirio_composiciones" value=""  placeholder="Periodo de Retiro">
-                                  
+                                  <textarea type="text"  class="form-control" id="periodo_retirio_composiciones" name="periodo_retirio_composiciones" value=""  placeholder="Periodo de Retiro"></textarea>
+                                 
             </div>
 		    </div> 
 		    </div>
