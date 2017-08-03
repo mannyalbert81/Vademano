@@ -336,7 +336,7 @@ public function index(){
 			$encryp_pass = $usuarios->encrypt($_clave_usuario);
 			
 			
-			$where = "usuario_usuario = '$_usuario_usuario' AND clave_usuario = '$encryp_pass'";
+			$where = "usuario_usuario = '$_usuario_usuario' AND clave_usuario = '$encryp_pass' AND id_estado=1";
 			//$where = "usuario_usuario = '$_usuario_usuario' ";
 			
 			$resultado =  $usuarios->getBy($where);
@@ -669,8 +669,16 @@ public function index(){
 			$resultUsu = $usuarios->getBy($where);	
 			foreach($resultUsu as $res) 
 			{	     
-	        	$_clave_usuario =  mt_rand(1000, 9999);
-	        	
+	        		$cadena = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890";
+	        		$longitudCadena=strlen($cadena);
+	        		$pass = "";
+	        		$longitudPass=10;
+	        		for($i=1 ; $i<=$longitudPass ; $i++){
+	        			$pos=rand(0,$longitudCadena-1);
+	        			$pass .= substr($cadena,$pos,1);
+	        		}
+	        		$_clave_usuario= $pass;
+	        		
 			}		               
 			$_encryp_pass = $usuarios->encrypt($_clave_usuario);
 			
@@ -708,8 +716,8 @@ public function index(){
 						              efecto terapéutico, forma farmacéutica, especies, etc.; asimismo dispondrá de la información de los productos en formato PDF, opción para imprimir, entre otras múltiples ventajas.</td></tr>
 				</tabla>
 				<p><table rules='all'></p>
-				<tr style='background: #FFFFFF'><td WIDTH='1000' align='center'><b> CLAVES DE ACCESO </b></td></tr>
-				<tr style='background: #FFFFFF;'><td WIDTH='1000' > <b>Correo:</b> $_usuario_usuario</td></tr>
+				<tr style='background: #FFFFFF'><td WIDTH='1000' align='center'><b> TUS DATOS DE ACCESO SON: </b></td></tr>
+				<tr style='background: #FFFFFF;'><td WIDTH='1000' > <b>Usuario:</b> $_usuario_usuario</td></tr>
 				<tr style='background: #FFFFFF;'><td WIDTH='1000' > <b>Clave Temporal:</b> $_clave_usuario </td></tr>
 				</tabla>
 				<p><table rules='all'></p>
