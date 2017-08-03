@@ -40,41 +40,74 @@ public function index(){
 			
 		session_start();
 		$especies = new EspeciesModel();
-		$directorio = $_SERVER['DOCUMENT_ROOT'].'/uploads/';
 		
-		if (isset($_POST["nombre_especies"]) )
+		if (isset($_POST["btn_guardar"]) )
 		{
 			
 			$_nombre_especies = strtoupper ( $_POST["nombre_especies"] );
 			
-			
+			if ($_FILES['logo_especies']['tmp_name']!="")
+			{
+				
+		    $directorio = $_SERVER['DOCUMENT_ROOT'].'/Vademano/uploads/';
 			$nombre = $_FILES['logo_especies']['name'];
  		    $tipo = $_FILES['logo_especies']['type'];
             $tamano = $_FILES['logo_especies']['size'];
- 			
-            // temporal al directorio definitivo
-            
-            move_uploaded_file($_FILES['logo_especies']['tmp_name'],$directorio.$nombre);
-            
+ 		    move_uploaded_file($_FILES['logo_especies']['tmp_name'],$directorio.$nombre);
             $data = file_get_contents($directorio.$nombre);
-			
-            $logo_especies = pg_escape_bytea($data);
-            
+			$logo_especies = pg_escape_bytea($data);
 			
 			$funcion = "ins_especies";
-				
 			$parametros = " '$_nombre_especies' ,'{$logo_especies}' ";
 			$especies->setFuncion($funcion);
-			
 			$especies->setParametros($parametros);
-			
-			
 			$resultado=$especies->Insert();
 			
-			$this->redirect("Especies", "index");
+			}
+		}
+		
+		if (isset($_POST["btn_actualizar"]) )
+		{
+			
+			$_nombre_especies = strtoupper ( $_POST["nombre_especies"] );
+			$_id_especies =  $_POST["id_especies"];
+				
+			if($_id_especies>0){
+				
+				if ($_FILES['logo_especies']['tmp_name']!="")
+				{
+				
+
+					$directorio = $_SERVER['DOCUMENT_ROOT'].'/Vademano/uploads/';
+					$nombre = $_FILES['logo_especies']['name'];
+					$tipo = $_FILES['logo_especies']['type'];
+					$tamano = $_FILES['logo_especies']['size'];
+					move_uploaded_file($_FILES['logo_especies']['tmp_name'],$directorio.$nombre);
+					$data = file_get_contents($directorio.$nombre);
+					$logo_especies = pg_escape_bytea($data);
+					
+					$colval = " nombre_especies = '$_nombre_especies',  logo_especies = '$logo_especies' ";
+					$tabla = "especies";
+					$where = "id_especies = '$_id_especies'";
+					$resultado=$especies->UpdateBy($colval, $tabla, $where);
+					
+				}else{
+					
+					$colval = " nombre_especies = '$_nombre_especies'";
+					$tabla = "especies";
+					$where = "id_especies = '$_id_especies'";
+					$resultado=$especies->UpdateBy($colval, $tabla, $where);
+					
+				}
+				
+				
+			}
+			
+			
 			
 		}
 		
+		$this->redirect("Especies", "index");
 			
 	}
 	

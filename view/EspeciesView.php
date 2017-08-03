@@ -118,11 +118,12 @@
 	        			Nombre Especie: 
 	        			</p>
 	        			<input type="text" name="nombre_especies" id="nombre_especies" value="<?php echo $resEdit->nombre_especies; ?>" class="form-control"/>
+	        			<input type="hidden" name="id_especies" id="id_especies" value="<?php echo $resEdit->id_especies; ?>" class="form-control"/>
 	        			<div id="mensaje_nombre" class="errores"></div>
 	        		</div>
 	        		
 	        	</div>
-	        		<div class="row">
+	        	<div class="row">
 	        		<div class="col-xs-12 col-md-12"  >
 	        			<p>
 	        				Logo  Especie:  
@@ -134,7 +135,8 @@
 	        	</div>
 	        
 	            	
-		        	    
+		      <input type="submit" id="btn_actualizar" name="btn_actualizar" value="Actualizar" class="btn btn-success"/>
+              <input type="button" value="Limpiar" id="btn_limpiar" name="btn_limpiar"  class="btn btn-success" />   
 		            
 		            
             
@@ -161,13 +163,13 @@
 	        		
 	        	</div>
 	        
-		    
+		     <input type="submit" id="btn_guardar" name="btn_guardar" value="Guardar" class="btn btn-success"/>
+           <input type="button" value="Limpiar" id="btn_limpiar" name="btn_limpiar"  class="btn btn-success" />
 		    
 		            
 		     <?php } ?>
 		        
-           <input type="submit" id="btn_guardar" name="btn_guardar" value="Guardar" class="btn btn-success"/>
-           <input type="button" value="Limpiar" id="btn_limpiar" name="btn_limpiar"  class="btn btn-success" />
+          
           </form>
        
        
@@ -192,7 +194,7 @@
 	                   <td style="font-size: 13px;"> <?php echo $registros; ?>  </td>
 		               <td style="font-size: 13px;"> <?php echo $res->nombre_especies; ?>     </td> 
 		               
-		               <td style="font-size: 13px;"> <input type="image" name="image" src="view/DevuelveImagen.php?id_valor=<?php echo $res->id_especies; ?>&id_nombre=id_especies&tabla=especies&campo=logo_especies"  alt="<?php echo $res->nombre_especies; ?>" width="80" height="60" >      </td>
+		               <td style="font-size: 13px;"> <input type="image" name="image" src="view/DevuelveImagen.php?id_valor=<?php echo $res->id_especies; ?>&id_nombre=id_especies&tabla=especies&campo=logo_especies"  alt="<?php echo $res->id_especies; ?>" width="80" height="60" >      </td>
 		               <td style="font-size: 13px;">
 			           		<div class="right">
 			                    <a href="<?php echo $helper->url("Especies","index"); ?>&id_especies=<?php echo $res->id_especies; ?>" class="btn btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
