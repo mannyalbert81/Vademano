@@ -1,10 +1,6 @@
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Untitled Document</title>
-</head>
-<body>
+
 <?php
+require_once 'config/global.php';
 class UsuariosController extends ControladorBase{
     
     public function __construct() {
@@ -702,12 +698,11 @@ public function index(){
 				$asunto="Claves de Acceso";
 				$fecha=date("d/m/y");
 				$hora=date("H:i:s");
-				
+				$servicios=servicios;
 				//
 				$resumen="	
 				<table rules='all'>
-				<tr style='background:#7acb5a'><td WIDTH='1000' HEIGHT='50' align='center'><rigth><img src='http://186.4.203.42:4000/Vademano/view/images/logo_vademano.png' WIDTH='200' HEIGHT='80' /></rigth></td></tr>
-				
+				<tr style='background:#7acb5a'><td WIDTH='1000' HEIGHT='50'><rigth><img src='http://186.4.203.42:4000/Vademano/view/images/logo_vademano.png' WIDTH='200' HEIGHT='80' /></rigth></td></tr>
 				</tabla>
 				<p><table rules='all'></p>
 				<tr style='background: #FFFFFF;'><td  WIDTH='1000' align='center'><b> BIENVENIDO A VADEMANO </b></td></tr></p>
@@ -720,13 +715,15 @@ public function index(){
 				<tr style='background: #FFFFFF;'><td WIDTH='1000' > <b>Usuario:</b> $_usuario_usuario</td></tr>
 				<tr style='background: #FFFFFF;'><td WIDTH='1000' > <b>Clave Temporal:</b> $_clave_usuario </td></tr>
 				</tabla>
+				
+				<table rules='all'>
+				<tr style='background:#FFFFFF'><td WIDTH='1000' HEIGHT='50' align='center'><center><img src='http://186.4.203.42:4000/Vademano/view/images/left-box.png' WIDTH='180' HEIGHT='220' /><img src='http://186.4.203.42:4000/Vademano/view/images/center-box.png' WIDTH='180' HEIGHT='220' /><img src='http://186.4.203.42:4000/Vademano/view/images/rigth-box.png' WIDTH='180' HEIGHT='220' /></center></td></tr>
+				</tabla>
+				
 				<p><table rules='all'></p>
-				<tr style='background:#1C1C1C'><td WIDTH='1000' HEIGHT='50' align='center'><font color='white'>Vademano. - <a href='http://www.vademano.com'>www.vademano.com</a> - Copyright © 2017-</font></td></tr>
-				
+				<tr style='background:#1C1C1C'><td WIDTH='1000' HEIGHT='50' align='center'><font color='white'>Vademano. - <a href='http://www.vademano.com'><FONT COLOR='#7acb5a'>www.vademano.com</FONT></a> - Copyright © 2017-</font></td></tr>
 				</table>
-				
-				
-				 ";
+			    ";
 				
 				
 				if(mail("$destino","Claves de Acceso","$resumen","$cabeceras"))
