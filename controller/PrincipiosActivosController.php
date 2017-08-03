@@ -20,20 +20,20 @@ public function index(){
 		
 		
 			$columnas1 = "composiciones.id_composiciones, 
-  composiciones.nombre_composiciones, 
-  composiciones.creado, 
-  composiciones.modificado, 
-  composiciones.buscador, 
-  composiciones.categoria_farmacologica_composicion, 
-  composiciones.subcategoria_farmacologica_composiciones, 
-  composiciones.indicaciones_uso_composiciones, 
-  composiciones.forma_administracion_composiciones, 
-  composiciones.efectos_secundarios_composiciones, 
-  composiciones.mecanismo_accion_composiciones, 
-  composiciones.precausiones_composiociones, 
-  composiciones.interacciones_composiciones, 
-  composiciones.contraindicaciones_composiciones, 
-  composiciones.periodo_retirio_composiciones";
+			  composiciones.nombre_composiciones, 
+			  composiciones.creado, 
+			  composiciones.modificado, 
+			  composiciones.buscador, 
+			  composiciones.categoria_farmacologica_composicion, 
+			  composiciones.subcategoria_farmacologica_composiciones, 
+			  composiciones.indicaciones_uso_composiciones, 
+			  composiciones.forma_administracion_composiciones, 
+			  composiciones.efectos_secundarios_composiciones, 
+			  composiciones.mecanismo_accion_composiciones, 
+			  composiciones.precausiones_composiociones, 
+			  composiciones.interacciones_composiciones, 
+			  composiciones.contraindicaciones_composiciones, 
+			  composiciones.periodo_retirio_composiciones";
 			 
 			$tablas1   = "public.composiciones";
 			$where1    = "composiciones.id_composiciones>0";
@@ -67,15 +67,9 @@ public function index(){
 		
 		
 				$where_to  = $where1 .  $where_0.  $where_2;
-		
-		
 				$resul = $where_to;
-				 
-				//Conseguimos todos los usuarios con filtros
+				 //Conseguimos todos los usuarios con filtros
 				$resultSet=$composiciones->getCondiciones($columnas1 ,$tablas1 ,$where_to, $id1);
-		
-		
-		
 		
 			}
 		}
@@ -103,9 +97,7 @@ public function index(){
 	
 		$resultEdit = "";
 		$_nombre_composiciones = "";
-		
 		$_id_composiciones = 0  ;
-		
 		$_nuevo_composiciones = FALSE;
 		
 		
@@ -125,8 +117,6 @@ public function index(){
 			$composiciones->setFuncion($funcion);
 			$composiciones->setParametros($parametros);
 			$resultado=$composiciones->Insert();
-			
-			
 						
 			
 		}
@@ -168,18 +158,18 @@ public function index(){
 		if (isset($_POST["btn_guardar"]) )
 		{
 			
-			$_nombre_composiciones    = strtoupper ( $_POST["nombre_composiciones"]   );
 			
-			$_categoria_farmacologica_composicion = strtoupper ( $_POST["categoria_farmacologica_composicion"]   ); 
-			$_subcategoria_farmacologica_composiciones = strtoupper ( $_POST["subcategoria_farmacologica_composiciones"]   );
-			$_indicaciones_uso_composiciones = strtoupper ( $_POST["indicaciones_uso_composiciones"]   );
-			$_forma_administracion_composiciones = strtoupper ( $_POST["forma_administracion_composiciones"]   );
-			$_efectos_secundarios_composiciones = strtoupper ( $_POST["efectos_secundarios_composiciones"]   );
-			$_mecanismo_accion_composiciones = strtoupper ( $_POST["mecanismo_accion_composiciones"]   );
-			$_precausiones_composiociones = strtoupper ( $_POST["precausiones_composiociones"]   );
-			$_interacciones_composiciones = strtoupper ( $_POST["interacciones_composiciones"]   );
-			$_contraindicaciones_composiciones = strtoupper ( $_POST["contraindicaciones_composiciones"]   );
-			$_periodo_retirio_composiciones = strtoupper ( $_POST["periodo_retirio_composiciones"]   );
+			$_nombre_composiciones   = strtoupper ( $_POST["nombre_composiciones"] );
+			$_categoria_farmacologica_composicion = $_POST["categoria_farmacologica_composicion"]; 
+			$_subcategoria_farmacologica_composiciones = $_POST["subcategoria_farmacologica_composiciones"];
+			$_indicaciones_uso_composiciones = $_POST["indicaciones_uso_composiciones"];
+			$_forma_administracion_composiciones = $_POST["forma_administracion_composiciones"];
+			$_efectos_secundarios_composiciones = $_POST["efectos_secundarios_composiciones"];
+			$_mecanismo_accion_composiciones = $_POST["mecanismo_accion_composiciones"];
+			$_precausiones_composiociones = $_POST["precausiones_composiociones"];
+			$_interacciones_composiciones = $_POST["interacciones_composiciones"];
+			$_contraindicaciones_composiciones = $_POST["contraindicaciones_composiciones"];
+			$_periodo_retirio_composiciones = $_POST["periodo_retirio_composiciones"];
 			
 			
 			$funcion = "ins_composiciones";
@@ -190,9 +180,7 @@ public function index(){
 						   '$_contraindicaciones_composiciones' , '$_periodo_retirio_composiciones' ";
 			
 			$composiciones->setFuncion($funcion);
-				
 			$composiciones->setParametros($parametros);
-				
 			$resultado=$composiciones->Insert();
 				
 			$this->redirect("PrincipiosActivos", "index");

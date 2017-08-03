@@ -110,7 +110,8 @@
        
        
   		 <form action="<?php echo $helper->url("PrincipiosActivos","index_dos"); ?>" method="post" enctype="multipart/form-data"  class="col-lg-12">
-          
+          <div class="col-lg-12 division"; style="-webkit-box-shadow: 0px 2px 2px 2px rgba(0,0,0,0.69); border-radius: 24px 24px 24px 24px; margin-top: 20px; "   >
+        
          <?php if ($id_composiciones > 0) { ?>
         	    <h4>Insertar Principios Activos</h4>
             	<hr/>
@@ -119,69 +120,113 @@
             
           <?php if ($resultEdit !="" ) { foreach($resultEdit as $resEdit) {?>
 	       
-			 <div class="row">
-				  <div class="col-xs-4 col-md-4">
-				  	<p  class="formulario-subtitulo" >Nombre Principio Activo </p>
-				  	<input type="text" name="nombre_composiciones" id="nombre_composiciones" value="<?php echo $resEdit->nombre_composiciones; ?>" class="form-control" readonly />
-					<input type="hidden" name="id_composiciones" id="id_composiciones" value="<?php echo $resEdit->id_composiciones;     ?>" class="form-control"/>
-					
-					<div id="mensaje_nombre" class="errores"></div>
-				  </div>
-				  <div class="col-xs-4 col-md-4">
-				  	<p  class="formulario-subtitulo" >Categoria Farmacologica </p>
-				  	<input type="text" name="categoria_farmacologica_composicion" id="categoria_farmacologica_composicion" value="<?php echo $resEdit->categoria_farmacologica_composicion;      ?>" class="form-control"/>
-						
-				  </div>
-				
-				<div class="col-xs-4 col-md-4">
-				  	<p  class="formulario-subtitulo" >Subcategoria Farmacologica </p>
-				  	<input type="text" name="subcategoria_farmacologica_composiciones" id="subcategoria_farmacologica_composiciones" value="<?php echo $resEdit->subcategoria_farmacologica_composiciones;     ?>" class="form-control"/>
-				  </div>
+	        <div class="row">
+		    <div class="col-xs-6 col-md-6">
+		    <div class="form-group ">
+		                          <label for="nombre_composiciones" class="control-label">Nombre Principio Activo:</label>
+                                  <input type="text" class="form-control" id="nombre_composiciones" name="nombre_composiciones" value="<?php echo $resEdit->nombre_composiciones; ?>"  placeholder="Nombres" readonly />
+                                 <input type="hidden" name="id_composiciones" id="id_composiciones" value="<?php echo $resEdit->id_composiciones;     ?>" class="form-control"/>
+								<div id="mensaje_nombre" class="errores"></div>
+			</div>
+		    </div>
+		    
+		    <div class="col-xs-6 col-md-6">
+		    <div class="form-group ">
+		                          <label for="categoria_farmacologica_composicion" class="control-label">Categoria Farmacológica:</label>
+                                  <input type="text" class="form-control" id="categoria_farmacologica_composicion" name="categoria_farmacologica_composicion" value="<?php echo $resEdit->categoria_farmacologica_composicion; ?>"  placeholder="Categoria Farmacológica">
+                                  
+            </div>
+		    </div>
+			</div>
+	       
+	       
+	       
+			<div class="row">
+			<div class="col-xs-6 col-md-6">
+		    <div class="form-group ">
+		                          <label for="subcategoria_farmacologica_composiciones" class="control-label">Subcategoria Farmacológica:</label>
+                                  <input type="text" class="form-control" id="subcategoria_farmacologica_composiciones" name="subcategoria_farmacologica_composiciones" value="<?php echo $resEdit->subcategoria_farmacologica_composiciones; ?>"  placeholder="Subcategoria Farmacológica">
+                                  
+            </div>
+		    </div>  
+				  
+		    <div class="col-xs-6 col-md-6">
+		    <div class="form-group ">
+		                          <label for="indicaciones_uso_composiciones" class="control-label">Indicaciones de Uso:</label>
+                                  <input type="text" class="form-control" id="indicaciones_uso_composiciones" name="indicaciones_uso_composiciones" value="<?php echo $resEdit->indicaciones_uso_composiciones; ?>"  placeholder="Indicaciones de Uso">
+                                  
+            </div>
+		    </div>   
 			</div>
 			
 			
 			<div class="row">
-				<div class="col-xs-6 col-md-6">
-			  		<p  class="formulario-subtitulo" >Indicaciones de Uso</p>
-			  		<input type="text" name="indicaciones_uso_composiciones" id="indicaciones_uso_composiciones" value="<?php echo $resEdit->indicaciones_uso_composiciones;     ?>" class="form-control"/>
-			  	</div>
-				<div class="col-xs-6 col-md-6">
-			  		<p  class="formulario-subtitulo" >Forma de Administracion</p>
-			  		<input type="text" name="forma_administracion_composiciones" id="forma_administracion_composiciones" value="<?php echo $resEdit->forma_administracion_composiciones;     ?>" class="form-control"/>
-			  	</div>
+			<div class="col-xs-6 col-md-6">
+		    <div class="form-group ">
+		                          <label for="forma_administracion_composiciones" class="control-label">Forma de Administración:</label>
+                                  <input type="text" class="form-control" id="forma_administracion_composiciones" name="forma_administracion_composiciones" value="<?php echo $resEdit->forma_administracion_composiciones; ?>"  placeholder="Forma de Administración">
+                                  
+            </div>
+		    </div>  
+				  
+		    <div class="col-xs-6 col-md-6">
+		    <div class="form-group ">
+		                          <label for="efectos_secundarios_composiciones" class="control-label">Efectos Secundarios:</label>
+                                  <input type="text" class="form-control" id="efectos_secundarios_composiciones" name="efectos_secundarios_composiciones" value="<?php echo $resEdit->efectos_secundarios_composiciones; ?>"  placeholder="Efectos Secundarios">
+                                  
+            </div>
+		    </div>   
 			</div>
+			
+			<div class="row">
+			<div class="col-xs-6 col-md-6">
+		    <div class="form-group ">
+		                          <label for="mecanismo_accion_composiciones" class="control-label">Mecanismo de Acción:</label>
+                                  <input type="text" class="form-control" id="mecanismo_accion_composiciones" name="mecanismo_accion_composiciones" value="<?php echo $resEdit->mecanismo_accion_composiciones; ?>"  placeholder="Mecanismo de Acción">
+                                  
+            </div>
+		    </div>  
+				  
+		    <div class="col-xs-6 col-md-6">
+		    <div class="form-group ">
+		                          <label for="precausiones_composiociones" class="control-label">Precauciones:</label>
+                                  <input type="text" class="form-control" id="precausiones_composiociones" name="precausiones_composiociones" value="<?php echo $resEdit->precausiones_composiociones; ?>"  placeholder="Precauciones">
+                                  
+            </div>
+		    </div>   
+			</div>
+			
 
-			<div class="row">
-				<div class="col-xs-6 col-md-6">
-			  		<p  class="formulario-subtitulo" >Efectos Secundarios</p>
-			  		<input type="text" name="efectos_secundarios_composiciones" id="efectos_secundarios_composiciones" value="<?php echo $resEdit->efectos_secundarios_composiciones;     ?>" class="form-control"/>
-			  	</div>
-				<div class="col-xs-6 col-md-6">
-			  		<p  class="formulario-subtitulo" >Mecanismo de Accion</p>
-			  		<input type="text" name="mecanismo_accion_composiciones" id="mecanismo_accion_composiciones" value="<?php echo $resEdit->mecanismo_accion_composiciones;     ?>" class="form-control"/>
-			  	</div>
-			</div>
-			<div class="row">
-				<div class="col-xs-6 col-md-6">
-			  		<p  class="formulario-subtitulo" >Precauciones</p>
-			  		<input type="text" name="precausiones_composiociones" id="precausiones_composiociones" value="<?php echo $resEdit->precausiones_composiociones;     ?>" class="form-control"/>
-			  	</div>
-				<div class="col-xs-6 col-md-6">
-			  		<p  class="formulario-subtitulo" >Interacciones</p>
-			  		<input type="text" name="interacciones_composiciones" id="interacciones_composiciones" value="<?php echo $resEdit->interacciones_composiciones;     ?>" class="form-control"/>
-			  	</div>
+		    <div class="row">
+			<div class="col-xs-6 col-md-6">
+		    <div class="form-group ">
+		                          <label for="interacciones_composiciones" class="control-label">Interacciones:</label>
+                                  <input type="text" class="form-control" id="interacciones_composiciones" name="interacciones_composiciones" value="<?php echo $resEdit->interacciones_composiciones; ?>"  placeholder="Interacciones">
+                                  
+            </div>
+		    </div>  
+				  
+		    <div class="col-xs-6 col-md-6">
+		    <div class="form-group ">
+		                          <label for="contraindicaciones_composiciones" class="control-label">Contraindicaciones:</label>
+                                  <input type="text" class="form-control" id="contraindicaciones_composiciones" name="contraindicaciones_composiciones" value="<?php echo $resEdit->contraindicaciones_composiciones; ?>"  placeholder="Contraindicaciones">
+                                  
+            </div>
+		    </div>   
 			</div>
 			
+			
+		
+			
 			<div class="row">
-				<div class="col-xs-6 col-md-6">
-			  		<p  class="formulario-subtitulo" >Contraindicaciones</p>
-			  		<input type="text" name="contraindicaciones_composiciones" id="contraindicaciones_composiciones" value="<?php echo $resEdit->contraindicaciones_composiciones;     ?>" class="form-control"/>
-			  	</div>
-				<div class="col-xs-6 col-md-6">
-			  		<p  class="formulario-subtitulo" >Periodo de Retiro</p>
-			  		<input type="text" name="periodo_retirio_composiciones" id="periodo_retirio_composiciones" value="<?php echo $resEdit->periodo_retirio_composiciones;     ?>" class="form-control"/>
-			  	</div>
-			</div>
+			<div class="col-xs-6 col-md-6">
+		    <div class="form-group ">
+		                          <label for="periodo_retirio_composiciones" class="control-label">Periodo de Retiro:</label>
+                                  <input type="text" class="form-control" id="periodo_retirio_composiciones" name="periodo_retirio_composiciones" value="<?php echo $resEdit->periodo_retirio_composiciones; ?>"  placeholder="Periodo de Retiro">
+                                  
+            </div>
+		    </div> 
+		    </div>
 			
 		
 
@@ -202,98 +247,135 @@
 	         	   
        	     <?php } } else {?>
 
-			 <div class="row">
-				  <div class="col-xs-4 col-md-4">
-				  	<p  class="formulario-subtitulo" >Nombre Principio Activo </p>
-				  	<input type="text" name="nombre_composiciones" id="nombre_composiciones" value="<?php echo $nombre_composiciones; ?>" class="form-control" readonly />
-					<input type="hidden" name="id_composiciones" id="id_composiciones" value="" class="form-control"/>
-					
-					<div id="mensaje_nombre" class="errores"></div>
-				  </div>
-				  <div class="col-xs-4 col-md-4">
-				  	<p  class="formulario-subtitulo" >Categoria Farmacologica </p>
-				  	<input type="text" name="categoria_farmacologica_composicion" id="categoria_farmacologica_composicion" value="" class="form-control"/>
-						
-				  </div>
-				
-				<div class="col-xs-4 col-md-4">
-				  	<p  class="formulario-subtitulo" >Subcategoria Farmacologica </p>
-				  	<input type="text" name="subcategoria_farmacologica_composiciones" id="subcategoria_farmacologica_composiciones" value="" class="form-control"/>
-				  </div>
-			</div>
-			
-			
-			<div class="row">
-				<div class="col-xs-6 col-md-6">
-			  		<p  class="formulario-subtitulo" >Indicaciones de Uso</p>
-			  		<input type="text" name="indicaciones_uso_composiciones" id="indicaciones_uso_composiciones" value="" class="form-control"/>
-			  	</div>
-				<div class="col-xs-6 col-md-6">
-			  		<p  class="formulario-subtitulo" >Forma de Administracion</p>
-			  		<input type="text" name="forma_administracion_composiciones" id="forma_administracion_composiciones" value="" class="form-control"/>
-			  	</div>
-			</div>
+
 
 			<div class="row">
-				<div class="col-xs-6 col-md-6">
-			  		<p  class="formulario-subtitulo" >Efectos Secundarios</p>
-			  		<input type="text" name="efectos_secundarios_composiciones" id="efectos_secundarios_composiciones" value="" class="form-control"/>
-			  	</div>
-				<div class="col-xs-6 col-md-6">
-			  		<p  class="formulario-subtitulo" >Mecanismo de Accion</p>
-			  		<input type="text" name="mecanismo_accion_composiciones" id="mecanismo_accion_composiciones" value="" class="form-control"/>
-			  	</div>
+		    <div class="col-xs-6 col-md-6">
+		    <div class="form-group ">
+		                          <label for="nombre_composiciones" class="control-label">Nombre Principio Activo:</label>
+                                  <input type="text" class="form-control" id="nombre_composiciones" name="nombre_composiciones" value="<?php echo $nombre_composiciones; ?>"  placeholder="Nombres" readonly />
+                                 <input type="hidden" name="id_composiciones" id="id_composiciones" value="" class="form-control"/>
+								<div id="mensaje_nombre" class="errores"></div>
 			</div>
+		    </div>
+		    
+		    <div class="col-xs-6 col-md-6">
+		    <div class="form-group ">
+		                          <label for="categoria_farmacologica_composicion" class="control-label">Categoria Farmacológica:</label>
+                                  <input type="text" class="form-control" id="categoria_farmacologica_composicion" name="categoria_farmacologica_composicion" value=""  placeholder="Categoria Farmacológica">
+                                  
+            </div>
+		    </div>
+			</div>
+	       
+	       
+	       
 			<div class="row">
-				<div class="col-xs-6 col-md-6">
-			  		<p  class="formulario-subtitulo" >Precauciones</p>
-			  		<input type="text" name="precausiones_composiociones" id="precausiones_composiociones" value="" class="form-control"/>
-			  	</div>
-				<div class="col-xs-6 col-md-6">
-			  		<p  class="formulario-subtitulo" >Interacciones</p>
-			  		<input type="text" name="interacciones_composiciones" id="interacciones_composiciones" value="" class="form-control"/>
-			  	</div>
+			<div class="col-xs-6 col-md-6">
+		    <div class="form-group ">
+		                          <label for="subcategoria_farmacologica_composiciones" class="control-label">Subcategoria Farmacológica:</label>
+                                  <input type="text" class="form-control" id="subcategoria_farmacologica_composiciones" name="subcategoria_farmacologica_composiciones" value=""  placeholder="Subcategoria Farmacológica">
+                                  
+            </div>
+		    </div>  
+				  
+		    <div class="col-xs-6 col-md-6">
+		    <div class="form-group ">
+		                          <label for="indicaciones_uso_composiciones" class="control-label">Indicaciones de Uso:</label>
+                                  <input type="text" class="form-control" id="indicaciones_uso_composiciones" name="indicaciones_uso_composiciones" value=""  placeholder="Indicaciones de Uso">
+                                  
+            </div>
+		    </div>   
+			</div>
+			
+			
+			<div class="row">
+			<div class="col-xs-6 col-md-6">
+		    <div class="form-group ">
+		                          <label for="forma_administracion_composiciones" class="control-label">Forma de Administración:</label>
+                                  <input type="text" class="form-control" id="forma_administracion_composiciones" name="forma_administracion_composiciones" value=""  placeholder="Forma de Administración">
+                                  
+            </div>
+		    </div>  
+				  
+		    <div class="col-xs-6 col-md-6">
+		    <div class="form-group ">
+		                          <label for="efectos_secundarios_composiciones" class="control-label">Efectos Secundarios:</label>
+                                  <input type="text" class="form-control" id="efectos_secundarios_composiciones" name="efectos_secundarios_composiciones" value=""  placeholder="Efectos Secundarios">
+                                  
+            </div>
+		    </div>   
 			</div>
 			
 			<div class="row">
-				<div class="col-xs-6 col-md-6">
-			  		<p  class="formulario-subtitulo" >Contraindicaciones</p>
-			  		<input type="text" name="contraindicaciones_composiciones" id="contraindicaciones_composiciones" value="" class="form-control"/>
-			  	</div>
-				<div class="col-xs-6 col-md-6">
-			  		<p  class="formulario-subtitulo" >Periodo de Retiro</p>
-			  		<input type="text" name="periodo_retirio_composiciones" id="periodo_retirio_composiciones" value="" class="form-control"/>
-			  	</div>
+			<div class="col-xs-6 col-md-6">
+		    <div class="form-group ">
+		                          <label for="mecanismo_accion_composiciones" class="control-label">Mecanismo de Acción:</label>
+                                  <input type="text" class="form-control" id="mecanismo_accion_composiciones" name="mecanismo_accion_composiciones" value=""  placeholder="Mecanismo de Acción">
+                                  
+            </div>
+		    </div>  
+				  
+		    <div class="col-xs-6 col-md-6">
+		    <div class="form-group ">
+		                          <label for="precausiones_composiociones" class="control-label">Precauciones:</label>
+                                  <input type="text" class="form-control" id="precausiones_composiociones" name="precausiones_composiociones" value=""  placeholder="Precauciones">
+                                  
+            </div>
+		    </div>   
 			</div>
+			
+
+		    <div class="row">
+			<div class="col-xs-6 col-md-6">
+		    <div class="form-group ">
+		                          <label for="interacciones_composiciones" class="control-label">Interacciones:</label>
+                                  <input type="text" class="form-control" id="interacciones_composiciones" name="interacciones_composiciones" value=""  placeholder="Interacciones">
+                                  
+            </div>
+		    </div>  
+				  
+		    <div class="col-xs-6 col-md-6">
+		    <div class="form-group ">
+		                          <label for="contraindicaciones_composiciones" class="control-label">Contraindicaciones:</label>
+                                  <input type="text" class="form-control" id="contraindicaciones_composiciones" name="contraindicaciones_composiciones" value=""  placeholder="Contraindicaciones">
+                                  
+            </div>
+		    </div>   
+			</div>
+			
 			
 		
+			
+			<div class="row">
+			<div class="col-xs-6 col-md-6">
+		    <div class="form-group ">
+		                          <label for="periodo_retirio_composiciones" class="control-label">Periodo de Retiro:</label>
+                                  <input type="text" class="form-control" id="periodo_retirio_composiciones" name="periodo_retirio_composiciones" value=""  placeholder="Periodo de Retiro">
+                                  
+            </div>
+		    </div> 
+		    </div>
+			
 
-
-            <hr>
+           
 		   <div class="row">
 			  <div class="col-xs-12 col-md-12" style="text-align: center;" >
 			  	<input type="submit" id="btn_guardar" name="btn_guardar" value="Guardar" class="btn btn-success"/>
 			  </div>
 			</div>     
                
-		
-		 <hr>
+	
 				       
 	       
 	       
 	       
 		       
-			<?php }?>    
+			<?php }}?>    
 	     
-	      
-	     
-	     
-	     
-	      <?php } else { ?>
-	      
-	        
-	        <?php echo "hola: ".$nombre_composiciones;?>
-	        <?php  }?>  
+	      <br><br><br><br>
+	       
+	        </div>
           </form>
        
              	<div class="col-lg-12">
