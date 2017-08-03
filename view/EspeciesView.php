@@ -13,12 +13,9 @@
   <script src="view/js/jquery.js"></script>
   <script src="view/js/bootstrapValidator.min.js"></script>
   <script src="view/js/noty.js"></script>
- 		<script src="//cdn.jsdelivr.net/webshim/1.14.5/polyfiller.js"></script>
-		
-		<script>
-		    webshims.setOptions('forms-ext', {types: 'date'});
-			webshims.polyfill('forms forms-ext');
-		</script>
+ 		
+ 		
+ 		
  		
  		
  		<script> 
@@ -79,24 +76,29 @@
 
 		        	$("#logo_especies").val('');
 			    	$("#nombre_especies").val('');
-			        
-
+			    	
 				     
 	    	    });
 			});
  		</script>
- 			
-        <style>
-            input{
-                margin-top:5px;
-                margin-bottom:5px;
-            }
-            .right{
-                float:right;
-            }
-                
+ 		
+ 		
+ 		  <script>
+		    var loadFileimg = function(event) {
+		        var reader = new FileReader();
+		        reader.onload = function(){
+		          var outputimg = document.getElementById('outputimg');
+		          outputimg.src = reader.result;
+		        };
+
+		        reader.readAsDataURL(event.target.files[0]);
+		      };
+            </script>
             
-        </style>
+            
+           
+ 			
+       
     </head>
     <body style="background-color: #FAFAFA;">
     
@@ -105,6 +107,8 @@
      </div>
        
   		 <form action="<?php echo $helper->url("Especies","Inserta"); ?>" method="post" enctype="multipart/form-data"  class="col-lg-5">
+        	 <div class="col-lg-12 division"; style="-webkit-box-shadow: 0px 2px 2px 2px rgba(0,0,0,0.69); border-radius: 24px 24px 24px 24px; margin-top: 20px; "   >
+       
         	    <h4>Insertar Especies</h4>
             	<hr/>
             	
@@ -128,16 +132,28 @@
 	        			<p>
 	        				Logo  Especie:  
 	        			</p>
-	        				<input type="file" name="logo_especies" id="logo_especies" value="" class="form-control"/>
+	        				<input type="file" id="logo_especies"  name="logo_especies[]" accept="image/*" class="form-control" onchange="loadFileimg(event)" multiple/>
 	        				<div id="mensaje_logo_especies" class="errores"></div>
 	        		</div>
 	        		
 	        	</div>
 	        
+	        <div class="row">
+		    <div class="col-xs-12 col-md-12 col-lg-12" style="text-align: center; margin-top: 20px;">
+		    <div class="form-group">
+                                  <button type="submit" id="btn_actualizar" name="btn_actualizar" class="btn btn-success">Actualizar</button>
+                                  <button type="button" value="Limpiar" id="btn_limpiar" name="btn_limpiar"  class="btn btn-danger" />Limpiar</button> 
+            </div>
+		    </div>
+		    </div>
 	            	
-		      <input type="submit" id="btn_actualizar" name="btn_actualizar" value="Actualizar" class="btn btn-success"/>
-              <input type="button" value="Limpiar" id="btn_limpiar" name="btn_limpiar"  class="btn btn-success" />   
-		            
+		     <div class="row" >
+		     <div class="col-xs-12 col-md-12 col-lg-12" style="text-align: center; margin-top: 20px;">
+		      <div class="form-group">
+		      <div><input type="image" name="image" src="view/DevuelveImagen.php?id_valor=<?php echo $resEdit->id_especies; ?>&id_nombre=id_especies&tabla=especies&campo=logo_especies"  alt="<?php echo $resEdit->id_especies; ?>" width="80" height="60" ></div>      
+		      </div>
+			 </div>
+		     </div>    
 		            
             
 		     <?php } } else {?>
@@ -156,19 +172,35 @@
 	        			<p>
 	        				Logo  Especie:  
 	        			</p>
-	        				<input type="file" name="logo_especies" id="logo_especies" value="" class="form-control"/>
-	        				
+	        				<input type="file" id="logo_especies"  name="logo_especies[]" accept="image/*" class="form-control" onchange="loadFileimg(event)" multiple/>
 	        				<div id="mensaje_logo_especies" class="errores"></div>
 	        		</div>
 	        		
 	        	</div>
 	        
-		     <input type="submit" id="btn_guardar" name="btn_guardar" value="Guardar" class="btn btn-success"/>
-           <input type="button" value="Limpiar" id="btn_limpiar" name="btn_limpiar"  class="btn btn-success" />
+	        
+	        <div class="row">
+		    <div class="col-xs-12 col-md-12 col-lg-12" style="text-align: center; margin-top: 20px;">
+		    <div class="form-group">
+                                  <button type="submit" id="btn_guardar" name="btn_guardar" class="btn btn-success">Guardar</button>
+                                  <button type="button" value="Limpiar" id="btn_limpiar" name="btn_limpiar"  class="btn btn-danger" />Limpiar</button>  
+            </div>
+		    </div>
+		    </div>
 		    
-		            
+		    
+		     <div class="row" >
+		     <div class="col-xs-12 col-md-12 col-lg-12" style="text-align: center; margin-top: 20px;">
+		      <div class="form-group">
+		      <div><img id="outputimg" height="60px" width="80px" alt=""/></div>
+	          </div>
+			 </div>
+		       </div>
+		             
 		     <?php } ?>
-		        
+		  
+		  <br> <br><br>     
+          </div>
           
           </form>
        
@@ -177,6 +209,7 @@
             <h4>Especies</h4>
             <hr/>
         </div>
+        
        <form action="" method="get" >
         <section class="col-lg-7 usuario">
         <table class="table table-hover">
