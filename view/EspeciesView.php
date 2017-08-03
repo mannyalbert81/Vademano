@@ -69,6 +69,41 @@
  		</script>
 
 
+<script> 
+			$(function(){
+		      
+		        $("#btn_actualizar").click(function(){
+
+		        	var nombre_especies = $("#nombre_especies").val();
+			        
+			    	if (nombre_especies == "")
+			    	{
+						
+				    	$("#mensaje_nombre").text("Introduzca un Nombre");
+			    		$("#mensaje_nombre").fadeIn("slow"); //Muestra mensaje de error
+			            return false;
+				    }
+			    	else 
+			    	{
+						
+				    	$("#mensaje_nombre").fadeOut("slow"); //Muestra mensaje de error
+			            
+				    }
+
+			    		
+
+				     
+	    	    });
+
+		        $( "#nombre_especies" ).focus(function() {
+					$("#mensaje_nombre").fadeOut("slow");
+
+		        });
+					
+			});
+ 		</script>
+
+
  		<script> 
 			$(function(){
 		      
@@ -115,28 +150,29 @@
 		   		
             
              <?php if ($resultEdit !="" ) { foreach($resultEdit as $resEdit) {?>
+	        	
+	        <div class="row">
+	        <div class="col-xs-12 col-md-12">
+		    <div class="form-group ">
+		                          <label for="nombre_especies" class="control-label">Nombre Especie:</label>
+                                  <input type="text" class="form-control" id="nombre_especies" name="nombre_especies" value="<?php echo $resEdit->nombre_especies; ?>"  placeholder="Nombre Especie">
+                                  <input type="hidden" name="id_especies" id="id_especies" value="<?php echo $resEdit->id_especies; ?>" class="form-control"/>
+					              <div id="mensaje_nombre" class="errores"></div>
+            </div>
+		    </div>
+	        </div> 
 	        
-	        	<div class="row">
-	        		<div class="col-xs-12 col-md-12"  >
-	        			<p>
-	        			Nombre Especie: 
-	        			</p>
-	        			<input type="text" name="nombre_especies" id="nombre_especies" value="<?php echo $resEdit->nombre_especies; ?>" class="form-control"/>
-	        			<input type="hidden" name="id_especies" id="id_especies" value="<?php echo $resEdit->id_especies; ?>" class="form-control"/>
-	        			<div id="mensaje_nombre" class="errores"></div>
-	        		</div>
-	        		
-	        	</div>
-	        	<div class="row">
-	        		<div class="col-xs-12 col-md-12"  >
-	        			<p>
-	        				Logo  Especie:  
-	        			</p>
-	        				<input type="file" id="logo_especies"  name="logo_especies[]" accept="image/*" class="form-control" onchange="loadFileimg(event)" multiple/>
-	        				<div id="mensaje_logo_especies" class="errores"></div>
-	        		</div>
-	        		
-	        	</div>
+	        <div class="row">
+	        <div class="col-xs-12 col-md-12">
+		    <div class="form-group ">
+		                          <label for="logo_especies" class="control-label">Logo Especie:</label>
+                                  <input type="file" class="form-control" id="logo_especies" name="logo_especies" accept="image/*" class="form-control" onchange="loadFileimg(event)" multiple>
+                                  
+            </div>
+		    </div>
+	        </div> 
+	        	
+	        
 	        
 	        <div class="row">
 		    <div class="col-xs-12 col-md-12 col-lg-12" style="text-align: center; margin-top: 20px;">
@@ -157,26 +193,25 @@
 		            
             
 		     <?php } } else {?>
-		    		<div class="row">
-	        		<div class="col-xs-12 col-md-12"  >
-	        			<p>
-	        			Nombre Especie: 
-	        			</p>
-	        			<input type="text" name="nombre_especies" id="nombre_especies" value="" class="form-control"/>
-	        			<div id="mensaje_nombre" class="errores"></div>
-	        		</div>
-	        		
-	        	</div>
-	        		<div class="row">
-	        		<div class="col-xs-12 col-md-12"  >
-	        			<p>
-	        				Logo  Especie:  
-	        			</p>
-	        				<input type="file" id="logo_especies"  name="logo_especies[]" accept="image/*" class="form-control" onchange="loadFileimg(event)" multiple/>
-	        				<div id="mensaje_logo_especies" class="errores"></div>
-	        		</div>
-	        		
-	        	</div>
+		   <div class="row">
+	        <div class="col-xs-12 col-md-12">
+		    <div class="form-group ">
+		                          <label for="nombre_especies" class="control-label">Nombre Especie:</label>
+                                  <input type="text" class="form-control" id="nombre_especies" name="nombre_especies" value=""  placeholder="Nombre Especie">
+                                  <div id="mensaje_nombre" class="errores"></div>
+            </div>
+		    </div>
+	        </div> 
+	        
+	        <div class="row">
+	        <div class="col-xs-12 col-md-12">
+		    <div class="form-group ">
+		                          <label for="logo_especies" class="control-label">Logo Especie:</label>
+                                  <input type="file" class="form-control" id="logo_especies" name="logo_especies" accept="image/*" class="form-control" onchange="loadFileimg(event)" multiple>
+                                  <div id="mensaje_logo_especies" class="errores"></div>
+            </div>
+		    </div>
+	        </div> 
 	        
 	        
 	        <div class="row">

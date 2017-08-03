@@ -39,7 +39,7 @@ public function index(){
 		session_start();
 		$unidades_medida = new UnidadesMedidaModel();
 		
-		if (isset($_POST["nombre_unidades_medida"]) )
+		if (isset($_POST["btn_guardar"]) )
 		{
 			
 			$_nombre_unidades_medida = $_POST["nombre_unidades_medida"];
@@ -55,11 +55,28 @@ public function index(){
 			
 			$resultado=$unidades_medida->Insert();
 			
-			$this->redirect("UnidadesMedida", "index");
+			
 			
 		}
 		
-			
+		if (isset($_POST["btn_actualizar"]) )
+		{
+				
+			$_nombre_unidades_medida = $_POST["nombre_unidades_medida"];
+			$_id_unidades_medida =  $_POST["id_unidades_medida"];
+		
+			if($_id_unidades_medida>0){
+		
+						
+					$colval = " nombre_unidades_medida = '$_nombre_unidades_medida'";
+					$tabla = "unidades_medida";
+					$where = "id_unidades_medida = '$_id_unidades_medida'";
+					$resultado=$unidades_medida->UpdateBy($colval, $tabla, $where);
+		}
+		
+		}
+		
+		$this->redirect("UnidadesMedida", "index");
 	}
 	
 	public function borrarId()
