@@ -142,32 +142,38 @@
      <?php include("view/modulos/menuadmin.php"); ?>
      </div>
        
-  	   
-             <form action="<?php echo $helper->url("Usuarios","index_dos"); ?>" method="post"   class="col-lg-6">
-            
-              
-			  <div class="col-xs-6 col-md-6"  >
+  	  
+      <form action="<?php echo $helper->url("Usuarios","index_dos"); ?>" method="post"   class="col-lg-6">
+       <div class="panel panel-info">
+       <div class="panel-heading">
+	         <h4><i class='glyphicon glyphicon-plus'></i> Nuevo Usuario</h4>
+	         </div>
+	         <div class="panel-body">
+			  <div class="col-xs-8 col-md-8"  >
 				  <input type="email" id="usuario_usuario" name="usuario_usuario" value=""  placeholder="Correo Usuario" class="form-control"/>
 				  <div id="mensaje_nombre" class="errores"></div>
 			 </div>	
-              <div class="col-xs-2 col-md-2"  >
-				  	
-				  	<button type="submit" id="btn_agregar_usuario" name="btn_agregar_usuario"  class="btn btn-primary"><span class="glyphicon glyphicon-plus	" ><?php echo "" ;?> </span></button>
+              <div class="col-xs-2 col-md-2"  style="margin-top: 7px;">
+				   	<button type="submit" id="btn_agregar_usuario" name="btn_agregar_usuario"  class="btn btn-primary"><span class="glyphicon glyphicon-plus" ></span></button>
 			 </div>
-           
-           
+        </div> 
+        </div>
+      </form>
      
-        
-        </form>
        <form action="<?php echo $helper->url("Usuarios","index"); ?>" method="post" >
-            
+           
         <div class="col-lg-6">
+         <div class="panel panel-info">
+         <div class="panel-heading">
+	         <h4><i class='glyphicon glyphicon-search'></i> Buscar Usuarios</h4>
+	         </div>
+	         <div class="panel-body"> 
 	          <div class="col-xs-4 col-md-4 col-lg-4"  >
 	          	<input type="text" class="form-control" name="contenido_busqueda" id="contenido_busqueda" placeholder="texto a buscar">
 	          	<div id="mensaje_contenido_busqueda" class="errores"></div>
 	          </div>
-	          <div class="col-lg-4">
-           <select name="criterio_busqueda" id="criterio_busqueda"  class="form-control">
+	          <div class="col-lg-4 col-md-4 col-xs-4" style="margin-top: 4px;">
+             <select name="criterio_busqueda" id="criterio_busqueda"  class="form-control">
                                     <?php foreach($resultMenu as $val=>$desc) {?>
                                          <option value="<?php echo $val ?>" <?php //if ($resRol->id_rol == $resEdit->id_rol )  echo  ' selected="selected" '  ;  ?> ><?php echo $desc ?> </option>
                                     <?php } ?>
@@ -175,16 +181,16 @@
            </select>
            <div id="mensaje_criterio_busqueda" class="errores"></div>
            </div>				   		
-	          <div class="col-xs-4 col-md-4 col-lg-4"  >	
+	          <div class="col-xs-4 col-md-4 col-lg-4" style="margin-top: 6px;" >	
 	          	<button type="submit" id="btn_buscar" name="btn_buscar" class="btn btn-primary"><span class="glyphicon glyphicon-search	" ><?php echo "" ;?> </span></button>
 	          </div>
           
-        </div>
+        </div></div></div>
        </form>
       
        
         
-        <section class="col-lg-12" >  
+        <section class="col-lg-12 col-md-12 col-xs-2" >  
         <table class="table table-hover">
 	         <tr class="info">
 	    		<th style="text-align: left;  font-size: 11px;">Id</th>
@@ -202,7 +208,6 @@
 	    		<th style="text-align: left;  font-size: 11px;">Ocupacion</th>
 	    		<th style="text-align: left;  font-size: 11px;">Especificacion Ocupacion</th>
 	    		<th style="text-align: left;  font-size: 11px;">Creado</th>
-	    		<th style="text-align: left;  font-size: 11px;">Modificado</th>
 	    		<th style="text-align: left;  font-size: 11px;"></th>
 	    		<th style="text-align: left;  font-size: 11px;"></th>
 	    		
@@ -225,9 +230,7 @@
 		               <td style="font-size: 11px;"> <?php echo $res->nombre_ocupaciones; ?>     </td>
 		               <td style="font-size: 11px;"> <?php echo $res->extra_ocupacion_usuario; ?>     </td>
 		               <td style="font-size: 11px;"> <?php echo $res->creado; ?>     </td>
-		               <td style="font-size: 11px;"> <?php echo $res->modificado; ?>     </td> 
-		               
-		               
+		              
 		               <td>
 			           		<div class="right">
 			                    <a href="<?php echo $helper->url("Usuarios","index_dos"); ?>&id_usuario_edit=<?php echo $res->id_usuario; ?>" class="btn btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
@@ -252,12 +255,11 @@
             
        	</table>     
        	 
-       <div> 
+         <div class="col-lg-12 col-md-12 col-xs-12"> 
    		 <?php include("view/modulos/servicios.php"); ?>	
    		  </div>
-   <div style="background-color: #7acb5a;">
-   	 	 
-    	 <footer class="col-lg-12" >
+   			<div style="background-color: #7acb5a;">
+   	 	    <footer class="col-lg-12 col-md-12 col-xs-12" >
      	 	<?php include("view/modulos/footer.php"); ?>
     	 </footer>     
     	</div>

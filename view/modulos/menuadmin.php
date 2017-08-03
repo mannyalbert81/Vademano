@@ -19,31 +19,29 @@
         <li class="dropdown" style="background-color: #ffffff;" >
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-modal-window" ><?php echo " Administración" ;?> </span> <span class="caret"></span></a>
           <ul class="dropdown-menu">
-        	<li><a href="index.php?controller=Usuarios&action=index">Usuarios</a>
-		    </li>
-			
-		   
-          </ul>
+        	<li><a href="index.php?controller=Usuarios&action=index"><span class="glyphicon glyphicon-user" aria-hidden="true"> Usuarios</span></a>
+            </li>
+		 </ul>
         </li>
            <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-file" ><?php echo " Gestión de Fichas" ;?> </span> <span class="caret"></span></a>
           <ul class="dropdown-menu">
-          <li><a href="<?php echo $helper->url("Especies","index"); ?>">Especies</a>
+          <li><a href="<?php echo $helper->url("Especies","index"); ?>"><span class="glyphicon glyphicon-piggy-bank" aria-hidden="true"> Especies</span></a>
 		    </li>
-			<li><a href="<?php echo $helper->url("PrincipiosActivos","index"); ?>">Principios Activos</a>
+			<li><a href="<?php echo $helper->url("PrincipiosActivos","index"); ?>"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"> Principios Activos</span></a>
 			</li>
-			<li><a href="<?php echo $helper->url("UnidadesMedida","index"); ?>">Unidades de Medida</a>
+			<li><a href="<?php echo $helper->url("UnidadesMedida","index"); ?>"><span class="glyphicon glyphicon-user" aria-hidden="true"> Unidades de Medida</span></a>
 			</li>
-			<li><a href="<?php echo $helper->url("Distribuidores","index"); ?>">Distribuidores</a>
+			<li><a href="<?php echo $helper->url("Distribuidores","index"); ?>"><span class="glyphicon glyphicon-user" aria-hidden="true"> Distribuidores</span></a>
 			</li>
-			<li><a href="<?php echo $helper->url("Laboratorios","index"); ?>">Laboratorios</a>
+			<li><a href="<?php echo $helper->url("Laboratorios","index"); ?>"><span class="glyphicon glyphicon-user" aria-hidden="true"> Laboratorios</span></a>
 			</li>
 			
 			<li role="separator" class="divider"></li>
 		
-			<li><a href="<?php echo $helper->url("FichasProductos","index"); ?>">Fichas de Productos </a>
+			<li><a href="<?php echo $helper->url("FichasProductos","index"); ?>"><span class="glyphicon glyphicon-user" aria-hidden="true"> Fichas de Productos</span></a>
 			</li>
-	                <li><a href="<?php echo $helper->url("FichasAlimentos","index"); ?>">Fichas de Alimentos </a>
+	                <li><a href="<?php echo $helper->url("FichasAlimentos","index"); ?>"><span class="glyphicon glyphicon-user" aria-hidden="true"> Fichas de Alimentos</span></a>
 			</li>
           </ul>
         </li>

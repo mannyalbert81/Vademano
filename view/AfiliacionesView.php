@@ -512,7 +512,7 @@
             <div class="col-xs-6 col-md-6" id="div_extra_ocupaciones_usuario" style="display: none;" >
 		    <div class="form-group ">
 		                          <label for="extra_ocupaciones_usuario" class="control-label">Especifique su Ocupación:</label>
-                                  <input type="text" class="form-control" id="extra_ocupaciones_usuario" name="extra_ocupaciones_usuario" value="<?php echo $resEdit->extra_ocupaciones_usuario; ?>"  placeholder="Ocupación">
+                                  <input type="text" class="form-control" id="extra_ocupaciones_usuario" name="extra_ocupaciones_usuario" value="<?php echo $resEdit->extra_ocupacion_usuario; ?>"  placeholder="Ocupación">
                                   <span class="help-block"></span>
             </div>
 		    </div>

@@ -128,7 +128,7 @@ public function index(){
 		$_id_usuario = 0  ;
 		$resultEdit = "";
 		$_usuario_usuario = "";
-		$_nuevo_usuario = FALSE;
+		$_nuevo_usuario = "false";
 		
 		$usuario = new UsuariosModel();
 		$resultSet = $usuario->getAll("id_usuario");
@@ -138,6 +138,8 @@ public function index(){
 			
 		$paises=new PaisesModel();
 		$resultPais = $paises->getAll("nombre_pais");
+		$ocupaciones = new OcupacionesModel();
+		$resultOcu = $ocupaciones->getAll("nombre_ocupaciones");
 		
 		$roles = new RolesModel();
 		$resultRol = $roles->getAll("nombre_rol");
@@ -145,7 +147,9 @@ public function index(){
 		$estados = new EstadosModel();
 		$resultEst =  $estados->getAll("nombre_estado");
 		
-			
+		$usuarios = new UsuariosModel();
+		
+				
 		if (isset ($_GET["id_usuario"])   )
 		{
 			$_id_usuario = $_GET["id_usuario"];
@@ -160,39 +164,35 @@ public function index(){
 		}
 	
 	
-		
-		
-		
-		
-		
-		
-		
-		
 		//AGREGO EL NOMBRE Y DEVUELVO EL ID
 		if (isset($_POST["btn_agregar_usuario"]) )
 		{
-			$_nuevo_usuario = TRUE;
+			$nuevo_usuario = TRUE;
 			$_usuario_usuario   =  $_POST["usuario_usuario"];
-			$funcion = "ins_usuarios";
-			$parametros = " '$_usuario_usuario'  ";
-			$usuario->setFuncion($funcion);
-			$usuario->setParametros($parametros);
-			try {
 			
-				$resultado=$usuario->Insert();
-				
-			} catch (Exception $e) {
-		
-				$this->view("Resultado",array(
-						"resultado"=>"No se puedo insertar el Usuario"
+			
+				$funcion = "ins_usuarios";
+				$parametros = " '$_usuario_usuario'  ";
+				$usuario->setFuncion($funcion);
+				$usuario->setParametros($parametros);
+				try {
 						
-				));
+					$resultado=$usuario->Insert();
 				
-				exit();
+				} catch (Exception $e) {
 				
+					$this->view("Resultado",array(
+							"resultado"=>"No se puedo insertar el Usuario"
+				
+					));
+				
+					exit();
+				
+				}
 			}
 			
-		}
+			
+		
 	
 		$res_usuario=$usuario->getBy("usuario_usuario = '$_usuario_usuario' ");
 			
@@ -217,76 +217,85 @@ public function index(){
 			$_nombres_usuario 	= strtoupper ( $_POST["nombres_usuario"] );
 			$_apellidos_usuario  = strtoupper ( $_POST["apellidos_usuario"] );
 			$_usuario_usuario   = $_POST["correo_usuario"];
-			$_clave_usuario     =  $_POST["clave_usuario"];
+			$_clave_usuario     = $usuario->encrypt($_POST["clave_usuario"]);
+			$_clave_usuario1     = $_POST["clave_usuario"];
 			$_id_pais           = $_POST["paises"];
 			$_id_provincia      = $_POST["provincias"];
 			$_telefono_usuario  = $_POST["telefono_usuario"];
 			$_celular_usuario   = $_POST["celular_usuario"];
 			$_correo_usuario    = $_POST["correo_usuario"];
 			$_id_usuario    = $_POST["id_usuario"];
-			$_id_rol            = 3;   
-			$_id_estado         = 2; 
-			$_id_ocupaciones = 8;
+			$_id_rol            = $_POST["id_rol"] ;   
+			$_id_estado         =  $_POST["id_estado"];
+			
 			$_clave_activacion_usuario = $usuario->encrypt($_POST["correo_usuario"]);
 			$_fecha_nacimiento = $_POST["fecha_nacimiento_usuario"];
+			$_id_ocupaciones    = $_POST["ocupaciones"];
+			$_extra_ocupaciones_usuario    = $_POST["extra_ocupaciones_usuario"];
 			
 			
-			
+			/*
 			$usuario->UpdateBy("nombres_usuario='$_nombres_usuario', apellidos_usuario='$_apellidos_usuario',correo_usuario='$_usuario_usuario',
 					clave_usuario='$_clave_usuario',id_pais='$_id_pais', id_provincia='$_id_provincia',telefono_usuario='$_telefono_usuario', celular_usuario='$_celular_usuario',id_rol='$_id_rol', id_estado='$_id_estado',fecha_nacimiento_usuario='$_fecha_nacimiento', clave_activacion_usuario='$_clave_activacion_usuario', id_ocupaciones='$_id_ocupaciones'", 
 					"usuarios", "id_usuario='$_id_usuario'");
+			*/
 			
-			/*
 			$funcion = "ins_usuarios";
-			$parametros = " '$_nombres_usuario','$_apellidos_usuario', '$_usuario_usuario', '$_clave_usuario'
-			,'$_id_pais', '$_id_provincia', '$_telefono_usuario', '$_celular_usuario'
-			,'$_correo_usuario', '$_id_rol','$_id_estado', '$_clave_activacion_usuario'
-			,'$_fecha_nacimiento' ";
+			$parametros = " '$_nombres_usuario','$_apellidos_usuario','$_usuario_usuario', '$_clave_usuario','$_id_pais', '$_id_provincia','$_telefono_usuario','$_celular_usuario','$_correo_usuario','$_id_rol','$_id_estado','$_clave_activacion_usuario','$_fecha_nacimiento','$_id_ocupaciones','$_extra_ocupaciones_usuario'";
 			$usuario->setFuncion($funcion);
 			$usuario->setParametros($parametros);
 			$resultado=$usuario->Insert();
 				
-			*/
+			
+/*
+			$cabeceras = "MIME-Version: 1.0 \r\n";
+			$cabeceras .= "Content-type: text/html; charset=utf-8 \r\n";
+			$cabeceras.= "From: info@masoft.net \r\n";
+			$destino="$_usuario_usuario";
+			$asunto="Claves de Acceso";
+			$fecha=date("d/m/y");
+			$hora=date("H:i:s");
+			
+			//
+			$resumen="
+			<table rules='all'>
+			<tr style='background:#7acb5a'><td WIDTH='1000' HEIGHT='50'><rigth><img src='http://186.4.203.42:4000/Vademano/view/images/logo_vademano.png' WIDTH='200' HEIGHT='80' /></rigth></td></tr>
+			</tabla>
+			<p><table rules='all'></p>
+			<tr style='background: #FFFFFF;'><td  WIDTH='1000' align='center'><b> BIENVENIDO A VADEMANO </b></td></tr></p>
+			<tr style='background: #FFFFFF;'><td  WIDTH='1000' align='justify'>Bienvenido a Vademano veterinario el portal digital que reúne toda la información  de relevancia relacionada con los productos  farmacéuticos de uso veterinario que se comercializan, busca proveer a médicos veterinarios, técnicos, especialistas y público en general  el más completo vademécum digital.
+			El Vademano Veterinario está diseñado como una herramienta web moderna, versátil y fácil de utilizar, que se ajusta a la versatilidad de los dispositivos de comunicación actual para que la búsqueda de información se convierta en una tarea sencilla que puede ser realizada a través de múltiples combinaciones de criterios:
+			efecto terapéutico, forma farmacéutica, especies, etc.; asimismo dispondrá de la información de los productos en formato PDF, opción para imprimir, entre otras múltiples ventajas.</td></tr>
+			</tabla>
+			<p><table rules='all'></p>
+			<tr style='background: #FFFFFF'><td WIDTH='1000' align='center'><b> TUS DATOS DE ACCESO SON: </b></td></tr>
+			<tr style='background: #FFFFFF;'><td WIDTH='1000' > <b>Usuario:</b> $_usuario_usuario</td></tr>
+			<tr style='background: #FFFFFF;'><td WIDTH='1000' > <b>Clave Temporal:</b> $_clave_usuario1 </td></tr>
+			</tabla>
+			
+			<table rules='all'>
+			<tr style='background:#FFFFFF'><td WIDTH='1000' HEIGHT='50' align='center'><center><img src='http://186.4.203.42:4000/Vademano/view/images/left-box.png' WIDTH='180' HEIGHT='220' /><img src='http://186.4.203.42:4000/Vademano/view/images/center-box.png' WIDTH='180' HEIGHT='220' /><img src='http://186.4.203.42:4000/Vademano/view/images/rigth-box.png' WIDTH='180' HEIGHT='220' /></center></td></tr>
+			</tabla>
+			
+			<p><table rules='all'></p>
+			<tr style='background:#1C1C1C'><td WIDTH='1000' HEIGHT='50' align='center'><font color='white'>Vademano. - <a href='http://www.vademano.com'><FONT COLOR='#7acb5a'>www.vademano.com</FONT></a> - Copyright © 2017-</font></td></tr>
+			</table>
+			";
 			
 			
-			
-			
-			
-			
-			
-			$baseUrl = URLVADEMANO;
-			$controladorAccion = "controller=Afiliaciones&action=ValidarAfiliado&clave_activacion=" . $_clave_activacion_usuario;
-			$email_to  = $_POST['correo_usuario'];
-			$email_from  = "info@masoft.net";
-			$email_subject = "Bienvenido a Vademano";
-				
-			$headers  = 'MIME-Version: 1.0' . "\r\n";
-			$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-			
-			
-			$email_message = '<html><body>';
-			$email_message .= '<h1 style="color:#f40;">Hi Jane!</h1>';
-			$email_message .= '<p style="color:#080;font-size:18px;">Will you marry me?</p>';
-			
-			$email_message = "Bienvenid@ !!! \n\n";
-			$email_message .= "". $_POST['nombres_usuario'] ." ". $_POST['apellidos_usuario'] . " ya te encuentras registrado en vademano.com " ."\n";
-			$email_message .= "Tus datos pra acceder al sistema son: " . "\n";
-			$email_message .= "Usuario: ". $_POST['correo_usuario']. "\n";
-			$email_message .= "Clave: " . $_POST['clave_usuario'] ."\n";
-			$email_message .= "Ingresa a la siguiente url para que valides tu cuenta ". $baseUrl.$controladorAccion . "\n";
-			
-			$email_message .= '</body></html>';
-			// Ahora se envía el e-mail usando la función mail() de PHP
-			
-			$headers = 'From: '.$email_from."\r\n".
-					'Reply-To: '.$email_from."\r\n" .
-					'X-Mailer: PHP/' . phpversion();
-				
-				
-			if (mail($email_to, $email_subject, $email_message, $headers))
+			if(mail("$destino","Claves de Acceso","$resumen","$cabeceras"))
 			{
+				$mensaje = "Hemos enviado un correo electronico con sus datos de acceso";
+				
+			
+			}else{
+				$mensaje = "No se pudo enviar el correo con la informacion. Intentelo nuevamente";
+				$error = TRUE;
 			
 			}
+			
+			*/
+			
 			
 			$this->redirect("Usuarios", "index");
 			
@@ -298,9 +307,9 @@ public function index(){
 				"resultEdit" =>$resultEdit,
 				"id_usuario"=>$_id_usuario, 
 				"usuario_usuario"=>$_usuario_usuario , 
-				"nuevo_usuario"=>$_nuevo_usuario,
+				
 				"resultRol"=>$resultRol,
-				"resultEst"=>$resultEst
+				"resultEst"=>$resultEst, "resultOcu"=>$resultOcu
 		));
 		
 		
@@ -698,7 +707,7 @@ public function index(){
 				$asunto="Claves de Acceso";
 				$fecha=date("d/m/y");
 				$hora=date("H:i:s");
-				$servicios=servicios;
+				
 				//
 				$resumen="	
 				<table rules='all'>

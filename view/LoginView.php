@@ -104,10 +104,7 @@
 						     <div class="col-xs-3 col-md-3 col-lg-3" style="text-align: center;">
 						    </div>
 						    </div>
-						   
-                      
-                       
-                             
+						     
                   </div>
                   
                 		  <div class="col-lg-6 col-md-3">
@@ -124,7 +121,6 @@
               </div>
            <br><br><br><br><br><br><br><br><br> 
       </div>
-      
       
             <div class="col-lg-7 col-md-3 division" style="-webkit-box-shadow: 0px 2px 2px 2px rgba(0,0,0,0.69); border-radius: 24px 24px 24px 24px; margin-top: 20px">
             <h4>Informate</h4>
