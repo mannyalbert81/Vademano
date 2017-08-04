@@ -79,7 +79,14 @@
 		}); 
 
 	</script>
- 		
+ 		<script type="text/javascript">
+		function mensaje(){
+			
+		  var respuesta = confirm('Seguro Desea Eliminar')
+		   return respuesta;
+		}
+		
+		</script>
     </head>
     <body style="background-color: #FAFAFA;">
     
@@ -168,7 +175,7 @@
 			            </td>
 			             <td style="font-size: 13px;">   
 			                	<div class="right">
-			                    <a href="<?php echo $helper->url("UnidadesMedida","borrarId"); ?>&id_unidades_medida=<?php echo $res->id_unidades_medida; ?>" class="btn btn-danger"><i class="glyphicon glyphicon-trash"></i></a>
+			                    <a href="<?php echo $helper->url("UnidadesMedida","borrarId"); ?>&id_unidades_medida=<?php echo $res->id_unidades_medida; ?>" class="btn btn-danger" onClick="return mensaje();"><i class="glyphicon glyphicon-trash"></i></a>
 			                </div>
 			               
 		                 </td>

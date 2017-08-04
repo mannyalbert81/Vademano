@@ -108,7 +108,14 @@
 	</script>
 
 
-
+<script type="text/javascript">
+		function mensaje(){
+			
+		  var respuesta = confirm('Seguro Desea Eliminar')
+		   return respuesta;
+		}
+		
+		</script>
  			
         <style>
             input{
@@ -221,7 +228,7 @@
 			             </td>
 			             <td>   
 			                	<div class="right">
-			                    <a href="<?php echo $helper->url("FichasAlimentos","borrarId"); ?>&id_fichas=<?php echo $res->id_fichas; ?>" class="btn btn-danger"><i class="glyphicon glyphicon-trash"></i></a>
+			                    <a href="<?php echo $helper->url("FichasAlimentos","borrarId"); ?>&id_fichas=<?php echo $res->id_fichas; ?>" class="btn btn-danger" onClick="return mensaje();"><i class="glyphicon glyphicon-trash"></i></a>
 			                </div>
 			                <hr/>
 		               </td>

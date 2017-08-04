@@ -46,7 +46,13 @@
 
 	</script>
 
-
+		<script type="text/javascript">
+		function mensaje(){
+		   var respuesta = confirm('Seguro Desea Eliminar')
+		   return respuesta;
+		}
+		
+		</script>
  			
         <style>
             input{
@@ -136,7 +142,7 @@
 			            </td>
 			             <td>   
 			                	<div class="right">
-			                    <a href="<?php echo $helper->url("Composiciones","borrarId"); ?>&id_composiciones=<?php echo $res->id_composiciones; ?>" class="btn btn-danger">Borrar</a>
+			                    <a href="<?php echo $helper->url("Composiciones","borrarId"); ?>&id_composiciones=<?php echo $res->id_composiciones; ?>" class="btn btn-danger" onClick="return mensaje();">Borrar</a>
 			                </div>
 			                <hr/>
 		                 </td>

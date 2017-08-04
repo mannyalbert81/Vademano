@@ -242,7 +242,15 @@
 	</script>
 
      
- 			
+ 		<script type="text/javascript">
+		function mensaje(){
+			
+		  var respuesta = confirm('Seguro Desea Eliminar')
+		   return respuesta;
+		}
+		
+		</script>
+			
         <style>
             input{
                 margin-top:5px;
@@ -289,7 +297,6 @@
 			   	if($_SERVER['REQUEST_METHOD']=='GET' )
 			   	{
 			   		
-			   		
 			   		if ($resultEdit !="" ) {
 			   		
 			   		}
@@ -303,16 +310,11 @@
 				   		$sel_web_distribuidores = $_GET['web_distribuidores'];
 			   		}
 			   		
-			   		
-			   		
-			   		
 			   	}
 			
-		   
 		   }
 		   
-		   		
-		   
+		   	
 		?>
 
        
@@ -526,7 +528,7 @@
 					             </td>
 					             <td style="font-size: 11px;">   
 					                	<div class="right">
-					                       <a name="borrar_dir" id="borrar_dir" href="<?php echo $helper->url("Distribuidores","index_dos"); ?>&id_direcciones=<?php echo $res->id_direcciones; ?>&nombre_distribuidores=<?php echo $nombre_distribuidores; ?>&id_distribuidores=<?php echo $id_distribuidores; ?>&persona_contacto_distribuidores=<?php echo $sel_persona_contacto_distribuidores; ?>&telefono_persona_contacto_distribuidores=<?php echo $sel_telefono_persona_contacto_distribuidores; ?>&web_distribuidores=<?php echo $sel_web_distribuidores; ?>&email_distribuidores=<?php echo $sel_email_distribuidores; ?>" class="btn btn-danger"><i class="glyphicon glyphicon-trash"></i></a>
+					                       <a name="borrar_dir" id="borrar_dir" href="<?php echo $helper->url("Distribuidores","index_dos"); ?>&id_direcciones=<?php echo $res->id_direcciones; ?>&nombre_distribuidores=<?php echo $nombre_distribuidores; ?>&id_distribuidores=<?php echo $id_distribuidores; ?>&persona_contacto_distribuidores=<?php echo $sel_persona_contacto_distribuidores; ?>&telefono_persona_contacto_distribuidores=<?php echo $sel_telefono_persona_contacto_distribuidores; ?>&web_distribuidores=<?php echo $sel_web_distribuidores; ?>&email_distribuidores=<?php echo $sel_email_distribuidores; ?>" class="btn btn-danger" onClick="return mensaje();"><i class="glyphicon glyphicon-trash"></i></a>
 						                </div>
 					             </td>
 				               
@@ -775,7 +777,7 @@
 					             </td>
 					             <td style="font-size: 12px;">   
 					                	<div class="right">
-					                       <a name="borrar_dir" id="borrar_dir" href="<?php echo $helper->url("Distribuidores","index_dos"); ?>&id_direcciones=<?php echo $res->id_direcciones; ?>&nombre_distribuidores=<?php echo $nombre_distribuidores; ?>&id_distribuidores=<?php echo $id_distribuidores; ?>&persona_contacto_distribuidores=<?php echo $sel_persona_contacto_distribuidores; ?>&telefono_persona_contacto_distribuidores=<?php echo $sel_telefono_persona_contacto_distribuidores; ?>&web_distribuidores=<?php echo $sel_web_distribuidores; ?>&email_distribuidores=<?php echo $sel_email_distribuidores; ?>" class="btn btn-danger"><i class="glyphicon glyphicon-trash"></i></a>
+					                       <a name="borrar_dir" id="borrar_dir" href="<?php echo $helper->url("Distribuidores","index_dos"); ?>&id_direcciones=<?php echo $res->id_direcciones; ?>&nombre_distribuidores=<?php echo $nombre_distribuidores; ?>&id_distribuidores=<?php echo $id_distribuidores; ?>&persona_contacto_distribuidores=<?php echo $sel_persona_contacto_distribuidores; ?>&telefono_persona_contacto_distribuidores=<?php echo $sel_telefono_persona_contacto_distribuidores; ?>&web_distribuidores=<?php echo $sel_web_distribuidores; ?>&email_distribuidores=<?php echo $sel_email_distribuidores; ?>" class="btn btn-danger" onClick="return mensaje();"><i class="glyphicon glyphicon-trash"></i></a>
 						                </div>
 					             </td>
 				               

@@ -24,6 +24,15 @@
                 
             
         </style>
+        
+        <script type="text/javascript">
+		function mensaje(){
+			
+		  var respuesta = confirm('Seguro Desea Eliminar')
+		   return respuesta;
+		}
+		
+		</script>
     </head>
     <body class="cuerpo">
     
@@ -52,7 +61,7 @@
 		               <td> <input type="image" name="image" src="view/DevuelveImagen.php?id_valor=<?php echo $res->id_fichas; ?>&id_nombre=id_fichas&tabla=fichas_fotos&campo=foto_fichas_fotos"  alt="<?php echo $res->nombre_fichas; ?>" width="80" height="60" >      </td>
 		                 <td>   
 			                	<div class="right">
-			                    <a href="<?php echo $helper->url("FichasRecientes","borrarId"); ?>&id_fichas=<?php echo $res->id_fichas; ?>" class="btn btn-danger">Borrar</a>
+			                    <a href="<?php echo $helper->url("FichasRecientes","borrarId"); ?>&id_fichas=<?php echo $res->id_fichas; ?>" class="btn btn-danger" onClick="return mensaje();">Borrar</a>
 			                </div>
 			                <hr/>
 		               </td>

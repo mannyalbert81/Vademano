@@ -588,7 +588,14 @@
 
 	</script>
 
-
+<script type="text/javascript">
+		function mensaje(){
+			
+		  var respuesta = confirm('Seguro Desea Eliminar')
+		   return respuesta;
+		}
+		
+		</script>
  			
         <style>
             input{
@@ -743,13 +750,13 @@
 						               
 						               <td>
 							           		<div class="right">
-							                    <a href="<?php echo $helper->url("Fichas","index"); ?>&id_fichas_composiciones=<?php echo $res->id_fichas_composiciones; ?>" class="btn btn-warning">Editar</a>
+							                    <a href="<?php echo $helper->url("Fichas","index"); ?>&id_fichas_composiciones=<?php echo $res->id_fichas_composiciones; ?>" class="btn btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
 							                </div>
 							            
 							             </td>
 							             <td>   
 							               	<div class="right">
-							                    <a href="<?php echo $helper->url("Fichas","borrarId"); ?>&id_fichas_composiciones=<?php echo $res->id_fichas_composiciones; ?>" class="btn btn-danger">Borrar</a>
+							                    <a href="<?php echo $helper->url("Fichas","borrarId"); ?>&id_fichas_composiciones=<?php echo $res->id_fichas_composiciones; ?>" class="btn btn-danger" onClick="return mensaje();"><i class="glyphicon glyphicon-trash"></i></a>
 							                </div>
 							                <hr/>
 						               </td>
@@ -836,13 +843,13 @@
 						               
 						               <td>
 							           		<div class="right">
-							                    <a href="<?php echo $helper->url("Fichas","index"); ?>&id_fichas_dosificacion=<?php echo $res->id_fichas_dosificacion; ?>" class="btn btn-warning">Editar</a>
+							                    <a href="<?php echo $helper->url("Fichas","index"); ?>&id_fichas_dosificacion=<?php echo $res->id_fichas_dosificacion; ?>" class="btn btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
 							                </div>
 							            
 							             </td>
 							             <td>   
 							               	<div class="right">
-							                    <a href="<?php echo $helper->url("Fichas","borrarId"); ?>&id_fichas_dosificacion=<?php echo $res->id_fichas_dosificacion; ?>" class="btn btn-danger">Borrar</a>
+							                    <a href="<?php echo $helper->url("Fichas","borrarId"); ?>&id_fichas_dosificacion=<?php echo $res->id_fichas_dosificacion; ?>" class="btn btn-danger" onClick="return mensaje();"><i class="glyphicon glyphicon-trash"></i></a>
 							                </div>
 							                <hr/>
 						               </td>

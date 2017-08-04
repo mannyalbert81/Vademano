@@ -586,7 +586,14 @@
 
 	</script>
 
-
+<script type="text/javascript">
+		function mensaje(){
+			
+		  var respuesta = confirm('Seguro Desea Eliminar')
+		   return respuesta;
+		}
+		
+		</script>
  			
         <style>
             input{
@@ -776,7 +783,7 @@
 						             
 							             <td>   
 							               	<div class="right">
-							                    <a href="<?php echo $helper->url("FichasProductos","borrarId"); ?>&id_fichas_composiciones=<?php echo $res->id_fichas_composiciones; ?>" class="btn btn-danger">Borrar</a>
+							                    <a href="<?php echo $helper->url("FichasProductos","borrarId"); ?>&id_fichas_composiciones=<?php echo $res->id_fichas_composiciones; ?>" class="btn btn-danger" onClick="return mensaje();"><i class="glyphicon glyphicon-trash"></i></a>
 							                </div>
 							                <hr/>
 						               </td>
@@ -881,7 +888,7 @@
 						               
 						                 <td>   
 							               	<div class="right">
-							                    <a href="<?php echo $helper->url("FichasProductos","borrarId"); ?>&id_fichas_dosificacion=<?php echo $res->id_fichas_dosificacion; ?>" class="btn btn-danger">Borrar</a>
+							                    <a href="<?php echo $helper->url("FichasProductos","borrarId"); ?>&id_fichas_dosificacion=<?php echo $res->id_fichas_dosificacion; ?>" class="btn btn-danger" onClick="return mensaje();"><i class="glyphicon glyphicon-trash"></i></a>
 							                </div>
 							                <hr/>
 						               </td>
@@ -952,7 +959,7 @@
 						                   
 						                 <td>   
 							               	<div class="right">
-							                    <a href="<?php echo $helper->url("FichasProductos","borrarId"); ?>&id_fichas_especies=<?php echo $res->id_fichas_especies; ?>" class="btn btn-danger">Borrar</a>
+							                    <a href="<?php echo $helper->url("FichasProductos","borrarId"); ?>&id_fichas_especies=<?php echo $res->id_fichas_especies; ?>" class="btn btn-danger" onClick="return mensaje();"><i class="glyphicon glyphicon-trash"></i></a>
 							                </div>
 							                <hr/>
 						               </td>
@@ -1022,7 +1029,7 @@
 						                   
 						                 <td>   
 							               	<div class="right">
-							                    <a href="<?php echo $helper->url("FichasProductos","borrarId"); ?>&id_fichas_formas_administracion=<?php echo $res->id_fichas_formas_administracion; ?>" class="btn btn-danger">Borrar</a>
+							                    <a href="<?php echo $helper->url("FichasProductos","borrarId"); ?>&id_fichas_formas_administracion=<?php echo $res->id_fichas_formas_administracion; ?>" class="btn btn-danger" onClick="return mensaje();"><i class="glyphicon glyphicon-trash"></i></a>
 							                </div>
 							                <hr/>
 						               </td>
@@ -1151,7 +1158,7 @@
 						                   
 						                 <td>   
 							               	<div class="right">
-							                    <a href="<?php echo $helper->url("FichasProductos","borrarId"); ?>&id_fichas_distribuidores=<?php echo $res->id_fichas_distribuidores; ?>" class="btn btn-danger">Borrar</a>
+							                    <a href="<?php echo $helper->url("FichasProductos","borrarId"); ?>&id_fichas_distribuidores=<?php echo $res->id_fichas_distribuidores; ?>" class="btn btn-danger" onClick="return mensaje();"><i class="glyphicon glyphicon-trash"></i></a>
 							                </div>
 							                <hr/>
 						               </td>
@@ -1222,7 +1229,7 @@
 						                   
 						                 <td>   
 							               	<div class="right">
-							                    <a href="<?php echo $helper->url("FichasProductos","borrarId"); ?>&id_fichas_laboratorios=<?php echo $res->id_fichas_laboratorios; ?>" class="btn btn-danger">Borrar</a>
+							                    <a href="<?php echo $helper->url("FichasProductos","borrarId"); ?>&id_fichas_laboratorios=<?php echo $res->id_fichas_laboratorios; ?>" class="btn btn-danger" onClick="return mensaje();"><i class="glyphicon glyphicon-trash"></i></a>
 							                </div>
 							                <hr/>
 						               </td>
@@ -1375,7 +1382,7 @@
 						             
 							             <td>   
 							               	<div class="right">
-							                    <a href="<?php echo $helper->url("FichasProductos","borrarId"); ?>&id_fichas_composiciones=<?php echo $res->id_fichas_composiciones; ?>" class="btn btn-danger">Borrar</a>
+							                    <a href="<?php echo $helper->url("FichasProductos","borrarId"); ?>&id_fichas_composiciones=<?php echo $res->id_fichas_composiciones; ?>" class="btn btn-danger" onClick="return mensaje();"><i class="glyphicon glyphicon-trash"></i></a>
 							                </div>
 							                <hr/>
 						               </td>
@@ -1479,7 +1486,7 @@
 						               
 						                 <td>   
 							               	<div class="right">
-							                    <a href="<?php echo $helper->url("FichasProductos","borrarId"); ?>&id_fichas_dosificacion=<?php echo $res->id_fichas_dosificacion; ?>" class="btn btn-danger">Borrar</a>
+							                    <a href="<?php echo $helper->url("FichasProductos","borrarId"); ?>&id_fichas_dosificacion=<?php echo $res->id_fichas_dosificacion; ?>" class="btn btn-danger" onClick="return mensaje();"><i class="glyphicon glyphicon-trash"></i></a>
 							                </div>
 							                <hr/>
 						               </td>
@@ -1550,7 +1557,7 @@
 						                   
 						                 <td>   
 							               	<div class="right">
-							                    <a href="<?php echo $helper->url("FichasProductos","borrarId"); ?>&id_fichas_especies=<?php echo $res->id_fichas_especies; ?>" class="btn btn-danger">Borrar</a>
+							                    <a href="<?php echo $helper->url("FichasProductos","borrarId"); ?>&id_fichas_especies=<?php echo $res->id_fichas_especies; ?>" class="btn btn-danger" onClick="return mensaje();"><i class="glyphicon glyphicon-trash"></i></a>
 							                </div>
 							                <hr/>
 						               </td>
@@ -1620,7 +1627,7 @@
 						                   
 						                 <td>   
 							               	<div class="right">
-							                    <a href="<?php echo $helper->url("FichasProductos","borrarId"); ?>&id_fichas_formas_administracion=<?php echo $res->id_fichas_formas_administracion; ?>" class="btn btn-danger">Borrar</a>
+							                    <a href="<?php echo $helper->url("FichasProductos","borrarId"); ?>&id_fichas_formas_administracion=<?php echo $res->id_fichas_formas_administracion; ?>" class="btn btn-danger" onClick="return mensaje();"><i class="glyphicon glyphicon-trash"></i></a>
 							                </div>
 							                <hr/>
 						               </td>
@@ -1750,7 +1757,7 @@
 						                   
 						                 <td>   
 							               	<div class="right">
-							                    <a href="<?php echo $helper->url("FichasProductos","borrarId"); ?>&id_fichas_distribuidores=<?php echo $res->id_fichas_distribuidores; ?>" class="btn btn-danger">Borrar</a>
+							                    <a href="<?php echo $helper->url("FichasProductos","borrarId"); ?>&id_fichas_distribuidores=<?php echo $res->id_fichas_distribuidores; ?>" class="btn btn-danger" onClick="return mensaje();"><i class="glyphicon glyphicon-trash"></i></a>
 							                </div>
 							                <hr/>
 						               </td>
@@ -1821,7 +1828,7 @@
 						                   
 						                 <td>   
 							               	<div class="right">
-							                    <a href="<?php echo $helper->url("FichasProductos","borrarId"); ?>&id_fichas_laboratorios=<?php echo $res->id_fichas_laboratorios; ?>" class="btn btn-danger">Borrar</a>
+							                    <a href="<?php echo $helper->url("FichasProductos","borrarId"); ?>&id_fichas_laboratorios=<?php echo $res->id_fichas_laboratorios; ?>" class="btn btn-danger" onClick="return mensaje();"><i class="glyphicon glyphicon-trash"></i></a>
 							                </div>
 							                <hr/>
 						               </td>
