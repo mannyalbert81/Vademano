@@ -8,112 +8,113 @@ class LaboratoriosController extends ControladorBase{
 public function index(){
 	session_start();
 	
-	    $laboratorios = new LaboratoriosModel();
-		$resultSet = $laboratorios->getAll("id_laboratorios");
-		
-		$resultEdit = "";
-		$resultMenu=array(0=>'--TODOS--',1=>'Nombre Laboratorio',2=>'Nombre Persona Contacto',3=>'Email Laboratorio',4=>'Web Laboratorio');
-		
-		
-		if (isset($_POST["btn_buscar"]))
-		{
-		
-		
-			$columnas1 = "laboratorios.id_laboratorios, 
-					  laboratorios.nombre_laboratorios, 
-					  laboratorios.persona_contacto_laboratorios, 
-					  laboratorios.telefono_persona_contacto_laboratorios, 
-					  laboratorios.email_laboratorios, 
-					  laboratorios.web_laboratorios, 
-					  laboratorios.logo_laboratorios, 
-					  laboratorios.creado, 
-					  laboratorios.modificado, 
+	$laboratorios = new LaboratoriosModel();
+	$resultSet = $laboratorios->getAll("id_laboratorios");
+	
+	$resultEdit = "";
+	$resultMenu=array(0=>'--TODOS--',1=>'Nombre Laboratorio',2=>'Nombre Persona Contacto',3=>'Email Laboratorio',4=>'Web Laboratorio');
+	
+	
+	if (isset($_POST["btn_buscar"]))
+	{
+	
+	
+		$columnas1 = "laboratorios.id_laboratorios,
+					  laboratorios.nombre_laboratorios,
+					  laboratorios.persona_contacto_laboratorios,
+					  laboratorios.telefono_persona_contacto_laboratorios,
+					  laboratorios.email_laboratorios,
+					  laboratorios.web_laboratorios,
+					  laboratorios.logo_laboratorios,
+					  laboratorios.creado,
+					  laboratorios.modificado,
 					  laboratorios.buscador";
-		
-			$tablas1   = "public.laboratorios";
-			$where1    = "laboratorios.id_laboratorios>0";
-			$id1 = "laboratorios.id_laboratorios";
-		
-		
-			$criterio = $_POST["criterio_busqueda"];
-			$contenido = $_POST["contenido_busqueda"];
-		
-		
-		
-			if ($contenido !="")
-			{
-		
-				$where_0 = "";
-				$where_2 = "";
-				$where_3 = "";
-				$where_4 = "";
-				$where_5 = "";
-		
-		
-					
-		
-				switch ($criterio) {
-					case 0:
-						$where_0 = " ";
-						break;
-					case 1:
-		
-						$where_2 = " AND laboratorios.nombre_laboratorios LIKE '$contenido%'  ";
-						break;
-					case 2:
-		
-						$where_3 = " AND laboratorios.persona_contacto_laboratorios LIKE '$contenido%'  ";
-						break;
-					case 3:
-							
-						$where_4 = " AND laboratorios.email_laboratorios LIKE '$contenido%'  ";
-						break;
-		
-					case 4:
-		
-						$where_5 = " AND laboratorios.web_laboratorios LIKE '$contenido%'  ";
-						break;
-							
-							
-							
-				}
-		
-		
-		
-				$where_to  = $where1 .  $where_0.  $where_2.  $where_3.  $where_4.  $where_5;
-		
-		
-				$resul = $where_to;
-					
-				//Conseguimos todos los usuarios con filtros
-				$resultSet=$laboratorios->getCondiciones($columnas1 ,$tablas1 ,$where_to, $id1);
-		
-		
-		
-		
-			}
-		}
-		
-		
-		
-		
-		if (isset ($_GET["id_laboratorios"])   )
-			{
-				$_id_laboratorios = $_GET["id_laboratorios"];
-				$where    = "id_laboratorios = '$_id_laboratorios' "; 
-				$resultEdit = $laboratorios->getBy($where);
+	
+		$tablas1   = "public.laboratorios";
+		$where1    = "laboratorios.id_laboratorios>0";
+		$id1 = "laboratorios.id_laboratorios";
+	
+	
+		$criterio = $_POST["criterio_busqueda"];
+		$contenido = $_POST["contenido_busqueda"];
+	
+	
+	
+		if ($contenido !="")
+		{
+	
+			$where_0 = "";
+			$where_2 = "";
+			$where_3 = "";
+			$where_4 = "";
+			$where_5 = "";
+	
+	
 				
+	
+			switch ($criterio) {
+				case 0:
+					$where_0 = " ";
+					break;
+				case 1:
+	
+					$where_2 = " AND laboratorios.nombre_laboratorios LIKE '$contenido%'  ";
+					break;
+				case 2:
+	
+					$where_3 = " AND laboratorios.persona_contacto_laboratorios LIKE '$contenido%'  ";
+					break;
+				case 3:
+						
+					$where_4 = " AND laboratorios.email_laboratorios LIKE '$contenido%'  ";
+					break;
+	
+				case 4:
+	
+					$where_5 = " AND laboratorios.web_laboratorios LIKE '$contenido%'  ";
+					break;
+						
+						
+						
 			}
-		
-		$this->view("Laboratorios",array(
-				"resultSet"=>$resultSet, "resultEdit" =>$resultEdit, "resultMenu"=>$resultMenu
-			));
-		
+	
+	
+	
+			$where_to  = $where1 .  $where_0.  $where_2.  $where_3.  $where_4.  $where_5;
+	
+	
+			$resul = $where_to;
+				
+			//Conseguimos todos los usuarios con filtros
+			$resultSet=$laboratorios->getCondiciones($columnas1 ,$tablas1 ,$where_to, $id1);
+	
+	
+	
+	
+		}
+	}
+	
+	
+	
+	
+	if (isset ($_GET["id_laboratorios"])   )
+	{
+		$_id_laboratorios = $_GET["id_laboratorios"];
+		$where    = "id_laboratorios = '$_id_laboratorios' ";
+		$resultEdit = $laboratorios->getBy($where);
+	
+	}
+	
+	$this->view("Laboratorios",array(
+			"resultSet"=>$resultSet, "resultEdit" =>$resultEdit, "resultMenu"=>$resultMenu
+	));
+	
+	
 		
 	}
 	
 	public function index_dos(){
-	
+		
 		session_start();
 		$laboratorios = new LaboratoriosModel();
 		$resultSet = $laboratorios->getAll("id_laboratorios");
@@ -126,12 +127,15 @@ public function index(){
 		$resultCan = $canton->getAll("nombre_canton");
 		
 		$direcciones=new DireccionesModel();
-		
+		$resultEditDir= "";
 		$resultEdit = "";
 		$_nombre_laboratorios = "";
 		
 		$_id_laboratorios = 0  ;
-		
+		$persona_contacto_laboratorios= "";
+		$telefono_persona_contacto_laboratorios= "";
+		$email_laboratorios= "";
+		$web_laboratorios= "";
 		
 		
 		
@@ -140,7 +144,10 @@ public function index(){
 		
 		if (isset($_POST["nombre_laboratorios"]))
 		{
-			$_nombre_laboratorios = $_POST["nombre_laboratorios"];
+			
+			$_nombre_laboratorios             = strtoupper ( $_POST["nombre_laboratorios"]   );
+			
+			
 		}
 		
 		
@@ -160,7 +167,7 @@ public function index(){
 			
 		}
 		
-		$res_laboratorios=$laboratorios->getBy("nombre_laboratorios = '$_nombre_laboratorios' ");
+	$res_laboratorios=$laboratorios->getBy("nombre_laboratorios = '$_nombre_laboratorios' ");
 			
 			
 		foreach($res_laboratorios as $res) {
@@ -169,10 +176,8 @@ public function index(){
 		}
 	
 		
-	if (isset($_POST["btn_agregar_direcciones"]) )
+		if (isset($_POST["btn_agregar_direcciones"]) )
 		{
-		
-			
 			$_tipo_direcciones        =  $_POST["tipo_direcciones"]   ;
 			if ($_tipo_direcciones == 1) //es distribuidor
 			{
@@ -182,7 +187,7 @@ public function index(){
 			else
 			{
 				$_id_laboratorios       =  $_POST["id_laboratorios"]   ;
-				$_id_distribuidores       = 0  ;
+				$_id_distribuidores       = 0   ;
 			}	
 			
 			$_id_provincia                 =  $_POST["id_provincia"]   ;
@@ -190,22 +195,27 @@ public function index(){
 			$_direccion_direcciones     =  $_POST["direccion_direcciones"] ;
 			$_telefono_direcciones           = $_POST["telefono_direcciones"] ;
 			$_celular_direcciones       =   $_POST["celular_direcciones"] ;
+			$_id_direcciones       =   $_POST["id_direcciones"] ;
 			
 			
-			$funcion = "ins_direcciones";
-			
-			$parametros = " '$_id_distribuidores', '$_id_laboratorios', '$_tipo_direcciones', '$_id_provincia', '$_id_canton', '$_direccion_direcciones', '$_telefono_direcciones', '$_celular_direcciones'  ";
-			
+			if($_id_direcciones>0){
 				
+				$colval = " id_distribuidores = '$_id_distribuidores', id_laboratorios = '$_id_laboratorios',tipo_direcciones = '$_tipo_direcciones',id_provicnias = '$_id_provincia', id_canton = '$_id_canton', direccion_direcciones = '$_direccion_direcciones', telefono_direcciones = '$_telefono_direcciones', celular_direcciones = '$_celular_direcciones'";
+				$tabla = "direcciones";
+				$where = "id_direcciones = '$_id_direcciones'";
+				$resultado=$direcciones->UpdateBy($colval, $tabla, $where);
+				
+			}else{
+				
+				$funcion = "ins_direcciones";
+				$parametros = " '$_id_distribuidores', '$_id_laboratorios', '$_tipo_direcciones', '$_id_provincia', '$_id_canton', '$_direccion_direcciones', '$_telefono_direcciones', '$_celular_direcciones'  ";
+				$direcciones->setFuncion($funcion);
+				$direcciones->setParametros($parametros);
+				$resultado=$direcciones->Insert();
+				
+			}
 			
-			$direcciones->setFuncion($funcion);
 			
-			$direcciones->setParametros($parametros);
-			
-			
-			$resultado=$direcciones->Insert();
-			
-		
 			
 		
 		}	
@@ -220,16 +230,80 @@ public function index(){
 			
 		}
 		
+		
+		if (isset ($_GET["id_direcciones_editar"])   )
+		{
+			$resultGet=array();
+			$_id_laboratorios=(int)$_GET["id_laboratorios"];
+			$id_direcciones = $_GET["id_direcciones_editar"];
+			
+			$columnas="direcciones.id_direcciones, 
+					  direcciones.id_distribuidores, 
+					  direcciones.id_laboratorios, 
+					  direcciones.tipo_direcciones, 
+					  provincias.id_provincia, 
+					  provincias.nombre_provincia, 
+					  canton.id_canton, 
+					  canton.nombre_canton, 
+					  direcciones.direccion_direcciones, 
+					  direcciones.telefono_direcciones, 
+					  direcciones.celular_direcciones";
+			$tablas="public.direcciones, 
+					  public.provincias, 
+					  public.canton";
+			$where="direcciones.id_canton = canton.id_canton AND
+  					provincias.id_provincia = direcciones.id_provicnias AND direcciones.id_direcciones = '$id_direcciones'";
+			$id="direcciones.id_direcciones";
+			$resultEditDir=$direcciones->getCondiciones($columnas ,$tablas ,$where, $id);
+			
+			
+			 
+		
+			if($_id_laboratorios>0){
+			
+				$where    = "id_laboratorios = '$_id_laboratorios' ";
+				$resultGet = $laboratorios->getBy($where);
+				$_id_laboratorios=$resultGet[0]->id_laboratorios;
+				$_nombre_laboratorios=$resultGet[0]->nombre_laboratorios;
+				$persona_contacto_laboratorios=$resultGet[0]->persona_contacto_laboratorios;
+				$telefono_persona_contacto_laboratorios=$resultGet[0]->telefono_persona_contacto_laboratorios;
+				$email_laboratorios=$resultGet[0]->email_laboratorios;
+				$web_laboratorios=$resultGet[0]->web_laboratorios;
+			
+			
+			}
+			
+				
+		}
+		
+		
+		
 		if(isset($_GET["id_direcciones"]))
 		{
+			
+		
+			$resultGet=array();
 			$id_direcciones=(int)$_GET["id_direcciones"];
 			$_id_laboratorios=(int)$_GET["id_laboratorios"];
 			$_nombre_laboratorios=$_GET["nombre_laboratorios"];
 			$direcciones=new DireccionesModel();
 		
-			$direcciones->deleteBy(" id_direcciones",$id_direcciones);
+			$direcciones->deleteBy("id_direcciones",$id_direcciones);
 		    
 			
+			if($_id_laboratorios>0){
+		
+				$where    = "id_laboratorios = '$_id_laboratorios' ";
+				$resultGet = $laboratorios->getBy($where);
+				$_id_laboratorios=$resultGet[0]->id_laboratorios;
+				$_nombre_laboratorios=$resultGet[0]->nombre_laboratorios;
+				$persona_contacto_laboratorios=$resultGet[0]->persona_contacto_laboratorios;
+				$telefono_persona_contacto_laboratorios=$resultGet[0]->telefono_persona_contacto_laboratorios;
+				$email_laboratorios=$resultGet[0]->email_laboratorios;
+				$web_laboratorios=$resultGet[0]->web_laboratorios;
+			
+				
+			}
 		
 		}
 		
@@ -241,97 +315,145 @@ public function index(){
 		$idDir  = "direcciones.id_direcciones";
 		$resultDir = $direcciones->getCondiciones($columnasDir, $tablasDir, $whereDir, $idDir);
 		
-		//guardamos el laboratorios
+		//guardamos el distribuidores
 		if (isset($_POST["btn_guardar"]) )
 		{
-			$directorio = $_SERVER['DOCUMENT_ROOT'].'/Vademano/uploads/';
-				
-
 			$_nombre_laboratorios             = strtoupper ( $_POST["nombre_laboratorios"]   );
 			$_persona_contacto_laboratorios   = $_POST["persona_contacto_laboratorios"];
 			$_telefono_persona_contacto_laboratorios   = $_POST["telefono_persona_contacto_laboratorios"];
 			$_email_laboratorios              =  $_POST["email_laboratorios"] ;
 			$_web_laboratorios                =  $_POST["web_laboratorios"] ;
+			$_id_laboratorios	 =  $_POST["id_laboratorios"] ;
+			
+			if ($_FILES['logo_laboratorios']['tmp_name']!="")
+			{
+			$directorio = $_SERVER['DOCUMENT_ROOT'].'/Vademano/uploads/';
 			
 			$nombre = $_FILES['logo_laboratorios']['name'];
 			$tipo = $_FILES['logo_laboratorios']['type'];
 			$tamano = $_FILES['logo_laboratorios']['size'];
-			
-			// temporal al directorio definitivo
-			
 			move_uploaded_file($_FILES['logo_laboratorios']['tmp_name'],$directorio.$nombre);
-			
 			$data = file_get_contents($directorio.$nombre);
-				
 			$_logo_laboratorios = pg_escape_bytea($data);
 			
 			$funcion = "ins_laboratorios";
-			
 			$parametros = " '$_nombre_laboratorios' , '$_persona_contacto_laboratorios' , '$_telefono_persona_contacto_laboratorios' , '$_email_laboratorios' , '$_web_laboratorios' ,'{$_logo_laboratorios}'  ";
 			$laboratorios->setFuncion($funcion);
-				
 			$laboratorios->setParametros($parametros);
-				
 			$resultado=$laboratorios->Insert();
+			
+			
+			}else {
+				
+				$colval = " nombre_laboratorios = '$_nombre_laboratorios', persona_contacto_laboratorios = '$_persona_contacto_laboratorios',telefono_persona_contacto_laboratorios = '$_telefono_persona_contacto_laboratorios',email_laboratorios = '$_email_laboratorios', web_laboratorios = '$_web_laboratorios' ";
+				$tabla = "laboratorios";
+				$where = "id_laboratorios = '$_id_laboratorios'";
+				$resultado=$laboratorios->UpdateBy($colval, $tabla, $where);
+				
+				
+			}
 				
 			$this->redirect("Laboratorios", "index");
 			
 		}
+		
+		if (isset($_POST["btn_actualizar"]) )
+		{
+			$_nombre_laboratorios             = strtoupper ( $_POST["nombre_laboratorios"]   );
+			$_persona_contacto_laboratorios   = $_POST["persona_contacto_laboratorios"];
+			$_telefono_persona_contacto_laboratorios   = $_POST["telefono_persona_contacto_laboratorios"];
+			$_email_laboratorios              =  $_POST["email_laboratorios"] ;
+			$_web_laboratorios                =  $_POST["web_laboratorios"] ;
+			$_id_laboratorios	 =  $_POST["id_laboratorios"] ;
+				
+			if ($_FILES['logo_laboratorios']['tmp_name']!="")
+			{
+				$directorio = $_SERVER['DOCUMENT_ROOT'].'/Vademano/uploads/';
+					
+				$nombre = $_FILES['logo_laboratorios']['name'];
+				$tipo = $_FILES['logo_laboratorios']['type'];
+				$tamano = $_FILES['logo_laboratorios']['size'];
+				move_uploaded_file($_FILES['logo_laboratorios']['tmp_name'],$directorio.$nombre);
+				$data = file_get_contents($directorio.$nombre);
+				$_logo_laboratorios = pg_escape_bytea($data);
+					
+				$funcion = "ins_laboratorios";
+				$parametros = " '$_nombre_laboratorios' , '$_persona_contacto_laboratorios' , '$_telefono_persona_contacto_laboratorios' , '$_email_laboratorios' , '$_web_laboratorios' ,'{$_logo_laboratorios}'  ";
+				$laboratorios->setFuncion($funcion);
+				$laboratorios->setParametros($parametros);
+				$resultado=$laboratorios->Insert();
+					
+					
+			}else {
+			
+				$colval = " nombre_laboratorios = '$_nombre_laboratorios', persona_contacto_laboratorios = '$_persona_contacto_laboratorios',telefono_persona_contacto_laboratorios = '$_telefono_persona_contacto_laboratorios',email_laboratorios = '$_email_laboratorios', web_laboratorios = '$_web_laboratorios' ";
+				$tabla = "laboratorios";
+				$where = "id_laboratorios = '$_id_laboratorios'";
+				$resultado=$laboratorios->UpdateBy($colval, $tabla, $where);
+			
+			
+			}
+		
+			$this->redirect("Laboratorios", "index");
+				
+		}
 		else 
 		{
 			$this->view("LaboratoriosAdd",array(
-					"resultSet"=>$resultSet, "resultEdit" =>$resultEdit, "resultProv"=>$resultProv, "resultCan"=>$resultCan, "resultDir"=>$resultDir, "id_laboratorios"=>$_id_laboratorios, "nombre_laboratorios"=>$_nombre_laboratorios , "nuevo_laboratorios"=>$_nuevo_laboratorios
+					"resultEditDir"=>$resultEditDir,"persona_contacto_laboratorios"=>$persona_contacto_laboratorios,"telefono_persona_contacto_laboratorios"=>$telefono_persona_contacto_laboratorios,"email_laboratorios"=>$email_laboratorios,"web_laboratorios"=>$web_laboratorios,"resultSet"=>$resultSet, "resultEdit" =>$resultEdit, "resultProv"=>$resultProv, "resultCan"=>$resultCan, "resultDir"=>$resultDir, "id_laboratorios"=>$_id_laboratorios, "nombre_laboratorios"=>$_nombre_laboratorios , "nuevo_laboratorios"=>$_nuevo_laboratorios
 			));
 			
 		}
 		
 	}
 	
+	
+	
 	public function Inserta(){
 			
 		session_start();
 		$laboratorios = new LaboratoriosModel();
 		$directorio = $_SERVER['DOCUMENT_ROOT'].'/Vademano/uploads/';
-		
+	
 		if (isset($_POST["nombre_laboratorios"]) )
 		{
-			
-			
+				
+				
 			$_nombre_laboratorios             = strtoupper ( $_POST["nombre_laboratorios"]   );
 			$_persona_contacto_laboratorios   = $_POST["persona_contacto_laboratorios"];
 			$_direccion_laboratorios          = $_POST["direccion_laboratorios"];
 			$_telefono_laboratorios           = $_POST["telefono_laboratorios"];
 			$_celular_laboratorios          =   $_POST["celular_laboratorios"];
-			$_email_laboratorios              = $_POST["email_laboratorios"]; 
+			$_email_laboratorios              = $_POST["email_laboratorios"];
 			$_web_laboratorios                = $_POST["web_laboratorios"];
 			$_provincia_laboratorios          = $_POST["provincia_laboratorios"];
 			$_ciudad_laboratorios             = $_POST["ciudad_laboratorios"];
 			$_zipcode_laboratorios            = $_POST["zipcode_laboratorios"] ;
 			$nombre = $_FILES['logo_laboratorios']['name'];
- 		    $tipo = $_FILES['logo_laboratorios']['type'];
-            $tamano = $_FILES['logo_laboratorios']['size'];
- 			
-            // temporal al directorio definitivo
-            
-            move_uploaded_file($_FILES['logo_laboratorios']['tmp_name'],$directorio.$nombre);
-            
-            $data = file_get_contents($directorio.$nombre);
-			
-            $logo_laboratorios = pg_escape_bytea($data);
-            
-			$funcion = "ins_laboratorios";
+			$tipo = $_FILES['logo_laboratorios']['type'];
+			$tamano = $_FILES['logo_laboratorios']['size'];
+	
+			// temporal al directorio definitivo
+	
+			move_uploaded_file($_FILES['logo_laboratorios']['tmp_name'],$directorio.$nombre);
+	
+			$data = file_get_contents($directorio.$nombre);
 				
+			$logo_laboratorios = pg_escape_bytea($data);
+	
+			$funcion = "ins_laboratorios";
+	
 			$parametros = " '$_nombre_laboratorios' , '$_persona_contacto_laboratorios' , '$_direccion_laboratorios' , '$_telefono_laboratorios' , '$_celular_laboratorios' , '$_email_laboratorios' , '$_web_laboratorios' ,'{$logo_laboratorios}' , '$_provincia_laboratorios' , '$_ciudad_laboratorios' , '$_zipcode_laboratorios' ";
 			$laboratorios->setFuncion($funcion);
-			
+				
 			$laboratorios->setParametros($parametros);
-			
+				
 			$resultado=$laboratorios->Insert();
-			
+				
 			$this->redirect("Laboratorios", "index");
-			
+				
 		}
-		
+	
 			
 	}
 	
@@ -343,13 +465,13 @@ public function index(){
 			$id_laboratorios=(int)$_GET["id_laboratorios"];
 	
 			$laboratorios=new LaboratoriosModel();
-				
+	
 			$laboratorios->deleteBy(" id_laboratorios",$id_laboratorios);
-				
-				
+	
+	
 		}
-		
-		
+	
+	
 		$this->redirect("Laboratorios", "index");
 	}
 	
@@ -366,15 +488,15 @@ public function index(){
 		if(isset($_GET["id_laboratorios"]))
 		{
 			$_id_laboratorios = $_GET["id_laboratorios"];
-		    $laboratorios=new LaboratoriosModel();
-						
-			$columnas = "laboratorios.id_laboratorios, 
-						  laboratorios.nombre_laboratorios, 
-						  laboratorios.persona_contacto_laboratorios, 
-						  laboratorios.telefono_persona_contacto_laboratorios, 
-						  laboratorios.email_laboratorios, 
-						  laboratorios.web_laboratorios, 
-						  laboratorios.logo_laboratorios, 
+			$laboratorios=new LaboratoriosModel();
+	
+			$columnas = "laboratorios.id_laboratorios,
+						  laboratorios.nombre_laboratorios,
+						  laboratorios.persona_contacto_laboratorios,
+						  laboratorios.telefono_persona_contacto_laboratorios,
+						  laboratorios.email_laboratorios,
+						  laboratorios.web_laboratorios,
+						  laboratorios.logo_laboratorios,
 						  laboratorios.creado";
 			$tablas   = "public.laboratorios";
 			$where    = " laboratorios.id_laboratorios =  $_id_laboratorios ";
@@ -383,10 +505,12 @@ public function index(){
 			$resultRep = $laboratorios->getCondiciones($columnas, $tablas, $where, $id);
 	
 		}
-   	
+	
 		$this->view("LaboratoriosOnline", array(	"resultRep"=>$resultRep
 		));
 	}
-	}
-
+	
+	
+	
+}
 ?>

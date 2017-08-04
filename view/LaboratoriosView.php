@@ -110,7 +110,14 @@
 	</script>
 
 
-
+<script type="text/javascript">
+		function mensaje(){
+			
+		  var respuesta = confirm('Seguro Desea Eliminar')
+		   return respuesta;
+		}
+		
+		</script>
  			
         <style>
             input{
@@ -212,7 +219,7 @@
 			             </td>
 			             <td style="font-size: 13px;">   
 			                	<div class="right">
-			                    <a href="<?php echo $helper->url("Laboratorios","borrarId"); ?>&id_laboratorios=<?php echo $res->id_laboratorios; ?>" class="btn btn-danger"><i class="glyphicon glyphicon-trash"></i></a>
+			                    <a href="<?php echo $helper->url("Laboratorios","borrarId"); ?>&id_laboratorios=<?php echo $res->id_laboratorios; ?>" class="btn btn-danger" onClick="return mensaje();"><i class="glyphicon glyphicon-trash"></i></a>
 			                </div>
 			                <hr/>
 		               </td>
