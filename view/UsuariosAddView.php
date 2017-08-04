@@ -654,9 +654,7 @@
                                    <input type="hidden" class="form-control" id="id_usuario" name="id_usuario" value="<?php echo $id_usuario;?>"  placeholder="Id">
                                   <div id="mensaje_correo" class="errores"></div>
             </div>
-            
-                                  
-		    </div>
+            </div>
 		    
 		    <div class="col-xs-6 col-md-6">
 		    <div class="form-group ">

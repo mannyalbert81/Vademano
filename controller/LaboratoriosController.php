@@ -248,8 +248,8 @@ public function index(){
 				
 
 			$_nombre_laboratorios             = strtoupper ( $_POST["nombre_laboratorios"]   );
-			$_persona_contacto_laboratorios   = strtoupper ( $_POST["persona_contacto_laboratorios"] );
-			$_telefono_persona_contacto_laboratorios   = strtoupper ( $_POST["telefono_persona_contacto_laboratorios"] );
+			$_persona_contacto_laboratorios   = $_POST["persona_contacto_laboratorios"];
+			$_telefono_persona_contacto_laboratorios   = $_POST["telefono_persona_contacto_laboratorios"];
 			$_email_laboratorios              =  $_POST["email_laboratorios"] ;
 			$_web_laboratorios                =  $_POST["web_laboratorios"] ;
 			
@@ -285,12 +285,6 @@ public function index(){
 			
 		}
 		
-		
-		
-		
-		
-	
-	
 	}
 	
 	public function Inserta(){
@@ -304,14 +298,14 @@ public function index(){
 			
 			
 			$_nombre_laboratorios             = strtoupper ( $_POST["nombre_laboratorios"]   );
-			$_persona_contacto_laboratorios   = strtoupper ( $_POST["persona_contacto_laboratorios"] );
-			$_direccion_laboratorios          = strtoupper ( $_POST["direccion_laboratorios"] );
-			$_telefono_laboratorios           = strtoupper ( $_POST["telefono_laboratorios"] );
-			$_celular_laboratorios          =   strtoupper ( $_POST["celular_laboratorios"] );
-			$_email_laboratorios              = strtoupper ( $_POST["email_laboratorios"] ); 
-			$_web_laboratorios                = strtoupper ( $_POST["web_laboratorios"] );
-			$_provincia_laboratorios          = strtoupper ( $_POST["provincia_laboratorios"] );
-			$_ciudad_laboratorios             = strtoupper ( $_POST["ciudad_laboratorios"] );
+			$_persona_contacto_laboratorios   = $_POST["persona_contacto_laboratorios"];
+			$_direccion_laboratorios          = $_POST["direccion_laboratorios"];
+			$_telefono_laboratorios           = $_POST["telefono_laboratorios"];
+			$_celular_laboratorios          =   $_POST["celular_laboratorios"];
+			$_email_laboratorios              = $_POST["email_laboratorios"]; 
+			$_web_laboratorios                = $_POST["web_laboratorios"];
+			$_provincia_laboratorios          = $_POST["provincia_laboratorios"];
+			$_ciudad_laboratorios             = $_POST["ciudad_laboratorios"];
 			$_zipcode_laboratorios            = $_POST["zipcode_laboratorios"] ;
 			$nombre = $_FILES['logo_laboratorios']['name'];
  		    $tipo = $_FILES['logo_laboratorios']['type'];
@@ -354,9 +348,7 @@ public function index(){
 				
 				
 		}
-	
 		
-			
 		
 		$this->redirect("Laboratorios", "index");
 	}
@@ -364,9 +356,6 @@ public function index(){
 	public function borrarIdDir()
 	{
 	
-		
-		
-		
 		$this->redirect("Laboratorios", "index_dos");
 	}
 	
@@ -377,13 +366,8 @@ public function index(){
 		if(isset($_GET["id_laboratorios"]))
 		{
 			$_id_laboratorios = $_GET["id_laboratorios"];
-		
-		
-			//Creamos el objeto usuario
-			$laboratorios=new LaboratoriosModel();
-			//Conseguimos todos los usuarios
-	
-				
+		    $laboratorios=new LaboratoriosModel();
+						
 			$columnas = "laboratorios.id_laboratorios, 
 						  laboratorios.nombre_laboratorios, 
 						  laboratorios.persona_contacto_laboratorios, 
@@ -398,13 +382,11 @@ public function index(){
 	
 			$resultRep = $laboratorios->getCondiciones($columnas, $tablas, $where, $id);
 	
-			
-	
 		}
    	
 		$this->view("LaboratoriosOnline", array(	"resultRep"=>$resultRep
 		));
-}
-}
+	}
+	}
 
 ?>

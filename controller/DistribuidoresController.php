@@ -111,10 +111,10 @@ public function index(){
 	}
 	
 	public function index_dos(){
+		
 		session_start();
 		$distribuidores = new DistribuidoresModel();
 		$resultSet = $distribuidores->getAll("id_distribuidores");
-	
 		
 		$provincias=new ProvinciasModel();
 		$resultProv = $provincias->getAll("nombre_provincia");
@@ -125,12 +125,15 @@ public function index(){
 		
 		
 		$direcciones=new DireccionesModel();
-		
+		$resultEditDir= "";
 		$resultEdit = "";
 		$_nombre_distribuidores = "";
 		
 		$_id_distribuidores = 0  ;
-		
+		$persona_contacto_distribuidores= "";
+		$telefono_persona_contacto_distribuidores= "";
+		$email_distribuidores= "";
+		$web_distribuidores= "";
 		
 		
 		
@@ -139,7 +142,10 @@ public function index(){
 		
 		if (isset($_POST["nombre_distribuidores"]))
 		{
-			$_nombre_distribuidores = $_POST["nombre_distribuidores"];
+			
+			$_nombre_distribuidores             = strtoupper ( $_POST["nombre_distribuidores"]   );
+			
+			
 		}
 		
 		
@@ -170,8 +176,6 @@ public function index(){
 		
 		if (isset($_POST["btn_agregar_direcciones"]) )
 		{
-		
-			
 			$_tipo_direcciones        =  $_POST["tipo_direcciones"]   ;
 			if ($_tipo_direcciones == 1) //es distribuidor
 			{
@@ -189,20 +193,27 @@ public function index(){
 			$_direccion_direcciones     =  $_POST["direccion_direcciones"] ;
 			$_telefono_direcciones           = $_POST["telefono_direcciones"] ;
 			$_celular_direcciones       =   $_POST["celular_direcciones"] ;
+			$_id_direcciones       =   $_POST["id_direcciones"] ;
 			
 			
-			$funcion = "ins_direcciones";
-			
-			$parametros = " '$_id_distribuidores', '$_id_laboratorios', '$_tipo_direcciones', '$_id_provincia', '$_id_canton', '$_direccion_direcciones', '$_telefono_direcciones', '$_celular_direcciones'  ";
-			
+			if($_id_direcciones>0){
 				
+				$colval = " id_distribuidores = '$_id_distribuidores', id_laboratorios = '$_id_laboratorios',tipo_direcciones = '$_tipo_direcciones',id_provicnias = '$_id_provincia', id_canton = '$_id_canton', direccion_direcciones = '$_direccion_direcciones', telefono_direcciones = '$_telefono_direcciones', celular_direcciones = '$_celular_direcciones'";
+				$tabla = "direcciones";
+				$where = "id_direcciones = '$_id_direcciones'";
+				$resultado=$direcciones->UpdateBy($colval, $tabla, $where);
+				
+			}else{
+				
+				$funcion = "ins_direcciones";
+				$parametros = " '$_id_distribuidores', '$_id_laboratorios', '$_tipo_direcciones', '$_id_provincia', '$_id_canton', '$_direccion_direcciones', '$_telefono_direcciones', '$_celular_direcciones'  ";
+				$direcciones->setFuncion($funcion);
+				$direcciones->setParametros($parametros);
+				$resultado=$direcciones->Insert();
+				
+			}
 			
-			$direcciones->setFuncion($funcion);
 			
-			$direcciones->setParametros($parametros);
-			
-			
-			$resultado=$direcciones->Insert();
 			
 		
 		}	
@@ -217,16 +228,80 @@ public function index(){
 			
 		}
 		
+		
+		if (isset ($_GET["id_direcciones_editar"])   )
+		{
+			$resultGet=array();
+			$_id_distribuidores=(int)$_GET["id_distribuidores"];
+			$id_direcciones = $_GET["id_direcciones_editar"];
+			
+			$columnas="direcciones.id_direcciones, 
+					  direcciones.id_distribuidores, 
+					  direcciones.id_laboratorios, 
+					  direcciones.tipo_direcciones, 
+					  provincias.id_provincia, 
+					  provincias.nombre_provincia, 
+					  canton.id_canton, 
+					  canton.nombre_canton, 
+					  direcciones.direccion_direcciones, 
+					  direcciones.telefono_direcciones, 
+					  direcciones.celular_direcciones";
+			$tablas="public.direcciones, 
+					  public.provincias, 
+					  public.canton";
+			$where="direcciones.id_canton = canton.id_canton AND
+  					provincias.id_provincia = direcciones.id_provicnias AND direcciones.id_direcciones = '$id_direcciones'";
+			$id="direcciones.id_direcciones";
+			$resultEditDir=$direcciones->getCondiciones($columnas ,$tablas ,$where, $id);
+			
+			
+			 
+		
+			if($_id_distribuidores>0){
+			
+				$where    = "id_distribuidores = '$_id_distribuidores' ";
+				$resultGet = $distribuidores->getBy($where);
+				$_id_distribuidores=$resultGet[0]->id_distribuidores;
+				$_nombre_distribuidores=$resultGet[0]->nombre_distribuidores;
+				$persona_contacto_distribuidores=$resultGet[0]->persona_contacto_distribuidores;
+				$telefono_persona_contacto_distribuidores=$resultGet[0]->telefono_persona_contacto_distribuidores;
+				$email_distribuidores=$resultGet[0]->email_distribuidores;
+				$web_distribuidores=$resultGet[0]->web_distribuidores;
+			
+			
+			}
+			
+				
+		}
+		
+		
+		
 		if(isset($_GET["id_direcciones"]))
 		{
+			
+		
+			$resultGet=array();
 			$id_direcciones=(int)$_GET["id_direcciones"];
 			$_id_distribuidores=(int)$_GET["id_distribuidores"];
 			$_nombre_distribuidores=$_GET["nombre_distribuidores"];
 			$direcciones=new DireccionesModel();
 		
-			$direcciones->deleteBy(" id_direcciones",$id_direcciones);
+			$direcciones->deleteBy("id_direcciones",$id_direcciones);
 		    
 			
+			if($_id_distribuidores>0){
+		
+			$where    = "id_distribuidores = '$_id_distribuidores' ";
+			$resultGet = $distribuidores->getBy($where);
+			$_id_distribuidores=$resultGet[0]->id_distribuidores;
+			$_nombre_distribuidores=$resultGet[0]->nombre_distribuidores;
+			$persona_contacto_distribuidores=$resultGet[0]->persona_contacto_distribuidores;
+			$telefono_persona_contacto_distribuidores=$resultGet[0]->telefono_persona_contacto_distribuidores;
+			$email_distribuidores=$resultGet[0]->email_distribuidores;
+			$web_distribuidores=$resultGet[0]->web_distribuidores;
+		
+				
+			}
 		
 		}
 		
@@ -241,53 +316,91 @@ public function index(){
 		//guardamos el distribuidores
 		if (isset($_POST["btn_guardar"]) )
 		{
-			$directorio = $_SERVER['DOCUMENT_ROOT'].'/Vademano/uploads/';
-				
-
 			$_nombre_distribuidores             = strtoupper ( $_POST["nombre_distribuidores"]   );
-			$_persona_contacto_distribuidores   = strtoupper ( $_POST["persona_contacto_distribuidores"] );
-			$_telefono_persona_contacto_distribuidores   = strtoupper ( $_POST["telefono_persona_contacto_distribuidores"] );
+			$_persona_contacto_distribuidores   =  $_POST["persona_contacto_distribuidores"];
+			$_telefono_persona_contacto_distribuidores   = $_POST["telefono_persona_contacto_distribuidores"];
 			$_email_distribuidores              =  $_POST["email_distribuidores"] ;
 			$_web_distribuidores                =  $_POST["web_distribuidores"] ;
+			$_id_distribuidores	 =  $_POST["id_distribuidores"] ;
+			
+			if ($_FILES['logo_distribuidores']['tmp_name']!="")
+			{
+			$directorio = $_SERVER['DOCUMENT_ROOT'].'/Vademano/uploads/';
 			
 			$nombre = $_FILES['logo_distribuidores']['name'];
 			$tipo = $_FILES['logo_distribuidores']['type'];
 			$tamano = $_FILES['logo_distribuidores']['size'];
-			
-			// temporal al directorio definitivo
-			
 			move_uploaded_file($_FILES['logo_distribuidores']['tmp_name'],$directorio.$nombre);
-			
 			$data = file_get_contents($directorio.$nombre);
-				
 			$_logo_distribuidores = pg_escape_bytea($data);
 			
 			$funcion = "ins_distribuidores";
-			
 			$parametros = " '$_nombre_distribuidores' , '$_persona_contacto_distribuidores' , '$_telefono_persona_contacto_distribuidores' , '$_email_distribuidores' , '$_web_distribuidores' ,'{$_logo_distribuidores}'  ";
 			$distribuidores->setFuncion($funcion);
-				
 			$distribuidores->setParametros($parametros);
-				
 			$resultado=$distribuidores->Insert();
+			
+			}else {
+				
+				$colval = " nombre_distribuidores = '$_nombre_distribuidores', persona_contacto_distribuidores = '$_persona_contacto_distribuidores',telefono_persona_contacto_distribuidores = '$_telefono_persona_contacto_distribuidores',email_distribuidores = '$_email_distribuidores', web_distribuidores = '$_web_distribuidores' ";
+				$tabla = "distribuidores";
+				$where = "id_distribuidores = '$_id_distribuidores'";
+				$resultado=$distribuidores->UpdateBy($colval, $tabla, $where);
+				
+				
+			}
 				
 			$this->redirect("Distribuidores", "index");
 			
 		}
+		
+		if (isset($_POST["btn_actualizar"]) )
+		{
+			$_nombre_distribuidores             = strtoupper ( $_POST["nombre_distribuidores"]   );
+			$_persona_contacto_distribuidores   =  $_POST["persona_contacto_distribuidores"];
+			$_telefono_persona_contacto_distribuidores   = $_POST["telefono_persona_contacto_distribuidores"];
+			$_email_distribuidores              =  $_POST["email_distribuidores"] ;
+			$_web_distribuidores                =  $_POST["web_distribuidores"] ;
+			$_id_distribuidores	 =  $_POST["id_distribuidores"] ;
+				
+			if ($_FILES['logo_distribuidores']['tmp_name']!="")
+			{
+				$directorio = $_SERVER['DOCUMENT_ROOT'].'/Vademano/uploads/';
+					
+				$nombre = $_FILES['logo_distribuidores']['name'];
+				$tipo = $_FILES['logo_distribuidores']['type'];
+				$tamano = $_FILES['logo_distribuidores']['size'];
+				move_uploaded_file($_FILES['logo_distribuidores']['tmp_name'],$directorio.$nombre);
+				$data = file_get_contents($directorio.$nombre);
+				$_logo_distribuidores = pg_escape_bytea($data);
+					
+				$funcion = "ins_distribuidores";
+				$parametros = " '$_nombre_distribuidores' , '$_persona_contacto_distribuidores' , '$_telefono_persona_contacto_distribuidores' , '$_email_distribuidores' , '$_web_distribuidores' ,'{$_logo_distribuidores}'  ";
+				$distribuidores->setFuncion($funcion);
+				$distribuidores->setParametros($parametros);
+				$resultado=$distribuidores->Insert();
+					
+			}else {
+		
+				$colval = " nombre_distribuidores = '$_nombre_distribuidores', persona_contacto_distribuidores = '$_persona_contacto_distribuidores',telefono_persona_contacto_distribuidores = '$_telefono_persona_contacto_distribuidores',email_distribuidores = '$_email_distribuidores', web_distribuidores = '$_web_distribuidores' ";
+				$tabla = "distribuidores";
+				$where = "id_distribuidores = '$_id_distribuidores'";
+				$resultado=$distribuidores->UpdateBy($colval, $tabla, $where);
+		
+		
+			}
+		
+			$this->redirect("Distribuidores", "index");
+				
+		}
 		else 
 		{
 			$this->view("DistribuidoresAdd",array(
-					"resultSet"=>$resultSet, "resultEdit" =>$resultEdit, "resultProv"=>$resultProv, "resultCan"=>$resultCan, "resultDir"=>$resultDir, "id_distribuidores"=>$_id_distribuidores, "nombre_distribuidores"=>$_nombre_distribuidores , "nuevo_distribuidores"=>$_nuevo_distribuidores
+					"resultEditDir"=>$resultEditDir,"persona_contacto_distribuidores"=>$persona_contacto_distribuidores,"telefono_persona_contacto_distribuidores"=>$telefono_persona_contacto_distribuidores,"email_distribuidores"=>$email_distribuidores,"web_distribuidores"=>$web_distribuidores,"resultSet"=>$resultSet, "resultEdit" =>$resultEdit, "resultProv"=>$resultProv, "resultCan"=>$resultCan, "resultDir"=>$resultDir, "id_distribuidores"=>$_id_distribuidores, "nombre_distribuidores"=>$_nombre_distribuidores , "nuevo_distribuidores"=>$_nuevo_distribuidores
 			));
 			
 		}
 		
-		
-		
-		
-		
-	
-	
 	}
 	
 	public function Inserta(){
@@ -300,14 +413,14 @@ public function index(){
 			
 			
 			$_nombre_distribuidores             = strtoupper ( $_POST["nombre_distribuidores"]   );
-			$_persona_contacto_distribuidores   = strtoupper ( $_POST["persona_contacto_distribuidores"] );
-			$_direccion_distribuidores          = strtoupper ( $_POST["direccion_distribuidores"] );
-			$_telefono_distribuidores           = strtoupper ( $_POST["telefono_distribuidores"] );
-			$_celular_distribuidores          =   strtoupper ( $_POST["celular_distribuidores"] );
-			$_email_distribuidores              = strtoupper ( $_POST["email_distribuidores"] ); 
-			$_web_distribuidores                = strtoupper ( $_POST["web_distribuidores"] );
-			$_provincia_distribuidores          = strtoupper ( $_POST["provincia_distribuidores"] );
-			$_ciudad_distribuidores             = strtoupper ( $_POST["ciudad_distribuidores"] );
+			$_persona_contacto_distribuidores   = $_POST["persona_contacto_distribuidores"];
+			$_direccion_distribuidores          =  $_POST["direccion_distribuidores"];
+			$_telefono_distribuidores           =  $_POST["telefono_distribuidores"];
+			$_celular_distribuidores          =    $_POST["celular_distribuidores"];
+			$_email_distribuidores              = $_POST["email_distribuidores"]; 
+			$_web_distribuidores                =  $_POST["web_distribuidores"];
+			$_provincia_distribuidores          =  $_POST["provincia_distribuidores"];
+			$_ciudad_distribuidores             =  $_POST["ciudad_distribuidores"];
 			$_zipcode_distribuidores            = $_POST["zipcode_distribuidores"] ;
 			$nombre = $_FILES['logo_distribuidores']['name'];
  		    $tipo = $_FILES['logo_distribuidores']['type'];
@@ -361,8 +474,6 @@ public function index(){
 	{
 	
 		session_start();
-		
-		
 		$this->redirect("Distribuidores", "index_dos");
 	}
 	
