@@ -906,6 +906,49 @@
 		     </div>
 		     </div>
 		     
+		     
+		      <?php if(!empty($resultEditCompo)){foreach($resultEditCompo as $resultEditCompo) {?>
+		      <div class="row">
+		     <?php $cantidad=0;?>
+	         <div class="col-xs-4 col-md-4">
+		     <div class="form-group">
+                                  <label for="id_composiciones" class="control-label">Principio Activo:</label>
+                                  <select name="id_composiciones" id="id_composiciones"  class="form-control" >
+                                  <option value="" selected="selected">--Seleccione--</option>
+									<?php foreach($resultCom as $res) {?>
+										<option value="<?php echo $res->id_composiciones; ?>" <?php if ($res->id_composiciones == $resultEditCompo->id_composiciones )  echo  ' selected="selected" '  ;  ?>><?php echo $res->nombre_composiciones; ?> </option>
+							        <?php } ?>
+								   </select> 
+                                  <div id="mensaje_id_composiciones" class="errores"></div>
+             </div>
+             </div>
+             
+            <div class="col-xs-4 col-md-4">
+		    <div class="form-group ">
+		                          <label for="cantidad_fichas_composiciones" class="control-label">Dosis:</label>
+                                  <input type="text" class="form-control" id="cantidad_fichas_composiciones" name="cantidad_fichas_composiciones" value="<?php echo $resultEditCompo->cantidad_fichas_composiciones; ?>"  placeholder="Dosis">
+                                  <input type="hidden" name="id_fichas_composiciones" id="id_fichas_composiciones" value="<?php echo $resultEditCompo->id_fichas_composiciones;   ?>" class="form-control"/>
+								  <div id="mensaje_cantidad_fichas_composiciones" class="errores"></div>
+            </div>
+		    </div>
+             
+             <div class="col-xs-4 col-md-4">
+		     <div class="form-group">
+                                  <label for="id_unidades_medida" class="control-label">U/M:</label>
+                                  <select name="id_unidades_medida" id="id_unidades_medida"  class="form-control" >
+                                  <option value="" selected="selected">--Seleccione--</option>
+									<?php foreach($resultUme as $res) {?>
+										<option value="<?php echo $res->id_unidades_medida; ?>" <?php if ($res->id_unidades_medida == $resultEditCompo->id_unidades_medida )  echo  ' selected="selected" '  ;  ?>><?php echo $res->nombre_unidades_medida; ?> </option>
+							        <?php } ?>
+								   </select> 
+                                  <div id="mensaje_nombre_unidades_medida" class="errores"></div>
+             </div>
+             </div>
+	        </div>
+		      
+		      
+		      <?php }} else {?>
+		      
 		      <div class="row">
 		     <?php $cantidad=0;?>
 	         <div class="col-xs-4 col-md-4">
@@ -925,7 +968,8 @@
 		    <div class="form-group ">
 		                          <label for="cantidad_fichas_composiciones" class="control-label">Dosis:</label>
                                   <input type="text" class="form-control" id="cantidad_fichas_composiciones" name="cantidad_fichas_composiciones" value=""  placeholder="Dosis">
-                                 <div id="mensaje_cantidad_fichas_composiciones" class="errores"></div>
+                                  <input type="hidden" name="id_fichas_composiciones" id="id_fichas_composiciones" value="0" class="form-control"/>
+								  <div id="mensaje_cantidad_fichas_composiciones" class="errores"></div>
             </div>
 		    </div>
              
@@ -942,6 +986,9 @@
              </div>
              </div>
 	        </div>
+		      
+		      <?php }?>
+		     
 		    </div>
 		    
 		    
@@ -967,10 +1014,10 @@
 						               <td style="font-size: 11px;"> <?php echo $res->cantidad_fichas_composiciones; ?>     </td> 
 						               <td style="font-size: 11px;"> <?php echo $res->nombre_unidades_medida; ?>     </td> 
 						                <td style="font-size: 11px;">   
-					                	   <a  href="<?php echo $helper->url("FichasProductos","index_dos"); ?>&id_fichas_composiciones_editar=<?php echo $res->id_fichas_composiciones; ?>" class="btn btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
+					                	   <a  href="<?php echo $helper->url("FichasProductos","index_dos"); ?>&id_fichas_composiciones_editar=<?php echo $res->id_fichas_composiciones; ?>&id_fichas=<?php echo $id_fichas; ?>" class="btn btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
 						                </td>
 						               <td style="font-size: 11px;">   
-							                    <a href="<?php echo $helper->url("FichasProductos","index_dos"); ?>&id_fichas_composiciones_borrar=<?php echo $res->id_fichas_composiciones; ?>" class="btn btn-danger" onClick="return mensaje();"><i class="glyphicon glyphicon-trash"></i></a>
+							                    <a href="<?php echo $helper->url("FichasProductos","index_dos"); ?>&id_fichas_composiciones_borrar=<?php echo $res->id_fichas_composiciones; ?>&id_fichas=<?php echo $id_fichas; ?>" class="btn btn-danger" onClick="return mensaje();"><i class="glyphicon glyphicon-trash"></i></a>
 							           </td>
 						    		</tr>
 						        <?php } ?>
@@ -1052,7 +1099,44 @@
 		     </div>
 		     </div>
 		     
-		      <div class="row">
+		     
+		    <?php if(!empty($resultEditDosi)){foreach($resultEditDosi as $resultEditDosi) {?>
+       	    <div class="row">
+		     <?php $cantidad=0;?>
+	         <div class="col-xs-4 col-md-4">
+		     <div class="form-group">
+                                  <label for="id_especies_dosificacion" class="control-label">Especies:</label>
+                                  <select name="id_especies_dosificacion" id="id_especies_dosificacion"  class="form-control" >
+                                  <option value="" selected="selected">--Seleccione--</option>
+									<?php foreach($resultEspe as $res) {?>
+										<option value="<?php echo $res->id_especies; ?>" <?php if ($res->id_especies == $resultEditDosi->id_especies )  echo  ' selected="selected" '  ;  ?> ><?php echo $res->nombre_especies; ?> </option>
+							        <?php } ?>
+								   </select> 
+                                  <div id="mensaje_id_especies" class="errores"></div>
+             </div>
+             </div>
+             
+            <div class="col-xs-4 col-md-4">
+		    <div class="form-group ">
+		                          <label for="dosis_fichas_dosificacion" class="control-label">Dosis:</label>
+                                  <input type="text" class="form-control" id="dosis_fichas_dosificacion" name="dosis_fichas_dosificacion" value="<?php echo $resultEditDosi->dosis_fichas_dosificacion; ?>"  placeholder="Dosis">
+                                  <input type="hidden" name="id_fichas_dosificacion" id="id_fichas_dosificacion" value="<?php echo $resultEditDosi->id_fichas_dosificacion;   ?>" class="form-control"/>
+								  <div id="mensaje_dosis_fichas_dosificacion" class="errores"></div>
+            </div>
+		    </div>
+             
+             
+            <div class="col-xs-4 col-md-4" style="margin-top:18px";>
+		    <div class="form-group ">
+		                         <input type="submit" id="btn_agregar_dosificacion" name="btn_agregar_dosificacion" value="Agregar" class="btn btn-success"/>
+			   
+            </div>
+		    </div>
+             
+	        </div>
+       	   
+       	    <?php }} else {?>
+       	     <div class="row">
 		     <?php $cantidad=0;?>
 	         <div class="col-xs-4 col-md-4">
 		     <div class="form-group">
@@ -1071,7 +1155,8 @@
 		    <div class="form-group ">
 		                          <label for="dosis_fichas_dosificacion" class="control-label">Dosis:</label>
                                   <input type="text" class="form-control" id="dosis_fichas_dosificacion" name="dosis_fichas_dosificacion" value=""  placeholder="Dosis">
-                                 <div id="mensaje_dosis_fichas_dosificacion" class="errores"></div>
+                                  <input type="hidden" name="id_fichas_dosificacion" id="id_fichas_dosificacion" value="0" class="form-control"/>
+								  <div id="mensaje_dosis_fichas_dosificacion" class="errores"></div>
             </div>
 		    </div>
              
@@ -1085,6 +1170,8 @@
              
             
 	        </div>
+       	    <?php }?>
+		    
 		    </div>
 		    
 		    
@@ -1109,10 +1196,10 @@
 						               <td style="font-size: 11px;"> <?php echo $res->nombre_especies; ?>     </td> 
 						               <td style="font-size: 11px;"> <?php echo $res->dosis_fichas_dosificacion; ?>     </td> 
 						               <td style="font-size: 11px;">   
-					                	   <a  href="<?php echo $helper->url("FichasProductos","index_dos"); ?>&id_fichas_dosificacion_editar=<?php echo $res->id_fichas_dosificacion; ?>" class="btn btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
+					                	   <a  href="<?php echo $helper->url("FichasProductos","index_dos"); ?>&id_fichas_dosificacion_editar=<?php echo $res->id_fichas_dosificacion; ?>&id_fichas=<?php echo $id_fichas; ?>" class="btn btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
 						                </td>
 						               <td style="font-size: 11px;">   
-							                    <a href="<?php echo $helper->url("FichasProductos","index_dos"); ?>&id_fichas_dosificacion_borrar=<?php echo $res->id_fichas_dosificacion; ?>" class="btn btn-danger" onClick="return mensaje();"><i class="glyphicon glyphicon-trash"></i></a>
+							                    <a href="<?php echo $helper->url("FichasProductos","index_dos"); ?>&id_fichas_dosificacion_borrar=<?php echo $res->id_fichas_dosificacion; ?>&id_fichas=<?php echo $id_fichas; ?>" class="btn btn-danger" onClick="return mensaje();"><i class="glyphicon glyphicon-trash"></i></a>
 							           </td>
 						    		</tr>
 						        <?php } ?>
@@ -1141,7 +1228,9 @@
 	        <div class="panel-body">
 	        <div class="col-xs-6 col-md-6 col-lg-6">
 	         
-		     <div class="row">
+	         
+	         <?php if(!empty($resultEditEspecies)){foreach($resultEditEspecies as $resultEditEspecies) {?>
+	           <div class="row">
 		     <?php $cantidad=0;?>
 	         <div class="col-xs-6 col-md-6">
 		     <div class="form-group">
@@ -1149,10 +1238,12 @@
                                   <select name="id_especies" id="id_especies"  class="form-control" >
                                   <option value="" selected="selected">--Seleccione--</option>
 									<?php foreach($resultEsp as $res) {?>
-										<option value="<?php echo $res->id_especies; ?>" ><?php echo $res->nombre_especies; ?> </option>
+										<option value="<?php echo $res->id_especies; ?>" <?php if ($res->id_especies == $resultEditEspecies->id_especies )  echo  ' selected="selected" '  ;  ?>><?php echo $res->nombre_especies; ?> </option>
 							        <?php } ?>
 								   </select> 
                                   <div id="mensaje_id_especies_1" class="errores"></div>
+                                   <input type="hidden" name="id_fichas_especies" id="id_fichas_especies" value="<?php echo $resultEditEspecies->id_fichas_especies;   ?>" class="form-control"/>
+								 
              </div>
              </div>
              
@@ -1164,6 +1255,35 @@
             </div>
 		    </div>
             </div>
+       	    <?php }} else {?>
+       	      <div class="row">
+		     <?php $cantidad=0;?>
+	         <div class="col-xs-6 col-md-6">
+		     <div class="form-group">
+                                  <label for="id_especies" class="control-label">Especies:</label>
+                                  <select name="id_especies" id="id_especies"  class="form-control" >
+                                  <option value="" selected="selected">--Seleccione--</option>
+									<?php foreach($resultEsp as $res) {?>
+										<option value="<?php echo $res->id_especies; ?>" ><?php echo $res->nombre_especies; ?> </option>
+							        <?php } ?>
+								   </select> 
+                                  <div id="mensaje_id_especies_1" class="errores"></div>
+                                  <input type="hidden" name="id_fichas_especies" id="id_fichas_especies" value="0" class="form-control"/>
+								 
+             </div>
+             </div>
+             
+             
+            <div class="col-xs-4 col-md-4" style="margin-top:18px";>
+		    <div class="form-group ">
+		                         <input type="submit" id="btn_agregar_especies" name="btn_agregar_especies" value="Agregar" class="btn btn-success"/>
+			   
+            </div>
+		    </div>
+            </div>
+       	    <?php }?>
+		   
+            
 		    </div>
 		    
 		    
@@ -1186,10 +1306,10 @@
 					                   <td style="font-size: 11px;"> <?php echo $res->id_fichas_especies; ?>  </td>
 						               <td style="font-size: 11px;"> <?php echo $res->nombre_especies; ?>     </td> 
 						               <td style="font-size: 11px;">   
-					                	   <a  href="<?php echo $helper->url("FichasProductos","index_dos"); ?>&id_fichas_especies_editar=<?php echo $res->id_fichas_especies; ?>" class="btn btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
+					                	   <a  href="<?php echo $helper->url("FichasProductos","index_dos"); ?>&id_fichas_especies_editar=<?php echo $res->id_fichas_especies; ?>&id_fichas=<?php echo $id_fichas; ?>" class="btn btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
 						                </td>
 						               <td style="font-size: 11px;">   
-							                    <a href="<?php echo $helper->url("FichasProductos","index_dos"); ?>&id_fichas_especies_borrar=<?php echo $res->id_fichas_especies; ?>" class="btn btn-danger" onClick="return mensaje();"><i class="glyphicon glyphicon-trash"></i></a>
+							                    <a href="<?php echo $helper->url("FichasProductos","index_dos"); ?>&id_fichas_especies_borrar=<?php echo $res->id_fichas_especies; ?>&id_fichas=<?php echo $id_fichas; ?>" class="btn btn-danger" onClick="return mensaje();"><i class="glyphicon glyphicon-trash"></i></a>
 							           </td>
 						    		</tr>
 						        <?php } ?>
@@ -1224,7 +1344,8 @@
 	        <div class="panel-body">
 	        <div class="col-xs-6 col-md-6 col-lg-6">
 	         
-		     <div class="row">
+	          <?php if(!empty($resultEditFormAdm)){foreach($resultEditFormAdm as $resultEditFormAdm) {?>
+	         <div class="row">
 		     <?php $cantidad=0;?>
 	         <div class="col-xs-6 col-md-6">
 		     <div class="form-group">
@@ -1232,10 +1353,12 @@
                                   <select name="id_formas_administracion" id="id_formas_administracion"  class="form-control" >
                                   <option value="" selected="selected">--Seleccione--</option>
 									<?php foreach($resultFormAd as $res) {?>
-										<option value="<?php echo $res->id_formas_administracion; ?>" ><?php echo $res->nombre_formas_administracion; ?> </option>
+										<option value="<?php echo $res->id_formas_administracion; ?>" <?php if ($res->id_formas_administracion == $resultEditFormAdm->id_formas_administracion )  echo  ' selected="selected" '  ;  ?>  ><?php echo $res->nombre_formas_administracion; ?> </option>
 							        <?php } ?>
 								   </select> 
                                   <div id="mensaje_id_formas_administracion" class="errores"></div>
+                                  <input type="hidden" name="id_fichas_formas_administracion" id="id_fichas_formas_administracion" value="<?php echo $resultEditFormAdm->id_fichas_formas_administracion;   ?>" class="form-control"/>
+								  
              </div>
              </div>
              
@@ -1247,6 +1370,36 @@
             </div>
 		    </div>
             </div>
+       	     <?php }} else {?>
+       	     
+       	     <div class="row">
+		     <?php $cantidad=0;?>
+	         <div class="col-xs-6 col-md-6">
+		     <div class="form-group">
+                                  <label for="id_formas_administracion" class="control-label">Vía de Administración:</label>
+                                  <select name="id_formas_administracion" id="id_formas_administracion"  class="form-control" >
+                                  <option value="" selected="selected">--Seleccione--</option>
+									<?php foreach($resultFormAd as $res) {?>
+										<option value="<?php echo $res->id_formas_administracion; ?>" ><?php echo $res->nombre_formas_administracion; ?> </option>
+							        <?php } ?>
+								   </select> 
+                                  <div id="mensaje_id_formas_administracion" class="errores"></div>
+                                  <input type="hidden" name="id_fichas_formas_administracion" id="id_fichas_formas_administracion" value="0" class="form-control"/>
+								  
+             </div>
+             </div>
+             
+             
+            <div class="col-xs-4 col-md-4" style="margin-top:18px";>
+		    <div class="form-group ">
+		                         <input type="submit" id="btn_agregar_admnistracion" name="btn_agregar_admnistracion" value="Agregar" class="btn btn-success"/>
+			   
+            </div>
+		    </div>
+            </div>
+       	     <?php }?>
+		 
+            
 		    </div>
 		    
 		    
@@ -1269,10 +1422,10 @@
 					                   <td style="font-size: 11px;"> <?php echo $res->id_fichas_formas_administracion; ?>  </td>
 						               <td style="font-size: 11px;"> <?php echo $res->nombre_formas_administracion; ?>     </td> 
 						               <td style="font-size: 11px;">   
-					                	   <a  href="<?php echo $helper->url("FichasProductos","index_dos"); ?>&id_fichas_formas_administracion_editar=<?php echo $res->id_fichas_formas_administracion; ?>" class="btn btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
+					                	   <a  href="<?php echo $helper->url("FichasProductos","index_dos"); ?>&id_fichas_formas_administracion_editar=<?php echo $res->id_fichas_formas_administracion; ?>&id_fichas=<?php echo $id_fichas; ?>" class="btn btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
 						                </td>
 						               <td style="font-size: 11px;">   
-							                    <a href="<?php echo $helper->url("FichasProductos","index_dos"); ?>&id_fichas_formas_administracion_borrar=<?php echo $res->id_fichas_formas_administracion; ?>" class="btn btn-danger" onClick="return mensaje();"><i class="glyphicon glyphicon-trash"></i></a>
+							                    <a href="<?php echo $helper->url("FichasProductos","index_dos"); ?>&id_fichas_formas_administracion_borrar=<?php echo $res->id_fichas_formas_administracion; ?>&id_fichas=<?php echo $id_fichas; ?>" class="btn btn-danger" onClick="return mensaje();"><i class="glyphicon glyphicon-trash"></i></a>
 							           </td>
 						    		</tr>
 						        <?php } ?>
@@ -1389,7 +1542,8 @@
 	        <div class="panel-body">
 	        <div class="col-xs-6 col-md-6 col-lg-6">
 	         
-		     <div class="row">
+	       <?php if(!empty($resultEditDistri)){foreach($resultEditDistri as $resultEditDistri) {?>
+	        <div class="row">
 		     <?php $cantidad=0;?>
 	         <div class="col-xs-6 col-md-6">
 		     <div class="form-group">
@@ -1397,10 +1551,12 @@
                                   <select name="id_distribuidores" id="id_distribuidores"  class="form-control" >
                                   <option value="" selected="selected">--Seleccione--</option>
 									<?php foreach($resultDis as $res) {?>
-										<option value="<?php echo $res->id_distribuidores; ?>" ><?php echo $res->nombre_distribuidores; ?> </option>
+										<option value="<?php echo $res->id_distribuidores; ?>" <?php if ($res->id_distribuidores == $resultEditDistri->id_distribuidores )  echo  ' selected="selected" '  ;  ?>><?php echo $res->nombre_distribuidores; ?> </option>
 							        <?php } ?>
 								   </select> 
                                   <div id="mensaje_id_distribuidores" class="errores"></div>
+                                  <input type="hidden" name="id_fichas_distribuidores" id="id_fichas_distribuidores" value="<?php echo $resultEditDistri->id_fichas_distribuidores;   ?>" class="form-control"/>
+								 
              </div>
              </div>
              
@@ -1412,6 +1568,35 @@
             </div>
 		    </div>
             </div>
+       	   <?php }} else {?>
+       	   
+       	    <div class="row">
+		     <?php $cantidad=0;?>
+	         <div class="col-xs-6 col-md-6">
+		     <div class="form-group">
+                                  <label for="id_distribuidores" class="control-label">Distribuidores:</label>
+                                  <select name="id_distribuidores" id="id_distribuidores"  class="form-control" >
+                                  <option value="" selected="selected">--Seleccione--</option>
+									<?php foreach($resultDis as $res) {?>
+										<option value="<?php echo $res->id_distribuidores; ?>" ><?php echo $res->nombre_distribuidores; ?> </option>
+							        <?php } ?>
+								   </select> 
+                                  <div id="mensaje_id_distribuidores" class="errores"></div>
+                                  <input type="hidden" name="id_fichas_distribuidores" id="id_fichas_distribuidores" value="0" class="form-control"/>
+								 
+             </div>
+             </div>
+             
+             
+            <div class="col-xs-4 col-md-4" style="margin-top:18px";>
+		    <div class="form-group ">
+		                         <input type="submit" id="btn_agregar_distribuidores" name="btn_agregar_distribuidores" value="Agregar" class="btn btn-success"/>
+			   
+            </div>
+		    </div>
+            </div>
+       	   <?php }?>
+		    
 		    </div>
 		    
 		    
@@ -1434,10 +1619,10 @@
 					                   <td style="font-size: 11px;"> <?php echo $res->id_fichas_distribuidores; ?>  </td>
 						               <td style="font-size: 11px;"> <?php echo $res->nombre_distribuidores; ?>     </td> 
 						                <td style="font-size: 11px;">   
-					                	   <a  href="<?php echo $helper->url("FichasProductos","index_dos"); ?>&id_fichas_distribuidores_editar=<?php echo $res->id_fichas_distribuidores; ?>" class="btn btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
+					                	   <a  href="<?php echo $helper->url("FichasProductos","index_dos"); ?>&id_fichas_distribuidores_editar=<?php echo $res->id_fichas_distribuidores; ?>&id_fichas=<?php echo $id_fichas; ?>" class="btn btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
 						                </td>
 						               <td style="font-size: 11px;">   
-							                    <a href="<?php echo $helper->url("FichasProductos","index_dos"); ?>&id_fichas_distribuidores_borrar=<?php echo $res->id_fichas_distribuidores; ?>" class="btn btn-danger" onClick="return mensaje();"><i class="glyphicon glyphicon-trash"></i></a>
+							                    <a href="<?php echo $helper->url("FichasProductos","index_dos"); ?>&id_fichas_distribuidores_borrar=<?php echo $res->id_fichas_distribuidores; ?>&id_fichas=<?php echo $id_fichas; ?>" class="btn btn-danger" onClick="return mensaje();"><i class="glyphicon glyphicon-trash"></i></a>
 							           </td>
 						    		</tr>
 						        <?php } ?>
@@ -1467,7 +1652,10 @@
 	        <div class="panel-body">
 	        <div class="col-xs-6 col-md-6 col-lg-6">
 	         
-		     <div class="row">
+		     
+		     
+       	     <?php if(!empty($resultEditLabo)){foreach($resultEditLabo as $resultEditLabo) {?>
+       	      <div class="row">
 		     <?php $cantidad=0;?>
 	         <div class="col-xs-6 col-md-6">
 		     <div class="form-group">
@@ -1475,10 +1663,12 @@
                                   <select name="id_laboratorios" id="id_laboratorios"  class="form-control" >
                                   <option value="" selected="selected">--Seleccione--</option>
 									<?php foreach($resultLab as $res) {?>
-										<option value="<?php echo $res->id_laboratorios; ?>" ><?php echo $res->nombre_laboratorios; ?> </option>
+										<option value="<?php echo $res->id_laboratorios; ?>" <?php if ($res->id_laboratorios == $resultEditLabo->id_laboratorios )  echo  ' selected="selected" '  ;  ?>><?php echo $res->nombre_laboratorios; ?> </option>
 							        <?php } ?>
 								   </select> 
                                   <div id="mensaje_id_laboratorios" class="errores"></div>
+                                   <input type="hidden" name="id_fichas_laboratorios" id="id_fichas_laboratorios" value="<?php echo $resultEditLabo->id_fichas_laboratorios;   ?>" class="form-control"/>
+								 
              </div>
              </div>
              
@@ -1490,6 +1680,35 @@
             </div>
 		    </div>
             </div>
+       	     
+       	     <?php }} else {?>
+       	      <div class="row">
+		     <?php $cantidad=0;?>
+	         <div class="col-xs-6 col-md-6">
+		     <div class="form-group">
+                                  <label for="id_laboratorios" class="control-label">Laboratorios:</label>
+                                  <select name="id_laboratorios" id="id_laboratorios"  class="form-control" >
+                                  <option value="" selected="selected">--Seleccione--</option>
+									<?php foreach($resultLab as $res) {?>
+										<option value="<?php echo $res->id_laboratorios; ?>" ><?php echo $res->nombre_laboratorios; ?> </option>
+							        <?php } ?>
+								   </select> 
+                                  <div id="mensaje_id_laboratorios" class="errores"></div>
+                                  <input type="hidden" name="id_fichas_laboratorios" id="id_fichas_laboratorios" value="0" class="form-control"/>
+								
+             </div>
+             </div>
+             
+             
+            <div class="col-xs-4 col-md-4" style="margin-top:18px";>
+		    <div class="form-group ">
+		                         <input type="submit" id="btn_agregar_laboratorios" name="btn_agregar_laboratorios" value="Agregar" class="btn btn-success"/>
+			   
+            </div>
+		    </div>
+            </div>
+       	     <?php }?>
+       	     
 		    </div>
 		    
 		    
@@ -1512,10 +1731,10 @@
 					                   <td style="font-size: 11px;"> <?php echo $res->id_fichas_laboratorios; ?>  </td>
 						               <td style="font-size: 11px;"> <?php echo $res->nombre_laboratorios; ?>     </td> 
 						               <td style="font-size: 11px;">   
-					                	   <a  href="<?php echo $helper->url("FichasProductos","index_dos"); ?>&id_fichas_laboratorios_editar=<?php echo $res->id_fichas_laboratorios; ?>" class="btn btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
+					                	   <a  href="<?php echo $helper->url("FichasProductos","index_dos"); ?>&id_fichas_laboratorios_editar=<?php echo $res->id_fichas_laboratorios; ?>&id_fichas=<?php echo $id_fichas; ?>" class="btn btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
 						                </td>
 						               <td style="font-size: 11px;">   
-							                    <a href="<?php echo $helper->url("FichasProductos","index_dos"); ?>&id_fichas_laboratorios_borrar=<?php echo $res->id_fichas_laboratorios; ?>" class="btn btn-danger" onClick="return mensaje();"><i class="glyphicon glyphicon-trash"></i></a>
+							                    <a href="<?php echo $helper->url("FichasProductos","index_dos"); ?>&id_fichas_laboratorios_borrar=<?php echo $res->id_fichas_laboratorios; ?>&id_fichas=<?php echo $id_fichas; ?>" class="btn btn-danger" onClick="return mensaje();"><i class="glyphicon glyphicon-trash"></i></a>
 							           </td>
 						    		</tr>
 						        <?php } ?>
@@ -1609,7 +1828,7 @@
 	         <div class="col-xs-6 col-md-6">
 		     <div class="form-group ">
 		                          <label for="clasificacion_farmacologica_fichas" class="control-label">Categoría Farmacológica:</label>
-                                  <textarea type="text"  class="form-control" id="clasificacion_farmacologica_fichas" name="clasificacion_farmacologica_fichas" value=""  placeholder="Categoría Farmacológica"><?php echo $sel_clasificacion_farmacologica_fichas; ?></textarea>
+                                  <textarea type="text"  class="form-control" id="clasificacion_farmacologica_fichas" name="clasificacion_farmacologica_fichas" value=""  placeholder="Categoría Farmacológica"><?php if ($sel_clasificacion_farmacologica_fichas !="") {echo $sel_clasificacion_farmacologica_fichas; } else{ echo $clasificacion_farmacologica_fichas;}     ?> </textarea>
                                   <div id="mensaje_clasificacion_farmacologica_fichas" class="errores"></div>
 			 
              </div>
@@ -1617,7 +1836,7 @@
 		     <div class="col-xs-6 col-md-6">
 		     <div class="form-group ">
 		                          <label for="forma_terapeutica_fichas" class="control-label">Forma Farmacéutica:</label>
-                                  <textarea type="text"  class="form-control" id="forma_terapeutica_fichas" name="forma_terapeutica_fichas" value=""  placeholder="Forma Farmacéutica"><?php echo $sel_forma_terapeutica_fichas; ?></textarea>
+                                  <textarea type="text"  class="form-control" id="forma_terapeutica_fichas" name="forma_terapeutica_fichas" value=""  placeholder="Forma Farmacéutica"><?php if ($sel_forma_terapeutica_fichas !="") {echo $sel_forma_terapeutica_fichas; } else{ echo $forma_terapeutica_fichas;}  ?></textarea>
                                   <div id="mensaje_forma_terapeutica_fichas" class="errores"></div>
 			 
              </div>
@@ -1636,13 +1855,55 @@
 	        <div class="col-xs-12 col-md-12">
 		     <div class="form-group ">
 		                          <label for="encabezado_tabla_fichas" class="control-label">Texto Encabezado:</label>
-                                  <input type="text" class="form-control" id="encabezado_tabla_fichas" name="encabezado_tabla_fichas" value="<?php echo $sel_encabezado_tabla_fichas;  ?>"  placeholder="Texto Encabezado" />
+                                  <input type="text" class="form-control" id="encabezado_tabla_fichas" name="encabezado_tabla_fichas" value="<?php if ($sel_encabezado_tabla_fichas !="") {echo $sel_encabezado_tabla_fichas; } else{ echo $encabezado_tabla_fichas;}  ?>"  placeholder="Texto Encabezado" />
                                   <div id="mensaje_encabezado_tabla_fichas" class="errores"></div>
 			 
              </div>
 		     </div>
 		     </div>
 		     
+		      <?php if(!empty($resultEditCompo)){foreach($resultEditCompo as $resultEditCompo) {?>
+		      <div class="row">
+		     <?php $cantidad=0;?>
+	         <div class="col-xs-4 col-md-4">
+		     <div class="form-group">
+                                  <label for="id_composiciones" class="control-label">Principio Activo:</label>
+                                  <select name="id_composiciones" id="id_composiciones"  class="form-control" >
+                                  <option value="" selected="selected">--Seleccione--</option>
+									<?php foreach($resultCom as $res) {?>
+										<option value="<?php echo $res->id_composiciones; ?>" <?php if ($res->id_composiciones == $resultEditCompo->id_composiciones )  echo  ' selected="selected" '  ;  ?>><?php echo $res->nombre_composiciones; ?> </option>
+							        <?php } ?>
+								   </select> 
+                                  <div id="mensaje_id_composiciones" class="errores"></div>
+             </div>
+             </div>
+             
+            <div class="col-xs-4 col-md-4">
+		    <div class="form-group ">
+		                          <label for="cantidad_fichas_composiciones" class="control-label">Dosis:</label>
+                                  <input type="text" class="form-control" id="cantidad_fichas_composiciones" name="cantidad_fichas_composiciones" value="<?php echo $resultEditCompo->cantidad_fichas_composiciones; ?>"  placeholder="Dosis">
+                                  <input type="hidden" name="id_fichas_composiciones" id="id_fichas_composiciones" value="<?php echo $resultEditCompo->id_fichas_composiciones;   ?>" class="form-control"/>
+								  <div id="mensaje_cantidad_fichas_composiciones" class="errores"></div>
+            </div>
+		    </div>
+             
+             <div class="col-xs-4 col-md-4">
+		     <div class="form-group">
+                                  <label for="id_unidades_medida" class="control-label">U/M:</label>
+                                  <select name="id_unidades_medida" id="id_unidades_medida"  class="form-control" >
+                                  <option value="" selected="selected">--Seleccione--</option>
+									<?php foreach($resultUme as $res) {?>
+										<option value="<?php echo $res->id_unidades_medida; ?>" <?php if ($res->id_unidades_medida == $resultEditCompo->id_unidades_medida )  echo  ' selected="selected" '  ;  ?>><?php echo $res->nombre_unidades_medida; ?> </option>
+							        <?php } ?>
+								   </select> 
+                                  <div id="mensaje_nombre_unidades_medida" class="errores"></div>
+             </div>
+             </div>
+	        </div>
+		      
+		      
+		      <?php }} else {?>
+		      
 		      <div class="row">
 		     <?php $cantidad=0;?>
 	         <div class="col-xs-4 col-md-4">
@@ -1662,7 +1923,8 @@
 		    <div class="form-group ">
 		                          <label for="cantidad_fichas_composiciones" class="control-label">Dosis:</label>
                                   <input type="text" class="form-control" id="cantidad_fichas_composiciones" name="cantidad_fichas_composiciones" value=""  placeholder="Dosis">
-                                 <div id="mensaje_cantidad_fichas_composiciones" class="errores"></div>
+                                  <input type="hidden" name="id_fichas_composiciones" id="id_fichas_composiciones" value="0" class="form-control"/>
+								  <div id="mensaje_cantidad_fichas_composiciones" class="errores"></div>
             </div>
 		    </div>
              
@@ -1679,6 +1941,9 @@
              </div>
              </div>
 	        </div>
+		      
+		      <?php }?>
+		    
 		    </div>
 		    
 		    
@@ -1705,10 +1970,10 @@
 						               <td style="font-size: 11px;"> <?php echo $res->cantidad_fichas_composiciones; ?>     </td> 
 						               <td style="font-size: 11px;"> <?php echo $res->nombre_unidades_medida; ?>     </td> 
 						                 <td style="font-size: 11px;">   
-					                	   <a  href="<?php echo $helper->url("FichasProductos","index_dos"); ?>&id_fichas_composiciones_editar=<?php echo $res->id_fichas_composiciones; ?>" class="btn btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
+					                	   <a  href="<?php echo $helper->url("FichasProductos","index_dos"); ?>&id_fichas_composiciones_editar=<?php echo $res->id_fichas_composiciones; ?>&id_fichas=<?php echo $id_fichas; ?>" class="btn btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
 						                </td>
 						               <td style="font-size: 11px;">   
-							                    <a href="<?php echo $helper->url("FichasProductos","index_dos"); ?>&id_fichas_composiciones_borrar=<?php echo $res->id_fichas_composiciones; ?>" class="btn btn-danger" onClick="return mensaje();"><i class="glyphicon glyphicon-trash"></i></a>
+							                    <a href="<?php echo $helper->url("FichasProductos","index_dos"); ?>&id_fichas_composiciones_borrar=<?php echo $res->id_fichas_composiciones; ?>&id_fichas=<?php echo $id_fichas; ?>" class="btn btn-danger" onClick="return mensaje();"><i class="glyphicon glyphicon-trash"></i></a>
 							           </td>
 						    		</tr>
 						        <?php } ?>
@@ -1739,7 +2004,7 @@
 	         <div class="col-xs-6 col-md-6">
 		     <div class="form-group ">
 		                          <label for="accion_terapeutica_fichas" class="control-label">Características:</label>
-                                  <textarea type="text"  class="form-control" id="accion_terapeutica_fichas" name="accion_terapeutica_fichas" value=""  placeholder="Caracteristicas"><?php if ($sel_accion_terapeutica_fichas !="") {echo $sel_accion_terapeutica_fichas; }      ?></textarea>
+                                  <textarea type="text"  class="form-control" id="accion_terapeutica_fichas" name="accion_terapeutica_fichas" value=""  placeholder="Caracteristicas"><?php if ($sel_accion_terapeutica_fichas !="") {echo $sel_accion_terapeutica_fichas; }else{ echo $accion_terapeutica_fichas;}      ?></textarea>
                                   <div id="mensaje_accion_terapeutica_fichas" class="errores"></div>
 			 
              </div>
@@ -1747,7 +2012,7 @@
 		     <div class="col-xs-6 col-md-6">
 		     <div class="form-group ">
 		                          <label for="mecanismo_accion_fichas" class="control-label">Mecanismo De Acción:</label>
-                                  <textarea type="text"  class="form-control" id="mecanismo_accion_fichas" name="mecanismo_accion_fichas" value=""  placeholder="Mecanismo De Acción"><?php echo $sel_mecanismo_accion_fichas; ?></textarea>
+                                  <textarea type="text"  class="form-control" id="mecanismo_accion_fichas" name="mecanismo_accion_fichas" value=""  placeholder="Mecanismo De Acción"><?php if ($sel_mecanismo_accion_fichas !="") {echo $sel_mecanismo_accion_fichas; }else{ echo $mecanismo_accion_fichas;}   ?></textarea>
                                   <div id="mensaje_mecanismo_accion_fichas" class="errores"></div>
 			 
              </div>
@@ -1759,7 +2024,7 @@
 	         <div class="col-xs-6 col-md-6">
 		     <div class="form-group ">
 		                          <label for="indicaciones_uso_fichas" class="control-label">Indicaciones de Uso:</label>
-                                  <textarea type="text"  class="form-control" id="indicaciones_uso_fichas" name="indicaciones_uso_fichas" value=""  placeholder="Indicaciones de Uso"><?php echo $sel_indicaciones_uso_fichas; ?></textarea>
+                                  <textarea type="text"  class="form-control" id="indicaciones_uso_fichas" name="indicaciones_uso_fichas" value=""  placeholder="Indicaciones de Uso"><?php if ($sel_indicaciones_uso_fichas !="") {echo $sel_indicaciones_uso_fichas; }else{ echo $indicaciones_uso_fichas;}  ?></textarea>
                                   <div id="mensaje_indicaciones_uso_fichas" class="errores"></div>
 			 
              </div>
@@ -1781,14 +2046,50 @@
 	        <div class="col-xs-12 col-md-12">
 		     <div class="form-group ">
 		                          <label for="encabezado_dosificacion_fichas" class="control-label">Texto Encabezado:</label>
-                                  <input type="text" class="form-control" id="encabezado_dosificacion_fichas" name="encabezado_dosificacion_fichas" value="<?php echo $sel_encabezado_dosificacion_fichas;  ?>"  placeholder="Texto Encabezado" />
+                                  <input type="text" class="form-control" id="encabezado_dosificacion_fichas" name="encabezado_dosificacion_fichas" value="<?php if ($sel_encabezado_dosificacion_fichas !="") {echo $sel_encabezado_dosificacion_fichas; }else{ echo $encabezado_dosificacion_fichas;}   ?>"  placeholder="Texto Encabezado" />
                                   <div id="mensaje_encabezado_dosificacion_fichas" class="errores"></div>
 			 
              </div>
 		     </div>
 		     </div>
 		     
-		      <div class="row">
+		      <?php if(!empty($resultEditDosi)){foreach($resultEditDosi as $resultEditDosi) {?>
+       	    <div class="row">
+		     <?php $cantidad=0;?>
+	         <div class="col-xs-4 col-md-4">
+		     <div class="form-group">
+                                  <label for="id_especies_dosificacion" class="control-label">Especies:</label>
+                                  <select name="id_especies_dosificacion" id="id_especies_dosificacion"  class="form-control" >
+                                  <option value="" selected="selected">--Seleccione--</option>
+									<?php foreach($resultEspe as $res) {?>
+										<option value="<?php echo $res->id_especies; ?>" <?php if ($res->id_especies == $resultEditDosi->id_especies )  echo  ' selected="selected" '  ;  ?> ><?php echo $res->nombre_especies; ?> </option>
+							        <?php } ?>
+								   </select> 
+                                  <div id="mensaje_id_especies" class="errores"></div>
+             </div>
+             </div>
+             
+            <div class="col-xs-4 col-md-4">
+		    <div class="form-group ">
+		                          <label for="dosis_fichas_dosificacion" class="control-label">Dosis:</label>
+                                  <input type="text" class="form-control" id="dosis_fichas_dosificacion" name="dosis_fichas_dosificacion" value="<?php echo $resultEditDosi->dosis_fichas_dosificacion; ?>"  placeholder="Dosis">
+                                  <input type="hidden" name="id_fichas_dosificacion" id="id_fichas_dosificacion" value="<?php echo $resultEditDosi->id_fichas_dosificacion;   ?>" class="form-control"/>
+								  <div id="mensaje_dosis_fichas_dosificacion" class="errores"></div>
+            </div>
+		    </div>
+             
+             
+            <div class="col-xs-4 col-md-4" style="margin-top:18px";>
+		    <div class="form-group ">
+		                         <input type="submit" id="btn_agregar_dosificacion" name="btn_agregar_dosificacion" value="Agregar" class="btn btn-success"/>
+			   
+            </div>
+		    </div>
+             
+	        </div>
+       	   
+       	    <?php }} else {?>
+       	     <div class="row">
 		     <?php $cantidad=0;?>
 	         <div class="col-xs-4 col-md-4">
 		     <div class="form-group">
@@ -1807,7 +2108,8 @@
 		    <div class="form-group ">
 		                          <label for="dosis_fichas_dosificacion" class="control-label">Dosis:</label>
                                   <input type="text" class="form-control" id="dosis_fichas_dosificacion" name="dosis_fichas_dosificacion" value=""  placeholder="Dosis">
-                                 <div id="mensaje_dosis_fichas_dosificacion" class="errores"></div>
+                                  <input type="hidden" name="id_fichas_dosificacion" id="id_fichas_dosificacion" value="0" class="form-control"/>
+								  <div id="mensaje_dosis_fichas_dosificacion" class="errores"></div>
             </div>
 		    </div>
              
@@ -1821,6 +2123,7 @@
              
             
 	        </div>
+       	    <?php }?>
 		    </div>
 		    
 		    
@@ -1845,10 +2148,10 @@
 						               <td style="font-size: 11px;"> <?php echo $res->nombre_especies; ?>     </td> 
 						               <td style="font-size: 11px;"> <?php echo $res->dosis_fichas_dosificacion; ?>     </td> 
 						               <td style="font-size: 11px;">   
-					                	   <a  href="<?php echo $helper->url("FichasProductos","index_dos"); ?>&id_fichas_dosificacion_editar=<?php echo $res->id_fichas_dosificacion; ?>" class="btn btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
+					                	   <a  href="<?php echo $helper->url("FichasProductos","index_dos"); ?>&id_fichas_dosificacion_editar=<?php echo $res->id_fichas_dosificacion; ?>&id_fichas=<?php echo $id_fichas; ?>" class="btn btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
 						                </td>
 						               <td style="font-size: 11px;">   
-							                    <a href="<?php echo $helper->url("FichasProductos","index_dos"); ?>&id_fichas_dosificacion_borrar=<?php echo $res->id_fichas_dosificacion; ?>" class="btn btn-danger" onClick="return mensaje();"><i class="glyphicon glyphicon-trash"></i></a>
+							                    <a href="<?php echo $helper->url("FichasProductos","index_dos"); ?>&id_fichas_dosificacion_borrar=<?php echo $res->id_fichas_dosificacion; ?>&id_fichas=<?php echo $id_fichas; ?>" class="btn btn-danger" onClick="return mensaje();"><i class="glyphicon glyphicon-trash"></i></a>
 							           </td>
 						    		</tr>
 						        <?php } ?>
@@ -1877,7 +2180,8 @@
 	        <div class="panel-body">
 	        <div class="col-xs-6 col-md-6 col-lg-6">
 	         
-		     <div class="row">
+		  <?php if(!empty($resultEditEspecies)){foreach($resultEditEspecies as $resultEditEspecies) {?>
+	           <div class="row">
 		     <?php $cantidad=0;?>
 	         <div class="col-xs-6 col-md-6">
 		     <div class="form-group">
@@ -1885,10 +2189,12 @@
                                   <select name="id_especies" id="id_especies"  class="form-control" >
                                   <option value="" selected="selected">--Seleccione--</option>
 									<?php foreach($resultEsp as $res) {?>
-										<option value="<?php echo $res->id_especies; ?>" ><?php echo $res->nombre_especies; ?> </option>
+										<option value="<?php echo $res->id_especies; ?>" <?php if ($res->id_especies == $resultEditEspecies->id_especies )  echo  ' selected="selected" '  ;  ?>><?php echo $res->nombre_especies; ?> </option>
 							        <?php } ?>
 								   </select> 
                                   <div id="mensaje_id_especies_1" class="errores"></div>
+                                   <input type="hidden" name="id_fichas_especies" id="id_fichas_especies" value="<?php echo $resultEditEspecies->id_fichas_especies;   ?>" class="form-control"/>
+								 
              </div>
              </div>
              
@@ -1900,6 +2206,33 @@
             </div>
 		    </div>
             </div>
+       	    <?php }} else {?>
+       	      <div class="row">
+		     <?php $cantidad=0;?>
+	         <div class="col-xs-6 col-md-6">
+		     <div class="form-group">
+                                  <label for="id_especies" class="control-label">Especies:</label>
+                                  <select name="id_especies" id="id_especies"  class="form-control" >
+                                  <option value="" selected="selected">--Seleccione--</option>
+									<?php foreach($resultEsp as $res) {?>
+										<option value="<?php echo $res->id_especies; ?>" ><?php echo $res->nombre_especies; ?> </option>
+							        <?php } ?>
+								   </select> 
+                                  <div id="mensaje_id_especies_1" class="errores"></div>
+                                  <input type="hidden" name="id_fichas_especies" id="id_fichas_especies" value="0" class="form-control"/>
+								 
+             </div>
+             </div>
+             
+             
+            <div class="col-xs-4 col-md-4" style="margin-top:18px";>
+		    <div class="form-group ">
+		                         <input type="submit" id="btn_agregar_especies" name="btn_agregar_especies" value="Agregar" class="btn btn-success"/>
+			   
+            </div>
+		    </div>
+            </div>
+       	    <?php }?>
 		    </div>
 		    
 		    
@@ -1922,10 +2255,10 @@
 					                   <td style="font-size: 11px;"> <?php echo $res->id_fichas_especies; ?>  </td>
 						               <td style="font-size: 11px;"> <?php echo $res->nombre_especies; ?>     </td> 
 						               <td style="font-size: 11px;">   
-					                	   <a  href="<?php echo $helper->url("FichasProductos","index_dos"); ?>&id_fichas_especies_editar=<?php echo $res->id_fichas_especies; ?>" class="btn btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
+					                	   <a  href="<?php echo $helper->url("FichasProductos","index_dos"); ?>&id_fichas_especies_editar=<?php echo $res->id_fichas_especies; ?>&id_fichas=<?php echo $id_fichas; ?>" class="btn btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
 						                </td>
 						               <td style="font-size: 11px;">   
-							                    <a href="<?php echo $helper->url("FichasProductos","index_dos"); ?>&id_fichas_especies_borrar=<?php echo $res->id_fichas_especies; ?>" class="btn btn-danger" onClick="return mensaje();"><i class="glyphicon glyphicon-trash"></i></a>
+							                    <a href="<?php echo $helper->url("FichasProductos","index_dos"); ?>&id_fichas_especies_borrar=<?php echo $res->id_fichas_especies; ?>&id_fichas=<?php echo $id_fichas; ?>" class="btn btn-danger" onClick="return mensaje();"><i class="glyphicon glyphicon-trash"></i></a>
 							           </td>
 						    		</tr>
 						        <?php } ?>
@@ -1960,7 +2293,8 @@
 	        <div class="panel-body">
 	        <div class="col-xs-6 col-md-6 col-lg-6">
 	         
-		     <div class="row">
+		  <?php if(!empty($resultEditFormAdm)){foreach($resultEditFormAdm as $resultEditFormAdm) {?>
+	         <div class="row">
 		     <?php $cantidad=0;?>
 	         <div class="col-xs-6 col-md-6">
 		     <div class="form-group">
@@ -1968,10 +2302,12 @@
                                   <select name="id_formas_administracion" id="id_formas_administracion"  class="form-control" >
                                   <option value="" selected="selected">--Seleccione--</option>
 									<?php foreach($resultFormAd as $res) {?>
-										<option value="<?php echo $res->id_formas_administracion; ?>" ><?php echo $res->nombre_formas_administracion; ?> </option>
+										<option value="<?php echo $res->id_formas_administracion; ?>" <?php if ($res->id_formas_administracion == $resultEditFormAdm->id_formas_administracion )  echo  ' selected="selected" '  ;  ?>  ><?php echo $res->nombre_formas_administracion; ?> </option>
 							        <?php } ?>
 								   </select> 
                                   <div id="mensaje_id_formas_administracion" class="errores"></div>
+                                  <input type="hidden" name="id_fichas_formas_administracion" id="id_fichas_formas_administracion" value="<?php echo $resultEditFormAdm->id_fichas_formas_administracion;   ?>" class="form-control"/>
+								  
              </div>
              </div>
              
@@ -1983,6 +2319,35 @@
             </div>
 		    </div>
             </div>
+       	     <?php }} else {?>
+       	     
+       	     <div class="row">
+		     <?php $cantidad=0;?>
+	         <div class="col-xs-6 col-md-6">
+		     <div class="form-group">
+                                  <label for="id_formas_administracion" class="control-label">Vía de Administración:</label>
+                                  <select name="id_formas_administracion" id="id_formas_administracion"  class="form-control" >
+                                  <option value="" selected="selected">--Seleccione--</option>
+									<?php foreach($resultFormAd as $res) {?>
+										<option value="<?php echo $res->id_formas_administracion; ?>" ><?php echo $res->nombre_formas_administracion; ?> </option>
+							        <?php } ?>
+								   </select> 
+                                  <div id="mensaje_id_formas_administracion" class="errores"></div>
+                                  <input type="hidden" name="id_fichas_formas_administracion" id="id_fichas_formas_administracion" value="0" class="form-control"/>
+								  
+             </div>
+             </div>
+             
+             
+            <div class="col-xs-4 col-md-4" style="margin-top:18px";>
+		    <div class="form-group ">
+		                         <input type="submit" id="btn_agregar_admnistracion" name="btn_agregar_admnistracion" value="Agregar" class="btn btn-success"/>
+			   
+            </div>
+		    </div>
+            </div>
+       	     <?php }?>
+		 
 		    </div>
 		    
 		    
@@ -2005,10 +2370,10 @@
 					                   <td style="font-size: 11px;"> <?php echo $res->id_fichas_formas_administracion; ?>  </td>
 						               <td style="font-size: 11px;"> <?php echo $res->nombre_formas_administracion; ?>     </td> 
 						               <td style="font-size: 11px;">   
-					                	   <a  href="<?php echo $helper->url("FichasProductos","index_dos"); ?>&id_fichas_formas_administracion_editar=<?php echo $res->id_fichas_formas_administracion; ?>" class="btn btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
+					                	   <a  href="<?php echo $helper->url("FichasProductos","index_dos"); ?>&id_fichas_formas_administracion_editar=<?php echo $res->id_fichas_formas_administracion; ?>&id_fichas=<?php echo $id_fichas; ?>" class="btn btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
 						                </td>
 						               <td style="font-size: 11px;">   
-							                    <a href="<?php echo $helper->url("FichasProductos","index_dos"); ?>&id_fichas_formas_administracion_borrar=<?php echo $res->id_fichas_formas_administracion; ?>" class="btn btn-danger" onClick="return mensaje();"><i class="glyphicon glyphicon-trash"></i></a>
+							                    <a href="<?php echo $helper->url("FichasProductos","index_dos"); ?>&id_fichas_formas_administracion_borrar=<?php echo $res->id_fichas_formas_administracion; ?>&id_fichas=<?php echo $id_fichas; ?>" class="btn btn-danger" onClick="return mensaje();"><i class="glyphicon glyphicon-trash"></i></a>
 							           </td>
 						    		</tr>
 						        <?php } ?>
@@ -2030,7 +2395,7 @@
 	         <div class="col-xs-6 col-md-6">
 		     <div class="form-group ">
 		                          <label for="interacciones_fichas" class="control-label">Interacciones:</label>
-                                  <textarea type="text"  class="form-control" id="interacciones_fichas" name="interacciones_fichas" value=""  placeholder="Interacciones"><?php echo $sel_interacciones_fichas; ?></textarea>
+                                  <textarea type="text"  class="form-control" id="interacciones_fichas" name="interacciones_fichas" value=""  placeholder="Interacciones"><?php if ($sel_interacciones_fichas !="") {echo $sel_interacciones_fichas; }else{ echo $interacciones_fichas;} ?></textarea>
                                   <div id="mensaje_interacciones_fichas" class="errores"></div>
 			 
              </div>
@@ -2038,7 +2403,7 @@
 		     <div class="col-xs-6 col-md-6">
 		     <div class="form-group ">
 		                          <label for="contraindicaciones_fichas" class="control-label">Contra Indicaciones:</label>
-                                  <textarea type="text"  class="form-control" id="contraindicaciones_fichas" name="contraindicaciones_fichas" value=""  placeholder="Contra Indicaciones"><?php echo $sel_contraindicaciones_fichas; ?></textarea>
+                                  <textarea type="text"  class="form-control" id="contraindicaciones_fichas" name="contraindicaciones_fichas" value=""  placeholder="Contra Indicaciones"><?php if ($sel_contraindicaciones_fichas !="") {echo $sel_contraindicaciones_fichas; }else{ echo $contraindicaciones_fichas;} ?></textarea>
                                   <div id="mensaje_contraindicaciones_fichas" class="errores"></div>
 			 
              </div>
@@ -2050,7 +2415,7 @@
 	         <div class="col-xs-6 col-md-6">
 		     <div class="form-group ">
 		                          <label for="efectos_colaterales_fichas" class="control-label">Efectos Colaterales:</label>
-                                  <textarea type="text"  class="form-control" id="efectos_colaterales_fichas" name="efectos_colaterales_fichas" value=""  placeholder="Efectos Colaterales"><?php echo $sel_efectos_colaterales_fichas; ?></textarea>
+                                  <textarea type="text"  class="form-control" id="efectos_colaterales_fichas" name="efectos_colaterales_fichas" value=""  placeholder="Efectos Colaterales"><?php if ($sel_efectos_colaterales_fichas !="") {echo $sel_efectos_colaterales_fichas; }else{ echo $efectos_colaterales_fichas;} ?></textarea>
                                   <div id="mensaje_efectos_colaterales_fichas" class="errores"></div>
 			 
              </div>
@@ -2058,7 +2423,7 @@
 		     <div class="col-xs-6 col-md-6">
 		     <div class="form-group ">
 		                          <label for="periodo_retiro_fichas" class="control-label">Periodo de Retiro:</label>
-                                  <textarea type="text"  class="form-control" id="periodo_retiro_fichas" name="periodo_retiro_fichas" value=""  placeholder="Periodo de Retiro"><?php echo $sel_periodo_retiro_fichas; ?></textarea>
+                                  <textarea type="text"  class="form-control" id="periodo_retiro_fichas" name="periodo_retiro_fichas" value=""  placeholder="Periodo de Retiro"><?php if ($sel_periodo_retiro_fichas !="") {echo $sel_periodo_retiro_fichas; }else{ echo $periodo_retiro_fichas;} ?></textarea>
                                   <div id="mensaje_periodo_retiro_fichas" class="errores"></div>
 			 
              </div>
@@ -2071,7 +2436,7 @@
 	         <div class="col-xs-6 col-md-6">
 		     <div class="form-group ">
 		                          <label for="advertencias_fichas" class="control-label">Advertencias:</label>
-                                  <textarea type="text"  class="form-control" id="advertencias_fichas" name="advertencias_fichas" value=""  placeholder="Advertencias"><?php echo $sel_advertencias_fichas; ?></textarea>
+                                  <textarea type="text"  class="form-control" id="advertencias_fichas" name="advertencias_fichas" value=""  placeholder="Advertencias"><?php if ($sel_advertencias_fichas !="") {echo $sel_advertencias_fichas; }else{ echo $advertencias_fichas;}  ?></textarea>
                                   <div id="mensaje_advertencias_fichas" class="errores"></div>
 			 
              </div>
@@ -2079,7 +2444,7 @@
 		     <div class="col-xs-6 col-md-6">
 		     <div class="form-group ">
 		                          <label for="presentacion_fichas" class="control-label">Presentaciones:</label>
-                                  <textarea type="text"  class="form-control" id="presentacion_fichas" name="presentacion_fichas" value=""  placeholder="Presentaciones"><?php echo $sel_presentacion_fichas; ?></textarea>
+                                  <textarea type="text"  class="form-control" id="presentacion_fichas" name="presentacion_fichas" value=""  placeholder="Presentaciones"><?php if ($sel_presentacion_fichas !="") {echo $sel_presentacion_fichas; }else{ echo $presentacion_fichas;} ?></textarea>
                                   <div id="mensaje_presentacion_fichas" class="errores"></div>
 			 
              </div>
@@ -2092,7 +2457,7 @@
 	         <div class="col-xs-6 col-md-6">
 		     <div class="form-group ">
 		                          <label for="conservacion_fichas" class="control-label">Conservación:</label>
-                                  <textarea type="text"  class="form-control" id="conservacion_fichas" name="conservacion_fichas" value=""  placeholder="Conservación"><?php echo $sel_conservacion_fichas; ?></textarea>
+                                  <textarea type="text"  class="form-control" id="conservacion_fichas" name="conservacion_fichas" value=""  placeholder="Conservación"><?php if ($sel_conservacion_fichas !="") {echo $sel_conservacion_fichas; }else{ echo $conservacion_fichas;} ?></textarea>
                                   <div id="mensaje_conservacion_fichas" class="errores"></div>
 			 
              </div>
@@ -2100,7 +2465,7 @@
 		     <div class="col-xs-6 col-md-6">
 		     <div class="form-group ">
 		                          <label for="registro_sanitario_fichas" class="control-label">Regristro Agrocalidad:</label>
-                                  <textarea type="text"  class="form-control" id="registro_sanitario_fichas" name="registro_sanitario_fichas" value=""  placeholder="Regristro Agrocalidad"><?php echo $sel_registro_sanitario_fichas; ?></textarea>
+                                  <textarea type="text"  class="form-control" id="registro_sanitario_fichas" name="registro_sanitario_fichas" value=""  placeholder="Regristro Agrocalidad"><?php if ($sel_registro_sanitario_fichas !="") {echo $sel_registro_sanitario_fichas; }else{ echo $registro_sanitario_fichas;} ?></textarea>
                                   <div id="mensaje_registro_sanitario_fichas" class="errores"></div>
 			 
              </div>
@@ -2125,7 +2490,8 @@
 	        <div class="panel-body">
 	        <div class="col-xs-6 col-md-6 col-lg-6">
 	         
-		     <div class="row">
+		    <?php if(!empty($resultEditDistri)){foreach($resultEditDistri as $resultEditDistri) {?>
+	        <div class="row">
 		     <?php $cantidad=0;?>
 	         <div class="col-xs-6 col-md-6">
 		     <div class="form-group">
@@ -2133,10 +2499,12 @@
                                   <select name="id_distribuidores" id="id_distribuidores"  class="form-control" >
                                   <option value="" selected="selected">--Seleccione--</option>
 									<?php foreach($resultDis as $res) {?>
-										<option value="<?php echo $res->id_distribuidores; ?>" ><?php echo $res->nombre_distribuidores; ?> </option>
+										<option value="<?php echo $res->id_distribuidores; ?>" <?php if ($res->id_distribuidores == $resultEditDistri->id_distribuidores )  echo  ' selected="selected" '  ;  ?>><?php echo $res->nombre_distribuidores; ?> </option>
 							        <?php } ?>
 								   </select> 
                                   <div id="mensaje_id_distribuidores" class="errores"></div>
+                                  <input type="hidden" name="id_fichas_distribuidores" id="id_fichas_distribuidores" value="<?php echo $resultEditDistri->id_fichas_distribuidores;   ?>" class="form-control"/>
+								 
              </div>
              </div>
              
@@ -2148,6 +2516,34 @@
             </div>
 		    </div>
             </div>
+       	   <?php }} else {?>
+       	   
+       	    <div class="row">
+		     <?php $cantidad=0;?>
+	         <div class="col-xs-6 col-md-6">
+		     <div class="form-group">
+                                  <label for="id_distribuidores" class="control-label">Distribuidores:</label>
+                                  <select name="id_distribuidores" id="id_distribuidores"  class="form-control" >
+                                  <option value="" selected="selected">--Seleccione--</option>
+									<?php foreach($resultDis as $res) {?>
+										<option value="<?php echo $res->id_distribuidores; ?>" ><?php echo $res->nombre_distribuidores; ?> </option>
+							        <?php } ?>
+								   </select> 
+                                  <div id="mensaje_id_distribuidores" class="errores"></div>
+                                  <input type="hidden" name="id_fichas_distribuidores" id="id_fichas_distribuidores" value="0" class="form-control"/>
+								 
+             </div>
+             </div>
+             
+             
+            <div class="col-xs-4 col-md-4" style="margin-top:18px";>
+		    <div class="form-group ">
+		                         <input type="submit" id="btn_agregar_distribuidores" name="btn_agregar_distribuidores" value="Agregar" class="btn btn-success"/>
+			   
+            </div>
+		    </div>
+            </div>
+       	   <?php }?>
 		    </div>
 		    
 		    
@@ -2170,10 +2566,10 @@
 					                   <td style="font-size: 11px;"> <?php echo $res->id_fichas_distribuidores; ?>  </td>
 						               <td style="font-size: 11px;"> <?php echo $res->nombre_distribuidores; ?>     </td> 
 						               <td style="font-size: 11px;">   
-					                	   <a  href="<?php echo $helper->url("FichasProductos","index_dos"); ?>&id_fichas_distribuidores_editar=<?php echo $res->id_fichas_distribuidores; ?>" class="btn btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
+					                	   <a  href="<?php echo $helper->url("FichasProductos","index_dos"); ?>&id_fichas_distribuidores_editar=<?php echo $res->id_fichas_distribuidores; ?>&id_fichas=<?php echo $id_fichas; ?>" class="btn btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
 						                </td>
 						               <td style="font-size: 11px;">   
-							                    <a href="<?php echo $helper->url("FichasProductos","index_dos"); ?>&id_fichas_distribuidores_borrar=<?php echo $res->id_fichas_distribuidores; ?>" class="btn btn-danger" onClick="return mensaje();"><i class="glyphicon glyphicon-trash"></i></a>
+							                    <a href="<?php echo $helper->url("FichasProductos","index_dos"); ?>&id_fichas_distribuidores_borrar=<?php echo $res->id_fichas_distribuidores; ?>&id_fichas=<?php echo $id_fichas; ?>" class="btn btn-danger" onClick="return mensaje();"><i class="glyphicon glyphicon-trash"></i></a>
 							           </td>
 						    		</tr>
 						        <?php } ?>
@@ -2203,7 +2599,8 @@
 	        <div class="panel-body">
 	        <div class="col-xs-6 col-md-6 col-lg-6">
 	         
-		     <div class="row">
+		      <?php if(!empty($resultEditLabo)){foreach($resultEditLabo as $resultEditLabo) {?>
+       	      <div class="row">
 		     <?php $cantidad=0;?>
 	         <div class="col-xs-6 col-md-6">
 		     <div class="form-group">
@@ -2211,10 +2608,12 @@
                                   <select name="id_laboratorios" id="id_laboratorios"  class="form-control" >
                                   <option value="" selected="selected">--Seleccione--</option>
 									<?php foreach($resultLab as $res) {?>
-										<option value="<?php echo $res->id_laboratorios; ?>" ><?php echo $res->nombre_laboratorios; ?> </option>
+										<option value="<?php echo $res->id_laboratorios; ?>" <?php if ($res->id_laboratorios == $resultEditLabo->id_laboratorios )  echo  ' selected="selected" '  ;  ?>><?php echo $res->nombre_laboratorios; ?> </option>
 							        <?php } ?>
 								   </select> 
                                   <div id="mensaje_id_laboratorios" class="errores"></div>
+                                   <input type="hidden" name="id_fichas_laboratorios" id="id_fichas_laboratorios" value="<?php echo $resultEditLabo->id_fichas_laboratorios;   ?>" class="form-control"/>
+								 
              </div>
              </div>
              
@@ -2226,6 +2625,35 @@
             </div>
 		    </div>
             </div>
+       	     
+       	     <?php }} else {?>
+       	      <div class="row">
+		     <?php $cantidad=0;?>
+	         <div class="col-xs-6 col-md-6">
+		     <div class="form-group">
+                                  <label for="id_laboratorios" class="control-label">Laboratorios:</label>
+                                  <select name="id_laboratorios" id="id_laboratorios"  class="form-control" >
+                                  <option value="" selected="selected">--Seleccione--</option>
+									<?php foreach($resultLab as $res) {?>
+										<option value="<?php echo $res->id_laboratorios; ?>" ><?php echo $res->nombre_laboratorios; ?> </option>
+							        <?php } ?>
+								   </select> 
+                                  <div id="mensaje_id_laboratorios" class="errores"></div>
+                                  <input type="hidden" name="id_fichas_laboratorios" id="id_fichas_laboratorios" value="0" class="form-control"/>
+								
+             </div>
+             </div>
+             
+             
+            <div class="col-xs-4 col-md-4" style="margin-top:18px";>
+		    <div class="form-group ">
+		                         <input type="submit" id="btn_agregar_laboratorios" name="btn_agregar_laboratorios" value="Agregar" class="btn btn-success"/>
+			   
+            </div>
+		    </div>
+            </div>
+       	     <?php }?>
+       	     
 		    </div>
 		    
 		    
@@ -2248,10 +2676,10 @@
 					                   <td style="font-size: 11px;"> <?php echo $res->id_fichas_laboratorios; ?>  </td>
 						               <td style="font-size: 11px;"> <?php echo $res->nombre_laboratorios; ?>     </td> 
 						               <td style="font-size: 11px;">   
-					                	   <a  href="<?php echo $helper->url("FichasProductos","index_dos"); ?>&id_fichas_laboratorios_editar=<?php echo $res->id_fichas_laboratorios; ?>" class="btn btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
+					                	   <a  href="<?php echo $helper->url("FichasProductos","index_dos"); ?>&id_fichas_laboratorios_editar=<?php echo $res->id_fichas_laboratorios; ?>&id_fichas=<?php echo $id_fichas; ?>" class="btn btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
 						                </td>
 						               <td style="font-size: 11px;">   
-							                    <a href="<?php echo $helper->url("FichasProductos","index_dos"); ?>&id_fichas_laboratorios_borrar=<?php echo $res->id_fichas_laboratorios; ?>" class="btn btn-danger" onClick="return mensaje();"><i class="glyphicon glyphicon-trash"></i></a>
+							                    <a href="<?php echo $helper->url("FichasProductos","index_dos"); ?>&id_fichas_laboratorios_borrar=<?php echo $res->id_fichas_laboratorios; ?>&id_fichas=<?php echo $id_fichas; ?>" class="btn btn-danger" onClick="return mensaje();"><i class="glyphicon glyphicon-trash"></i></a>
 							           </td>
 						    		</tr>
 						        <?php } ?>
