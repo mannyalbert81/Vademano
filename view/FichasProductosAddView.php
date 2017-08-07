@@ -30,7 +30,22 @@
 		    	
 		    	var id_composiciones = $("#id_composiciones").val();
 		    	var cantidad_fichas_composiciones = $("#cantidad_fichas_composiciones").val();
-		    	var nombre_unidades_medida = $("#nombre_unidades_medida").val();
+		    	var id_unidades_medida = $("#id_unidades_medida").val();
+
+		    	if (id_composiciones == "")
+		    	{
+					
+			    	$("#mensaje_id_composiciones").text("Seleccione");
+		    		$("#mensaje_id_composiciones").fadeIn("slow"); //Muestra mensaje de error
+		            return false;
+			    }
+		    	else 
+		    	{
+					
+			    	$("#mensaje_id_composiciones").fadeOut("slow"); //Muestra mensaje de error
+		            
+			    }
+
 		    	if (cantidad_fichas_composiciones == "")
 		    	{
 					
@@ -45,23 +60,11 @@
 		            
 			    }
 
-		    	if (id_composiciones == 0)
+		    	
+		    	if (id_unidades_medida == "")
 		    	{
 					
-			    	$("#mensaje_id_composiciones").text("Seleccione un Principio Activo");
-		    		$("#mensaje_id_composiciones").fadeIn("slow"); //Muestra mensaje de error
-		            return false;
-			    }
-		    	else 
-		    	{
-					
-			    	$("#mensaje_id_composiciones").fadeOut("slow"); //Muestra mensaje de error
-		            
-			    }
-		    	if (nombre_unidades_medida == "0")
-		    	{
-					
-			    	$("#mensaje_nombre_unidades_medida").text("Seleccione una Unidad de Medida");
+			    	$("#mensaje_nombre_unidades_medida").text("Seleccione");
 		    		$("#mensaje_nombre_unidades_medida").fadeIn("slow"); //Muestra mensaje de error
 		            return false;
 			    }
@@ -82,13 +85,14 @@
 				$("#mensaje_cantidad_fichas_composiciones").fadeOut("slow");
     		});
 
-			$( "#nombre_unidades_medida" ).focus(function() {
+			$( "#id_unidades_medida" ).focus(function() {
 				$("#mensaje_nombre_unidades_medida").fadeOut("slow");
     		});
     							    				    
 		}); 
 
 	</script>
+	
 	<script >
 		$(document).ready(function(){
 
@@ -98,7 +102,20 @@
 		    	
 		    	var id_especies = $("#id_especies_dosificacion").val();
 		    	var dosis_fichas_dosificacion = $("#dosis_fichas_dosificacion").val();
-		    	
+
+		    	if (id_especies == "")
+		    	{
+					
+			    	$("#mensaje_id_especies").text("Seleccione");
+		    		$("#mensaje_id_especies").fadeIn("slow"); //Muestra mensaje de error
+		            return false;
+			    }
+		    	else 
+		    	{
+					
+			    	$("#mensaje_id_especies").fadeOut("slow"); //Muestra mensaje de error
+			    
+			    }
 		    	if (dosis_fichas_dosificacion == "")
 		    	{
 					
@@ -113,19 +130,7 @@
 			    	
 			    }
 
-		    	if (id_especies == 0)
-		    	{
-					
-			    	$("#mensaje_id_especies").text("Seleccione una Especie");
-		    		$("#mensaje_id_especies").fadeIn("slow"); //Muestra mensaje de error
-		            return false;
-			    }
-		    	else 
-		    	{
-					
-			    	$("#mensaje_id_especies").fadeOut("slow"); //Muestra mensaje de error
-			    
-			    }
+		    	
 
 			}); 
 			
@@ -136,6 +141,160 @@
 			$( "#dosis_fichas_dosificacion" ).focus(function() {
 				$("#mensaje_dosis_fichas_dosificacion").fadeOut("slow");
     		});
+    							    
+		}); 
+
+	</script>
+
+
+	<script >
+		$(document).ready(function(){
+
+		    // cada vez que se cambia el valor del combo
+		    $("#btn_agregar_especies").click(function() 
+			{
+		    	
+		    	var id_especies = $("#id_especies").val();
+		    	
+		    	if (id_especies == "")
+		    	{
+					
+			    	$("#mensaje_id_especies_1").text("Seleccione");
+		    		$("#mensaje_id_especies_1").fadeIn("slow"); //Muestra mensaje de error
+		            return false;
+			    }
+		    	else 
+		    	{
+					
+			    	$("#mensaje_id_especies_1").fadeOut("slow"); //Muestra mensaje de error
+			    
+			    }
+		    	
+		    	
+
+			}); 
+			
+			$( "#id_especies" ).focus(function() {
+				$("#mensaje_id_especies_1").fadeOut("slow");
+    		});
+		
+			
+    							    
+		}); 
+
+	</script>
+	
+	
+	
+	<script >
+		$(document).ready(function(){
+
+		    // cada vez que se cambia el valor del combo
+		    $("#btn_agregar_admnistracion").click(function() 
+			{
+		    	
+		    	var id_formas_administracion = $("#id_formas_administracion").val();
+		    	
+		    	if (id_formas_administracion == "")
+		    	{
+					
+			    	$("#mensaje_id_formas_administracion").text("Seleccione");
+		    		$("#mensaje_id_formas_administracion").fadeIn("slow"); //Muestra mensaje de error
+		            return false;
+			    }
+		    	else 
+		    	{
+					
+			    	$("#mensaje_id_formas_administracion").fadeOut("slow"); //Muestra mensaje de error
+			    
+			    }
+		    	
+		    	
+
+			}); 
+			
+			$( "#id_formas_administracion" ).focus(function() {
+				$("#mensaje_id_formas_administracion").fadeOut("slow");
+    		});
+		
+			
+    							    
+		}); 
+
+	</script>
+	
+	
+	
+	<script >
+		$(document).ready(function(){
+
+		    // cada vez que se cambia el valor del combo
+		    $("#btn_agregar_distribuidores").click(function() 
+			{
+		    	
+		    	var id_distribuidores = $("#id_distribuidores").val();
+		    	
+		    	if (id_distribuidores == "")
+		    	{
+					
+			    	$("#mensaje_id_distribuidores").text("Seleccione");
+		    		$("#mensaje_id_distribuidores").fadeIn("slow"); //Muestra mensaje de error
+		            return false;
+			    }
+		    	else 
+		    	{
+					
+			    	$("#mensaje_id_distribuidores").fadeOut("slow"); //Muestra mensaje de error
+			    
+			    }
+		    	
+		    	
+
+			}); 
+			
+			$( "#id_distribuidores" ).focus(function() {
+				$("#mensaje_id_distribuidores").fadeOut("slow");
+    		});
+		
+			
+    							    
+		}); 
+
+	</script>
+	
+	
+	<script >
+		$(document).ready(function(){
+
+		    // cada vez que se cambia el valor del combo
+		    $("#btn_agregar_laboratorios").click(function() 
+			{
+		    	
+		    	var id_laboratorios = $("#id_laboratorios").val();
+		    	
+		    	if (id_laboratorios == "")
+		    	{
+					
+			    	$("#mensaje_id_laboratorios").text("Seleccione");
+		    		$("#mensaje_id_laboratorios").fadeIn("slow"); //Muestra mensaje de error
+		            return false;
+			    }
+		    	else 
+		    	{
+					
+			    	$("#mensaje_id_laboratorios").fadeOut("slow"); //Muestra mensaje de error
+			    
+			    }
+		    	
+		    	
+
+			}); 
+			
+			$( "#id_laboratorios" ).focus(function() {
+				$("#mensaje_id_laboratorios").fadeOut("slow");
+    		});
+		
+			
     							    
 		}); 
 
@@ -171,16 +330,17 @@
 		    	if (nombre_fichas == "")
 		    	{
 					
-			    	$("#mensaje_nombre_fichas").text("Campo Vacio");
-		    		$("#mensaje_nombre_fichas").fadeIn("slow"); //Muestra mensaje de error
+			    	$("#mensaje_nombre").text("Campo Vacio");
+		    		$("#mensaje_nombre").fadeIn("slow"); //Muestra mensaje de error
 		            return false;
 			    }
 		    	else 
 		    	{
 					
-			    	$("#mensaje_nombre_fichas").fadeOut("slow"); //Muestra mensaje de error
+			    	$("#mensaje_nombre").fadeOut("slow"); //Muestra mensaje de error
 			    	
 			    }
+			    /*
 		    	if (foto_fichas_fotos == "")
 		    	{
 					
@@ -530,11 +690,13 @@
 			    	$("#mensaje_encabezado_dosificacion_fichas").fadeOut("slow"); //Muestra mensaje de error
 			    
 			    }
+			    */
 			}); 
 
 			$( "#nombre_fichas" ).focus(function() {
-				$("#mensaje_nombre_fichas").fadeOut("slow");
+				$("#mensaje_nombre").fadeOut("slow");
     		});
+    		/*
 			$( "#foto_fichas_fotos" ).focus(function() {
 				$("#mensaje_fichas_fotos").fadeOut("slow");
     		});
@@ -581,12 +743,12 @@
 			$( "#encabezado_dosificacion_fichas" ).focus(function() {
 				$("#mensaje_encabezado_dosificacion_fichas").fadeOut("slow");
     		});
-								    
+				*/				    
 		}); 
 
 	</script>
 
-<script type="text/javascript">
+		<script type="text/javascript">
 		function mensaje(){
 			
 		  var respuesta = confirm('Seguro Desea Eliminar')
@@ -676,605 +838,734 @@
        
        
   		 <form action="<?php echo $helper->url("FichasProductos","index_dos"); ?>" method="post" enctype="multipart/form-data"  class="col-lg-12">
-          
+           <div class="col-lg-12 division"; style="-webkit-box-shadow: 0px 2px 2px 2px rgba(0,0,0,0.69); border-radius: 24px 24px 24px 24px; margin-top: 20px; "   >
+        
          <?php if ($id_fichas > 0) { ?>
-        	    <h4>Insertar Productos</h4>
-            	<hr/>
+        	   
             	
 		   		
             
           <?php if ($resultEdit !="" ) { foreach($resultEdit as $resEdit) {?>
-	         
-			<div class="row">
-			  <div class="col-xs-6 col-md-6">
-			  	<p  class="formulario-subtitulo" >Nombre Producto </p>
-			  	<input type="text" name="nombre_fichas" id="nombre_fichas" value="<?php echo $resEdit->nombre_fichas;     ?>" class="form-control"  />
-				<input type="hidden" name="id_fichas" id="id_fichas" value="<?php echo $resEdit->id_fichas; ?>" class="form-control"/>
-				<div id="mensaje_nombre" class="errores"></div>
-			  </div>
-			  
-			  <div class="col-xs-6 col-md-6">
-			  	<p  class="formulario-subtitulo" >Categoria Farmacológica </p>
-			  	<input type="text" name="clasificacion_farmacologica_fichas" id="clasificacion_farmacologica_fichas" value="<?php echo  $resEdit->clasificacion_farmacologica_fichas; ?>" class="form-control"/>
-				<div id="mensaje_clasificacion_farmacologica_fichas" class="errores"></div>
-			  </div>
-		</div>
+	         			 
 			 
-			 <div  class="row">
-			<div class="col-xs-6 col-md-6">
-			  	<p  class="formulario-subtitulo" >Forma Farmacéutica </p>
-			  	<input type="text" name="forma_terapeutica_fichas" id="forma_terapeutica_fichas" value="<?php echo $resEdit->forma_terapeutica_fichas; ?>" class="form-control"/>
-				<div id="mensaje_forma_terapeutica_fichas" class="errores"></div>
-			  </div>
-			  </div>
-			  
-				
-				
-			  	  
-			 	  
-			<div  class="row">
-			
-				<div class="col-xs-12 col-md-12">
-			
-			  		<p class="formulario-subtitulo" >Composición  </p>
-			        <div class="col-xs-3 col-md-3">
-			        <p class="formulario-subtitulo" >Texto Encabezado  </p>
-					<input type="text" name="encabezado_tabla_fichas" id="encabezado_tabla_fichas" value="<?php echo $resEdit->encabezado_tabla_fichas;  ?>" class="form-control"/> 
-					<div id="mensaje_encabezado_tabla_fichas" class="errores"></div>	
-				     </div>
-	          
-			  </div>
-				</div>
-				
-				
-				
-			  	<div class="col-xs-3 col-md-3">
-			  		<?php $cantidad = 0;?>
-			  		<p class="formulario-subtitulo" >Principio Activo </p>
-			  		<select name="id_composiciones" id="id_composiciones"  class="form-control" >
-						<option value="0"  > --SELECCIONE--</option>
-						<?php foreach($resultCom as $resCom) {?>
-							<option value="<?php echo $resCom->id_composiciones; ?>"  ><?php echo $resCom->nombre_composiciones; ?> </option>
-							
-			        	<?php } ?>
-					</select> 
-					<div id="mensaje_id_composiciones" class="errores"></div>
-				</div>
-				<div class="col-xs-2 col-md-2">
-					<p class="formulario-subtitulo" >Dosis  </p>
-					<input type="text" name="cantidad_fichas_composiciones" id="cantidad_fichas_composiciones" value="" class="form-control"/> 
-			 		<div id="mensaje_cantidad_fichas_composiciones" class="errores"></div>
-			  		
-			  	</div>
-			  	<div class="col-xs-2 col-md-2">
-					<p class="formulario-subtitulo" >U/M  </p>
-					<select name="nombre_unidades_medida" id="nombre_unidades_medida"  class="form-control" >
-						<option value="0"  > --SELECCIONE--</option>
-						<?php foreach($resultUme as $resUme) {?>
-							<option value="<?php echo $resUme->id_unidades_medida; ?>"  ><?php echo $resUme->nombre_unidades_medida; ?> </option>
-							
-			        	<?php } ?>
-					</select>  
-			 		<div id="mensaje_nombre_unidades_medida" class="errores"></div>
-			  		
-			  	</div>
-			    <div class="col-xs-12 col-md-5">
-			  	    <p  class="formulario-subtitulo" > Agregados  </p>
-			 	 	<section class="col-lg-12 usuario" style="height:100px;overflow-y:scroll;">
+			<div class="panel panel-info" style="margin-top: 20px;">
+            <div class="panel-heading">
+	         <h4><i class='glyphicon glyphicon-plus'></i> Editar Ficha de Productos</h4>
+	         </div>
+	         <div class="panel-body">
+	         
+	         
+	        <div class="row">
+		    <div class="col-xs-6 col-md-6">
+		    <div class="form-group ">
+		                          <label for="nombre_fichas" class="control-label">Nombre Producto:</label>
+                                  <input type="text" class="form-control" id="nombre_fichas" name="nombre_fichas" value="<?php echo $resEdit->nombre_fichas;     ?>"  placeholder="Nombre Producto" readonly />
+                                 <input type="hidden" name="id_fichas" id="id_fichas" value="<?php echo $resEdit->id_fichas; ?>" class="form-control"/>
+								<div id="mensaje_nombre" class="errores"></div>
+			</div>
+		    </div>
+		    </div>
+	         
+	         
+	         
+	         <div class="row">
+	         <div class="col-xs-6 col-md-6">
+		     <div class="form-group ">
+		                          <label for="clasificacion_farmacologica_fichas" class="control-label">Categoría Farmacológica:</label>
+                                  <textarea type="text"  class="form-control" id="clasificacion_farmacologica_fichas" name="clasificacion_farmacologica_fichas" value=""  placeholder="Categoría Farmacológica"><?php echo  $resEdit->clasificacion_farmacologica_fichas; ?></textarea>
+                                  <div id="mensaje_clasificacion_farmacologica_fichas" class="errores"></div>
+			 
+             </div>
+		     </div>
+		     <div class="col-xs-6 col-md-6">
+		     <div class="form-group ">
+		                          <label for="forma_terapeutica_fichas" class="control-label">Forma Farmacéutica:</label>
+                                  <textarea type="text"  class="form-control" id="forma_terapeutica_fichas" name="forma_terapeutica_fichas" value=""  placeholder="Forma Farmacéutica"><?php echo $resEdit->forma_terapeutica_fichas; ?></textarea>
+                                  <div id="mensaje_forma_terapeutica_fichas" class="errores"></div>
+			 
+             </div>
+		     </div>
+		     </div>
+	         
+	         
+	        <div class="col-xs-12 col-md-12 col-lg-12">
+	        <div class="panel panel-info">
+            <div class="panel-heading">
+	        <h4><i class='glyphicon glyphicon-plus'></i> Editar, Eliminar o Agregar Composición</h4>
+	        </div>
+	        <div class="panel-body">
+	        <div class="col-xs-6 col-md-6 col-lg-6">
+	        <div class="row">
+	        <div class="col-xs-12 col-md-12">
+		     <div class="form-group ">
+		                          <label for="encabezado_tabla_fichas" class="control-label">Texto Encabezado:</label>
+                                  <input type="text" class="form-control" id="encabezado_tabla_fichas" name="encabezado_tabla_fichas" value="<?php echo $resEdit->encabezado_tabla_fichas;  ?>"  placeholder="Texto Encabezado" />
+                                  <div id="mensaje_encabezado_tabla_fichas" class="errores"></div>
+			 
+             </div>
+		     </div>
+		     </div>
+		     
+		      <div class="row">
+		     <?php $cantidad=0;?>
+	         <div class="col-xs-4 col-md-4">
+		     <div class="form-group">
+                                  <label for="id_composiciones" class="control-label">Principio Activo:</label>
+                                  <select name="id_composiciones" id="id_composiciones"  class="form-control" >
+                                  <option value="" selected="selected">--Seleccione--</option>
+									<?php foreach($resultCom as $res) {?>
+										<option value="<?php echo $res->id_composiciones; ?>" ><?php echo $res->nombre_composiciones; ?> </option>
+							        <?php } ?>
+								   </select> 
+                                  <div id="mensaje_id_composiciones" class="errores"></div>
+             </div>
+             </div>
+             
+            <div class="col-xs-4 col-md-4">
+		    <div class="form-group ">
+		                          <label for="cantidad_fichas_composiciones" class="control-label">Dosis:</label>
+                                  <input type="text" class="form-control" id="cantidad_fichas_composiciones" name="cantidad_fichas_composiciones" value=""  placeholder="Dosis">
+                                 <div id="mensaje_cantidad_fichas_composiciones" class="errores"></div>
+            </div>
+		    </div>
+             
+             <div class="col-xs-4 col-md-4">
+		     <div class="form-group">
+                                  <label for="id_unidades_medida" class="control-label">U/M:</label>
+                                  <select name="id_unidades_medida" id="id_unidades_medida"  class="form-control" >
+                                  <option value="" selected="selected">--Seleccione--</option>
+									<?php foreach($resultUme as $res) {?>
+										<option value="<?php echo $res->id_unidades_medida; ?>" ><?php echo $res->nombre_unidades_medida; ?> </option>
+							        <?php } ?>
+								   </select> 
+                                  <div id="mensaje_nombre_unidades_medida" class="errores"></div>
+             </div>
+             </div>
+	        </div>
+		    </div>
+		    
+		    
+	        <div class="col-xs-6 col-md-6 col-lg-6">
+	         <div class="col-xs-12 col-md-12">
+	         <label  class="control-label">Agregados:</label>
+			  	  	<section class="col-lg-12 " style="height:100px;overflow-y:scroll;">
 				        <table class="table table-hover">
-					         <tr>
-					    		<th>Id</th>
-					    		<th>Nombre</th>
-					    		<th>Cantidad</th>
-					    		<th>Unidades de Medida</th>
-					    		
-					    		<th></th>
-					    		<th></th>
+					         <tr class="info">
+					    		<th style="text-align: left;  font-size: 11px;">Id</th>
+					    		<th style="text-align: left;  font-size: 11px;">Nombre</th>
+					    		<th style="text-align: left;  font-size: 11px;">Cantidad</th>
+					    		<th style="text-align: left;  font-size: 11px;">Unidades de Medida</th>
+					    		<th style="text-align: left;  font-size: 11px;"></th>
+					    		<th style="text-align: left;  font-size: 11px;"></th>
 					  		</tr>
 				                
 					            <?php foreach($resFicCom as $res) {?>
 					        		<?php $cantidad= $cantidad + 1; ?>
 					        		<tr>
-					                   <td> <?php echo $res->id_fichas_composiciones; ?>  </td>
-						               <td> <?php echo $res->nombre_composiciones; ?>     </td> 
-						               <td> <?php echo $res->cantidad_fichas_composiciones; ?>     </td> 
-						               <td> <?php echo $res->nombre_unidades_medida; ?>     </td> 
-						                
-						             
-							             <td>   
-							               	<div class="right">
-							                    <a href="<?php echo $helper->url("FichasProductos","borrarId"); ?>&id_fichas_composiciones=<?php echo $res->id_fichas_composiciones; ?>" class="btn btn-danger" onClick="return mensaje();"><i class="glyphicon glyphicon-trash"></i></a>
-							                </div>
-							                <hr/>
-						               </td>
+					                   <td style="font-size: 11px;"> <?php echo $res->id_fichas_composiciones; ?>  </td>
+						               <td style="font-size: 11px;"> <?php echo $res->nombre_composiciones; ?>     </td> 
+						               <td style="font-size: 11px;"> <?php echo $res->cantidad_fichas_composiciones; ?>     </td> 
+						               <td style="font-size: 11px;"> <?php echo $res->nombre_unidades_medida; ?>     </td> 
+						                <td style="font-size: 11px;">   
+					                	   <a  href="<?php echo $helper->url("FichasProductos","index_dos"); ?>&id_fichas_composiciones_editar=<?php echo $res->id_fichas_composiciones; ?>" class="btn btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
+						                </td>
+						               <td style="font-size: 11px;">   
+							                    <a href="<?php echo $helper->url("FichasProductos","index_dos"); ?>&id_fichas_composiciones_borrar=<?php echo $res->id_fichas_composiciones; ?>" class="btn btn-danger" onClick="return mensaje();"><i class="glyphicon glyphicon-trash"></i></a>
+							           </td>
 						    		</tr>
 						        <?php } ?>
 				            
 				       	</table>     
 				    </section>
-				    <p  class="formulario-subtitulo" >Se han agregado <?php  echo $cantidad ?> Principios </p>
-			     </div>
-			
-			
-			 </div>
-			
-			  <div class="row">
+				     <label  class="control-label">Se han agregado <?php  echo $cantidad ?> Principios </label>
+			   </div>
+			   
+			   
+	        </div>
+	        
+	        
+	          <div class="row">
 				  <div class="col-xs-12 col-md-6">
 				  	<div class="col-xs-12 col-md-12" style="text-align: center;" >
 				  		<input type="submit" id="btn_agregar_composicion" name="btn_agregar_composicion" value="Agregar" class="btn btn-success"/>
 				  	</div>
 				  </div>
 			   </div>
+	        
+	        </div>
+	        </div>
+	        </div>
+	         
+	         
+	         
+	         
+	         <div class="row">
+	         <div class="col-xs-6 col-md-6">
+		     <div class="form-group ">
+		                          <label for="accion_terapeutica_fichas" class="control-label">Características:</label>
+                                  <textarea type="text"  class="form-control" id="accion_terapeutica_fichas" name="accion_terapeutica_fichas" value=""  placeholder="Caracteristicas"><?php echo $resEdit->accion_terapeutica_fichas;       ?></textarea>
+                                  <div id="mensaje_accion_terapeutica_fichas" class="errores"></div>
 			 
-               <hr>
-			 <div class="row">
+             </div>
+		     </div>
 		     <div class="col-xs-6 col-md-6">
-			  	<p  class="formulario-subtitulo" >Características </p>
-			  	<input type="text" name="accion_terapeutica_fichas" id="accion_terapeutica_fichas" value="<?php echo $resEdit->accion_terapeutica_fichas;       ?>" class="form-control"/>
-				<div id="mensaje_accion_terapeutica_fichas" class="errores"></div>
-			  </div>
-			  <div class="col-xs-6 col-md-6">
-			  	<p  class="formulario-subtitulo" >Mecanismo De Acción </p>
-			  	<input type="text" name="mecanismo_accion_fichas" id="mecanismo_accion_fichas" value="<?php echo $resEdit->mecanismo_accion_fichas; ?>" class="form-control"/>
-				<div id="mensaje_mecanismo_accion_fichas" class="errores"></div>
-			  </div>
-			  	
-			 </div>
+		     <div class="form-group ">
+		                          <label for="mecanismo_accion_fichas" class="control-label">Mecanismo De Acción:</label>
+                                  <textarea type="text"  class="form-control" id="mecanismo_accion_fichas" name="mecanismo_accion_fichas" value=""  placeholder="Mecanismo De Acción"><?php echo $resEdit->mecanismo_accion_fichas; ?></textarea>
+                                  <div id="mensaje_mecanismo_accion_fichas" class="errores"></div>
 			 
+             </div>
+		     </div>
+		     </div>
+			
+			
+			 <div class="row">
+	         <div class="col-xs-6 col-md-6">
+		     <div class="form-group ">
+		                          <label for="indicaciones_uso_fichas" class="control-label">Indicaciones de Uso:</label>
+                                  <textarea type="text"  class="form-control" id="indicaciones_uso_fichas" name="indicaciones_uso_fichas" value=""  placeholder="Indicaciones de Uso"><?php echo $resEdit->indicaciones_uso_fichas; ?></textarea>
+                                  <div id="mensaje_indicaciones_uso_fichas" class="errores"></div>
 			 
+             </div>
+		     </div>
+		     </div>
+	         
+	         
+	         
+	         
+	         
+	         <div class="col-xs-12 col-md-12 col-lg-12">
+	        <div class="panel panel-info">
+            <div class="panel-heading">
+	        <h4><i class='glyphicon glyphicon-plus'></i> Insertar Dosificación</h4>
+	        </div>
+	        <div class="panel-body">
+	        <div class="col-xs-6 col-md-6 col-lg-6">
+	        <div class="row">
+	        <div class="col-xs-12 col-md-12">
+		     <div class="form-group ">
+		                          <label for="encabezado_dosificacion_fichas" class="control-label">Texto Encabezado:</label>
+                                  <input type="text" class="form-control" id="encabezado_dosificacion_fichas" name="encabezado_dosificacion_fichas" value="<?php echo $resEdit->encabezado_dosificacion_fichas;  ?>"  placeholder="Texto Encabezado" />
+                                  <div id="mensaje_encabezado_dosificacion_fichas" class="errores"></div>
 			 
-           <div class="row">
-                		  
-			  <div class="col-xs-6 col-md-6">
-			  	<p  class="formulario-subtitulo" >Indicaciones de Uso </p>
-			  	<input type="text" name="indicaciones_uso_fichas" id="indicaciones_uso_fichas" value="<?php echo $resEdit->indicaciones_uso_fichas; ?>" class="form-control"/>
-				<div id="mensaje_indicaciones_uso_fichas" class="errores"></div>
-			  </div>
-			</div>
-			<hr>
-
-			<div class="row">
-			 <div class="col-xs-12 col-md-12">
-			  		<p class="formulario-subtitulo" >Dosificación </p>
-			  		 <div class="col-xs-3 col-md-3">
-			  		<p class="formulario-subtitulo" >Texto Encabezado  </p>
-					<input type="text" name="encabezado_dosificacion_fichas" id="encabezado_dosificacion_fichas" value="<?php echo $resEdit->encabezado_dosificacion_fichas;  ?>" class="form-control"/> 
-					<div id="mensaje_encabezado_dosificacion_fichas" class="errores"></div>	
-				     </div>
-				     </div>
-				</div>
-				
-			  	<div class="col-xs-3 col-md-3">
-			  		<?php $cantidad = 0;?>
-			  		<p class="formulario-subtitulo" >Especies  </p>
-			  		<select name="id_especies_dosificacion" id="id_especies_dosificacion"  class="form-control" >
-						<option value="0"  > --SELECCIONE--</option>
-						<?php foreach($resultEspe as $resEsp) {?>
-							<option value="<?php echo $resEsp->id_especies; ?>"  ><?php echo $resEsp->nombre_especies; ?> </option>
-							
-			        	<?php } ?>
-					</select> 
-					<div id="mensaje_id_especies" class="errores"></div>	
-				</div>
-				<div class="col-xs-3 col-md-3">
-					<p class="formulario-subtitulo" >Dosis  </p>
-					<input type="text" name="dosis_fichas_dosificacion" id="dosis_fichas_dosificacion" value="" class="form-control"/> 
-			 		<div id="mensaje_dosis_fichas_dosificacion" class="errores"></div>
-			  	</div>
-			  	
-			  
-			  
-			    <div class="col-xs-12 col-md-6">
-			  		<p  class="formulario-subtitulo" > Agregados  </p>
-			 	 	<section class="col-lg-12 usuario" style="height:100px;overflow-y:scroll;">
+             </div>
+		     </div>
+		     </div>
+		     
+		      <div class="row">
+		     <?php $cantidad=0;?>
+	         <div class="col-xs-4 col-md-4">
+		     <div class="form-group">
+                                  <label for="id_especies_dosificacion" class="control-label">Especies:</label>
+                                  <select name="id_especies_dosificacion" id="id_especies_dosificacion"  class="form-control" >
+                                  <option value="" selected="selected">--Seleccione--</option>
+									<?php foreach($resultEspe as $res) {?>
+										<option value="<?php echo $res->id_especies; ?>" ><?php echo $res->nombre_especies; ?> </option>
+							        <?php } ?>
+								   </select> 
+                                  <div id="mensaje_id_especies" class="errores"></div>
+             </div>
+             </div>
+             
+            <div class="col-xs-4 col-md-4">
+		    <div class="form-group ">
+		                          <label for="dosis_fichas_dosificacion" class="control-label">Dosis:</label>
+                                  <input type="text" class="form-control" id="dosis_fichas_dosificacion" name="dosis_fichas_dosificacion" value=""  placeholder="Dosis">
+                                 <div id="mensaje_dosis_fichas_dosificacion" class="errores"></div>
+            </div>
+		    </div>
+             
+             
+            <div class="col-xs-4 col-md-4" style="margin-top:18px";>
+		    <div class="form-group ">
+		                         <input type="submit" id="btn_agregar_dosificacion" name="btn_agregar_dosificacion" value="Agregar" class="btn btn-success"/>
+			   
+            </div>
+		    </div>
+             
+            
+	        </div>
+		    </div>
+		    
+		    
+	        <div class="col-xs-6 col-md-6 col-lg-6">
+	         <div class="col-xs-12 col-md-12">
+	         <label  class="control-label">Agregados:</label>
+			  	  	<section class="col-lg-12 " style="height:100px;overflow-y:scroll;">
 				        <table class="table table-hover">
-					         <tr>
-					    		<th>Id</th>
-					    		<th>Especie</th>
-					    		<th>Dosis</th>
+					         <tr class="info">
+					    		<th style="text-align: left;  font-size: 11px;">Id</th>
+					    		<th style="text-align: left;  font-size: 11px;">Especie</th>
+					    		<th style="text-align: left;  font-size: 11px;">Dosis</th>
+					    		<th style="text-align: left;  font-size: 11px;"></th>
+					    		<th style="text-align: left;  font-size: 11px;"></th>
 					    		
-					    		<th></th>
-					    		<th></th>
 					  		</tr>
 				                
 					            <?php foreach($resFicDos as $res) {?>
 					        		<?php $cantidad= $cantidad + 1; ?>
 					        		<tr>
-					                   <td> <?php echo $res->id_fichas_dosificacion; ?>  </td>
-						               <td> <?php echo $res->nombre_especies; ?>     </td> 
-						               <td> <?php echo $res->dosis_fichas_dosificacion; ?>     </td> 
-						                
-						                   
-						               
-						                 <td>   
-							               	<div class="right">
-							                    <a href="<?php echo $helper->url("FichasProductos","borrarId"); ?>&id_fichas_dosificacion=<?php echo $res->id_fichas_dosificacion; ?>" class="btn btn-danger" onClick="return mensaje();"><i class="glyphicon glyphicon-trash"></i></a>
-							                </div>
-							                <hr/>
-						               </td>
+					                   <td style="font-size: 11px;"> <?php echo $res->id_fichas_dosificacion; ?>  </td>
+						               <td style="font-size: 11px;"> <?php echo $res->nombre_especies; ?>     </td> 
+						               <td style="font-size: 11px;"> <?php echo $res->dosis_fichas_dosificacion; ?>     </td> 
+						               <td style="font-size: 11px;">   
+					                	   <a  href="<?php echo $helper->url("FichasProductos","index_dos"); ?>&id_fichas_dosificacion_editar=<?php echo $res->id_fichas_dosificacion; ?>" class="btn btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
+						                </td>
+						               <td style="font-size: 11px;">   
+							                    <a href="<?php echo $helper->url("FichasProductos","index_dos"); ?>&id_fichas_dosificacion_borrar=<?php echo $res->id_fichas_dosificacion; ?>" class="btn btn-danger" onClick="return mensaje();"><i class="glyphicon glyphicon-trash"></i></a>
+							           </td>
 						    		</tr>
 						        <?php } ?>
-				         
-				           		
-				          
-				           
-				      </table>     
+				            
+				       	</table>     
 				    </section>
-				    <p  class="formulario-subtitulo" >Se han agregado <?php  echo $cantidad ?> Especies </p>
-			  </div>
-			 </div>
-		   	 <div class="row">
-			  <div class="col-xs-12 col-md-6">
-			  	<div class="col-xs-12 col-md-12" style="text-align: center;" >
-			  		<input type="submit" id="btn_agregar_dosificacion" name="btn_agregar_dosificacion" value="Agregar" class="btn btn-success"/>
-			     </div>
-			  </div>
-			</div>
-		
-            <hr>
-		
-		
-		
-				<div class="row">
-			 <div class="col-xs-12 col-md-12">
-			  		<p class="formulario-subtitulo" >Especies </p>
-			  		 </div>
-				</div>
-				
-			  	<div class="col-xs-3 col-md-3">
-			  		<?php $cantidad = 0;?>
-			  		<p class="formulario-subtitulo" >Especies  </p>
-			  		<select name="id_especies" id="id_especies"  class="form-control" >
-						<option value="0"  > --SELECCIONE--</option>
-						<?php foreach($resultEsp as $resEsp) {?>
-							<option value="<?php echo $resEsp->id_especies; ?>"  ><?php echo $resEsp->nombre_especies; ?> </option>
-							
-			        	<?php } ?>
-					</select> 
-					<div id="mensaje_id_especies_1" class="errores"></div>
-				</div>
-				
-			  	
-			  
-			    <div class="col-xs-12 col-md-6">
-			  		<p  class="formulario-subtitulo" > Agregados  </p>
-			 	 	<section class="col-lg-12 usuario" style="height:100px;overflow-y:scroll;">
+				     <label  class="control-label">Se han agregado <?php  echo $cantidad ?> Especies </label>
+			   </div>
+	        </div>
+	         
+	        
+	        </div>
+	        </div>
+	        </div>
+	         
+	         
+	         
+	         
+	         
+	         
+	        <div class="col-xs-12 col-md-12 col-lg-12">
+	        <div class="panel panel-info">
+            <div class="panel-heading">
+	        <h4><i class='glyphicon glyphicon-plus'></i> Insertar Especies</h4>
+	        </div>
+	        <div class="panel-body">
+	        <div class="col-xs-6 col-md-6 col-lg-6">
+	         
+		     <div class="row">
+		     <?php $cantidad=0;?>
+	         <div class="col-xs-6 col-md-6">
+		     <div class="form-group">
+                                  <label for="id_especies" class="control-label">Especies:</label>
+                                  <select name="id_especies" id="id_especies"  class="form-control" >
+                                  <option value="" selected="selected">--Seleccione--</option>
+									<?php foreach($resultEsp as $res) {?>
+										<option value="<?php echo $res->id_especies; ?>" ><?php echo $res->nombre_especies; ?> </option>
+							        <?php } ?>
+								   </select> 
+                                  <div id="mensaje_id_especies_1" class="errores"></div>
+             </div>
+             </div>
+             
+             
+            <div class="col-xs-4 col-md-4" style="margin-top:18px";>
+		    <div class="form-group ">
+		                         <input type="submit" id="btn_agregar_especies" name="btn_agregar_especies" value="Agregar" class="btn btn-success"/>
+			   
+            </div>
+		    </div>
+            </div>
+		    </div>
+		    
+		    
+	        <div class="col-xs-6 col-md-6 col-lg-6">
+	         <div class="col-xs-12 col-md-12">
+	         <label  class="control-label">Agregados:</label>
+			  	  	<section class="col-lg-12 " style="height:100px;overflow-y:scroll;">
 				        <table class="table table-hover">
-					         <tr>
-					    		<th>Id</th>
-					    		<th>Especie</th>
+					         <tr class="info">
+					    		<th style="text-align: left;  font-size: 11px;">Id</th>
+					    		<th style="text-align: left;  font-size: 11px;">Especie</th>
+					    		<th style="text-align: left;  font-size: 11px;"></th>
+					    		<th style="text-align: left;  font-size: 11px;"></th>
 					    		
-					    		
-					    		<th></th>
-					    		<th></th>
 					  		</tr>
 				                
 					            <?php foreach($resFicEs as $res) {?>
 					        		<?php $cantidad= $cantidad + 1; ?>
 					        		<tr>
-					                   <td> <?php echo $res->id_fichas_especies; ?>  </td>
-						               <td> <?php echo $res->nombre_especies; ?>     </td> 
-						               
-						                
-						                   
-						                 <td>   
-							               	<div class="right">
-							                    <a href="<?php echo $helper->url("FichasProductos","borrarId"); ?>&id_fichas_especies=<?php echo $res->id_fichas_especies; ?>" class="btn btn-danger" onClick="return mensaje();"><i class="glyphicon glyphicon-trash"></i></a>
-							                </div>
-							                <hr/>
-						               </td>
+					                   <td style="font-size: 11px;"> <?php echo $res->id_fichas_especies; ?>  </td>
+						               <td style="font-size: 11px;"> <?php echo $res->nombre_especies; ?>     </td> 
+						               <td style="font-size: 11px;">   
+					                	   <a  href="<?php echo $helper->url("FichasProductos","index_dos"); ?>&id_fichas_especies_editar=<?php echo $res->id_fichas_especies; ?>" class="btn btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
+						                </td>
+						               <td style="font-size: 11px;">   
+							                    <a href="<?php echo $helper->url("FichasProductos","index_dos"); ?>&id_fichas_especies_borrar=<?php echo $res->id_fichas_especies; ?>" class="btn btn-danger" onClick="return mensaje();"><i class="glyphicon glyphicon-trash"></i></a>
+							           </td>
 						    		</tr>
 						        <?php } ?>
-				         
-				           		
-				          
-				           
-				      </table>     
+				            
+				       	</table>     
 				    </section>
-				    <p  class="formulario-subtitulo" >Se han agregado <?php  echo $cantidad ?> Especies </p>
-			  </div>
-			 </div>
-		   	 <div class="row">
-			  <div class="col-xs-12 col-md-6">
-			  	<div class="col-xs-12 col-md-12" style="text-align: center;" >
-			  		<input type="submit" id="btn_agregar_especies" name="btn_agregar_especies" value="Agregar" class="btn btn-success"/>
-			     </div>
-			  </div>
-			</div>
-		
-            <hr>
-		
-
-				<div class="row">
-			 <div class="col-xs-12 col-md-12">
-			  		<p class="formulario-subtitulo" >Via de Administración</p>
-			  		 </div>
-				</div>
-				
-			  	<div class="col-xs-3 col-md-3">
-			  		<?php $cantidad = 0;?>
-			  		<p class="formulario-subtitulo" >Vía  </p>
-			  		<select name="id_formas_administracion" id="id_formas_administracion"  class="form-control" >
-						<option value="0"  > --SELECCIONE--</option>
-						<?php foreach($resultFormAd as $resEsp) {?>
-							<option value="<?php echo $resEsp->id_formas_administracion; ?>"  ><?php echo $resEsp->nombre_formas_administracion; ?> </option>
-							
-			        	<?php } ?>
-					</select> 
-					
-				</div>
-				
-			  	
-			  
-			    <div class="col-xs-12 col-md-6">
-			  		<p  class="formulario-subtitulo" > Agregados  </p>
-			 	 	<section class="col-lg-12 usuario" style="height:100px;overflow-y:scroll;">
+				     <label  class="control-label">Se han agregado <?php  echo $cantidad ?> Especies </label>
+			   </div>
+	        </div>
+	         
+	        
+	        </div>
+	        </div>
+	        </div>
+	         
+	         
+	         
+	         
+	         
+	         
+	         
+	         
+	         
+	         
+	         
+	            
+	        <div class="col-xs-12 col-md-12 col-lg-12">
+	        <div class="panel panel-info">
+            <div class="panel-heading">
+	        <h4><i class='glyphicon glyphicon-plus'></i> Insertar Vía de Administración</h4>
+	        </div>
+	        <div class="panel-body">
+	        <div class="col-xs-6 col-md-6 col-lg-6">
+	         
+		     <div class="row">
+		     <?php $cantidad=0;?>
+	         <div class="col-xs-6 col-md-6">
+		     <div class="form-group">
+                                  <label for="id_formas_administracion" class="control-label">Vía de Administración:</label>
+                                  <select name="id_formas_administracion" id="id_formas_administracion"  class="form-control" >
+                                  <option value="" selected="selected">--Seleccione--</option>
+									<?php foreach($resultFormAd as $res) {?>
+										<option value="<?php echo $res->id_formas_administracion; ?>" ><?php echo $res->nombre_formas_administracion; ?> </option>
+							        <?php } ?>
+								   </select> 
+                                  <div id="mensaje_id_formas_administracion" class="errores"></div>
+             </div>
+             </div>
+             
+             
+            <div class="col-xs-4 col-md-4" style="margin-top:18px";>
+		    <div class="form-group ">
+		                         <input type="submit" id="btn_agregar_admnistracion" name="btn_agregar_admnistracion" value="Agregar" class="btn btn-success"/>
+			   
+            </div>
+		    </div>
+            </div>
+		    </div>
+		    
+		    
+	        <div class="col-xs-6 col-md-6 col-lg-6">
+	         <div class="col-xs-12 col-md-12">
+	         <label  class="control-label">Agregados:</label>
+			  	  	<section class="col-lg-12 " style="height:100px;overflow-y:scroll;">
 				        <table class="table table-hover">
-					         <tr>
-					    		<th>Id</th>
-					    		<th>Via de Administración</th>
+					         <tr class="info">
+					    		<th style="text-align: left;  font-size: 11px;">Id</th>
+					    		<th style="text-align: left;  font-size: 11px;">Via de Administración</th>
+					    		<th style="text-align: left;  font-size: 11px;"></th>
+					    		<th style="text-align: left;  font-size: 11px;"></th>
 					    		
-					    		
-					    		<th></th>
-					    		<th></th>
 					  		</tr>
 				                
 					            <?php foreach($resFicAdm as $res) {?>
 					        		<?php $cantidad= $cantidad + 1; ?>
 					        		<tr>
-					                   <td> <?php echo $res->id_fichas_formas_administracion; ?>  </td>
-						               <td> <?php echo $res->nombre_formas_administracion; ?>     </td> 
-						               
-						                
-						                   
-						                 <td>   
-							               	<div class="right">
-							                    <a href="<?php echo $helper->url("FichasProductos","borrarId"); ?>&id_fichas_formas_administracion=<?php echo $res->id_fichas_formas_administracion; ?>" class="btn btn-danger" onClick="return mensaje();"><i class="glyphicon glyphicon-trash"></i></a>
-							                </div>
-							                <hr/>
-						               </td>
+					                   <td style="font-size: 11px;"> <?php echo $res->id_fichas_formas_administracion; ?>  </td>
+						               <td style="font-size: 11px;"> <?php echo $res->nombre_formas_administracion; ?>     </td> 
+						               <td style="font-size: 11px;">   
+					                	   <a  href="<?php echo $helper->url("FichasProductos","index_dos"); ?>&id_fichas_formas_administracion_editar=<?php echo $res->id_fichas_formas_administracion; ?>" class="btn btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
+						                </td>
+						               <td style="font-size: 11px;">   
+							                    <a href="<?php echo $helper->url("FichasProductos","index_dos"); ?>&id_fichas_formas_administracion_borrar=<?php echo $res->id_fichas_formas_administracion; ?>" class="btn btn-danger" onClick="return mensaje();"><i class="glyphicon glyphicon-trash"></i></a>
+							           </td>
 						    		</tr>
 						        <?php } ?>
-				         
-				           		
-				          
-				           
-				      </table>     
+				            
+				       	</table>     
 				    </section>
-				    <p  class="formulario-subtitulo" >Se han agregado <?php  echo $cantidad ?> Vias de Administración </p>
-			  </div>
-			 </div>
-		   	 <div class="row">
-			  <div class="col-xs-12 col-md-6">
-			  	<div class="col-xs-12 col-md-12" style="text-align: center;" >
-			  		<input type="submit" id="btn_agregar_admnistracion" name="btn_agregar_admnistracion" value="Agregar" class="btn btn-success"/>
-			     </div>
-			  </div>
-			</div>
-		
-            <hr>
-
-
-			 <div class="row">
-			  <div class="col-xs-6 col-md-6">
-			  	<p  class="formulario-subtitulo" >Interacciones </p>
-			  	<input type="text" name="interacciones_fichas" id="interacciones_fichas" value="<?php echo $resEdit->interacciones_fichas; ?>" class="form-control"/>
-				<div id="mensaje_interacciones_fichas" class="errores"></div>
-			  </div>
-			 
-			   <div class="col-xs-6 col-md-6">
-			  	 <p  class="formulario-subtitulo" >Contra Indicaciones </p>
-			  	 <input type="text" name="contraindicaciones_fichas" id="contraindicaciones_fichas" value="<?php echo $resEdit->contraindicaciones_fichas; ?>" class="form-control"/>
-				 <div id="mensaje_contraindicaciones_fichas" class="errores"></div>
+				     <label  class="control-label">Se han agregado <?php  echo $cantidad ?> Vias de Administración </label>
 			   </div>
-               </div>
-			 			 
-             <div class="row">
-			 <div class="col-xs-6 col-md-6">
-			  	<p  class="formulario-subtitulo" >Efectos Colaterales </p>
-			  	<input type="text" name="efectos_colaterales_fichas" id="efectos_colaterales_fichas" value="<?php echo $resEdit->efectos_colaterales_fichas; ?>" class="form-control"/>
-				<div id="mensaje_efectos_colaterales_fichas" class="errores"></div>
-			  </div>
-			  
-			  <div class="col-xs-6 col-md-6">
-			    	<p  class="formulario-subtitulo" >Periodo de Retiro </p>
-			  	 <input type="text" name="periodo_retiro_fichas" id="periodo_retiro_fichas" value="<?php echo $resEdit->periodo_retiro_fichas; ?>" class="form-control"/>
-				 <div id="mensaje_periodo_retiro_fichas" class="errores"></div>
-			   </div>
-		       </div>
-			
-              <div class="row">
-			 <div class="col-xs-6 col-md-6">
-			  	<p  class="formulario-subtitulo" >Advertencias</p>
-			  	<input type="text" name="advertencias_fichas" id="advertencias_fichas" value="<?php echo $resEdit->advertencias_fichas; ?>" class="form-control"/>
-				<div id="mensaje_advertencias_fichas" class="errores"></div>
-			  </div>
-			  
-               <div class="col-xs-6 col-md-6">
-			  	<p  class="formulario-subtitulo" >Presentaciones </p>
-			  	<input type="text" name="presentacion_fichas" id="presentacion_fichas" value="<?php echo $resEdit->presentacion_fichas; ?>" class="form-control"/>
-				<div id="mensaje_presentacion_fichas" class="errores"></div>
-			  </div>
-			 </div>    
-		  
-		       <div class="row">
+	        </div>
+	         
+	        
+	        </div>
+	        </div>
+	        </div>
+	         
+	         
+	         
+	         <div class="row">
+	         <div class="col-xs-6 col-md-6">
+		     <div class="form-group ">
+		                          <label for="interacciones_fichas" class="control-label">Interacciones:</label>
+                                  <textarea type="text"  class="form-control" id="interacciones_fichas" name="interacciones_fichas" value=""  placeholder="Interacciones"><?php echo $resEdit->interacciones_fichas; ?></textarea>
+                                  <div id="mensaje_interacciones_fichas" class="errores"></div>
 			 
-			    <div class="col-xs-6 col-md-6">
-			  	<p  class="formulario-subtitulo" >Conservación </p>
-			  	<input type="text" name="conservacion_fichas" id="conservacion_fichas" value="<?php echo $resEdit->conservacion_fichas; ?>" class="form-control"/>
-				<div id="mensaje_conservacion_fichas" class="errores"></div>
-			  </div>			  
-                
-			  
-			    <div class="col-xs-6 col-md-6">
-			  		<p  class="formulario-subtitulo" >Regristro Agrocalidad </p>
-			  		<input type="text" name="registro_sanitario_fichas" id="registro_sanitario_fichas" value="<?php echo $resEdit->registro_sanitario_fichas; ?>" class="form-control"/>
-					<div id="mensaje_registro_sanitario_fichas" class="errores"></div>
-			    </div>
+             </div>
+		     </div>
+		     <div class="col-xs-6 col-md-6">
+		     <div class="form-group ">
+		                          <label for="contraindicaciones_fichas" class="control-label">Contra Indicaciones:</label>
+                                  <textarea type="text"  class="form-control" id="contraindicaciones_fichas" name="contraindicaciones_fichas" value=""  placeholder="Contra Indicaciones"><?php echo $resEdit->contraindicaciones_fichas; ?></textarea>
+                                  <div id="mensaje_contraindicaciones_fichas" class="errores"></div>
+			 
+             </div>
+		     </div>
+		     </div>
+	         
+	         
+	         <div class="row">
+	         <div class="col-xs-6 col-md-6">
+		     <div class="form-group ">
+		                          <label for="efectos_colaterales_fichas" class="control-label">Efectos Colaterales:</label>
+                                  <textarea type="text"  class="form-control" id="efectos_colaterales_fichas" name="efectos_colaterales_fichas" value=""  placeholder="Efectos Colaterales"><?php echo $resEdit->efectos_colaterales_fichas; ?></textarea>
+                                  <div id="mensaje_efectos_colaterales_fichas" class="errores"></div>
+			 
+             </div>
+		     </div>
+		     <div class="col-xs-6 col-md-6">
+		     <div class="form-group ">
+		                          <label for="periodo_retiro_fichas" class="control-label">Periodo de Retiro:</label>
+                                  <textarea type="text"  class="form-control" id="periodo_retiro_fichas" name="periodo_retiro_fichas" value=""  placeholder="Periodo de Retiro"><?php echo $resEdit->periodo_retiro_fichas; ?></textarea>
+                                  <div id="mensaje_periodo_retiro_fichas" class="errores"></div>
+			 
+             </div>
+		     </div>
+		     </div>
+	         
+	         
+	         
+	         <div class="row">
+	         <div class="col-xs-6 col-md-6">
+		     <div class="form-group ">
+		                          <label for="advertencias_fichas" class="control-label">Advertencias:</label>
+                                  <textarea type="text"  class="form-control" id="advertencias_fichas" name="advertencias_fichas" value=""  placeholder="Advertencias"><?php echo $resEdit->advertencias_fichas; ?></textarea>
+                                  <div id="mensaje_advertencias_fichas" class="errores"></div>
+			 
+             </div>
+		     </div>
+		     <div class="col-xs-6 col-md-6">
+		     <div class="form-group ">
+		                          <label for="presentacion_fichas" class="control-label">Presentaciones:</label>
+                                  <textarea type="text"  class="form-control" id="presentacion_fichas" name="presentacion_fichas" value=""  placeholder="Presentaciones"><?php echo $resEdit->presentacion_fichas; ?></textarea>
+                                  <div id="mensaje_presentacion_fichas" class="errores"></div>
+			 
+             </div>
+		     </div>
+		     </div>
+	         
+	         
+	         
+	         <div class="row">
+	         <div class="col-xs-6 col-md-6">
+		     <div class="form-group ">
+		                          <label for="conservacion_fichas" class="control-label">Conservación:</label>
+                                  <textarea type="text"  class="form-control" id="conservacion_fichas" name="conservacion_fichas" value=""  placeholder="Conservación"><?php echo $resEdit->conservacion_fichas; ?></textarea>
+                                  <div id="mensaje_conservacion_fichas" class="errores"></div>
+			 
+             </div>
+		     </div>
+		     <div class="col-xs-6 col-md-6">
+		     <div class="form-group ">
+		                          <label for="registro_sanitario_fichas" class="control-label">Regristro Agrocalidad:</label>
+                                  <textarea type="text"  class="form-control" id="registro_sanitario_fichas" name="registro_sanitario_fichas" value=""  placeholder="Regristro Agrocalidad"><?php echo $resEdit->registro_sanitario_fichas; ?></textarea>
+                                  <div id="mensaje_registro_sanitario_fichas" class="errores"></div>
+			 
+             </div>
+		     </div>
+		     </div>
+	         
+	         
+	         
+	         
+	         
+	         
+	         
+	         
+	         
+	          
+	            
+	        <div class="col-xs-12 col-md-12 col-lg-12">
+	        <div class="panel panel-info">
+            <div class="panel-heading">
+	        <h4><i class='glyphicon glyphicon-plus'></i> Insertar Distribuidores</h4>
+	        </div>
+	        <div class="panel-body">
+	        <div class="col-xs-6 col-md-6 col-lg-6">
+	         
+		     <div class="row">
+		     <?php $cantidad=0;?>
+	         <div class="col-xs-6 col-md-6">
+		     <div class="form-group">
+                                  <label for="id_distribuidores" class="control-label">Distribuidores:</label>
+                                  <select name="id_distribuidores" id="id_distribuidores"  class="form-control" >
+                                  <option value="" selected="selected">--Seleccione--</option>
+									<?php foreach($resultDis as $res) {?>
+										<option value="<?php echo $res->id_distribuidores; ?>" ><?php echo $res->nombre_distribuidores; ?> </option>
+							        <?php } ?>
+								   </select> 
+                                  <div id="mensaje_id_distribuidores" class="errores"></div>
+             </div>
+             </div>
+             
+             
+            <div class="col-xs-4 col-md-4" style="margin-top:18px";>
+		    <div class="form-group ">
+		                         <input type="submit" id="btn_agregar_distribuidores" name="btn_agregar_distribuidores" value="Agregar" class="btn btn-success"/>
+			   
+            </div>
 		    </div>
-			  	
-			  
-				<div class="row">
-			 <div class="col-xs-12 col-md-12">
-			  		<p class="formulario-subtitulo" >Distribuidores</p>
-			  		 </div>
-				</div>
-				
-			  	<div class="col-xs-3 col-md-3">
-			  		<?php $cantidad = 0;?>
-			  		<p class="formulario-subtitulo" >Distribuidores</p>
-			  		<select name="id_distribuidores" id="id_distribuidores"  class="form-control" >
-						<option value="0"  > --SELECCIONE--</option>
-						<?php foreach($resultDis as $resEsp) {?>
-							<option value="<?php echo $resEsp->id_distribuidores; ?>"  ><?php echo $resEsp->nombre_distribuidores; ?> </option>
-							
-			        	<?php } ?>
-					</select> 
-					
-				</div>
-				
-			  	
-			  
-			    <div class="col-xs-12 col-md-6">
-			  		<p  class="formulario-subtitulo" > Agregados  </p>
-			 	 	<section class="col-lg-12 usuario" style="height:100px;overflow-y:scroll;">
+            </div>
+		    </div>
+		    
+		    
+	        <div class="col-xs-6 col-md-6 col-lg-6">
+	         <div class="col-xs-12 col-md-12">
+	         <label  class="control-label">Agregados:</label>
+			  	  	<section class="col-lg-12 " style="height:100px;overflow-y:scroll;">
 				        <table class="table table-hover">
-					         <tr>
-					    		<th>Id</th>
-					    		<th>Nombre del Distribuidor</th>
+					         <tr class="info">
+					    		<th style="text-align: left;  font-size: 11px;">Id</th>
+					    		<th style="text-align: left;  font-size: 11px;">Nombre del Distribuidor</th>
+					    		<th style="text-align: left;  font-size: 11px;"></th>
+					    		<th style="text-align: left;  font-size: 11px;"></th>
 					    		
-					    		
-					    		<th></th>
-					    		<th></th>
 					  		</tr>
 				                
 					            <?php foreach($resFicDistri as $res) {?>
 					        		<?php $cantidad= $cantidad + 1; ?>
 					        		<tr>
-					                   <td> <?php echo $res->id_fichas_distriuidores; ?>  </td>
-						               <td> <?php echo $res->nombre_distribuidores; ?>     </td> 
-						               
-						                
-						                   
-						                 <td>   
-							               	<div class="right">
-							                    <a href="<?php echo $helper->url("FichasProductos","borrarId"); ?>&id_fichas_distribuidores=<?php echo $res->id_fichas_distribuidores; ?>" class="btn btn-danger" onClick="return mensaje();"><i class="glyphicon glyphicon-trash"></i></a>
-							                </div>
-							                <hr/>
-						               </td>
+					                   <td style="font-size: 11px;"> <?php echo $res->id_fichas_distribuidores; ?>  </td>
+						               <td style="font-size: 11px;"> <?php echo $res->nombre_distribuidores; ?>     </td> 
+						                <td style="font-size: 11px;">   
+					                	   <a  href="<?php echo $helper->url("FichasProductos","index_dos"); ?>&id_fichas_distribuidores_editar=<?php echo $res->id_fichas_distribuidores; ?>" class="btn btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
+						                </td>
+						               <td style="font-size: 11px;">   
+							                    <a href="<?php echo $helper->url("FichasProductos","index_dos"); ?>&id_fichas_distribuidores_borrar=<?php echo $res->id_fichas_distribuidores; ?>" class="btn btn-danger" onClick="return mensaje();"><i class="glyphicon glyphicon-trash"></i></a>
+							           </td>
 						    		</tr>
 						        <?php } ?>
-				         
-				           		
-				          
-				           
-				      </table>     
+				            
+				       	</table>     
 				    </section>
-				    <p  class="formulario-subtitulo" >Se han agregado <?php  echo $cantidad ?> Distribuidores </p>
-			  </div>
-			 </div>
-		   	 <div class="row">
-			  <div class="col-xs-12 col-md-6">
-			  	<div class="col-xs-12 col-md-12" style="text-align: center;" >
-			  		<input type="submit" id="btn_agregar_distribuidores" name="btn_agregar_distribuidores" value="Agregar" class="btn btn-success"/>
-			     </div>
-			  </div>
-			</div>
-		
-            <hr>
-            		
-		
-		        
-				<div class="row">
-			 <div class="col-xs-12 col-md-12">
-			  		<p class="formulario-subtitulo" >Laboratorios</p>
-			  		 </div>
-				</div>
-				
-			  	<div class="col-xs-3 col-md-3">
-			  		<?php $cantidad = 0;?>
-			  		<p class="formulario-subtitulo" >Laboratorios</p>
-			  		<select name="id_laboratorios" id="id_laboratorios"  class="form-control" >
-						<option value="0"  > --SELECCIONE--</option>
-						<?php foreach($resultLab as $resEsp) {?>
-							<option value="<?php echo $resEsp->id_laboratorios; ?>"  ><?php echo $resEsp->nombre_laboratorios; ?> </option>
-							
-			        	<?php } ?>
-					</select> 
-					
-				</div>
-				
-			  	
-			  
-			    <div class="col-xs-12 col-md-6">
-			  		<p  class="formulario-subtitulo" > Agregados  </p>
-			 	 	<section class="col-lg-12 usuario" style="height:100px;overflow-y:scroll;">
+				     <label  class="control-label">Se han agregado <?php  echo $cantidad ?> Distribuidores </label>
+			   </div>
+	        </div>
+	         
+	        
+	        </div>
+	        </div>
+	        </div>
+	         
+	         
+	         
+	         
+	         
+	         
+	             
+	        <div class="col-xs-12 col-md-12 col-lg-12">
+	        <div class="panel panel-info">
+            <div class="panel-heading">
+	        <h4><i class='glyphicon glyphicon-plus'></i> Insertar Laboratorios</h4>
+	        </div>
+	        <div class="panel-body">
+	        <div class="col-xs-6 col-md-6 col-lg-6">
+	         
+		     <div class="row">
+		     <?php $cantidad=0;?>
+	         <div class="col-xs-6 col-md-6">
+		     <div class="form-group">
+                                  <label for="id_laboratorios" class="control-label">Laboratorios:</label>
+                                  <select name="id_laboratorios" id="id_laboratorios"  class="form-control" >
+                                  <option value="" selected="selected">--Seleccione--</option>
+									<?php foreach($resultLab as $res) {?>
+										<option value="<?php echo $res->id_laboratorios; ?>" ><?php echo $res->nombre_laboratorios; ?> </option>
+							        <?php } ?>
+								   </select> 
+                                  <div id="mensaje_id_laboratorios" class="errores"></div>
+             </div>
+             </div>
+             
+             
+            <div class="col-xs-4 col-md-4" style="margin-top:18px";>
+		    <div class="form-group ">
+		                         <input type="submit" id="btn_agregar_laboratorios" name="btn_agregar_laboratorios" value="Agregar" class="btn btn-success"/>
+			   
+            </div>
+		    </div>
+            </div>
+		    </div>
+		    
+		    
+	        <div class="col-xs-6 col-md-6 col-lg-6">
+	         <div class="col-xs-12 col-md-12">
+	         <label  class="control-label">Agregados:</label>
+			  	  	<section class="col-lg-12 " style="height:100px;overflow-y:scroll;">
 				        <table class="table table-hover">
-					         <tr>
-					    		<th>Id</th>
-					    		<th>Nombre del Laboratorio</th>
+					         <tr class="info">
+					    		<th style="text-align: left;  font-size: 11px;">Id</th>
+					    		<th style="text-align: left;  font-size: 11px;">Nombre del Laboratorio</th>
+					    		<th style="text-align: left;  font-size: 11px;"></th>
+					    		<th style="text-align: left;  font-size: 11px;"></th>
 					    		
-					    		
-					    		<th></th>
-					    		<th></th>
 					  		</tr>
 				                
 					            <?php foreach($resFicLabo as $res) {?>
 					        		<?php $cantidad= $cantidad + 1; ?>
 					        		<tr>
-					                   <td> <?php echo $res->id_fichas_laboratorios; ?>  </td>
-						               <td> <?php echo $res->nombre_laboratorios; ?>     </td> 
-						               
-						                
-						                   
-						                 <td>   
-							               	<div class="right">
-							                    <a href="<?php echo $helper->url("FichasProductos","borrarId"); ?>&id_fichas_laboratorios=<?php echo $res->id_fichas_laboratorios; ?>" class="btn btn-danger" onClick="return mensaje();"><i class="glyphicon glyphicon-trash"></i></a>
-							                </div>
-							                <hr/>
-						               </td>
+					                   <td style="font-size: 11px;"> <?php echo $res->id_fichas_laboratorios; ?>  </td>
+						               <td style="font-size: 11px;"> <?php echo $res->nombre_laboratorios; ?>     </td> 
+						               <td style="font-size: 11px;">   
+					                	   <a  href="<?php echo $helper->url("FichasProductos","index_dos"); ?>&id_fichas_laboratorios_editar=<?php echo $res->id_fichas_laboratorios; ?>" class="btn btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
+						                </td>
+						               <td style="font-size: 11px;">   
+							                    <a href="<?php echo $helper->url("FichasProductos","index_dos"); ?>&id_fichas_laboratorios_borrar=<?php echo $res->id_fichas_laboratorios; ?>" class="btn btn-danger" onClick="return mensaje();"><i class="glyphicon glyphicon-trash"></i></a>
+							           </td>
 						    		</tr>
 						        <?php } ?>
-				         
-				           		
-				          
-				           
-				      </table>     
+				            
+				       	</table>     
 				    </section>
-				    <p  class="formulario-subtitulo" >Se han agregado <?php  echo $cantidad ?> Laboratorios </p>
-			  </div>
-			 </div>
-		   	 <div class="row">
-			  <div class="col-xs-12 col-md-6">
-			  	<div class="col-xs-12 col-md-12" style="text-align: center;" >
-			  		<input type="submit" id="btn_agregar_laboratorios" name="btn_agregar_laboratorios" value="Agregar" class="btn btn-success"/>
-			     </div>
-			  </div>
-			</div>
-		
-            <hr>
-            		
-		
-		    <div class="row">
-		    	<div class="col-xs-2 col-md-2">
-			  	<p  class="formulario-subtitulo" >Imagen del Producto </p>
-			  	    <input type="file" name="foto_fichas_fotos" id="foto_fichas_fotos" class="form-control" value="">
-			  	    <div id="mensaje_foto_fichas_fotos" class="errores"></div>
-			  	</div>
+				     <label  class="control-label">Se han agregado <?php  echo $cantidad ?> Laboratorios </label>
+			   </div>
+	        </div>
+	         
+	        
+	        </div>
+	        </div>
+	        </div>
+	         
+	         
+	         
+	        <div class="row">
+	        <div class="col-xs-3 col-md-3">
+		    <div class="form-group ">
+		                          <label for="logo_especies" class="control-label">Logo del Producto:</label>
+                                  <input type="file" class="form-control" id="foto_fichas_fotos" name="foto_fichas_fotos" accept="image/*" class="form-control" />
+                                  <div id="mensaje_foto_fichas_fotos" class="errores"></div>
+            </div>
 		    </div>
-		<hr>
-		   <div class="row">
+	        </div> 
+	         
+	         
+	          <div class="row">
 			  <div class="col-xs-12 col-md-12" style="text-align: center;" >
-			  	<input type="submit" id="btn_guardar" name="btn_guardar" value="Guardar" class="btn btn-success"/>
+			  	<input type="submit" id="btn_guardar" name="btn_guardar" value="Guardar Ficha" class="btn btn-success"/>
 			  </div>
-			</div>     
-           
-           
-			  
-		    
-           
-        
-		 <hr>
+			 </div> 
+	         
+			 </div>
+			 </div>
+			 
+			 
+			 
+			 
+			 
+			 
+			 
+			 
+			 
+			 
+			 
+			 
+			 
+			 
 			 
 			 
 			 
@@ -1285,599 +1576,735 @@
 			 
 			 
 			 <?php } } else {?>
+			 
+			 
+			 
+			 
+			 
+			 
+			 
+			 
+			 
+			<div class="panel panel-info" style="margin-top: 20px;">
+            <div class="panel-heading">
+	         <h4><i class='glyphicon glyphicon-plus'></i> Insetar Nueva Ficha de Productos</h4>
+	         </div>
+	         <div class="panel-body">
+	         
+	         
 	        <div class="row">
-			  <div class="col-xs-6 col-md-6">
-			  	<p  class="formulario-subtitulo" >Nombre Producto </p>
-			  	<input type="text" name="nombre_fichas" id="nombre_fichas" value="<?php if ($sel_nombre_fichas !="") {echo $sel_nombre_fichas; } else {echo $nombre_fichas;}     ?>" class="form-control" readonly />
-				<input type="hidden" name="id_fichas" id="id_fichas" value="<?php if ($sel_id_fichas !="") {echo $sel_id_fichas; } else {echo $id_fichas;} ?>" class="form-control"/>
-				<div id="mensaje_nombre" class="errores"></div>
-			  </div>
-			  
-			  <div class="col-xs-6 col-md-6">
-			  	<p  class="formulario-subtitulo" >Categoria Farmacológica </p>
-			  	<input type="text" name="clasificacion_farmacologica_fichas" id="clasificacion_farmacologica_fichas" value="<?php echo $sel_clasificacion_farmacologica_fichas; ?>" class="form-control"/>
-				<div id="mensaje_clasificacion_farmacologica_fichas" class="errores"></div>
-			  </div>
-		
-		</div>
-			
-			<div  class="row">
-			<div class="col-xs-6 col-md-6">
-			  	<p  class="formulario-subtitulo" >Forma Farmacéutica </p>
-			  	<input type="text" name="forma_terapeutica_fichas" id="forma_terapeutica_fichas" value="<?php echo $sel_forma_terapeutica_fichas; ?>" class="form-control"/>
-				<div id="mensaje_forma_terapeutica_fichas" class="errores"></div>
-			  </div>
-			  </div>
-			  
-				
-				
-			  	  
-			 	  
-			<div  class="row">
-			
-				<div class="col-xs-12 col-md-12">
-			
-			  		<p class="formulario-subtitulo" >Composición  </p>
-			        <div class="col-xs-3 col-md-3">
-			        <p class="formulario-subtitulo" >Texto Encabezado  </p>
-					<input type="text" name="encabezado_tabla_fichas" id="encabezado_tabla_fichas" value="<?php echo $sel_encabezado_tabla_fichas;  ?>" class="form-control"/> 
-					<div id="mensaje_encabezado_tabla_fichas" class="errores"></div>	
-				     </div>
-	          
-			  </div>
-				</div>
-				
-				
-				
-			  	<div class="col-xs-3 col-md-3">
-			  		<?php $cantidad = 0;?>
-			  		<p class="formulario-subtitulo" >Principio Activo </p>
-			  		<select name="id_composiciones" id="id_composiciones"  class="form-control" >
-						<option value="0"  > --SELECCIONE--</option>
-						<?php foreach($resultCom as $resCom) {?>
-							<option value="<?php echo $resCom->id_composiciones; ?>"  ><?php echo $resCom->nombre_composiciones; ?> </option>
-							
-			        	<?php } ?>
-					</select> 
-					<div id="mensaje_id_composiciones" class="errores"></div>
-				</div>
-				<div class="col-xs-2 col-md-2">
-					<p class="formulario-subtitulo" >Dosis  </p>
-					<input type="text" name="cantidad_fichas_composiciones" id="cantidad_fichas_composiciones" value="" class="form-control"/> 
-			 		<div id="mensaje_cantidad_fichas_composiciones" class="errores"></div>
-			  		
-			  	</div>
-			  	<div class="col-xs-2 col-md-2">
-					<p class="formulario-subtitulo" >U/M  </p>
-					<select name="id_unidades_medida" id="id_unidades_medida"  class="form-control" >
-						<option value="0"  > --SELECCIONE--</option>
-						<?php foreach($resultUme as $resUme) {?>
-							<option value="<?php echo $resUme->id_unidades_medida; ?>"  ><?php echo $resUme->nombre_unidades_medida; ?> </option>
-							
-			        	<?php } ?>
-					</select>  
-			 		<div id="mensaje_nombre_unidades_medida" class="errores"></div>
-			  		
-			  	</div>
-			    <div class="col-xs-12 col-md-5">
-			  	    <p  class="formulario-subtitulo" > Agregados  </p>
-			 	 	<section class="col-lg-12 usuario" style="height:100px;overflow-y:scroll;">
+		    <div class="col-xs-6 col-md-6">
+		    <div class="form-group ">
+		                          <label for="nombre_fichas" class="control-label">Nombre Producto:</label>
+                                  <input type="text" class="form-control" id="nombre_fichas" name="nombre_fichas" value="<?php if ($sel_nombre_fichas !="") {echo $sel_nombre_fichas; } else {echo $nombre_fichas;}     ?>"  placeholder="Nombre Producto" readonly />
+                                 <input type="hidden" name="id_fichas" id="id_fichas" value="<?php if ($sel_id_fichas !="") {echo $sel_id_fichas; } else {echo $id_fichas;} ?>" class="form-control"/>
+								<div id="mensaje_nombre" class="errores"></div>
+			</div>
+		    </div>
+		    </div>
+	         
+	         
+	         
+	         <div class="row">
+	         <div class="col-xs-6 col-md-6">
+		     <div class="form-group ">
+		                          <label for="clasificacion_farmacologica_fichas" class="control-label">Categoría Farmacológica:</label>
+                                  <textarea type="text"  class="form-control" id="clasificacion_farmacologica_fichas" name="clasificacion_farmacologica_fichas" value=""  placeholder="Categoría Farmacológica"><?php echo $sel_clasificacion_farmacologica_fichas; ?></textarea>
+                                  <div id="mensaje_clasificacion_farmacologica_fichas" class="errores"></div>
+			 
+             </div>
+		     </div>
+		     <div class="col-xs-6 col-md-6">
+		     <div class="form-group ">
+		                          <label for="forma_terapeutica_fichas" class="control-label">Forma Farmacéutica:</label>
+                                  <textarea type="text"  class="form-control" id="forma_terapeutica_fichas" name="forma_terapeutica_fichas" value=""  placeholder="Forma Farmacéutica"><?php echo $sel_forma_terapeutica_fichas; ?></textarea>
+                                  <div id="mensaje_forma_terapeutica_fichas" class="errores"></div>
+			 
+             </div>
+		     </div>
+		     </div>
+	         
+	         
+	        <div class="col-xs-12 col-md-12 col-lg-12">
+	        <div class="panel panel-info">
+            <div class="panel-heading">
+	        <h4><i class='glyphicon glyphicon-plus'></i> Insertar Composición</h4>
+	        </div>
+	        <div class="panel-body">
+	        <div class="col-xs-6 col-md-6 col-lg-6">
+	        <div class="row">
+	        <div class="col-xs-12 col-md-12">
+		     <div class="form-group ">
+		                          <label for="encabezado_tabla_fichas" class="control-label">Texto Encabezado:</label>
+                                  <input type="text" class="form-control" id="encabezado_tabla_fichas" name="encabezado_tabla_fichas" value="<?php echo $sel_encabezado_tabla_fichas;  ?>"  placeholder="Texto Encabezado" />
+                                  <div id="mensaje_encabezado_tabla_fichas" class="errores"></div>
+			 
+             </div>
+		     </div>
+		     </div>
+		     
+		      <div class="row">
+		     <?php $cantidad=0;?>
+	         <div class="col-xs-4 col-md-4">
+		     <div class="form-group">
+                                  <label for="id_composiciones" class="control-label">Principio Activo:</label>
+                                  <select name="id_composiciones" id="id_composiciones"  class="form-control" >
+                                  <option value="" selected="selected">--Seleccione--</option>
+									<?php foreach($resultCom as $res) {?>
+										<option value="<?php echo $res->id_composiciones; ?>" ><?php echo $res->nombre_composiciones; ?> </option>
+							        <?php } ?>
+								   </select> 
+                                  <div id="mensaje_id_composiciones" class="errores"></div>
+             </div>
+             </div>
+             
+            <div class="col-xs-4 col-md-4">
+		    <div class="form-group ">
+		                          <label for="cantidad_fichas_composiciones" class="control-label">Dosis:</label>
+                                  <input type="text" class="form-control" id="cantidad_fichas_composiciones" name="cantidad_fichas_composiciones" value=""  placeholder="Dosis">
+                                 <div id="mensaje_cantidad_fichas_composiciones" class="errores"></div>
+            </div>
+		    </div>
+             
+             <div class="col-xs-4 col-md-4">
+		     <div class="form-group">
+                                  <label for="id_unidades_medida" class="control-label">U/M:</label>
+                                  <select name="id_unidades_medida" id="id_unidades_medida"  class="form-control" >
+                                  <option value="" selected="selected">--Seleccione--</option>
+									<?php foreach($resultUme as $res) {?>
+										<option value="<?php echo $res->id_unidades_medida; ?>" ><?php echo $res->nombre_unidades_medida; ?> </option>
+							        <?php } ?>
+								   </select> 
+                                  <div id="mensaje_nombre_unidades_medida" class="errores"></div>
+             </div>
+             </div>
+	        </div>
+		    </div>
+		    
+		    
+	        <div class="col-xs-6 col-md-6 col-lg-6">
+	         <div class="col-xs-12 col-md-12">
+	         <label  class="control-label">Agregados:</label>
+			  	  	<section class="col-lg-12 " style="height:100px;overflow-y:scroll;">
 				        <table class="table table-hover">
-					         <tr>
-					    		<th>Id</th>
-					    		<th>Nombre</th>
-					    		<th>Cantidad</th>
-					    		<th>Unidades de Medida</th>
-					    		<th></th>
-					    		<th></th>
+					         <tr class="info">
+					    		<th style="text-align: left;  font-size: 11px;">Id</th>
+					    		<th style="text-align: left;  font-size: 11px;">Nombre</th>
+					    		<th style="text-align: left;  font-size: 11px;">Cantidad</th>
+					    		<th style="text-align: left;  font-size: 11px;">Unidades de Medida</th>
+					    		<th style="text-align: left;  font-size: 11px;"></th>
+					    		<th style="text-align: left;  font-size: 11px;"></th>
+					    		
 					  		</tr>
 				                
 					            <?php foreach($resFicCom as $res) {?>
 					        		<?php $cantidad= $cantidad + 1; ?>
 					        		<tr>
-					                   <td> <?php echo $res->id_fichas_composiciones; ?>  </td>
-						               <td> <?php echo $res->nombre_composiciones; ?>     </td> 
-						               <td> <?php echo $res->cantidad_fichas_composiciones; ?>     </td> 
-						               <td> <?php echo $res->nombre_unidades_medida; ?>     </td> 
-						             
-							             <td>   
-							               	<div class="right">
-							                    <a href="<?php echo $helper->url("FichasProductos","borrarId"); ?>&id_fichas_composiciones=<?php echo $res->id_fichas_composiciones; ?>" class="btn btn-danger" onClick="return mensaje();"><i class="glyphicon glyphicon-trash"></i></a>
-							                </div>
-							                <hr/>
-						               </td>
+					                   <td style="font-size: 11px;"> <?php echo $res->id_fichas_composiciones; ?>  </td>
+						               <td style="font-size: 11px;"> <?php echo $res->nombre_composiciones; ?>     </td> 
+						               <td style="font-size: 11px;"> <?php echo $res->cantidad_fichas_composiciones; ?>     </td> 
+						               <td style="font-size: 11px;"> <?php echo $res->nombre_unidades_medida; ?>     </td> 
+						                 <td style="font-size: 11px;">   
+					                	   <a  href="<?php echo $helper->url("FichasProductos","index_dos"); ?>&id_fichas_composiciones_editar=<?php echo $res->id_fichas_composiciones; ?>" class="btn btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
+						                </td>
+						               <td style="font-size: 11px;">   
+							                    <a href="<?php echo $helper->url("FichasProductos","index_dos"); ?>&id_fichas_composiciones_borrar=<?php echo $res->id_fichas_composiciones; ?>" class="btn btn-danger" onClick="return mensaje();"><i class="glyphicon glyphicon-trash"></i></a>
+							           </td>
 						    		</tr>
 						        <?php } ?>
 				            
 				       	</table>     
 				    </section>
-				    <p  class="formulario-subtitulo" >Se han agregado <?php  echo $cantidad ?> Principios </p>
-			     </div>
-			
-			
-			 </div>
-			
-			  <div class="row">
+				     <label  class="control-label">Se han agregado <?php  echo $cantidad ?> Principios </label>
+			   </div>
+	        </div>
+	        
+	        
+	          <div class="row">
 				  <div class="col-xs-12 col-md-6">
 				  	<div class="col-xs-12 col-md-12" style="text-align: center;" >
 				  		<input type="submit" id="btn_agregar_composicion" name="btn_agregar_composicion" value="Agregar" class="btn btn-success"/>
 				  	</div>
 				  </div>
 			   </div>
+	        
+	        </div>
+	        </div>
+	        </div>
+	         
+	         
+	         
+	         
+	         <div class="row">
+	         <div class="col-xs-6 col-md-6">
+		     <div class="form-group ">
+		                          <label for="accion_terapeutica_fichas" class="control-label">Características:</label>
+                                  <textarea type="text"  class="form-control" id="accion_terapeutica_fichas" name="accion_terapeutica_fichas" value=""  placeholder="Caracteristicas"><?php if ($sel_accion_terapeutica_fichas !="") {echo $sel_accion_terapeutica_fichas; }      ?></textarea>
+                                  <div id="mensaje_accion_terapeutica_fichas" class="errores"></div>
 			 
-               <hr>
-			 <div class="row">
+             </div>
+		     </div>
 		     <div class="col-xs-6 col-md-6">
-			  	<p  class="formulario-subtitulo" >Características </p>
-			  	<input type="text" name="accion_terapeutica_fichas" id="accion_terapeutica_fichas" value="<?php if ($sel_accion_terapeutica_fichas !="") {echo $sel_accion_terapeutica_fichas; }      ?>" class="form-control"/>
-				<div id="mensaje_accion_terapeutica_fichas" class="errores"></div>
-			  </div>
-			  <div class="col-xs-6 col-md-6">
-			  	<p  class="formulario-subtitulo" >Mecanismo De Acción </p>
-			  	<input type="text" name="mecanismo_accion_fichas" id="mecanismo_accion_fichas" value="<?php echo $sel_mecanismo_accion_fichas; ?>" class="form-control"/>
-				<div id="mensaje_mecanismo_accion_fichas" class="errores"></div>
-			  </div>
-			  	
-			 </div>
+		     <div class="form-group ">
+		                          <label for="mecanismo_accion_fichas" class="control-label">Mecanismo De Acción:</label>
+                                  <textarea type="text"  class="form-control" id="mecanismo_accion_fichas" name="mecanismo_accion_fichas" value=""  placeholder="Mecanismo De Acción"><?php echo $sel_mecanismo_accion_fichas; ?></textarea>
+                                  <div id="mensaje_mecanismo_accion_fichas" class="errores"></div>
 			 
+             </div>
+		     </div>
+		     </div>
+			
+			
+			 <div class="row">
+	         <div class="col-xs-6 col-md-6">
+		     <div class="form-group ">
+		                          <label for="indicaciones_uso_fichas" class="control-label">Indicaciones de Uso:</label>
+                                  <textarea type="text"  class="form-control" id="indicaciones_uso_fichas" name="indicaciones_uso_fichas" value=""  placeholder="Indicaciones de Uso"><?php echo $sel_indicaciones_uso_fichas; ?></textarea>
+                                  <div id="mensaje_indicaciones_uso_fichas" class="errores"></div>
 			 
+             </div>
+		     </div>
+		     </div>
+	         
+	         
+	         
+	         
+	         
+	         <div class="col-xs-12 col-md-12 col-lg-12">
+	        <div class="panel panel-info">
+            <div class="panel-heading">
+	        <h4><i class='glyphicon glyphicon-plus'></i> Insertar Dosificación</h4>
+	        </div>
+	        <div class="panel-body">
+	        <div class="col-xs-6 col-md-6 col-lg-6">
+	        <div class="row">
+	        <div class="col-xs-12 col-md-12">
+		     <div class="form-group ">
+		                          <label for="encabezado_dosificacion_fichas" class="control-label">Texto Encabezado:</label>
+                                  <input type="text" class="form-control" id="encabezado_dosificacion_fichas" name="encabezado_dosificacion_fichas" value="<?php echo $sel_encabezado_dosificacion_fichas;  ?>"  placeholder="Texto Encabezado" />
+                                  <div id="mensaje_encabezado_dosificacion_fichas" class="errores"></div>
 			 
-           <div class="row">
-                		  
-			  <div class="col-xs-6 col-md-6">
-			  	<p  class="formulario-subtitulo" >Indicaciones de Uso </p>
-			  	<input type="text" name="indicaciones_uso_fichas" id="indicaciones_uso_fichas" value="<?php echo $sel_indicaciones_uso_fichas; ?>" class="form-control"/>
-				<div id="mensaje_indicaciones_uso_fichas" class="errores"></div>
-			  </div>
-			</div>
-			<hr>
-
-			<div class="row">
-			 <div class="col-xs-12 col-md-12">
-			  		<p class="formulario-subtitulo" >Dosificación </p>
-			  		 <div class="col-xs-3 col-md-3">
-			  		<p class="formulario-subtitulo" >Texto Encabezado  </p>
-					<input type="text" name="encabezado_dosificacion_fichas" id="encabezado_dosificacion_fichas" value="<?php echo $sel_encabezado_dosificacion_fichas;  ?>" class="form-control"/> 
-					<div id="mensaje_encabezado_dosificacion_fichas" class="errores"></div>	
-				     </div>
-				     </div>
-				</div>
-				
-			  	<div class="col-xs-3 col-md-3">
-			  		<?php $cantidad = 0;?>
-			  		<p class="formulario-subtitulo" >Especies  </p>
-			  		<select name="id_especies_dosificacion" id="id_especies_dosificacion"  class="form-control" >
-						<option value="0"  > --SELECCIONE--</option>
-						<?php foreach($resultEspe as $resEsp) {?>
-							<option value="<?php echo $resEsp->id_especies; ?>"  ><?php echo $resEsp->nombre_especies; ?> </option>
-							
-			        	<?php } ?>
-					</select> 
-					<div id="mensaje_id_especies" class="errores"></div>
-				</div>
-				<div class="col-xs-3 col-md-3">
-					<p class="formulario-subtitulo" >Dosis  </p>
-					<input type="text" name="dosis_fichas_dosificacion" id="dosis_fichas_dosificacion" value="" class="form-control"/> 
-			 		<div id="mensaje_dosis_fichas_dosificacion" class="errores"></div>
-			  	</div>
-			  	
-			  
-			    <div class="col-xs-12 col-md-6">
-			  		<p  class="formulario-subtitulo" > Agregados  </p>
-			 	 	<section class="col-lg-12 usuario" style="height:100px;overflow-y:scroll;">
+             </div>
+		     </div>
+		     </div>
+		     
+		      <div class="row">
+		     <?php $cantidad=0;?>
+	         <div class="col-xs-4 col-md-4">
+		     <div class="form-group">
+                                  <label for="id_especies_dosificacion" class="control-label">Especies:</label>
+                                  <select name="id_especies_dosificacion" id="id_especies_dosificacion"  class="form-control" >
+                                  <option value="" selected="selected">--Seleccione--</option>
+									<?php foreach($resultEspe as $res) {?>
+										<option value="<?php echo $res->id_especies; ?>" ><?php echo $res->nombre_especies; ?> </option>
+							        <?php } ?>
+								   </select> 
+                                  <div id="mensaje_id_especies" class="errores"></div>
+             </div>
+             </div>
+             
+            <div class="col-xs-4 col-md-4">
+		    <div class="form-group ">
+		                          <label for="dosis_fichas_dosificacion" class="control-label">Dosis:</label>
+                                  <input type="text" class="form-control" id="dosis_fichas_dosificacion" name="dosis_fichas_dosificacion" value=""  placeholder="Dosis">
+                                 <div id="mensaje_dosis_fichas_dosificacion" class="errores"></div>
+            </div>
+		    </div>
+             
+             
+            <div class="col-xs-4 col-md-4" style="margin-top:18px";>
+		    <div class="form-group ">
+		                         <input type="submit" id="btn_agregar_dosificacion" name="btn_agregar_dosificacion" value="Agregar" class="btn btn-success"/>
+			   
+            </div>
+		    </div>
+             
+            
+	        </div>
+		    </div>
+		    
+		    
+	        <div class="col-xs-6 col-md-6 col-lg-6">
+	         <div class="col-xs-12 col-md-12">
+	         <label  class="control-label">Agregados:</label>
+			  	  	<section class="col-lg-12 " style="height:100px;overflow-y:scroll;">
 				        <table class="table table-hover">
-					         <tr>
-					    		<th>Id</th>
-					    		<th>Especie</th>
-					    		<th>Dosis</th>
+					         <tr class="info">
+					    		<th style="text-align: left;  font-size: 11px;">Id</th>
+					    		<th style="text-align: left;  font-size: 11px;">Especie</th>
+					    		<th style="text-align: left;  font-size: 11px;">Dosis</th>
+					    		<th style="text-align: left;  font-size: 11px;"></th>
+					    		<th style="text-align: left;  font-size: 11px;"></th>
 					    		
-					    		<th></th>
-					    		<th></th>
 					  		</tr>
 				                
 					            <?php foreach($resFicDos as $res) {?>
 					        		<?php $cantidad= $cantidad + 1; ?>
 					        		<tr>
-					                   <td> <?php echo $res->id_fichas_dosificacion; ?>  </td>
-						               <td> <?php echo $res->nombre_especies; ?>     </td> 
-						               <td> <?php echo $res->dosis_fichas_dosificacion; ?>     </td> 
-						                
-						                   
-						               
-						                 <td>   
-							               	<div class="right">
-							                    <a href="<?php echo $helper->url("FichasProductos","borrarId"); ?>&id_fichas_dosificacion=<?php echo $res->id_fichas_dosificacion; ?>" class="btn btn-danger" onClick="return mensaje();"><i class="glyphicon glyphicon-trash"></i></a>
-							                </div>
-							                <hr/>
-						               </td>
+					                   <td style="font-size: 11px;"> <?php echo $res->id_fichas_dosificacion; ?>  </td>
+						               <td style="font-size: 11px;"> <?php echo $res->nombre_especies; ?>     </td> 
+						               <td style="font-size: 11px;"> <?php echo $res->dosis_fichas_dosificacion; ?>     </td> 
+						               <td style="font-size: 11px;">   
+					                	   <a  href="<?php echo $helper->url("FichasProductos","index_dos"); ?>&id_fichas_dosificacion_editar=<?php echo $res->id_fichas_dosificacion; ?>" class="btn btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
+						                </td>
+						               <td style="font-size: 11px;">   
+							                    <a href="<?php echo $helper->url("FichasProductos","index_dos"); ?>&id_fichas_dosificacion_borrar=<?php echo $res->id_fichas_dosificacion; ?>" class="btn btn-danger" onClick="return mensaje();"><i class="glyphicon glyphicon-trash"></i></a>
+							           </td>
 						    		</tr>
 						        <?php } ?>
-				         
-				           		
-				          
-				           
-				      </table>     
+				            
+				       	</table>     
 				    </section>
-				    <p  class="formulario-subtitulo" >Se han agregado <?php  echo $cantidad ?> Especies </p>
-			  </div>
-			 </div>
-		   	 <div class="row">
-			  <div class="col-xs-12 col-md-6">
-			  	<div class="col-xs-12 col-md-12" style="text-align: center;" >
-			  		<input type="submit" id="btn_agregar_dosificacion" name="btn_agregar_dosificacion" value="Agregar" class="btn btn-success"/>
-			     </div>
-			  </div>
-			</div>
-		
-            <hr>
-		
-		
-		
-				<div class="row">
-			 <div class="col-xs-12 col-md-12">
-			  		<p class="formulario-subtitulo" >Especies </p>
-			  		 </div>
-				</div>
-				
-			  	<div class="col-xs-3 col-md-3">
-			  		<?php $cantidad = 0;?>
-			  		<p class="formulario-subtitulo" >Especies  </p>
-			  		<select name="id_especies" id="id_especies"  class="form-control" >
-						<option value="0"  > --SELECCIONE--</option>
-						<?php foreach($resultEsp as $resEspe) {?>
-							<option value="<?php echo $resEspe->id_especies; ?>"  ><?php echo $resEspe->nombre_especies; ?> </option>
-							
-			        	<?php } ?>
-					</select> 
-					<div id="mensaje_id_especies_1" class="errores"></div>
-				</div>
-				
-			  	
-			  
-			    <div class="col-xs-12 col-md-6">
-			  		<p  class="formulario-subtitulo" > Agregados  </p>
-			 	 	<section class="col-lg-12 usuario" style="height:100px;overflow-y:scroll;">
+				     <label  class="control-label">Se han agregado <?php  echo $cantidad ?> Especies </label>
+			   </div>
+	        </div>
+	         
+	        
+	        </div>
+	        </div>
+	        </div>
+	         
+	         
+	         
+	         
+	         
+	         
+	        <div class="col-xs-12 col-md-12 col-lg-12">
+	        <div class="panel panel-info">
+            <div class="panel-heading">
+	        <h4><i class='glyphicon glyphicon-plus'></i> Insertar Especies</h4>
+	        </div>
+	        <div class="panel-body">
+	        <div class="col-xs-6 col-md-6 col-lg-6">
+	         
+		     <div class="row">
+		     <?php $cantidad=0;?>
+	         <div class="col-xs-6 col-md-6">
+		     <div class="form-group">
+                                  <label for="id_especies" class="control-label">Especies:</label>
+                                  <select name="id_especies" id="id_especies"  class="form-control" >
+                                  <option value="" selected="selected">--Seleccione--</option>
+									<?php foreach($resultEsp as $res) {?>
+										<option value="<?php echo $res->id_especies; ?>" ><?php echo $res->nombre_especies; ?> </option>
+							        <?php } ?>
+								   </select> 
+                                  <div id="mensaje_id_especies_1" class="errores"></div>
+             </div>
+             </div>
+             
+             
+            <div class="col-xs-4 col-md-4" style="margin-top:18px";>
+		    <div class="form-group ">
+		                         <input type="submit" id="btn_agregar_especies" name="btn_agregar_especies" value="Agregar" class="btn btn-success"/>
+			   
+            </div>
+		    </div>
+            </div>
+		    </div>
+		    
+		    
+	        <div class="col-xs-6 col-md-6 col-lg-6">
+	         <div class="col-xs-12 col-md-12">
+	         <label  class="control-label">Agregados:</label>
+			  	  	<section class="col-lg-12 " style="height:100px;overflow-y:scroll;">
 				        <table class="table table-hover">
-					         <tr>
-					    		<th>Id</th>
-					    		<th>Especie</th>
+					         <tr class="info">
+					    		<th style="text-align: left;  font-size: 11px;">Id</th>
+					    		<th style="text-align: left;  font-size: 11px;">Especie</th>
+					    		<th style="text-align: left;  font-size: 11px;"></th>
+					    		<th style="text-align: left;  font-size: 11px;"></th>
 					    		
-					    		
-					    		<th></th>
-					    		<th></th>
 					  		</tr>
 				                
 					            <?php foreach($resFicEs as $res) {?>
 					        		<?php $cantidad= $cantidad + 1; ?>
 					        		<tr>
-					                   <td> <?php echo $res->id_fichas_especies; ?>  </td>
-						               <td> <?php echo $res->nombre_especies; ?>     </td> 
-						               
-						                
-						                   
-						                 <td>   
-							               	<div class="right">
-							                    <a href="<?php echo $helper->url("FichasProductos","borrarId"); ?>&id_fichas_especies=<?php echo $res->id_fichas_especies; ?>" class="btn btn-danger" onClick="return mensaje();"><i class="glyphicon glyphicon-trash"></i></a>
-							                </div>
-							                <hr/>
-						               </td>
+					                   <td style="font-size: 11px;"> <?php echo $res->id_fichas_especies; ?>  </td>
+						               <td style="font-size: 11px;"> <?php echo $res->nombre_especies; ?>     </td> 
+						               <td style="font-size: 11px;">   
+					                	   <a  href="<?php echo $helper->url("FichasProductos","index_dos"); ?>&id_fichas_especies_editar=<?php echo $res->id_fichas_especies; ?>" class="btn btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
+						                </td>
+						               <td style="font-size: 11px;">   
+							                    <a href="<?php echo $helper->url("FichasProductos","index_dos"); ?>&id_fichas_especies_borrar=<?php echo $res->id_fichas_especies; ?>" class="btn btn-danger" onClick="return mensaje();"><i class="glyphicon glyphicon-trash"></i></a>
+							           </td>
 						    		</tr>
 						        <?php } ?>
-				         
-				           		
-				          
-				           
-				      </table>     
+				            
+				       	</table>     
 				    </section>
-				    <p  class="formulario-subtitulo" >Se han agregado <?php  echo $cantidad ?> Especies </p>
-			  </div>
-			 </div>
-		   	 <div class="row">
-			  <div class="col-xs-12 col-md-6">
-			  	<div class="col-xs-12 col-md-12" style="text-align: center;" >
-			  		<input type="submit" id="btn_agregar_especies" name="btn_agregar_especies" value="Agregar" class="btn btn-success"/>
-			     </div>
-			  </div>
-			</div>
-		
-            <hr>
-		
+				     <label  class="control-label">Se han agregado <?php  echo $cantidad ?> Especies </label>
+			   </div>
+	        </div>
+	         
+	        
+	        </div>
+	        </div>
+	        </div>
+	         
+	         
+	         
+	         
+	         
+	         
+	         
+	         
+	         
+	         
+	         
+	            
+	        <div class="col-xs-12 col-md-12 col-lg-12">
+	        <div class="panel panel-info">
+            <div class="panel-heading">
+	        <h4><i class='glyphicon glyphicon-plus'></i> Insertar Vía de Administración</h4>
+	        </div>
+	        <div class="panel-body">
+	        <div class="col-xs-6 col-md-6 col-lg-6">
+	         
+		     <div class="row">
+		     <?php $cantidad=0;?>
+	         <div class="col-xs-6 col-md-6">
+		     <div class="form-group">
+                                  <label for="id_formas_administracion" class="control-label">Vía de Administración:</label>
+                                  <select name="id_formas_administracion" id="id_formas_administracion"  class="form-control" >
+                                  <option value="" selected="selected">--Seleccione--</option>
+									<?php foreach($resultFormAd as $res) {?>
+										<option value="<?php echo $res->id_formas_administracion; ?>" ><?php echo $res->nombre_formas_administracion; ?> </option>
+							        <?php } ?>
+								   </select> 
+                                  <div id="mensaje_id_formas_administracion" class="errores"></div>
+             </div>
+             </div>
              
-				<div class="row">
-			 <div class="col-xs-12 col-md-12">
-			  		<p class="formulario-subtitulo" >Via de Administración</p>
-			  		 </div>
-				</div>
-				
-			  	<div class="col-xs-3 col-md-3">
-			  		<?php $cantidad = 0;?>
-			  		<p class="formulario-subtitulo" >Vía  </p>
-			  		<select name="id_formas_administracion" id="id_formas_administracion"  class="form-control" >
-						<option value="0"  > --SELECCIONE--</option>
-						<?php foreach($resultFormAd as $resEsp) {?>
-							<option value="<?php echo $resEsp->id_formas_administracion; ?>"  ><?php echo $resEsp->nombre_formas_administracion; ?> </option>
-							
-			        	<?php } ?>
-					</select> 
-					
-				</div>
-				
-			  	
-			  
-			    <div class="col-xs-12 col-md-6">
-			  		<p  class="formulario-subtitulo" > Agregados  </p>
-			 	 	<section class="col-lg-12 usuario" style="height:100px;overflow-y:scroll;">
+             
+            <div class="col-xs-4 col-md-4" style="margin-top:18px";>
+		    <div class="form-group ">
+		                         <input type="submit" id="btn_agregar_admnistracion" name="btn_agregar_admnistracion" value="Agregar" class="btn btn-success"/>
+			   
+            </div>
+		    </div>
+            </div>
+		    </div>
+		    
+		    
+	        <div class="col-xs-6 col-md-6 col-lg-6">
+	         <div class="col-xs-12 col-md-12">
+	         <label  class="control-label">Agregados:</label>
+			  	  	<section class="col-lg-12 " style="height:100px;overflow-y:scroll;">
 				        <table class="table table-hover">
-					         <tr>
-					    		<th>Id</th>
-					    		<th>Via de Administración</th>
+					         <tr class="info">
+					    		<th style="text-align: left;  font-size: 11px;">Id</th>
+					    		<th style="text-align: left;  font-size: 11px;">Via de Administración</th>
+					    		<th style="text-align: left;  font-size: 11px;"></th>
+					    		<th style="text-align: left;  font-size: 11px;"></th>
 					    		
-					    		
-					    		<th></th>
-					    		<th></th>
 					  		</tr>
 				                
 					            <?php foreach($resFicAdm as $res) {?>
 					        		<?php $cantidad= $cantidad + 1; ?>
 					        		<tr>
-					                   <td> <?php echo $res->id_fichas_formas_administracion; ?>  </td>
-						               <td> <?php echo $res->nombre_formas_administracion; ?>     </td> 
-						               
-						                
-						                   
-						                 <td>   
-							               	<div class="right">
-							                    <a href="<?php echo $helper->url("FichasProductos","borrarId"); ?>&id_fichas_formas_administracion=<?php echo $res->id_fichas_formas_administracion; ?>" class="btn btn-danger" onClick="return mensaje();"><i class="glyphicon glyphicon-trash"></i></a>
-							                </div>
-							                <hr/>
-						               </td>
+					                   <td style="font-size: 11px;"> <?php echo $res->id_fichas_formas_administracion; ?>  </td>
+						               <td style="font-size: 11px;"> <?php echo $res->nombre_formas_administracion; ?>     </td> 
+						               <td style="font-size: 11px;">   
+					                	   <a  href="<?php echo $helper->url("FichasProductos","index_dos"); ?>&id_fichas_formas_administracion_editar=<?php echo $res->id_fichas_formas_administracion; ?>" class="btn btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
+						                </td>
+						               <td style="font-size: 11px;">   
+							                    <a href="<?php echo $helper->url("FichasProductos","index_dos"); ?>&id_fichas_formas_administracion_borrar=<?php echo $res->id_fichas_formas_administracion; ?>" class="btn btn-danger" onClick="return mensaje();"><i class="glyphicon glyphicon-trash"></i></a>
+							           </td>
 						    		</tr>
 						        <?php } ?>
-				         
-				           		
-				          
-				           
-				      </table>     
+				            
+				       	</table>     
 				    </section>
-				    <p  class="formulario-subtitulo" >Se han agregado <?php  echo $cantidad ?> Vias de Administración </p>
-			  </div>
-			 </div>
-		   	 <div class="row">
-			  <div class="col-xs-12 col-md-6">
-			  	<div class="col-xs-12 col-md-12" style="text-align: center;" >
-			  		<input type="submit" id="btn_agregar_admnistracion" name="btn_agregar_admnistracion" value="Agregar" class="btn btn-success"/>
-			     </div>
-			  </div>
-			</div>
-		
-            <hr>
-
-			
-
-			 <div class="row">
-			  <div class="col-xs-6 col-md-6">
-			  	<p  class="formulario-subtitulo" >Interacciones </p>
-			  	<input type="text" name="interacciones_fichas" id="interacciones_fichas" value="<?php echo $sel_interacciones_fichas; ?>" class="form-control"/>
-				<div id="mensaje_interacciones_fichas" class="errores"></div>
-			  </div>
-			 
-			   <div class="col-xs-6 col-md-6">
-			  	 <p  class="formulario-subtitulo" >Contra Indicaciones </p>
-			  	 <input type="text" name="contraindicaciones_fichas" id="contraindicaciones_fichas" value="<?php echo $sel_contraindicaciones_fichas; ?>" class="form-control"/>
-				 <div id="mensaje_contraindicaciones_fichas" class="errores"></div>
+				     <label  class="control-label">Se han agregado <?php  echo $cantidad ?> Vias de Administración </label>
 			   </div>
-			 </div>
-
-		    <div class="row">
-			 <div class="col-xs-6 col-md-6">
-			  	<p  class="formulario-subtitulo" >Efectos Colaterales </p>
-			  	<input type="text" name="efectos_colaterales_fichas" id="efectos_colaterales_fichas" value="<?php echo $sel_efectos_colaterales_fichas; ?>" class="form-control"/>
-				<div id="mensaje_efectos_colaterales_fichas" class="errores"></div>
-			  </div>
-			  
+	        </div>
+	         
+	        
+	        </div>
+	        </div>
+	        </div>
+	         
+	         
+	         
+	         <div class="row">
+	         <div class="col-xs-6 col-md-6">
+		     <div class="form-group ">
+		                          <label for="interacciones_fichas" class="control-label">Interacciones:</label>
+                                  <textarea type="text"  class="form-control" id="interacciones_fichas" name="interacciones_fichas" value=""  placeholder="Interacciones"><?php echo $sel_interacciones_fichas; ?></textarea>
+                                  <div id="mensaje_interacciones_fichas" class="errores"></div>
 			 
-			  <div class="col-xs-6 col-md-6">
-			    	<p  class="formulario-subtitulo" >Periodo de Retiro </p>
-			  	 <input type="text" name="periodo_retiro_fichas" id="periodo_retiro_fichas" value="<?php echo $sel_periodo_retiro_fichas; ?>" class="form-control"/>
-				 <div id="mensaje_periodo_retiro_fichas" class="errores"></div>
-			   </div>
-		         </div>    
-		  
-		  
-		       <div class="row">
-			  <div class="col-xs-6 col-md-6">
-			  	<p  class="formulario-subtitulo" >Advertencias</p>
-			  	<input type="text" name="advertencias_fichas" id="advertencias_fichas" value="<?php echo $sel_advertencias_fichas; ?>" class="form-control"/>
-				<div id="mensaje_advertencias_fichas" class="errores"></div>
-			  </div>
+             </div>
+		     </div>
+		     <div class="col-xs-6 col-md-6">
+		     <div class="form-group ">
+		                          <label for="contraindicaciones_fichas" class="control-label">Contra Indicaciones:</label>
+                                  <textarea type="text"  class="form-control" id="contraindicaciones_fichas" name="contraindicaciones_fichas" value=""  placeholder="Contra Indicaciones"><?php echo $sel_contraindicaciones_fichas; ?></textarea>
+                                  <div id="mensaje_contraindicaciones_fichas" class="errores"></div>
 			 
-
-			  <div class="col-xs-6 col-md-6">
-			  	<p  class="formulario-subtitulo" >Presentaciones </p>
-			  	<input type="text" name="presentacion_fichas" id="presentacion_fichas" value="<?php echo $sel_presentacion_fichas; ?>" class="form-control"/>
-				<div id="mensaje_presentacion_fichas" class="errores"></div>
-			  </div>
+             </div>
+		     </div>
+		     </div>
+	         
+	         
+	         <div class="row">
+	         <div class="col-xs-6 col-md-6">
+		     <div class="form-group ">
+		                          <label for="efectos_colaterales_fichas" class="control-label">Efectos Colaterales:</label>
+                                  <textarea type="text"  class="form-control" id="efectos_colaterales_fichas" name="efectos_colaterales_fichas" value=""  placeholder="Efectos Colaterales"><?php echo $sel_efectos_colaterales_fichas; ?></textarea>
+                                  <div id="mensaje_efectos_colaterales_fichas" class="errores"></div>
+			 
+             </div>
+		     </div>
+		     <div class="col-xs-6 col-md-6">
+		     <div class="form-group ">
+		                          <label for="periodo_retiro_fichas" class="control-label">Periodo de Retiro:</label>
+                                  <textarea type="text"  class="form-control" id="periodo_retiro_fichas" name="periodo_retiro_fichas" value=""  placeholder="Periodo de Retiro"><?php echo $sel_periodo_retiro_fichas; ?></textarea>
+                                  <div id="mensaje_periodo_retiro_fichas" class="errores"></div>
+			 
+             </div>
+		     </div>
+		     </div>
+	         
+	         
+	         
+	         <div class="row">
+	         <div class="col-xs-6 col-md-6">
+		     <div class="form-group ">
+		                          <label for="advertencias_fichas" class="control-label">Advertencias:</label>
+                                  <textarea type="text"  class="form-control" id="advertencias_fichas" name="advertencias_fichas" value=""  placeholder="Advertencias"><?php echo $sel_advertencias_fichas; ?></textarea>
+                                  <div id="mensaje_advertencias_fichas" class="errores"></div>
+			 
+             </div>
+		     </div>
+		     <div class="col-xs-6 col-md-6">
+		     <div class="form-group ">
+		                          <label for="presentacion_fichas" class="control-label">Presentaciones:</label>
+                                  <textarea type="text"  class="form-control" id="presentacion_fichas" name="presentacion_fichas" value=""  placeholder="Presentaciones"><?php echo $sel_presentacion_fichas; ?></textarea>
+                                  <div id="mensaje_presentacion_fichas" class="errores"></div>
+			 
+             </div>
+		     </div>
+		     </div>
+	         
+	         
+	         
+	         <div class="row">
+	         <div class="col-xs-6 col-md-6">
+		     <div class="form-group ">
+		                          <label for="conservacion_fichas" class="control-label">Conservación:</label>
+                                  <textarea type="text"  class="form-control" id="conservacion_fichas" name="conservacion_fichas" value=""  placeholder="Conservación"><?php echo $sel_conservacion_fichas; ?></textarea>
+                                  <div id="mensaje_conservacion_fichas" class="errores"></div>
+			 
+             </div>
+		     </div>
+		     <div class="col-xs-6 col-md-6">
+		     <div class="form-group ">
+		                          <label for="registro_sanitario_fichas" class="control-label">Regristro Agrocalidad:</label>
+                                  <textarea type="text"  class="form-control" id="registro_sanitario_fichas" name="registro_sanitario_fichas" value=""  placeholder="Regristro Agrocalidad"><?php echo $sel_registro_sanitario_fichas; ?></textarea>
+                                  <div id="mensaje_registro_sanitario_fichas" class="errores"></div>
+			 
+             </div>
+		     </div>
+		     </div>
+	         
+	         
+	         
+	         
+	         
+	         
+	         
+	         
+	         
+	          
+	            
+	        <div class="col-xs-12 col-md-12 col-lg-12">
+	        <div class="panel panel-info">
+            <div class="panel-heading">
+	        <h4><i class='glyphicon glyphicon-plus'></i> Insertar Distribuidores</h4>
+	        </div>
+	        <div class="panel-body">
+	        <div class="col-xs-6 col-md-6 col-lg-6">
+	         
+		     <div class="row">
+		     <?php $cantidad=0;?>
+	         <div class="col-xs-6 col-md-6">
+		     <div class="form-group">
+                                  <label for="id_distribuidores" class="control-label">Distribuidores:</label>
+                                  <select name="id_distribuidores" id="id_distribuidores"  class="form-control" >
+                                  <option value="" selected="selected">--Seleccione--</option>
+									<?php foreach($resultDis as $res) {?>
+										<option value="<?php echo $res->id_distribuidores; ?>" ><?php echo $res->nombre_distribuidores; ?> </option>
+							        <?php } ?>
+								   </select> 
+                                  <div id="mensaje_id_distribuidores" class="errores"></div>
+             </div>
+             </div>
+             
+             
+            <div class="col-xs-4 col-md-4" style="margin-top:18px";>
+		    <div class="form-group ">
+		                         <input type="submit" id="btn_agregar_distribuidores" name="btn_agregar_distribuidores" value="Agregar" class="btn btn-success"/>
+			   
             </div>
-
-              <div class="row">
-			    <div class="col-xs-6 col-md-6">
-			  	<p  class="formulario-subtitulo" >Conservación </p>
-			  	<input type="text" name="conservacion_fichas" id="conservacion_fichas" value="<?php echo $sel_conservacion_fichas; ?>" class="form-control"/>
-				<div id="mensaje_conservacion_fichas" class="errores"></div>
-			  </div>			  
-                
-			    <div class="col-xs-6 col-md-6">
-			  		<p  class="formulario-subtitulo" >Regristro Agrocalidad </p>
-			  		<input type="text" name="registro_sanitario_fichas" id="registro_sanitario_fichas" value="<?php echo $sel_registro_sanitario_fichas; ?>" class="form-control"/>
-					<div id="mensaje_registro_sanitario_fichas" class="errores"></div>
-			    </div>
 		    </div>
-		
-                         
-				<div class="row">
-			 <div class="col-xs-12 col-md-12">
-			  		<p class="formulario-subtitulo" >Distribuidores</p>
-			  		 </div>
-				</div>
-				
-			  	<div class="col-xs-3 col-md-3">
-			  		<?php $cantidad = 0;?>
-			  		<p class="formulario-subtitulo" >Distribuidores</p>
-			  		<select name="id_distribuidores" id="id_distribuidores"  class="form-control" >
-						<option value="0"  > --SELECCIONE--</option>
-						<?php foreach($resultDis as $resEsp) {?>
-							<option value="<?php echo $resEsp->id_distribuidores; ?>"  ><?php echo $resEsp->nombre_distribuidores; ?> </option>
-							
-			        	<?php } ?>
-					</select> 
-					
-				</div>
-				
-			  	
-			  
-			    <div class="col-xs-12 col-md-6">
-			  		<p  class="formulario-subtitulo" > Agregados  </p>
-			 	 	<section class="col-lg-12 usuario" style="height:100px;overflow-y:scroll;">
+            </div>
+		    </div>
+		    
+		    
+	        <div class="col-xs-6 col-md-6 col-lg-6">
+	         <div class="col-xs-12 col-md-12">
+	         <label  class="control-label">Agregados:</label>
+			  	  	<section class="col-lg-12 " style="height:100px;overflow-y:scroll;">
 				        <table class="table table-hover">
-					         <tr>
-					    		<th>Id</th>
-					    		<th>Nombre del Distribuidor</th>
+					         <tr class="info">
+					    		<th style="text-align: left;  font-size: 11px;">Id</th>
+					    		<th style="text-align: left;  font-size: 11px;">Nombre del Distribuidor</th>
+					    		<th style="text-align: left;  font-size: 11px;"></th>
+					    	    <th style="text-align: left;  font-size: 11px;"></th>
 					    		
-					    		
-					    		<th></th>
-					    		<th></th>
 					  		</tr>
 				                
 					            <?php foreach($resFicDistri as $res) {?>
 					        		<?php $cantidad= $cantidad + 1; ?>
 					        		<tr>
-					                   <td> <?php echo $res->id_fichas_distribuidores; ?>  </td>
-						               <td> <?php echo $res->nombre_distribuidores; ?>     </td> 
-						                
-						                   
-						                 <td>   
-							               	<div class="right">
-							                    <a href="<?php echo $helper->url("FichasProductos","borrarId"); ?>&id_fichas_distribuidores=<?php echo $res->id_fichas_distribuidores; ?>" class="btn btn-danger" onClick="return mensaje();"><i class="glyphicon glyphicon-trash"></i></a>
-							                </div>
-							                <hr/>
-						               </td>
+					                   <td style="font-size: 11px;"> <?php echo $res->id_fichas_distribuidores; ?>  </td>
+						               <td style="font-size: 11px;"> <?php echo $res->nombre_distribuidores; ?>     </td> 
+						               <td style="font-size: 11px;">   
+					                	   <a  href="<?php echo $helper->url("FichasProductos","index_dos"); ?>&id_fichas_distribuidores_editar=<?php echo $res->id_fichas_distribuidores; ?>" class="btn btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
+						                </td>
+						               <td style="font-size: 11px;">   
+							                    <a href="<?php echo $helper->url("FichasProductos","index_dos"); ?>&id_fichas_distribuidores_borrar=<?php echo $res->id_fichas_distribuidores; ?>" class="btn btn-danger" onClick="return mensaje();"><i class="glyphicon glyphicon-trash"></i></a>
+							           </td>
 						    		</tr>
 						        <?php } ?>
-				         
-				           		
-				          
-				           
-				      </table>     
+				            
+				       	</table>     
 				    </section>
-				    <p  class="formulario-subtitulo" >Se han agregado <?php  echo $cantidad ?> Distribuidores </p>
-			  </div>
-			 </div>
-		   	 <div class="row">
-			  <div class="col-xs-12 col-md-6">
-			  	<div class="col-xs-12 col-md-12" style="text-align: center;" >
-			  		<input type="submit" id="btn_agregar_distribuidores" name="btn_agregar_distribuidores" value="Agregar" class="btn btn-success"/>
-			     </div>
-			  </div>
-			</div>
-		
-            <hr>
-            		
-		
-		        
-				<div class="row">
-			 <div class="col-xs-12 col-md-12">
-			  		<p class="formulario-subtitulo" >Laboratorios</p>
-			  		 </div>
-				</div>
-				
-			  	<div class="col-xs-3 col-md-3">
-			  		<?php $cantidad = 0;?>
-			  		<p class="formulario-subtitulo" >Laboratorios</p>
-			  		<select name="id_laboratorios" id="id_laboratorios"  class="form-control" >
-						<option value="0"  > --SELECCIONE--</option>
-						<?php foreach($resultLab as $resEsp) {?>
-							<option value="<?php echo $resEsp->id_laboratorios; ?>"  ><?php echo $resEsp->nombre_laboratorios; ?> </option>
-							
-			        	<?php } ?>
-					</select> 
-					
-				</div>
-				
-			  	
-			  
-			    <div class="col-xs-12 col-md-6">
-			  		<p  class="formulario-subtitulo" > Agregados  </p>
-			 	 	<section class="col-lg-12 usuario" style="height:100px;overflow-y:scroll;">
+				     <label  class="control-label">Se han agregado <?php  echo $cantidad ?> Distribuidores </label>
+			   </div>
+	        </div>
+	         
+	        
+	        </div>
+	        </div>
+	        </div>
+	         
+	         
+	         
+	         
+	         
+	         
+	             
+	        <div class="col-xs-12 col-md-12 col-lg-12">
+	        <div class="panel panel-info">
+            <div class="panel-heading">
+	        <h4><i class='glyphicon glyphicon-plus'></i> Insertar Laboratorios</h4>
+	        </div>
+	        <div class="panel-body">
+	        <div class="col-xs-6 col-md-6 col-lg-6">
+	         
+		     <div class="row">
+		     <?php $cantidad=0;?>
+	         <div class="col-xs-6 col-md-6">
+		     <div class="form-group">
+                                  <label for="id_laboratorios" class="control-label">Laboratorios:</label>
+                                  <select name="id_laboratorios" id="id_laboratorios"  class="form-control" >
+                                  <option value="" selected="selected">--Seleccione--</option>
+									<?php foreach($resultLab as $res) {?>
+										<option value="<?php echo $res->id_laboratorios; ?>" ><?php echo $res->nombre_laboratorios; ?> </option>
+							        <?php } ?>
+								   </select> 
+                                  <div id="mensaje_id_laboratorios" class="errores"></div>
+             </div>
+             </div>
+             
+             
+            <div class="col-xs-4 col-md-4" style="margin-top:18px";>
+		    <div class="form-group ">
+		                         <input type="submit" id="btn_agregar_laboratorios" name="btn_agregar_laboratorios" value="Agregar" class="btn btn-success"/>
+			   
+            </div>
+		    </div>
+            </div>
+		    </div>
+		    
+		    
+	        <div class="col-xs-6 col-md-6 col-lg-6">
+	         <div class="col-xs-12 col-md-12">
+	         <label  class="control-label">Agregados:</label>
+			  	  	<section class="col-lg-12 " style="height:100px;overflow-y:scroll;">
 				        <table class="table table-hover">
-					         <tr>
-					    		<th>Id</th>
-					    		<th>Nombre del Laboratorio</th>
+					         <tr class="info">
+					    		<th style="text-align: left;  font-size: 11px;">Id</th>
+					    		<th style="text-align: left;  font-size: 11px;">Nombre del Laboratorio</th>
+					    		<th style="text-align: left;  font-size: 11px;"></th>
+					    		<th style="text-align: left;  font-size: 11px;"></th>
 					    		
-					    		
-					    		<th></th>
-					    		<th></th>
 					  		</tr>
 				                
 					            <?php foreach($resFicLabo as $res) {?>
 					        		<?php $cantidad= $cantidad + 1; ?>
 					        		<tr>
-					                   <td> <?php echo $res->id_fichas_laboratorios; ?>  </td>
-						               <td> <?php echo $res->nombre_laboratorios; ?>     </td> 
-						               
-						                
-						                   
-						                 <td>   
-							               	<div class="right">
-							                    <a href="<?php echo $helper->url("FichasProductos","borrarId"); ?>&id_fichas_laboratorios=<?php echo $res->id_fichas_laboratorios; ?>" class="btn btn-danger" onClick="return mensaje();"><i class="glyphicon glyphicon-trash"></i></a>
-							                </div>
-							                <hr/>
-						               </td>
+					                   <td style="font-size: 11px;"> <?php echo $res->id_fichas_laboratorios; ?>  </td>
+						               <td style="font-size: 11px;"> <?php echo $res->nombre_laboratorios; ?>     </td> 
+						               <td style="font-size: 11px;">   
+					                	   <a  href="<?php echo $helper->url("FichasProductos","index_dos"); ?>&id_fichas_laboratorios_editar=<?php echo $res->id_fichas_laboratorios; ?>" class="btn btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
+						                </td>
+						               <td style="font-size: 11px;">   
+							                    <a href="<?php echo $helper->url("FichasProductos","index_dos"); ?>&id_fichas_laboratorios_borrar=<?php echo $res->id_fichas_laboratorios; ?>" class="btn btn-danger" onClick="return mensaje();"><i class="glyphicon glyphicon-trash"></i></a>
+							           </td>
 						    		</tr>
 						        <?php } ?>
-				         
-				           		
-				          
-				           
-				      </table>     
+				            
+				       	</table>     
 				    </section>
-				    <p  class="formulario-subtitulo" >Se han agregado <?php  echo $cantidad ?> Laboratorios </p>
-			  </div>
-			 </div>
-		   	 <div class="row">
-			  <div class="col-xs-12 col-md-6">
-			  	<div class="col-xs-12 col-md-12" style="text-align: center;" >
-			  		<input type="submit" id="btn_agregar_laboratorios" name="btn_agregar_laboratorios" value="Agregar" class="btn btn-success"/>
-			     </div>
-			  </div>
-			</div>
-		
-            <hr>
-            		
-		
-		
-		    <div class="row">
-		    	<div class="col-xs-2 col-md-2">
-			  	<p  class="formulario-subtitulo" >Imagen del Producto </p>
-			  	    <input type="file" name="foto_fichas_fotos" id="foto_fichas_fotos" value=""  class="form-control"/>
-			        <div id="mensaje_foto_fichas_fotos" class="errores"></div>
-			  	</div>
+				     <label  class="control-label">Se han agregado <?php  echo $cantidad ?> Laboratorios </label>
+			   </div>
+	        </div>
+	         
+	        
+	        </div>
+	        </div>
+	        </div>
+	         
+	         
+	         
+	        <div class="row">
+	        <div class="col-xs-3 col-md-3">
+		    <div class="form-group ">
+		                          <label for="logo_especies" class="control-label">Logo del Producto:</label>
+                                  <input type="file" class="form-control" id="foto_fichas_fotos" name="foto_fichas_fotos" accept="image/*" class="form-control" />
+                                  <div id="mensaje_foto_fichas_fotos" class="errores"></div>
+            </div>
 		    </div>
-		<hr>
-		   <div class="row">
+	        </div> 
+	         
+	         
+	          <div class="row">
 			  <div class="col-xs-12 col-md-12" style="text-align: center;" >
-			  	<input type="submit" id="btn_guardar" name="btn_guardar" value="Guardar" class="btn btn-success"/>
+			  	<input type="submit" id="btn_guardar" name="btn_guardar" value="Guardar Ficha" class="btn btn-success"/>
 			  </div>
-			</div>     
-           
+			 </div> 
+	         
+			 </div>
+			 </div>
+			 
+			 
+			  	
+		  
+		 
            
 			  
 		    
            
         
-		 <hr>
+		
 		<?php }?>
 
 	   <?php }?>  
+	   
+	     </div>
+       
           </form>
        
            	<div class="col-lg-12">
