@@ -12,9 +12,6 @@ public function index(){
 	
 	session_start();
 	
-
-	
-	
 	    $fichas = new FichasModel();
 	    $columnas = "fichas_fotos.id_fichas_fotos, 
   					 fichas_fotos.foto_fichas_fotos, fichas.id_fichas, fichas.nombre_fichas,
