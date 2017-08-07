@@ -147,6 +147,15 @@ public function index(){
 		$_nueva_ficha = FALSE;
 		
 		
+		if (isset ($_GET["id_fichas_edit"])   )
+		{
+			$_id_fichas = $_GET["id_fichas_edit"];
+			$where    = "id_fichas = '$_id_fichas' ";
+			$resultEdit = $fichas->getBy($where);
+		
+				
+		}
+		
 		if (isset($_POST["nombre_fichas"]))
 		{
 			$_nombre_fichas = $_POST["nombre_fichas"];
@@ -398,14 +407,7 @@ public function index(){
 		
 		
 		//editando
-		if (isset ($_GET["id_fichas_edit"])   )
-		{
-			$_id_fichas = $_GET["id_fichas_edit"];
-			$where    = "id_fichas = '$_id_fichas' ";
-			$resultEdit = $fichas->getBy($where);
 		
-			
-		}
 		
 		
 		
