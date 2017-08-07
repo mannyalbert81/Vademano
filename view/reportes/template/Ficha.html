@@ -6,22 +6,28 @@
   <style>
   
 	div.izq{
-	left:0px;  margin-top:10px; width:49%; border: 1px solid blue; float:left;
+	left:0px;  margin-top:-20px; width:49%; /*border: 1px solid blue;*/ float:left;
 	}
 	div.der{
-	right:0px; margin-top:10px; width:49%; border: 1px solid blue; float:left;
+	right:0px; margin-top:-10px; width:49%; /*border: 1px solid blue;*/ float:left;
 	}
 	#divSerp{
-	margin-top:10px; width:100%; border: 1px solid red; padding:0px 5px;
+	 width:100%; /*border: 1px solid red;*/ padding:0px 5px;
 	}
-	
-	td {
+	.prueba{/* border:1px dashed green;*/}
+	td.infotd {
 	border:hidden;
 	}
-	table {
+	table.info{
 	border: 1px solid black;
 	}
-	
+	footer
+	{
+    margin-top:50px;
+    width:100%;
+    height:200px;
+    background-color:red;
+	}
   </style>
   
   </head>
@@ -34,7 +40,7 @@
 	<div style="width:100%">
 	<div class="izq">
 	
-		<div id="divSerp">
+		<div id="divSerp" style="{cafa}">
 			<div style="margin-top:10px; background-color:#999E9A; color:#FFFFFF; font-family:verdana; font-size:75%; width:100%;">
 				<strong> CATEGORÍA FARMACOLÓGICA: </strong>
 			</div>
@@ -42,7 +48,7 @@
 			<p> {CLASIFICACION}</p>
 			</div>
 		</div>
-		<div  id="divSerp" >
+		<div  id="divSerp"  style="{fofa}" >
 		<div style="margin-top:10px; background-color:#999E9A; color:#FFFFFF; font-family: verdana; font-size:75%; width:100%;">
   			<strong> FORMA FARMACÉUTICA: </strong>
   		</div>
@@ -51,16 +57,16 @@
   		</div>
 	    </div>
 	
-		<div id="divSerp">
-		<div style="margin-top:10px; background-color:#999E9A; color:#FFFFFF; font-family: verdana; font-size:75%; width:100%;">
-		<strong> ESPECIES DE DESTINO </strong>
+		<div id="divSerp"  style="{esde}">
+		<div style="margin-top:10px; background-color:#999E9A; color:#FFFFFF; font-family: verdana; font-size:75%; text-align:center; width:100%;">
+		<strong> ESPECIES DE DESTINO: </strong>
 		</div>
-		 <div style="text-align: center; font-family: Times New Roman; font-size:55%;  width:100%;" >
+		 <div style=" margin-top:10px; text-align: center; font-family: Times New Roman; font-size:55%;  width:100%;" >
 		 {TABLAESPECIES}
 		</div>
 		</div>
 		
-		<div id="divSerp">
+		<div id="divSerp"  style="{comp}">
 		<div style="margin-top:10px; background-color:#999E9A; color:#FFFFFF; font-family: verdana; font-size:75%; width:100%;">
 			<strong> COMPOSICIÓN: </strong>
 		</div>
@@ -73,7 +79,7 @@
 		</div>
 		</div>
 		
-		<div id="divSerp">
+		<div id="divSerp"  style="{cara}">
 		<div style="margin-top:10px; background-color:#999E9A; color:#FFFFFF; font-family: verdana; font-size:75%; width:100%;">
   			<strong> CARACTERISTICAS:  </strong>
   		</div>
@@ -82,7 +88,7 @@
   		</div>
 		</div>
 	
-		<div id="divSerp">
+		<div id="divSerp"  style="{mede}">
 			<div style="margin-top:10px; background-color:#999E9A; color:#FFFFFF; font-family: verdana; font-size:75%; width:100%;">
 				<strong> MECANISMOS DE ACCIÓN:  </strong>
 			</div>
@@ -91,7 +97,7 @@
 			</div>
 		</div>
 	
-		<div id="divSerp">
+		<div id="divSerp"  style="{inde}">
 			<div style="margin-top:10px; background-color:#999E9A; color:#FFFFFF; font-family: verdana; font-size:75%; width:100%;">
 				<strong> INDICACIONES DE USO:   </strong>
 			</div>
@@ -100,7 +106,7 @@
 			</div>
 		</div>
 	
-		<div id="divSerp">
+		<div id="divSerp"  style="{dode}">
 			<div style="margin-top:10px; background-color:#999E9A; color:#FFFFFF; font-family: verdana; font-size:75%; width:100%;">
 				<strong> DOSIFICACIÓN DE {NOMBREFICHA} </strong>
 				
@@ -110,7 +116,7 @@
 			</div>
 		</div>
 	
-		<div id="divSerp">
+		<div id="divSerp"  style="{pede}">
 			<div style="margin-top:10px; background-color:#999E9A; color:#FFFFFF; font-family: verdana; font-size:75%; width:100%;">
 			<strong> PERIODO DE RETIRO:   </strong>
 			</div>
@@ -119,7 +125,7 @@
 			</div>
 		</div>
 	
-		<div id="divSerp">
+		<div id="divSerp"  style="{adve}">
 			<div style="margin-top:10px; background-color:#999E9A; color:#FFFFFF; font-family: verdana; font-size:75%; width:100%;">
 			<strong> ADVERTENCIAS: </strong>
 			</div>
@@ -133,13 +139,13 @@
 	</div>
 	
 	<div class="der">
-		<div id="divSerp">
-		<div  class="imag">
-		 &nbsp;<img src="http://localhost:5000/Vademano/view/DevuelveImagen.php?id_valor={IDFICHA}&id_nombre=id_fichas&tabla=fichas_fotos&campo=foto_fichas_fotos" width="160px" height="190px" />
+		<div id="divSerp"  style="{vercategoria}">
+		<div  class="imag" style="text-align:center; margin-top: 5px;">
+		 &nbsp;<img src="view/DevuelveImagen.php?id_valor={IDFICHA}&id_nombre=id_fichas&tabla=fichas_fotos&campo=foto_fichas_fotos" width="160px" height="190px" />
 		</div>
 		</div>
 		
-		<div id="divSerp">
+		<div id="divSerp"  style="{admi}">
 			<div style="background-color:#999E9A; color:#FFFFFF; font-family: verdana; font-size:75%; width:100%;">
 				<strong> VÍA DE ADMINISTRACIÓN: </strong>
 			</div>
@@ -148,7 +154,7 @@
 			</div>
 		</div>
 		
-		<div id="divSerp">
+		<div id="divSerp"  style="{inte}">
 		<div style="margin-top:10px; background-color:#999E9A; color:#FFFFFF; font-family: verdana; font-size:75%; width:100%;">
 		<strong> INTERACCIONES:   </strong>
 		</div>
@@ -157,7 +163,7 @@
 		</div>
 		</div>
 	
-	<div id="divSerp">
+	<div id="divSerp"  style="{cont}">
 		<div style="margin-top:10px; background-color:#999E9A; color:#FFFFFF; font-family: verdana; font-size:75%; width:100%;">
 		<strong> CONTRAINDICACIONES:   </strong>
 		</div>
@@ -166,7 +172,7 @@
 		</div>
 	</div>
 	
-	<div id="divSerp">
+	<div id="divSerp"  style="{efco}">
 		<div style="margin-top:10px; background-color:#999E9A; color:#FFFFFF; font-family: verdana; font-size:75%; width:100%;">
 		<strong> EFECTOS COLATERALES:   </strong>
 		</div>
@@ -175,7 +181,7 @@
 		</div>
 	</div>
 	
-	<div id="divSerp">
+	<div id="divSerp"  style="{cons}">
 		<div style="margin-top:10px; background-color:#999E9A; color:#FFFFFF; font-family: verdana; font-size:75%; width:100%;">
 		<strong> CONSERVACIÓN:   </strong>
 		</div>
@@ -184,7 +190,7 @@
 		</div>
 	</div>
 	
-	<div id="divSerp">
+	<div id="divSerp"  style="{pres}">
 		<div style="margin-top:10px; background-color:#999E9A; color:#FFFFFF; font-family: verdana; font-size:75%; width:100%;">
 		<strong> PRESENTACIONES:   </strong>
 		</div>
@@ -193,7 +199,7 @@
 		</div>
 	</div>
 	
-	<div id="divSerp">
+	<div id="divSerp"  style="{reag}">
 		<div style="margin-top:10px; background-color:#999E9A; color:#FFFFFF; font-family: verdana; font-size:75%; width:100%;">
 			<strong> REGISTRO AGROCALIDAD: </strong>
 		</div>
@@ -207,27 +213,43 @@
 	
 	</div>
 	
-	<div style="width:98%; float:left;" >
+	<div style="width:100%; float:left; border:1px dashed white; {fapo}" >
+	<div style="width:20%; border:1px dashed white; float:left;">
+	
+	</div>
+	<div style="width:50%; border:1px dashed white; float:left;" >
 		<div style="margin-top:10px; background-color:#999E9A; color:#FFFFFF; font-family: verdana; font-size:75%; width:100%;">
   		<strong> FABRICADO POR:   </strong>
   		</div>
   		<div style="color:#010a01; font-family: Times New Roman; font-size:55%; width:100%;">
-  		<p> {FABRICADOPOR}</p>
+  		 {FABRICADOPOR}
   		</div>
 	</div>
+	<div style="width:20%; border:1px dashed white; float:left;">
+	<p> &nbsp;</p>
+	</div>
+	</div>
 	
-	<div style="width:98%; float:left;" >
+	<div style="width:100%; float:left; border:1px dashed white; {dipo}" >
+	<div style="width:20%; border:1px dashed white; float:left;">
+	
+	</div>
+	<div style="width:50%; border:1px dashed white; float:left;" >
 		<div style="margin-top:10px; background-color:#999E9A; color:#FFFFFF; font-family: verdana; font-size:75%; width:100%;">
   		<strong> DISTIBUIDO POR:   </strong>
   		</div>
   		<div style="color:#010a01; font-family: Times New Roman; font-size:55%; width:100%;">
-  		<p> {DISTIBUIDOPOR}</p>
+  		{DISTIBUIDOPOR}
   		</div>
+	</div>
+	<div style="width:20%; border:1px dashed white; float:left;">
+	<p> &nbsp;</p>
+	</div>
 	</div>
 	
 	<div style="width:98%; float:left;  margin:10px; 0px;" >
-		<table width="100%"><tr>
-		<td style="font-size: 10px; padding: 5px;" align="center">
+		<table class="info" style="width:100%;"><tr>
+		<td class="infotd" style="font-size: 10px; padding: 5px;" align="center">
 		<strong> DECLARACIÓN LEGAL: </strong>
 		<br>
 		El contenido de este sitio es sólo para motivos informativos y de ninguna manera
@@ -239,16 +261,6 @@
 		</td>
      </tr></table>
 	</div>
-	
-	<div style="width:98%; float:left; margin-top:20px;" >
-		
-	</div>
-<!--	
-        {FABRICADOPOR}
-		
-		{DISTIBUIDOPOR}
--->	
-		
 	
 		
 	
