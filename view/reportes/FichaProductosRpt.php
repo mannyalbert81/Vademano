@@ -20,16 +20,18 @@ if(!empty($dicContenido))
 		$template = str_replace('{'.$clave.'}', $valor, $template);
 	}
 }
-// var_dump($template);
-// die();
+//  var_dump($template);
+//  die();
 ob_end_clean();
 
 
 //creacion del pdf
+//$mpdf=new mPDF('c','A4','','' , 0 , 0 , 0 , 0 , 0 , 0);
+
 $mpdf=new mPDF();
+$mpdf->SetDisplayMode('fullpage');
 $mpdf->allow_charset_conversion = true;
 $mpdf->charset_in = 'UTF-8';
-//$mpdf->SetHTMLHeader('<div><img src="bnf_logo.jpg" alt="" width="100px" height="40px"></div>');
 $mpdf->SetHTMLFooter($footer);
 $mpdf->WriteHTML($template);
 $mpdf->debug = true;
