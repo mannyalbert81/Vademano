@@ -773,14 +773,31 @@ public function index(){
 		//AGREGO EL NOMBRE Y DEVUELVO EL ID
 		if (isset($_POST["btn_agregar_fichas"]) )
 		{
-			$_nueva_ficha = TRUE;
-			$_nombre_fichas   = strtoupper ( $_POST["nombre_fichas"] );
+			$_nombre_fichas   = strtoupper($_POST["nombre_fichas"]);
 			$_tipo_ficha='P';
+				
+			$res_productos=$fichas->getBy("nombre_fichas = '$_nombre_fichas' AND tipo_ficha = '$_tipo_ficha'");
+			
+			if ( !empty($res_productos) )
+			{
+				foreach($res_productos as $res) {
+			
+					$_id_fichas = $res->id_fichas;
+				}
+					
+				$where    = "id_fichas = '$_id_fichas' ";
+				$resultEdit = $fichas->getBy($where);
+				$_nueva_ficha = TRUE;
+			}else{	
+			
+			
+			$_nueva_ficha = TRUE;
 			$funcion = "ins_fichas";
 			$parametros = " '$_nombre_fichas', '$_tipo_ficha' ";
 			$fichas->setFuncion($funcion);
 			$fichas->setParametros($parametros);
 			$resultado=$fichas->Insert();
+			}
 		}
 		
 		$res_fichas=$fichas->getBy("nombre_fichas = '$_nombre_fichas' ");
@@ -1102,7 +1119,7 @@ public function index(){
 			$efectos_colaterales_fichas =   $_POST['efectos_colaterales_fichas']  ;
 			$conservacion_fichas =   $_POST['conservacion_fichas']  ;
 			$encabezado_dosificacion_fichas =   $_POST['encabezado_dosificacion_fichas'] ;
-				
+			$_tipo_ficha='P';
 			
 			$id_fichas_fotos = $_id_fichas_fotos;
 				
@@ -1118,7 +1135,7 @@ public function index(){
 			'$mecanismo_accion_fichas', 
 			'$efectos_colaterales_fichas', 
 			'$conservacion_fichas',
-			'$encabezado_dosificacion_fichas'";
+			'$encabezado_dosificacion_fichas','$_tipo_ficha'";
 			$fichas->setFuncion($funcion);
 			$fichas->setParametros($parametros);
 			$resultado=$fichas->Insert();
@@ -1522,7 +1539,7 @@ public function index(){
    	
    	public function verFicha()
    	{
-
+       session_start();
    		//para url
    		$urlimag=$_SERVER['SERVER_NAME'].':'.$_SERVER['SERVER_PORT'];
    		//importacion de clases

@@ -1755,7 +1755,7 @@
 	        <div class="row">
 	        <div class="col-xs-3 col-md-3">
 		    <div class="form-group ">
-		                          <label for="logo_especies" class="control-label">Logo del Producto:</label>
+		                          <label for="foto_fichas_fotos" class="control-label">Logo del Producto:</label>
                                   <input type="file" class="form-control" id="foto_fichas_fotos" name="foto_fichas_fotos" accept="image/*" class="form-control" />
                                   <div id="mensaje_foto_fichas_fotos" class="errores"></div>
             </div>
@@ -2035,7 +2035,7 @@
 	         
 	         
 	         
-	         <div class="col-xs-12 col-md-12 col-lg-12">
+	        <div class="col-xs-12 col-md-12 col-lg-12">
 	        <div class="panel panel-info">
             <div class="panel-heading">
 	        <h4><i class='glyphicon glyphicon-plus'></i> Insertar Dosificación</h4>
@@ -2700,7 +2700,7 @@
 	        <div class="row">
 	        <div class="col-xs-3 col-md-3">
 		    <div class="form-group ">
-		                          <label for="logo_especies" class="control-label">Logo del Producto:</label>
+		                          <label for="foto_fichas_fotos" class="control-label">Logo del Producto:</label>
                                   <input type="file" class="form-control" id="foto_fichas_fotos" name="foto_fichas_fotos" accept="image/*" class="form-control" />
                                   <div id="mensaje_foto_fichas_fotos" class="errores"></div>
             </div>

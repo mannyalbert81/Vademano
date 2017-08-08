@@ -152,15 +152,32 @@ public function index(){
 		//AGREGO EL NOMBRE Y DEVUELVO EL ID
 		if (isset($_POST["btn_agregar_distribuidor"]) )
 		{
+			$_nombre_distribuidores   = strtoupper ($_POST["nombre_distribuidores"]);
+				
+			$res_distribuidores=$distribuidores->getBy("nombre_distribuidores = '$_nombre_distribuidores' ");
+			
+			if ( !empty($res_distribuidores) )
+			{
+				foreach($res_distribuidores as $res) {
+			
+					$_id_distribuidores = $res->id_distribuidores;
+				}
+					
+				$where    = "id_distribuidores = '$_id_distribuidores' ";
+				$resultEdit = $distribuidores->getBy($where);
+				$_nuevo_distribuidores = TRUE;
+			}else{
+			
+			
+			
 			$_nuevo_distribuidores = TRUE;
-			$_nombre_distribuidores   = strtoupper ( $_POST["nombre_distribuidores"] );
 			$funcion = "ins_distribuidores";
 			$parametros = " '$_nombre_distribuidores'  ";
 			$distribuidores->setFuncion($funcion);
 			$distribuidores->setParametros($parametros);
 			$resultado=$distribuidores->Insert();
 			
-			
+			}
 						
 			
 		}

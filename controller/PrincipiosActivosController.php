@@ -8,7 +8,30 @@ class PrincipiosActivosController extends ControladorBase{
 public function index(){
 	session_start();
 	    $composiciones = new ComposicionesModel();
-		$resultSet = $composiciones->getAll("nombre_composiciones");
+	    
+	    
+	    $columnas = "composiciones.id_composiciones,
+			  composiciones.nombre_composiciones,
+			  composiciones.creado,
+			  composiciones.modificado,
+			  composiciones.buscador,
+			  composiciones.categoria_farmacologica_composicion,
+			  composiciones.subcategoria_farmacologica_composiciones,
+			  composiciones.indicaciones_uso_composiciones,
+			  composiciones.forma_administracion_composiciones,
+			  composiciones.efectos_secundarios_composiciones,
+			  composiciones.mecanismo_accion_composiciones,
+			  composiciones.precausiones_composiociones,
+			  composiciones.interacciones_composiciones,
+			  composiciones.contraindicaciones_composiciones,
+			  composiciones.periodo_retirio_composiciones";
+	    
+	    $tablas   = "public.composiciones";
+	    $where    = "composiciones.id_composiciones>0";
+	    $id = "composiciones.id_composiciones";
+	    $resultSet=$composiciones->getCondiciones($columnas ,$tablas ,$where, $id);
+	    
+		
 		
 		$resultEdit = "";
 			
@@ -41,7 +64,7 @@ public function index(){
 		
 		
 			$criterio = $_POST["criterio_busqueda"];
-			$contenido = $_POST["contenido_busqueda"];
+			$contenido = strtoupper ($_POST["contenido_busqueda"]);
 		
 		
 		
@@ -110,29 +133,34 @@ public function index(){
 		//AGREGO EL NOMBRE Y DEVUELVO EL ID
 		if (isset($_POST["btn_agregar_composiciones"]) )
 		{
-			$_nuevo_composiciones = TRUE;
 			$_nombre_composiciones   = strtoupper ( $_POST["nombre_composiciones"] );
-			$funcion = "ins_composiciones";
-			$parametros = " '$_nombre_composiciones'  ";
-			$composiciones->setFuncion($funcion);
-			$composiciones->setParametros($parametros);
-			$resultado=$composiciones->Insert();
-						
+			$res_composiciones=$composiciones->getBy("nombre_composiciones = '$_nombre_composiciones' ");
+			
+			if ( !empty($res_composiciones) )
+			{
+			foreach($res_composiciones as $res) {
+			
+				$_id_composiciones = $res->id_composiciones;
+			}
+			
+			$where    = "id_composiciones = '$_id_composiciones' ";
+			$resultEdit = $composiciones->getBy($where);
+			
+			}else{
+				
+				$_nuevo_composiciones = TRUE;
+				$funcion = "ins_composiciones";
+				$parametros = " '$_nombre_composiciones'  ";
+				$composiciones->setFuncion($funcion);
+				$composiciones->setParametros($parametros);
+				$resultado=$composiciones->Insert();
+				
+			}
+			
 			
 		}
-		//btn_buscar
 		
-		if (isset($_POST["btn_buscar"]) )
-		{
-			
-			$_contenido_busqieda   = strtoupper ( $_POST["contenido_busqueda"] );
 		
-			$where = "buscador = '$_contenido_busqieda' ";
-			$resultSet = $composiciones->getBy($where);	
-				
-		
-				
-		}
 		$res_composiciones=$composiciones->getBy("nombre_composiciones = '$_nombre_composiciones' ");
 			
 			

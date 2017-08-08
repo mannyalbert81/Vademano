@@ -145,7 +145,7 @@ public function index(){
 		if (isset($_POST["nombre_laboratorios"]))
 		{
 			
-			$_nombre_laboratorios             = strtoupper ( $_POST["nombre_laboratorios"]   );
+			$_nombre_laboratorios             = strtoupper($_POST["nombre_laboratorios"]);
 			
 			
 		}
@@ -154,15 +154,28 @@ public function index(){
 		//AGREGO EL NOMBRE Y DEVUELVO EL ID
 		if (isset($_POST["btn_agregar_laboratorio"]) )
 		{
+			$_nombre_laboratorios   = strtoupper($_POST["nombre_laboratorios"]);
+			$res_laboratorios=$laboratorios->getBy("nombre_laboratorios = '$_nombre_laboratorios' ");
+				
+			if ( !empty($res_laboratorios) )
+			{
+				foreach($res_laboratorios as $res) {
+						
+					$_id_laboratorios = $res->id_laboratorios;
+				}
+					
+				$where    = "id_laboratorios = '$_id_laboratorios' ";
+				$resultEdit = $laboratorios->getBy($where);
+				$_nuevo_laboratorios = TRUE;
+			}else{	
 			$_nuevo_laboratorios = TRUE;
-			$_nombre_laboratorios   = strtoupper ( $_POST["nombre_laboratorios"] );
 			$funcion = "ins_laboratorios";
 			$parametros = " '$_nombre_laboratorios'  ";
 			$laboratorios->setFuncion($funcion);
 			$laboratorios->setParametros($parametros);
 			$resultado=$laboratorios->Insert();
 			
-			
+			}
 						
 			
 		}

@@ -170,6 +170,19 @@ public function index(){
 			$nuevo_usuario = TRUE;
 			$_usuario_usuario   =  $_POST["usuario_usuario"];
 			
+			$res_usuario=$usuarios->getBy("usuario_usuario = '$_usuario_usuario' ");
+				
+			if ( !empty($res_usuario) )
+			{
+				foreach($res_usuario as $res) {
+						
+					$_id_usuario = $res->id_usuario;
+				}
+					
+				$where    = "id_usuario = '$_id_usuario' ";
+				$resultEdit = $usuarios->getBy($where);
+					
+			}else{
 			
 				$funcion = "ins_usuarios";
 				$parametros = " '$_usuario_usuario'  ";
@@ -189,6 +202,8 @@ public function index(){
 					exit();
 				
 				}
+				
+			}
 			}
 			
 			
