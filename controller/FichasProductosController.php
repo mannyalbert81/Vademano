@@ -13,15 +13,18 @@ public function index(){
 	session_start();
 	
 	    $fichas = new FichasModel();
-	    $columnas = "fichas_fotos.id_fichas_fotos, 
-  					 fichas_fotos.foto_fichas_fotos, fichas.id_fichas, fichas.nombre_fichas,
-                     fichas.registro_sanitario_fichas,  fichas.accion_terapeutica_fichas,  fichas.clasificacion_farmacologica_fichas, 
-                     fichas.forma_terapeutica_fichas, fichas.indicaciones_uso_fichas, fichas.interacciones_fichas, 
-  					 fichas.contraindicaciones_fichas, fichas.periodo_retiro_fichas, fichas.advertencias_fichas, fichas.presentacion_fichas, fichas.mecanismo_accion_fichas, fichas.efectos_colaterales_fichas, fichas.conservacion_fichas, fichas.encabezado_dosificacion_fichas, fichas.encabezado_tabla_fichas";
+	    $columnas = "f.id_fichas,f.nombre_fichas,f.encabezado_tabla_fichas,f.farmacocinetica_fichas
+	,accion_terapeutica_fichas,clasificacion_farmacologica_fichas,f.forma_terapeutica_fichas
+	,f.indicaciones_uso_fichas,f.interacciones_fichas,f.contraindicaciones_fichas,f.periodo_retiro_fichas
+	,f.periodo_retiro_fichas,f.advertencias_fichas,f.presentacion_fichas,f.registro_sanitario_fichas
+	,f.mecanismo_accion_fichas,f.efectos_colaterales_fichas,f.conservacion_fichas,f.encabezado_dosificacion_fichas
+	,f.ingredientes_fichas,f.tipo_alimento_fichas,ff.foto_fichas_fotos,ff.id_fichas_fotos";
 	    
-	   $tablas   = "public.fichas, public.fichas_fotos";
-	   $where    = "fichas_fotos.id_fichas = fichas.id_fichas AND fichas.tipo_ficha='P'";
-	   $id = "fichas.nombre_fichas";
+	   $tablas   = "public.fichas f
+					LEFT JOIN public.fichas_fotos ff
+					ON ff.id_fichas = f.id_fichas";
+	$where    = "f.tipo_ficha = 'P'";
+	   $id = "f.id_fichas";
 	   $resultSet = $fichas->getCondiciones($columnas, $tablas, $where, $id);
 		
 	   $resultMenu=array(0=>'--TODOS--',1=>'Nombre Producto');
@@ -31,15 +34,18 @@ public function index(){
 	   {
 	   		
 	   
-	    $columnas1 = "fichas_fotos.id_fichas_fotos, 
-  					 fichas_fotos.foto_fichas_fotos, fichas.id_fichas, fichas.nombre_fichas,
-                     fichas.registro_sanitario_fichas,  fichas.accion_terapeutica_fichas,  fichas.clasificacion_farmacologica_fichas, 
-                     fichas.forma_terapeutica_fichas, fichas.indicaciones_uso_fichas, fichas.interacciones_fichas, 
-  					 fichas.contraindicaciones_fichas, fichas.periodo_retiro_fichas, fichas.advertencias_fichas, fichas.presentacion_fichas, fichas.mecanismo_accion_fichas, fichas.efectos_colaterales_fichas, fichas.conservacion_fichas, fichas.encabezado_dosificacion_fichas, fichas.encabezado_tabla_fichas";
+	    $columnas1 = "f.id_fichas,f.nombre_fichas,f.encabezado_tabla_fichas,f.farmacocinetica_fichas
+	,accion_terapeutica_fichas,clasificacion_farmacologica_fichas,f.forma_terapeutica_fichas
+	,f.indicaciones_uso_fichas,f.interacciones_fichas,f.contraindicaciones_fichas,f.periodo_retiro_fichas
+	,f.periodo_retiro_fichas,f.advertencias_fichas,f.presentacion_fichas,f.registro_sanitario_fichas
+	,f.mecanismo_accion_fichas,f.efectos_colaterales_fichas,f.conservacion_fichas,f.encabezado_dosificacion_fichas
+	,f.ingredientes_fichas,f.tipo_alimento_fichas,ff.foto_fichas_fotos,ff.id_fichas_fotos";
 	    
-	   $tablas1   = "public.fichas, public.fichas_fotos";
-	   $where1    = "fichas_fotos.id_fichas = fichas.id_fichas AND fichas.tipo_ficha='P'";
-	   $id1 = "fichas.nombre_fichas";
+	   $tablas1   = "public.fichas f
+					LEFT JOIN public.fichas_fotos ff
+					ON ff.id_fichas = f.id_fichas";
+	   $where1    = "f.tipo_ficha = 'P'";
+	   $id1 = "f.id_fichas";
 	   		
 	   		
 	   	$criterio = $_POST["criterio_busqueda"];
@@ -61,7 +67,7 @@ public function index(){
 	   				break;
 	   			case 1:
 	   
-	   				$where_2 = " AND fichas.nombre_fichas LIKE '$contenido%'  ";
+	   				$where_2 = " AND f.nombre_fichas LIKE '$contenido%'  ";
 	   				break;
 	   			
 	   		}
@@ -205,29 +211,31 @@ public function index(){
 					$where    = "id_fichas = '$_id_fichas' ";
 					$resultGet = $fichas->getBy($where);
 					
-					$_id_fichas=$resultGet[0]->id_fichas;
-					$_nombre_fichas=$resultGet[0]->nombre_fichas;
-					$encabezado_tabla_fichas=$resultGet[0]->encabezado_tabla_fichas;
-					$farmacocinetica_fichas=$resultGet[0]->farmacocinetica_fichas;
-					$accion_terapeutica_fichas=$resultGet[0]->accion_terapeutica_fichas;
-					$clasificacion_farmacologica_fichas=$resultGet[0]->clasificacion_farmacologica_fichas;
-					$forma_terapeutica_fichas =$resultGet[0]->forma_terapeutica_fichas;
-					$indicaciones_uso_fichas =$resultGet[0]->indicaciones_uso_fichas;
-					$interacciones_fichas =$resultGet[0]->interacciones_fichas;
-					$contraindicaciones_fichas =$resultGet[0]->contraindicaciones_fichas;
-					$periodo_retiro_fichas =$resultGet[0]->periodo_retiro_fichas;
-					$advertencias_fichas =$resultGet[0]->advertencias_fichas;
-					$presentacion_fichas =$resultGet[0]->presentacion_fichas;
-					$registro_sanitario_fichas =$resultGet[0]->registro_sanitario_fichas;
-					$mecanismo_accion_fichas =$resultGet[0]->mecanismo_accion_fichas;
-					$efectos_colaterales_fichas =$resultGet[0]->efectos_colaterales_fichas;
-					$conservacion_fichas  =$resultGet[0]->conservacion_fichas;
-					$ingredientes_fichas=$resultGet[0]->ingredientes_fichas;
-					$tipo_alimento_fichas =$resultGet[0]->tipo_alimento_fichas;
-					$encabezado_dosificacion_fichas =$resultGet[0]->encabezado_dosificacion_fichas;
 					
+					foreach($resultGet as $res)
+					{
+						$_id_fichas=$res->id_fichas;
+						$_nombre_fichas=$res->nombre_fichas;
+						$encabezado_tabla_fichas=$res->encabezado_tabla_fichas;
+						$farmacocinetica_fichas=$res->farmacocinetica_fichas;
+						$accion_terapeutica_fichas=$res->accion_terapeutica_fichas;
+						$clasificacion_farmacologica_fichas=$res->clasificacion_farmacologica_fichas;
+						$forma_terapeutica_fichas =$res->forma_terapeutica_fichas;
+						$indicaciones_uso_fichas =$res->indicaciones_uso_fichas;
+						$interacciones_fichas =$res->interacciones_fichas;
+						$contraindicaciones_fichas =$res->contraindicaciones_fichas;
+						$periodo_retiro_fichas =$res->periodo_retiro_fichas;
+						$advertencias_fichas =$res->advertencias_fichas;
+						$presentacion_fichas =$res->presentacion_fichas;
+						$registro_sanitario_fichas =$res->registro_sanitario_fichas;
+						$mecanismo_accion_fichas =$res->mecanismo_accion_fichas;
+						$efectos_colaterales_fichas =$res->efectos_colaterales_fichas;
+						$conservacion_fichas  =$res->conservacion_fichas;
+						$ingredientes_fichas=$res->ingredientes_fichas;
+						$tipo_alimento_fichas =$res->tipo_alimento_fichas;
+						$encabezado_dosificacion_fichas =$res->encabezado_dosificacion_fichas;
+					}
 					
-						
 						
 				}
 				
@@ -248,26 +256,31 @@ public function index(){
 				$where    = "id_fichas = '$_id_fichas' ";
 				$resultGet = $fichas->getBy($where);
 					
-				$_id_fichas=$resultGet[0]->id_fichas;
-				$_nombre_fichas=$resultGet[0]->nombre_fichas;
-				$encabezado_tabla_fichas=$resultGet[0]->encabezado_tabla_fichas;
-				$farmacocinetica_fichas=$resultGet[0]->farmacocinetica_fichas;
-				$accion_terapeutica_fichas=$resultGet[0]->accion_terapeutica_fichas;
-				$clasificacion_farmacologica_fichas=$resultGet[0]->clasificacion_farmacologica_fichas;
-				$forma_terapeutica_fichas =$resultGet[0]->forma_terapeutica_fichas;
-				$indicaciones_uso_fichas =$resultGet[0]->indicaciones_uso_fichas;
-				$interacciones_fichas =$resultGet[0]->interacciones_fichas;
-				$contraindicaciones_fichas =$resultGet[0]->contraindicaciones_fichas;
-				$periodo_retiro_fichas =$resultGet[0]->periodo_retiro_fichas;
-				$advertencias_fichas =$resultGet[0]->advertencias_fichas;
-				$presentacion_fichas =$resultGet[0]->presentacion_fichas;
-				$registro_sanitario_fichas =$resultGet[0]->registro_sanitario_fichas;
-				$mecanismo_accion_fichas =$resultGet[0]->mecanismo_accion_fichas;
-				$efectos_colaterales_fichas =$resultGet[0]->efectos_colaterales_fichas;
-				$conservacion_fichas  =$resultGet[0]->conservacion_fichas;
-				$ingredientes_fichas=$resultGet[0]->ingredientes_fichas;
-				$tipo_alimento_fichas =$resultGet[0]->tipo_alimento_fichas;
-				$encabezado_dosificacion_fichas =$resultGet[0]->encabezado_dosificacion_fichas;
+
+				foreach($resultGet as $res)
+				{
+					$_id_fichas=$res->id_fichas;
+					$_nombre_fichas=$res->nombre_fichas;
+					$encabezado_tabla_fichas=$res->encabezado_tabla_fichas;
+					$farmacocinetica_fichas=$res->farmacocinetica_fichas;
+					$accion_terapeutica_fichas=$res->accion_terapeutica_fichas;
+					$clasificacion_farmacologica_fichas=$res->clasificacion_farmacologica_fichas;
+					$forma_terapeutica_fichas =$res->forma_terapeutica_fichas;
+					$indicaciones_uso_fichas =$res->indicaciones_uso_fichas;
+					$interacciones_fichas =$res->interacciones_fichas;
+					$contraindicaciones_fichas =$res->contraindicaciones_fichas;
+					$periodo_retiro_fichas =$res->periodo_retiro_fichas;
+					$advertencias_fichas =$res->advertencias_fichas;
+					$presentacion_fichas =$res->presentacion_fichas;
+					$registro_sanitario_fichas =$res->registro_sanitario_fichas;
+					$mecanismo_accion_fichas =$res->mecanismo_accion_fichas;
+					$efectos_colaterales_fichas =$res->efectos_colaterales_fichas;
+					$conservacion_fichas  =$res->conservacion_fichas;
+					$ingredientes_fichas=$res->ingredientes_fichas;
+					$tipo_alimento_fichas =$res->tipo_alimento_fichas;
+					$encabezado_dosificacion_fichas =$res->encabezado_dosificacion_fichas;
+				}
+					
 					
 					
 			
@@ -292,26 +305,31 @@ public function index(){
 				$where    = "id_fichas = '$_id_fichas' ";
 				$resultGet = $fichas->getBy($where);
 					
-				$_id_fichas=$resultGet[0]->id_fichas;
-				$_nombre_fichas=$resultGet[0]->nombre_fichas;
-				$encabezado_tabla_fichas=$resultGet[0]->encabezado_tabla_fichas;
-				$farmacocinetica_fichas=$resultGet[0]->farmacocinetica_fichas;
-				$accion_terapeutica_fichas=$resultGet[0]->accion_terapeutica_fichas;
-				$clasificacion_farmacologica_fichas=$resultGet[0]->clasificacion_farmacologica_fichas;
-				$forma_terapeutica_fichas =$resultGet[0]->forma_terapeutica_fichas;
-				$indicaciones_uso_fichas =$resultGet[0]->indicaciones_uso_fichas;
-				$interacciones_fichas =$resultGet[0]->interacciones_fichas;
-				$contraindicaciones_fichas =$resultGet[0]->contraindicaciones_fichas;
-				$periodo_retiro_fichas =$resultGet[0]->periodo_retiro_fichas;
-				$advertencias_fichas =$resultGet[0]->advertencias_fichas;
-				$presentacion_fichas =$resultGet[0]->presentacion_fichas;
-				$registro_sanitario_fichas =$resultGet[0]->registro_sanitario_fichas;
-				$mecanismo_accion_fichas =$resultGet[0]->mecanismo_accion_fichas;
-				$efectos_colaterales_fichas =$resultGet[0]->efectos_colaterales_fichas;
-				$conservacion_fichas  =$resultGet[0]->conservacion_fichas;
-				$ingredientes_fichas=$resultGet[0]->ingredientes_fichas;
-				$tipo_alimento_fichas =$resultGet[0]->tipo_alimento_fichas;
-				$encabezado_dosificacion_fichas =$resultGet[0]->encabezado_dosificacion_fichas;
+
+				foreach($resultGet as $res)
+				{
+					$_id_fichas=$res->id_fichas;
+					$_nombre_fichas=$res->nombre_fichas;
+					$encabezado_tabla_fichas=$res->encabezado_tabla_fichas;
+					$farmacocinetica_fichas=$res->farmacocinetica_fichas;
+					$accion_terapeutica_fichas=$res->accion_terapeutica_fichas;
+					$clasificacion_farmacologica_fichas=$res->clasificacion_farmacologica_fichas;
+					$forma_terapeutica_fichas =$res->forma_terapeutica_fichas;
+					$indicaciones_uso_fichas =$res->indicaciones_uso_fichas;
+					$interacciones_fichas =$res->interacciones_fichas;
+					$contraindicaciones_fichas =$res->contraindicaciones_fichas;
+					$periodo_retiro_fichas =$res->periodo_retiro_fichas;
+					$advertencias_fichas =$res->advertencias_fichas;
+					$presentacion_fichas =$res->presentacion_fichas;
+					$registro_sanitario_fichas =$res->registro_sanitario_fichas;
+					$mecanismo_accion_fichas =$res->mecanismo_accion_fichas;
+					$efectos_colaterales_fichas =$res->efectos_colaterales_fichas;
+					$conservacion_fichas  =$res->conservacion_fichas;
+					$ingredientes_fichas=$res->ingredientes_fichas;
+					$tipo_alimento_fichas =$res->tipo_alimento_fichas;
+					$encabezado_dosificacion_fichas =$res->encabezado_dosificacion_fichas;
+				}
+					
 					
 					
 			
@@ -334,26 +352,31 @@ public function index(){
 				$where    = "id_fichas = '$_id_fichas' ";
 				$resultGet = $fichas->getBy($where);
 					
-				$_id_fichas=$resultGet[0]->id_fichas;
-				$_nombre_fichas=$resultGet[0]->nombre_fichas;
-				$encabezado_tabla_fichas=$resultGet[0]->encabezado_tabla_fichas;
-				$farmacocinetica_fichas=$resultGet[0]->farmacocinetica_fichas;
-				$accion_terapeutica_fichas=$resultGet[0]->accion_terapeutica_fichas;
-				$clasificacion_farmacologica_fichas=$resultGet[0]->clasificacion_farmacologica_fichas;
-				$forma_terapeutica_fichas =$resultGet[0]->forma_terapeutica_fichas;
-				$indicaciones_uso_fichas =$resultGet[0]->indicaciones_uso_fichas;
-				$interacciones_fichas =$resultGet[0]->interacciones_fichas;
-				$contraindicaciones_fichas =$resultGet[0]->contraindicaciones_fichas;
-				$periodo_retiro_fichas =$resultGet[0]->periodo_retiro_fichas;
-				$advertencias_fichas =$resultGet[0]->advertencias_fichas;
-				$presentacion_fichas =$resultGet[0]->presentacion_fichas;
-				$registro_sanitario_fichas =$resultGet[0]->registro_sanitario_fichas;
-				$mecanismo_accion_fichas =$resultGet[0]->mecanismo_accion_fichas;
-				$efectos_colaterales_fichas =$resultGet[0]->efectos_colaterales_fichas;
-				$conservacion_fichas  =$resultGet[0]->conservacion_fichas;
-				$ingredientes_fichas=$resultGet[0]->ingredientes_fichas;
-				$tipo_alimento_fichas =$resultGet[0]->tipo_alimento_fichas;
-				$encabezado_dosificacion_fichas =$resultGet[0]->encabezado_dosificacion_fichas;
+
+				foreach($resultGet as $res)
+				{
+					$_id_fichas=$res->id_fichas;
+					$_nombre_fichas=$res->nombre_fichas;
+					$encabezado_tabla_fichas=$res->encabezado_tabla_fichas;
+					$farmacocinetica_fichas=$res->farmacocinetica_fichas;
+					$accion_terapeutica_fichas=$res->accion_terapeutica_fichas;
+					$clasificacion_farmacologica_fichas=$res->clasificacion_farmacologica_fichas;
+					$forma_terapeutica_fichas =$res->forma_terapeutica_fichas;
+					$indicaciones_uso_fichas =$res->indicaciones_uso_fichas;
+					$interacciones_fichas =$res->interacciones_fichas;
+					$contraindicaciones_fichas =$res->contraindicaciones_fichas;
+					$periodo_retiro_fichas =$res->periodo_retiro_fichas;
+					$advertencias_fichas =$res->advertencias_fichas;
+					$presentacion_fichas =$res->presentacion_fichas;
+					$registro_sanitario_fichas =$res->registro_sanitario_fichas;
+					$mecanismo_accion_fichas =$res->mecanismo_accion_fichas;
+					$efectos_colaterales_fichas =$res->efectos_colaterales_fichas;
+					$conservacion_fichas  =$res->conservacion_fichas;
+					$ingredientes_fichas=$res->ingredientes_fichas;
+					$tipo_alimento_fichas =$res->tipo_alimento_fichas;
+					$encabezado_dosificacion_fichas =$res->encabezado_dosificacion_fichas;
+				}
+					
 					
 					
 			
@@ -377,26 +400,31 @@ public function index(){
 				$where    = "id_fichas = '$_id_fichas' ";
 				$resultGet = $fichas->getBy($where);
 					
-				$_id_fichas=$resultGet[0]->id_fichas;
-				$_nombre_fichas=$resultGet[0]->nombre_fichas;
-				$encabezado_tabla_fichas=$resultGet[0]->encabezado_tabla_fichas;
-				$farmacocinetica_fichas=$resultGet[0]->farmacocinetica_fichas;
-				$accion_terapeutica_fichas=$resultGet[0]->accion_terapeutica_fichas;
-				$clasificacion_farmacologica_fichas=$resultGet[0]->clasificacion_farmacologica_fichas;
-				$forma_terapeutica_fichas =$resultGet[0]->forma_terapeutica_fichas;
-				$indicaciones_uso_fichas =$resultGet[0]->indicaciones_uso_fichas;
-				$interacciones_fichas =$resultGet[0]->interacciones_fichas;
-				$contraindicaciones_fichas =$resultGet[0]->contraindicaciones_fichas;
-				$periodo_retiro_fichas =$resultGet[0]->periodo_retiro_fichas;
-				$advertencias_fichas =$resultGet[0]->advertencias_fichas;
-				$presentacion_fichas =$resultGet[0]->presentacion_fichas;
-				$registro_sanitario_fichas =$resultGet[0]->registro_sanitario_fichas;
-				$mecanismo_accion_fichas =$resultGet[0]->mecanismo_accion_fichas;
-				$efectos_colaterales_fichas =$resultGet[0]->efectos_colaterales_fichas;
-				$conservacion_fichas  =$resultGet[0]->conservacion_fichas;
-				$ingredientes_fichas=$resultGet[0]->ingredientes_fichas;
-				$tipo_alimento_fichas =$resultGet[0]->tipo_alimento_fichas;
-				$encabezado_dosificacion_fichas =$resultGet[0]->encabezado_dosificacion_fichas;
+
+				foreach($resultGet as $res)
+				{
+					$_id_fichas=$res->id_fichas;
+					$_nombre_fichas=$res->nombre_fichas;
+					$encabezado_tabla_fichas=$res->encabezado_tabla_fichas;
+					$farmacocinetica_fichas=$res->farmacocinetica_fichas;
+					$accion_terapeutica_fichas=$res->accion_terapeutica_fichas;
+					$clasificacion_farmacologica_fichas=$res->clasificacion_farmacologica_fichas;
+					$forma_terapeutica_fichas =$res->forma_terapeutica_fichas;
+					$indicaciones_uso_fichas =$res->indicaciones_uso_fichas;
+					$interacciones_fichas =$res->interacciones_fichas;
+					$contraindicaciones_fichas =$res->contraindicaciones_fichas;
+					$periodo_retiro_fichas =$res->periodo_retiro_fichas;
+					$advertencias_fichas =$res->advertencias_fichas;
+					$presentacion_fichas =$res->presentacion_fichas;
+					$registro_sanitario_fichas =$res->registro_sanitario_fichas;
+					$mecanismo_accion_fichas =$res->mecanismo_accion_fichas;
+					$efectos_colaterales_fichas =$res->efectos_colaterales_fichas;
+					$conservacion_fichas  =$res->conservacion_fichas;
+					$ingredientes_fichas=$res->ingredientes_fichas;
+					$tipo_alimento_fichas =$res->tipo_alimento_fichas;
+					$encabezado_dosificacion_fichas =$res->encabezado_dosificacion_fichas;
+				}
+					
 					
 					
 			
@@ -419,26 +447,31 @@ public function index(){
 				$where    = "id_fichas = '$_id_fichas' ";
 				$resultGet = $fichas->getBy($where);
 					
-				$_id_fichas=$resultGet[0]->id_fichas;
-				$_nombre_fichas=$resultGet[0]->nombre_fichas;
-				$encabezado_tabla_fichas=$resultGet[0]->encabezado_tabla_fichas;
-				$farmacocinetica_fichas=$resultGet[0]->farmacocinetica_fichas;
-				$accion_terapeutica_fichas=$resultGet[0]->accion_terapeutica_fichas;
-				$clasificacion_farmacologica_fichas=$resultGet[0]->clasificacion_farmacologica_fichas;
-				$forma_terapeutica_fichas =$resultGet[0]->forma_terapeutica_fichas;
-				$indicaciones_uso_fichas =$resultGet[0]->indicaciones_uso_fichas;
-				$interacciones_fichas =$resultGet[0]->interacciones_fichas;
-				$contraindicaciones_fichas =$resultGet[0]->contraindicaciones_fichas;
-				$periodo_retiro_fichas =$resultGet[0]->periodo_retiro_fichas;
-				$advertencias_fichas =$resultGet[0]->advertencias_fichas;
-				$presentacion_fichas =$resultGet[0]->presentacion_fichas;
-				$registro_sanitario_fichas =$resultGet[0]->registro_sanitario_fichas;
-				$mecanismo_accion_fichas =$resultGet[0]->mecanismo_accion_fichas;
-				$efectos_colaterales_fichas =$resultGet[0]->efectos_colaterales_fichas;
-				$conservacion_fichas  =$resultGet[0]->conservacion_fichas;
-				$ingredientes_fichas=$resultGet[0]->ingredientes_fichas;
-				$tipo_alimento_fichas =$resultGet[0]->tipo_alimento_fichas;
-				$encabezado_dosificacion_fichas =$resultGet[0]->encabezado_dosificacion_fichas;
+
+				foreach($resultGet as $res)
+				{
+					$_id_fichas=$res->id_fichas;
+					$_nombre_fichas=$res->nombre_fichas;
+					$encabezado_tabla_fichas=$res->encabezado_tabla_fichas;
+					$farmacocinetica_fichas=$res->farmacocinetica_fichas;
+					$accion_terapeutica_fichas=$res->accion_terapeutica_fichas;
+					$clasificacion_farmacologica_fichas=$res->clasificacion_farmacologica_fichas;
+					$forma_terapeutica_fichas =$res->forma_terapeutica_fichas;
+					$indicaciones_uso_fichas =$res->indicaciones_uso_fichas;
+					$interacciones_fichas =$res->interacciones_fichas;
+					$contraindicaciones_fichas =$res->contraindicaciones_fichas;
+					$periodo_retiro_fichas =$res->periodo_retiro_fichas;
+					$advertencias_fichas =$res->advertencias_fichas;
+					$presentacion_fichas =$res->presentacion_fichas;
+					$registro_sanitario_fichas =$res->registro_sanitario_fichas;
+					$mecanismo_accion_fichas =$res->mecanismo_accion_fichas;
+					$efectos_colaterales_fichas =$res->efectos_colaterales_fichas;
+					$conservacion_fichas  =$res->conservacion_fichas;
+					$ingredientes_fichas=$res->ingredientes_fichas;
+					$tipo_alimento_fichas =$res->tipo_alimento_fichas;
+					$encabezado_dosificacion_fichas =$res->encabezado_dosificacion_fichas;
+				}
+					
 					
 					
 			
@@ -462,26 +495,31 @@ public function index(){
 				$where    = "id_fichas = '$_id_fichas' ";
 				$resultGet = $fichas->getBy($where);
 					
-				$_id_fichas=$resultGet[0]->id_fichas;
-				$_nombre_fichas=$resultGet[0]->nombre_fichas;
-				$encabezado_tabla_fichas=$resultGet[0]->encabezado_tabla_fichas;
-				$farmacocinetica_fichas=$resultGet[0]->farmacocinetica_fichas;
-				$accion_terapeutica_fichas=$resultGet[0]->accion_terapeutica_fichas;
-				$clasificacion_farmacologica_fichas=$resultGet[0]->clasificacion_farmacologica_fichas;
-				$forma_terapeutica_fichas =$resultGet[0]->forma_terapeutica_fichas;
-				$indicaciones_uso_fichas =$resultGet[0]->indicaciones_uso_fichas;
-				$interacciones_fichas =$resultGet[0]->interacciones_fichas;
-				$contraindicaciones_fichas =$resultGet[0]->contraindicaciones_fichas;
-				$periodo_retiro_fichas =$resultGet[0]->periodo_retiro_fichas;
-				$advertencias_fichas =$resultGet[0]->advertencias_fichas;
-				$presentacion_fichas =$resultGet[0]->presentacion_fichas;
-				$registro_sanitario_fichas =$resultGet[0]->registro_sanitario_fichas;
-				$mecanismo_accion_fichas =$resultGet[0]->mecanismo_accion_fichas;
-				$efectos_colaterales_fichas =$resultGet[0]->efectos_colaterales_fichas;
-				$conservacion_fichas  =$resultGet[0]->conservacion_fichas;
-				$ingredientes_fichas=$resultGet[0]->ingredientes_fichas;
-				$tipo_alimento_fichas =$resultGet[0]->tipo_alimento_fichas;
-				$encabezado_dosificacion_fichas =$resultGet[0]->encabezado_dosificacion_fichas;
+
+				foreach($resultGet as $res)
+				{
+					$_id_fichas=$res->id_fichas;
+					$_nombre_fichas=$res->nombre_fichas;
+					$encabezado_tabla_fichas=$res->encabezado_tabla_fichas;
+					$farmacocinetica_fichas=$res->farmacocinetica_fichas;
+					$accion_terapeutica_fichas=$res->accion_terapeutica_fichas;
+					$clasificacion_farmacologica_fichas=$res->clasificacion_farmacologica_fichas;
+					$forma_terapeutica_fichas =$res->forma_terapeutica_fichas;
+					$indicaciones_uso_fichas =$res->indicaciones_uso_fichas;
+					$interacciones_fichas =$res->interacciones_fichas;
+					$contraindicaciones_fichas =$res->contraindicaciones_fichas;
+					$periodo_retiro_fichas =$res->periodo_retiro_fichas;
+					$advertencias_fichas =$res->advertencias_fichas;
+					$presentacion_fichas =$res->presentacion_fichas;
+					$registro_sanitario_fichas =$res->registro_sanitario_fichas;
+					$mecanismo_accion_fichas =$res->mecanismo_accion_fichas;
+					$efectos_colaterales_fichas =$res->efectos_colaterales_fichas;
+					$conservacion_fichas  =$res->conservacion_fichas;
+					$ingredientes_fichas=$res->ingredientes_fichas;
+					$tipo_alimento_fichas =$res->tipo_alimento_fichas;
+					$encabezado_dosificacion_fichas =$res->encabezado_dosificacion_fichas;
+				}
+					
 					
 					
 			
@@ -503,26 +541,31 @@ public function index(){
 				$where    = "id_fichas = '$_id_fichas' ";
 				$resultGet = $fichas->getBy($where);
 					
-				$_id_fichas=$resultGet[0]->id_fichas;
-				$_nombre_fichas=$resultGet[0]->nombre_fichas;
-				$encabezado_tabla_fichas=$resultGet[0]->encabezado_tabla_fichas;
-				$farmacocinetica_fichas=$resultGet[0]->farmacocinetica_fichas;
-				$accion_terapeutica_fichas=$resultGet[0]->accion_terapeutica_fichas;
-				$clasificacion_farmacologica_fichas=$resultGet[0]->clasificacion_farmacologica_fichas;
-				$forma_terapeutica_fichas =$resultGet[0]->forma_terapeutica_fichas;
-				$indicaciones_uso_fichas =$resultGet[0]->indicaciones_uso_fichas;
-				$interacciones_fichas =$resultGet[0]->interacciones_fichas;
-				$contraindicaciones_fichas =$resultGet[0]->contraindicaciones_fichas;
-				$periodo_retiro_fichas =$resultGet[0]->periodo_retiro_fichas;
-				$advertencias_fichas =$resultGet[0]->advertencias_fichas;
-				$presentacion_fichas =$resultGet[0]->presentacion_fichas;
-				$registro_sanitario_fichas =$resultGet[0]->registro_sanitario_fichas;
-				$mecanismo_accion_fichas =$resultGet[0]->mecanismo_accion_fichas;
-				$efectos_colaterales_fichas =$resultGet[0]->efectos_colaterales_fichas;
-				$conservacion_fichas  =$resultGet[0]->conservacion_fichas;
-				$ingredientes_fichas=$resultGet[0]->ingredientes_fichas;
-				$tipo_alimento_fichas =$resultGet[0]->tipo_alimento_fichas;
-				$encabezado_dosificacion_fichas =$resultGet[0]->encabezado_dosificacion_fichas;
+
+				foreach($resultGet as $res)
+				{
+					$_id_fichas=$res->id_fichas;
+					$_nombre_fichas=$res->nombre_fichas;
+					$encabezado_tabla_fichas=$res->encabezado_tabla_fichas;
+					$farmacocinetica_fichas=$res->farmacocinetica_fichas;
+					$accion_terapeutica_fichas=$res->accion_terapeutica_fichas;
+					$clasificacion_farmacologica_fichas=$res->clasificacion_farmacologica_fichas;
+					$forma_terapeutica_fichas =$res->forma_terapeutica_fichas;
+					$indicaciones_uso_fichas =$res->indicaciones_uso_fichas;
+					$interacciones_fichas =$res->interacciones_fichas;
+					$contraindicaciones_fichas =$res->contraindicaciones_fichas;
+					$periodo_retiro_fichas =$res->periodo_retiro_fichas;
+					$advertencias_fichas =$res->advertencias_fichas;
+					$presentacion_fichas =$res->presentacion_fichas;
+					$registro_sanitario_fichas =$res->registro_sanitario_fichas;
+					$mecanismo_accion_fichas =$res->mecanismo_accion_fichas;
+					$efectos_colaterales_fichas =$res->efectos_colaterales_fichas;
+					$conservacion_fichas  =$res->conservacion_fichas;
+					$ingredientes_fichas=$res->ingredientes_fichas;
+					$tipo_alimento_fichas =$res->tipo_alimento_fichas;
+					$encabezado_dosificacion_fichas =$res->encabezado_dosificacion_fichas;
+				}
+					
 					
 					
 			
@@ -545,26 +588,31 @@ public function index(){
 				$where    = "id_fichas = '$_id_fichas' ";
 				$resultGet = $fichas->getBy($where);
 					
-				$_id_fichas=$resultGet[0]->id_fichas;
-				$_nombre_fichas=$resultGet[0]->nombre_fichas;
-				$encabezado_tabla_fichas=$resultGet[0]->encabezado_tabla_fichas;
-				$farmacocinetica_fichas=$resultGet[0]->farmacocinetica_fichas;
-				$accion_terapeutica_fichas=$resultGet[0]->accion_terapeutica_fichas;
-				$clasificacion_farmacologica_fichas=$resultGet[0]->clasificacion_farmacologica_fichas;
-				$forma_terapeutica_fichas =$resultGet[0]->forma_terapeutica_fichas;
-				$indicaciones_uso_fichas =$resultGet[0]->indicaciones_uso_fichas;
-				$interacciones_fichas =$resultGet[0]->interacciones_fichas;
-				$contraindicaciones_fichas =$resultGet[0]->contraindicaciones_fichas;
-				$periodo_retiro_fichas =$resultGet[0]->periodo_retiro_fichas;
-				$advertencias_fichas =$resultGet[0]->advertencias_fichas;
-				$presentacion_fichas =$resultGet[0]->presentacion_fichas;
-				$registro_sanitario_fichas =$resultGet[0]->registro_sanitario_fichas;
-				$mecanismo_accion_fichas =$resultGet[0]->mecanismo_accion_fichas;
-				$efectos_colaterales_fichas =$resultGet[0]->efectos_colaterales_fichas;
-				$conservacion_fichas  =$resultGet[0]->conservacion_fichas;
-				$ingredientes_fichas=$resultGet[0]->ingredientes_fichas;
-				$tipo_alimento_fichas =$resultGet[0]->tipo_alimento_fichas;
-				$encabezado_dosificacion_fichas =$resultGet[0]->encabezado_dosificacion_fichas;
+
+				foreach($resultGet as $res)
+				{
+					$_id_fichas=$res->id_fichas;
+					$_nombre_fichas=$res->nombre_fichas;
+					$encabezado_tabla_fichas=$res->encabezado_tabla_fichas;
+					$farmacocinetica_fichas=$res->farmacocinetica_fichas;
+					$accion_terapeutica_fichas=$res->accion_terapeutica_fichas;
+					$clasificacion_farmacologica_fichas=$res->clasificacion_farmacologica_fichas;
+					$forma_terapeutica_fichas =$res->forma_terapeutica_fichas;
+					$indicaciones_uso_fichas =$res->indicaciones_uso_fichas;
+					$interacciones_fichas =$res->interacciones_fichas;
+					$contraindicaciones_fichas =$res->contraindicaciones_fichas;
+					$periodo_retiro_fichas =$res->periodo_retiro_fichas;
+					$advertencias_fichas =$res->advertencias_fichas;
+					$presentacion_fichas =$res->presentacion_fichas;
+					$registro_sanitario_fichas =$res->registro_sanitario_fichas;
+					$mecanismo_accion_fichas =$res->mecanismo_accion_fichas;
+					$efectos_colaterales_fichas =$res->efectos_colaterales_fichas;
+					$conservacion_fichas  =$res->conservacion_fichas;
+					$ingredientes_fichas=$res->ingredientes_fichas;
+					$tipo_alimento_fichas =$res->tipo_alimento_fichas;
+					$encabezado_dosificacion_fichas =$res->encabezado_dosificacion_fichas;
+				}
+					
 					
 					
 			
@@ -586,26 +634,31 @@ public function index(){
 				$where    = "id_fichas = '$_id_fichas' ";
 				$resultGet = $fichas->getBy($where);
 					
-				$_id_fichas=$resultGet[0]->id_fichas;
-				$_nombre_fichas=$resultGet[0]->nombre_fichas;
-				$encabezado_tabla_fichas=$resultGet[0]->encabezado_tabla_fichas;
-				$farmacocinetica_fichas=$resultGet[0]->farmacocinetica_fichas;
-				$accion_terapeutica_fichas=$resultGet[0]->accion_terapeutica_fichas;
-				$clasificacion_farmacologica_fichas=$resultGet[0]->clasificacion_farmacologica_fichas;
-				$forma_terapeutica_fichas =$resultGet[0]->forma_terapeutica_fichas;
-				$indicaciones_uso_fichas =$resultGet[0]->indicaciones_uso_fichas;
-				$interacciones_fichas =$resultGet[0]->interacciones_fichas;
-				$contraindicaciones_fichas =$resultGet[0]->contraindicaciones_fichas;
-				$periodo_retiro_fichas =$resultGet[0]->periodo_retiro_fichas;
-				$advertencias_fichas =$resultGet[0]->advertencias_fichas;
-				$presentacion_fichas =$resultGet[0]->presentacion_fichas;
-				$registro_sanitario_fichas =$resultGet[0]->registro_sanitario_fichas;
-				$mecanismo_accion_fichas =$resultGet[0]->mecanismo_accion_fichas;
-				$efectos_colaterales_fichas =$resultGet[0]->efectos_colaterales_fichas;
-				$conservacion_fichas  =$resultGet[0]->conservacion_fichas;
-				$ingredientes_fichas=$resultGet[0]->ingredientes_fichas;
-				$tipo_alimento_fichas =$resultGet[0]->tipo_alimento_fichas;
-				$encabezado_dosificacion_fichas =$resultGet[0]->encabezado_dosificacion_fichas;
+
+				foreach($resultGet as $res)
+				{
+					$_id_fichas=$res->id_fichas;
+					$_nombre_fichas=$res->nombre_fichas;
+					$encabezado_tabla_fichas=$res->encabezado_tabla_fichas;
+					$farmacocinetica_fichas=$res->farmacocinetica_fichas;
+					$accion_terapeutica_fichas=$res->accion_terapeutica_fichas;
+					$clasificacion_farmacologica_fichas=$res->clasificacion_farmacologica_fichas;
+					$forma_terapeutica_fichas =$res->forma_terapeutica_fichas;
+					$indicaciones_uso_fichas =$res->indicaciones_uso_fichas;
+					$interacciones_fichas =$res->interacciones_fichas;
+					$contraindicaciones_fichas =$res->contraindicaciones_fichas;
+					$periodo_retiro_fichas =$res->periodo_retiro_fichas;
+					$advertencias_fichas =$res->advertencias_fichas;
+					$presentacion_fichas =$res->presentacion_fichas;
+					$registro_sanitario_fichas =$res->registro_sanitario_fichas;
+					$mecanismo_accion_fichas =$res->mecanismo_accion_fichas;
+					$efectos_colaterales_fichas =$res->efectos_colaterales_fichas;
+					$conservacion_fichas  =$res->conservacion_fichas;
+					$ingredientes_fichas=$res->ingredientes_fichas;
+					$tipo_alimento_fichas =$res->tipo_alimento_fichas;
+					$encabezado_dosificacion_fichas =$res->encabezado_dosificacion_fichas;
+				}
+					
 					
 					
 			
@@ -628,26 +681,31 @@ public function index(){
 				$where    = "id_fichas = '$_id_fichas' ";
 				$resultGet = $fichas->getBy($where);
 					
-				$_id_fichas=$resultGet[0]->id_fichas;
-				$_nombre_fichas=$resultGet[0]->nombre_fichas;
-				$encabezado_tabla_fichas=$resultGet[0]->encabezado_tabla_fichas;
-				$farmacocinetica_fichas=$resultGet[0]->farmacocinetica_fichas;
-				$accion_terapeutica_fichas=$resultGet[0]->accion_terapeutica_fichas;
-				$clasificacion_farmacologica_fichas=$resultGet[0]->clasificacion_farmacologica_fichas;
-				$forma_terapeutica_fichas =$resultGet[0]->forma_terapeutica_fichas;
-				$indicaciones_uso_fichas =$resultGet[0]->indicaciones_uso_fichas;
-				$interacciones_fichas =$resultGet[0]->interacciones_fichas;
-				$contraindicaciones_fichas =$resultGet[0]->contraindicaciones_fichas;
-				$periodo_retiro_fichas =$resultGet[0]->periodo_retiro_fichas;
-				$advertencias_fichas =$resultGet[0]->advertencias_fichas;
-				$presentacion_fichas =$resultGet[0]->presentacion_fichas;
-				$registro_sanitario_fichas =$resultGet[0]->registro_sanitario_fichas;
-				$mecanismo_accion_fichas =$resultGet[0]->mecanismo_accion_fichas;
-				$efectos_colaterales_fichas =$resultGet[0]->efectos_colaterales_fichas;
-				$conservacion_fichas  =$resultGet[0]->conservacion_fichas;
-				$ingredientes_fichas=$resultGet[0]->ingredientes_fichas;
-				$tipo_alimento_fichas =$resultGet[0]->tipo_alimento_fichas;
-				$encabezado_dosificacion_fichas =$resultGet[0]->encabezado_dosificacion_fichas;
+
+				foreach($resultGet as $res)
+				{
+					$_id_fichas=$res->id_fichas;
+					$_nombre_fichas=$res->nombre_fichas;
+					$encabezado_tabla_fichas=$res->encabezado_tabla_fichas;
+					$farmacocinetica_fichas=$res->farmacocinetica_fichas;
+					$accion_terapeutica_fichas=$res->accion_terapeutica_fichas;
+					$clasificacion_farmacologica_fichas=$res->clasificacion_farmacologica_fichas;
+					$forma_terapeutica_fichas =$res->forma_terapeutica_fichas;
+					$indicaciones_uso_fichas =$res->indicaciones_uso_fichas;
+					$interacciones_fichas =$res->interacciones_fichas;
+					$contraindicaciones_fichas =$res->contraindicaciones_fichas;
+					$periodo_retiro_fichas =$res->periodo_retiro_fichas;
+					$advertencias_fichas =$res->advertencias_fichas;
+					$presentacion_fichas =$res->presentacion_fichas;
+					$registro_sanitario_fichas =$res->registro_sanitario_fichas;
+					$mecanismo_accion_fichas =$res->mecanismo_accion_fichas;
+					$efectos_colaterales_fichas =$res->efectos_colaterales_fichas;
+					$conservacion_fichas  =$res->conservacion_fichas;
+					$ingredientes_fichas=$res->ingredientes_fichas;
+					$tipo_alimento_fichas =$res->tipo_alimento_fichas;
+					$encabezado_dosificacion_fichas =$res->encabezado_dosificacion_fichas;
+				}
+					
 					
 					
 			
@@ -670,26 +728,31 @@ public function index(){
 				$where    = "id_fichas = '$_id_fichas' ";
 				$resultGet = $fichas->getBy($where);
 					
-				$_id_fichas=$resultGet[0]->id_fichas;
-				$_nombre_fichas=$resultGet[0]->nombre_fichas;
-				$encabezado_tabla_fichas=$resultGet[0]->encabezado_tabla_fichas;
-				$farmacocinetica_fichas=$resultGet[0]->farmacocinetica_fichas;
-				$accion_terapeutica_fichas=$resultGet[0]->accion_terapeutica_fichas;
-				$clasificacion_farmacologica_fichas=$resultGet[0]->clasificacion_farmacologica_fichas;
-				$forma_terapeutica_fichas =$resultGet[0]->forma_terapeutica_fichas;
-				$indicaciones_uso_fichas =$resultGet[0]->indicaciones_uso_fichas;
-				$interacciones_fichas =$resultGet[0]->interacciones_fichas;
-				$contraindicaciones_fichas =$resultGet[0]->contraindicaciones_fichas;
-				$periodo_retiro_fichas =$resultGet[0]->periodo_retiro_fichas;
-				$advertencias_fichas =$resultGet[0]->advertencias_fichas;
-				$presentacion_fichas =$resultGet[0]->presentacion_fichas;
-				$registro_sanitario_fichas =$resultGet[0]->registro_sanitario_fichas;
-				$mecanismo_accion_fichas =$resultGet[0]->mecanismo_accion_fichas;
-				$efectos_colaterales_fichas =$resultGet[0]->efectos_colaterales_fichas;
-				$conservacion_fichas  =$resultGet[0]->conservacion_fichas;
-				$ingredientes_fichas=$resultGet[0]->ingredientes_fichas;
-				$tipo_alimento_fichas =$resultGet[0]->tipo_alimento_fichas;
-				$encabezado_dosificacion_fichas =$resultGet[0]->encabezado_dosificacion_fichas;
+
+				foreach($resultGet as $res)
+				{
+					$_id_fichas=$res->id_fichas;
+					$_nombre_fichas=$res->nombre_fichas;
+					$encabezado_tabla_fichas=$res->encabezado_tabla_fichas;
+					$farmacocinetica_fichas=$res->farmacocinetica_fichas;
+					$accion_terapeutica_fichas=$res->accion_terapeutica_fichas;
+					$clasificacion_farmacologica_fichas=$res->clasificacion_farmacologica_fichas;
+					$forma_terapeutica_fichas =$res->forma_terapeutica_fichas;
+					$indicaciones_uso_fichas =$res->indicaciones_uso_fichas;
+					$interacciones_fichas =$res->interacciones_fichas;
+					$contraindicaciones_fichas =$res->contraindicaciones_fichas;
+					$periodo_retiro_fichas =$res->periodo_retiro_fichas;
+					$advertencias_fichas =$res->advertencias_fichas;
+					$presentacion_fichas =$res->presentacion_fichas;
+					$registro_sanitario_fichas =$res->registro_sanitario_fichas;
+					$mecanismo_accion_fichas =$res->mecanismo_accion_fichas;
+					$efectos_colaterales_fichas =$res->efectos_colaterales_fichas;
+					$conservacion_fichas  =$res->conservacion_fichas;
+					$ingredientes_fichas=$res->ingredientes_fichas;
+					$tipo_alimento_fichas =$res->tipo_alimento_fichas;
+					$encabezado_dosificacion_fichas =$res->encabezado_dosificacion_fichas;
+				}
+					
 					
 					
 			

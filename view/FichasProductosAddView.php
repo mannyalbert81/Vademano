@@ -1828,7 +1828,7 @@
 	         <div class="col-xs-6 col-md-6">
 		     <div class="form-group ">
 		                          <label for="clasificacion_farmacologica_fichas" class="control-label">Categoría Farmacológica:</label>
-                                  <textarea type="text"  class="form-control" id="clasificacion_farmacologica_fichas" name="clasificacion_farmacologica_fichas" value=""  placeholder="Categoría Farmacológica"><?php if ($sel_clasificacion_farmacologica_fichas !="") {echo $sel_clasificacion_farmacologica_fichas; } else{ echo $clasificacion_farmacologica_fichas;}     ?> </textarea>
+                                  <textarea type="text"  class="form-control" id="clasificacion_farmacologica_fichas" name="clasificacion_farmacologica_fichas" value=""  placeholder="Categoría Farmacológica"><?php if ($sel_clasificacion_farmacologica_fichas !="") {echo $sel_clasificacion_farmacologica_fichas; } else{ echo $clasificacion_farmacologica_fichas;}     ?></textarea>
                                   <div id="mensaje_clasificacion_farmacologica_fichas" class="errores"></div>
 			 
              </div>
