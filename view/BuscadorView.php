@@ -14,9 +14,6 @@
         <script src="http://jqueryvalidation.org/files/dist/additional-methods.min.js"></script>
  		
  		<script src="//cdn.jsdelivr.net/webshim/1.14.5/polyfiller.js"></script>
-		
-		
-  		
   		<script> 
   		$(document).ready(function(){
 		      
@@ -351,28 +348,31 @@
     	 	
     	 	</div>
     	 	<div class="col-xs-3 col-md-3">
-    	 	<input type="hidden" name="controlador" id="controlador" vslue="">
+    	 	<input type="hidden" name="controlador" id="controlador" value="">
     	 	</div>
     	 	</div>
-    	  <div id= "div-productos" class="row" style="margin-top:50px; text-align: center; display: none;"  >	
-    	    <div  class="row" style="margin-top:50px; text-align: center; "  > 	
-    	  
+    	  <div id= "div-productos" class="row" style="margin-top:50px; text-align: center; display: none;"  >
     	  	
-    	   <?php $celdas = 0;?>
-    		<?php if ($resultSet !="") { ?>
-    	    <?php foreach($resultSet as $res) {?>
-	      		  
-	        	<?php if ($celdas < 5) { ?>
-	        	
-	        	 <?php $status = session_status();  ?>
-		        <?php if  (isset( $_SESSION['id_usuario'] )){  ?> 
+    	    <div  class="row" style="margin-top:50px; text-align: center; "  > 	
+    	  	
+    	   <?php $celdas = 0;
+    	   
+    	   if ($resultSet !="") {  
+    	   	
+    	   	foreach($resultSet as $res) {
+    	   	
+    	   	if ($celdas < 5) { 
+    	   		
+    	   		$status = session_status();  
+    	   		
+    	   		if  (isset( $_SESSION['id_usuario'] )){  ?> 
 		        
-		         <div class="col-xs-6 col-md-2">
+		              <div class="col-xs-6 col-md-2">
 			  	      <p  class="formulario-subtitulo-busqueda" style="font-family: calibri;" ><?php echo $res->nombre_fichas; ?> </p> 
 			  	      <div class="img-rounded">
 			  	      
 			  	      	<div   class="buscador_favorito" >
-			  	      	<a  href="<?php echo $helper->url("FichasFavoritos","InsertaFavoritos"); ?>&id_fichas=<?php echo $res->id_fichas; ?>&nombre_fichas=<?php echo $res->nombre_fichas; ?>"  id="a_imagen_favorito" href="" class="thumbnail" >
+			  	      	<a  href="<?php echo $helper->url("FichasFavoritos","InsertaFavoritos"); ?>&id_fichas=<?php echo $res->id_fichas; ?>&nombre_fichas=<?php echo $res->nombre_fichas; ?>" id="a_imagen_favorito" href="" class="thumbnail" >
 			  	      		<img  id="imagen_favorito" name="imagen_favorito" src="view/images/icono_heart.png" alt="Agregar a Favoritos" >
 			  	        </a>
 			  	        </div>
@@ -380,21 +380,22 @@
 			  	        <!-- cambio en action de sigte helper (FichaOnline) -->
 			  	        
 			  	      	<a href="<?php echo $helper->url("FichasProductos","verFicha"); ?>&id_fichas=<?php echo $res->id_fichas; ?>&nombre_fichas=<?php echo $res->nombre_fichas; ?>"  class="thumbnail"  target="_blank" >
-			  	      		<img name="image" src="view/DevuelveImagen.php?id_valor=<?php echo $res->id_fichas; ?>&id_nombre=id_fichas&tabla=fichas_fotos&campo=foto_fichas_fotos"  alt="<?php echo $res->nombre_fichas; ?>" width="120" height="100" >
+			  	      		<img name="image" src="view/DevuelveImagen.php?id_valor=<?php echo $res->id_fichas; ?>&id_nombre=id_fichas&tabla=fichas_fotos&campo=foto_fichas_fotos"  alt="<?php echo $res->nombre_fichas; ?>" width="80px" height="60px" >
 			  	        </a>
 			  	        
 			  	      </div>
 			  	      <p  class="formulario-subtitulo-busqueda" style="font-family: calibri;" ><?php echo $res->clasificacion_farmacologica_fichas; ?> </p>
 			  	     </div>
 		         <?php } else { ?>	
-		         
+		         <img src="uploads/biovet.png"  width="80" height="60" class=" float-left" alt="...">
+                 <img src="uploads/imagen.jpg"  width="80" height="60" class=" float-right" alt="...">
 		         
 		          <div class="col-xs-6 col-md-2">
 			  	      <p  class="formulario-subtitulo-busqueda" style="font-family: calibri;" ><?php echo $res->nombre_fichas; ?> </p> 
-			  	      <div class="img-rounded">
+			  	      <div >
 			  	      
 			  	     	<a href="<?php echo $helper->url("FichasProductos","verFicha"); ?>&id_fichas=<?php echo $res->id_fichas; ?>&nombre_fichas=<?php echo $res->nombre_fichas; ?>"  class="thumbnail"  target="_blank" >
-			  	      		<img name="image" src="view/DevuelveImagen.php?id_valor=<?php echo $res->id_fichas; ?>&id_nombre=id_fichas&tabla=fichas_fotos&campo=foto_fichas_fotos"  alt="<?php echo $res->nombre_fichas; ?>" width="120" height="100" >
+			  	      		<img name="image"  class="img-responsive" src="view/DevuelveImagen.php?id_valor=<?php echo $res->id_fichas; ?>&id_nombre=id_fichas&tabla=fichas_fotos&campo=foto_fichas_fotos" width="80" height="60"  alt="<?php echo $res->nombre_fichas; ?>" width="120" height="100" >
 			  	        </a>
 			  	        
 			  	      </div>
@@ -407,19 +408,16 @@
 			       <?php if($celdas == 4) {?>
 			
 			      	 </div> 			
-			       <?php }?>
-			       <?php $celdas = $celdas + 1 ;?>
-			
-				<?php } else {?>
+			       <?php } $celdas = $celdas + 1 ; 
+    	   	} else {?>
 				    
 			    	<div class="row" style="text-align: center;"   >	    
 					<div class="col-xs-6 col-md-1">
     	  			</div>
     	  
-					<?php $celdas = 0;?>	
-				<?php } ?>        
-	        
-	        <?php  } ?>
+					<?php $celdas = 0; 
+    	   	}   
+    	   } ?>
     	  	</div>
     	  	<?php  } ?>
     	  
