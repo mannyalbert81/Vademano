@@ -351,7 +351,7 @@
     	 	<input type="hidden" name="controlador" id="controlador" value="">
     	 	</div>
     	 	</div>
-    	  <div id= "div-productos" class="row" style="margin-top:50px; text-align: center; display: none;"  >
+    	  <div id= "div-productos"  style="margin-top:50px; text-align: center; display: none;"  >
     	  	
     	    <div  class="row" style="margin-top:50px; text-align: center; "  > 	
     	  	
@@ -387,9 +387,7 @@
 			  	      <p  class="formulario-subtitulo-busqueda" style="font-family: calibri;" ><?php echo $res->clasificacion_farmacologica_fichas; ?> </p>
 			  	     </div>
 		         <?php } else { ?>	
-		         <img src="uploads/biovet.png"  width="80" height="60" class=" float-left" alt="...">
-                 <img src="uploads/imagen.jpg"  width="80" height="60" class=" float-right" alt="...">
-		         
+		        
 		          <div class="col-xs-6 col-md-2">
 			  	      <p  class="formulario-subtitulo-busqueda" style="font-family: calibri;" ><?php echo $res->nombre_fichas; ?> </p> 
 			  	      <div >
@@ -403,14 +401,13 @@
 			  	     </div>
 		         
 		          <?php  }?>
-			 	
-				  
 			       <?php if($celdas == 4) {?>
 			
-			      	 </div> 			
-			       <?php } $celdas = $celdas + 1 ; 
-    	   	} else {?>
-				    
+			      	  			
+			       <?php } $celdas = $celdas + 1 ; ?>
+			    
+    	   	<?php } else {?>
+				     </div>  
 			    	<div class="row" style="text-align: center;"   >	    
 					<div class="col-xs-6 col-md-1">
     	  			</div>
