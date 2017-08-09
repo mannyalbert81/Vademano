@@ -152,6 +152,12 @@
 				  	
 				  	<button type="submit" id="btn_agregar_fichas" name="btn_agregar_fichas"  class="btn btn-primary"><span class="glyphicon glyphicon-plus	" ><?php echo "" ;?> </span></button>
 			 </div></div></div>
+			 
+			 <div class="row">
+	        <div class="col-xs-12 col-md-12">
+		    <?php if ($existe == "true") {?><div class="alert alert-danger" role="alert">El Producto <strong><?php echo $nombre_fichas;?></strong> ya esta Registrado en nuestro Sistema.</div><?php }?>	
+	        </div>
+	        </div>
              </form>
            
        

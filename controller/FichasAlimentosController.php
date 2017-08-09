@@ -11,13 +11,14 @@ class FichasAlimentosController extends ControladorBase{
 public function index(){
 	
 	session_start();
+	$existe="false";
 	    $fichas = new FichasModel();
 	   $columnas = "f.id_fichas,f.nombre_fichas,f.encabezado_tabla_fichas,f.farmacocinetica_fichas
-	,accion_terapeutica_fichas,clasificacion_farmacologica_fichas,f.forma_terapeutica_fichas
-	,f.indicaciones_uso_fichas,f.interacciones_fichas,f.contraindicaciones_fichas,f.periodo_retiro_fichas
-	,f.periodo_retiro_fichas,f.advertencias_fichas,f.presentacion_fichas,f.registro_sanitario_fichas
-	,f.mecanismo_accion_fichas,f.efectos_colaterales_fichas,f.conservacion_fichas,f.encabezado_dosificacion_fichas
-	,f.ingredientes_fichas,f.tipo_alimento_fichas,ff.foto_fichas_fotos,ff.id_fichas_fotos";
+				,accion_terapeutica_fichas,clasificacion_farmacologica_fichas,f.forma_terapeutica_fichas
+				,f.indicaciones_uso_fichas,f.interacciones_fichas,f.contraindicaciones_fichas,f.periodo_retiro_fichas
+				,f.periodo_retiro_fichas,f.advertencias_fichas,f.presentacion_fichas,f.registro_sanitario_fichas
+				,f.mecanismo_accion_fichas,f.efectos_colaterales_fichas,f.conservacion_fichas,f.encabezado_dosificacion_fichas
+				,f.ingredientes_fichas,f.tipo_alimento_fichas,ff.foto_fichas_fotos,ff.id_fichas_fotos";
 	    
 	   $tablas   = "public.fichas f
 					LEFT JOIN public.fichas_fotos ff
@@ -102,7 +103,7 @@ public function index(){
 				
 			
 		$this->view("FichasAlimentos",array(
-				"resultSet"=>$resultSet, "resultEdit" =>$resultEdit, "resultMenu"=>$resultMenu
+				"resultSet"=>$resultSet, "resultEdit" =>$resultEdit, "resultMenu"=>$resultMenu, "existe"=>$existe
 			));
 		
 		
@@ -112,6 +113,26 @@ public function index(){
 	
 		session_start();
 		$fichas = new FichasModel();
+		
+		$existe="false";
+	
+		$columnas = "f.id_fichas,f.nombre_fichas,f.encabezado_tabla_fichas,f.farmacocinetica_fichas
+				,accion_terapeutica_fichas,clasificacion_farmacologica_fichas,f.forma_terapeutica_fichas
+				,f.indicaciones_uso_fichas,f.interacciones_fichas,f.contraindicaciones_fichas,f.periodo_retiro_fichas
+				,f.periodo_retiro_fichas,f.advertencias_fichas,f.presentacion_fichas,f.registro_sanitario_fichas
+				,f.mecanismo_accion_fichas,f.efectos_colaterales_fichas,f.conservacion_fichas,f.encabezado_dosificacion_fichas
+				,f.ingredientes_fichas,f.tipo_alimento_fichas,ff.foto_fichas_fotos,ff.id_fichas_fotos";
+		 
+		$tablas   = "public.fichas f
+					LEFT JOIN public.fichas_fotos ff
+					ON ff.id_fichas = f.id_fichas";
+		$where    = "f.tipo_ficha = 'A'";
+		$id = "f.id_fichas";
+		$resultSet = $fichas->getCondiciones($columnas, $tablas, $where, $id);
+		
+		$resultMenu=array(0=>'--TODOS--',1=>'Nombre Producto');
+		
+		
 		
 		$resultEditCompo="";
 		$resultEditDosi="";
@@ -583,10 +604,18 @@ public function index(){
 						
 					$_id_fichas = $res->id_fichas;
 				}
-					
-				$where    = "id_fichas = '$_id_fichas' ";
-				$resultEdit = $fichas->getBy($where);
-				$_nueva_ficha = TRUE;
+				if($_id_fichas>0){
+					$existe="true";
+				
+				
+					$this->view("FichasAlimentos",array(
+						"resultSet"=>$resultSet, "resultEdit" =>$resultEdit, "resultMenu"=>$resultMenu, "existe"=>$existe, "nombre_fichas"=>$_nombre_fichas
+				));
+						
+				
+					exit();
+				}
+				
 			}else{
 			
 			
