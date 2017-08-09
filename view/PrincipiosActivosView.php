@@ -199,15 +199,11 @@
 	    		<th style="text-align: left;  font-size: 13px;">Id</th>
 	    		<th style="text-align: left;  font-size: 13px;">Nombre Principio</th>
 	    		<th style="text-align: left;  font-size: 13px;">Categoria Farmacologica</th>
-	    		<th style="text-align: left;  font-size: 13px;">Subcategoria Farmacologica</th>
-	    		<th style="text-align: left;  font-size: 13px;">Indicaciones de Uso</th>
 	    		<th style="text-align: left;  font-size: 13px;">Forma Administracion</th>
-	    		<th style="text-align: left;  font-size: 13px;">Efectos Secundarioses</th>
 	    		<th style="text-align: left;  font-size: 13px;">Mecanismo de Accion</th>
-	    		<th style="text-align: left;  font-size: 13px;">Precausiones</th>
 	    		<th style="text-align: left;  font-size: 13px;">Interacciones</th>
-	    		<th style="text-align: left;  font-size: 13px;">Contraindicaciones</th>
 	    		<th style="text-align: left;  font-size: 13px;">Periodo Retirio</th>
+	    		<th style="text-align: left;  font-size: 13px;"></th>
 	    		<th style="text-align: left;  font-size: 13px;"></th>
 	    		<th style="text-align: left;  font-size: 13px;"></th>
 	  		</tr>
@@ -217,16 +213,18 @@
 	            	   <td style="font-size: 13px;"> <?php echo $registro; ?>     </td>
 		               <td style="font-size: 13px;"> <?php echo $res->nombre_composiciones; ?>     </td> 
 		               <td style="font-size: 13px;"> <?php echo $res->categoria_farmacologica_composicion; ?>     </td> 
-		               <td style="font-size: 13px;"> <?php echo $res->subcategoria_farmacologica_composiciones; ?>     </td>
-		               <td style="font-size: 13px;"> <?php echo $res->indicaciones_uso_composiciones; ?>     </td> 
 		               <td style="font-size: 13px;"> <?php echo $res->forma_administracion_composiciones; ?>     </td> 
-		               <td style="font-size: 13px;"> <?php echo $res->efectos_secundarios_composiciones; ?>     </td> 
 		               <td style="font-size: 13px;"> <?php echo $res->mecanismo_accion_composiciones; ?>     </td> 
-		               <td style="font-size: 13px;"> <?php echo $res->precausiones_composiociones; ?>     </td>
-		               <td style="font-size: 13px;"> <?php echo $res->interacciones_composiciones; ?>     </td> 
-		               <td style="font-size: 13px;"> <?php echo $res->contraindicaciones_composiciones; ?>     </td> 
-		               <td style="font-size: 13px;"> <?php echo $res->periodo_retirio_composiciones; ?>     </td>
+		               <td style="font-size: 13px;"> <?php echo $res->interacciones_composiciones; ?>        </td> 
+		               <td style="font-size: 13px;"> <?php echo $res->periodo_retirio_composiciones; ?>      </td>
 		              <?php $registro ++ ;?> 
+		               
+		                <td>
+			           		<div class="right">
+			                    <a href="<?php echo $helper->url("Composiciones","VistaComposicionesOnline"); ?>&id_composiciones=<?php echo $res->id_composiciones; ?>" class="btn btn-info" target="_blank"><i class="glyphicon glyphicon-print"></i></a>
+			                </div>
+			            
+			             </td>
 		               <td style="font-size: 13px;">
 			           		<div class="right">
 			                    <a href="<?php echo $helper->url("PrincipiosActivos","index_dos"); ?>&id_composiciones_edit=<?php echo $res->id_composiciones; ?>" class="btn btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
