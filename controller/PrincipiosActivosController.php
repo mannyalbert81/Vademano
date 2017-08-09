@@ -8,7 +8,7 @@ class PrincipiosActivosController extends ControladorBase{
 public function index(){
 	session_start();
 	    $composiciones = new ComposicionesModel();
-	    
+	    $existe="false";
 	    
 	    $columnas = "composiciones.id_composiciones,
 			  composiciones.nombre_composiciones,
@@ -107,7 +107,7 @@ public function index(){
 			}
 		
 		$this->view("PrincipiosActivos",array(
-				"resultSet"=>$resultSet, "resultEdit" =>$resultEdit, "resultMenu"=>$resultMenu
+				"resultSet"=>$resultSet, "resultEdit" =>$resultEdit, "resultMenu"=>$resultMenu, "existe"=>$existe
 			));
 		
 		
@@ -116,8 +116,29 @@ public function index(){
 	public function index_dos(){
 		session_start();
 		$composiciones = new ComposicionesModel();
-		$resultSet = $composiciones->getAll("nombre_composiciones");
-	
+		$columnas = "composiciones.id_composiciones,
+			  composiciones.nombre_composiciones,
+			  composiciones.creado,
+			  composiciones.modificado,
+			  composiciones.buscador,
+			  composiciones.categoria_farmacologica_composicion,
+			  composiciones.subcategoria_farmacologica_composiciones,
+			  composiciones.indicaciones_uso_composiciones,
+			  composiciones.forma_administracion_composiciones,
+			  composiciones.efectos_secundarios_composiciones,
+			  composiciones.mecanismo_accion_composiciones,
+			  composiciones.precausiones_composiociones,
+			  composiciones.interacciones_composiciones,
+			  composiciones.contraindicaciones_composiciones,
+			  composiciones.periodo_retirio_composiciones";
+		 
+		$tablas   = "public.composiciones";
+		$where    = "composiciones.id_composiciones>0";
+		$id = "composiciones.id_composiciones";
+		$resultSet=$composiciones->getCondiciones($columnas ,$tablas ,$where, $id);
+		
+		$resultMenu=array(0=>'--TODOS--',1=>'Nombre Principio');
+		$existe="false";
 		$resultEdit = "";
 		$_nombre_composiciones = "";
 		$_id_composiciones = 0  ;
@@ -142,9 +163,17 @@ public function index(){
 			
 				$_id_composiciones = $res->id_composiciones;
 			}
-			
-			$where    = "id_composiciones = '$_id_composiciones' ";
-			$resultEdit = $composiciones->getBy($where);
+			if($_id_composiciones>0){
+				$existe="true";
+				
+				
+				$this->view("PrincipiosActivos",array(
+						"existe"=>$existe, "resultSet"=>$resultSet, "resultMenu"=>$resultMenu, "nombre_composiciones"=>$_nombre_composiciones
+				));
+				
+				exit();
+			}
+		
 			
 			}else{
 				
@@ -217,7 +246,7 @@ public function index(){
 		else 
 		{
 			$this->view("PrincipiosActivosAdd",array(
-					"resultSet"=>$resultSet, "resultEdit" =>$resultEdit, "id_composiciones"=>$_id_composiciones, "nombre_composiciones"=>$_nombre_composiciones , "nuevo_composiciones"=>$_nuevo_composiciones
+					 "resultSet"=>$resultSet, "resultEdit" =>$resultEdit, "id_composiciones"=>$_id_composiciones, "nombre_composiciones"=>$_nombre_composiciones , "nuevo_composiciones"=>$_nuevo_composiciones
 			));
 			
 		}

@@ -156,7 +156,11 @@
 			 </div>
 			 </div>
              </form>
-            <hr/>
+            <div class="row">
+	       <div class="col-xs-12 col-md-12">
+		    <?php if ($existe == "true") {?><div class="alert alert-danger" role="alert">El Principio Activo <strong><?php echo $nombre_composiciones;?></strong> ya existe.</div><?php }?>	
+	        </div>
+	         </div>
         </div>
          <form action="<?php echo $helper->url("PrincipiosActivos","index"); ?>" method="post">
           <div class="col-lg-6">  
@@ -187,6 +191,8 @@
         </div>
         </div></div>
       
+     
+	    
         <section class="col-lg-12 usuario" >
         <table class="table table-hover">
 	         <tr class="info">

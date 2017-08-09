@@ -735,6 +735,31 @@
 					$sel_encabezado_dosificacion_fichas= $_POST['encabezado_dosificacion_fichas'];
 			     
 		   		}
+		   		
+		   		if($_SERVER['REQUEST_METHOD']=='GET' )
+		   		{
+		   			 
+		   			if ($resultEdit !="" ) {
+		   				 
+		   			}
+		   			else
+		   			{
+		   				$sel_nombre_fichas = $_GET['nombre_fichas'];
+		   				$sel_id_fichas = $_GET['id_fichas'];
+		   				$sel_indicaciones_uso_fichas = $_GET['indicaciones_uso_fichas'];
+		   				$sel_periodo_retiro_fichas = $_GET['periodo_retiro_fichas'];
+		   				$sel_presentacion_fichas = $_GET['presentacion_fichas'];
+		   				$sel_registro_sanitario_fichas = $_GET['registro_sanitario_fichas'];
+		   				$sel_conservacion_fichas = $_GET['conservacion_fichas'];
+		   				$sel_ingredientes_fichas = $_GET['ingredientes_fichas'];
+		   				$sel_tipo_alimento_fichas = $_GET['tipo_alimento_fichas'];
+		   				$sel_encabezado_tabla_fichas= $_GET['encabezado_tabla_fichas'];
+		   				$sel_encabezado_dosificacion_fichas= $_GET['encabezado_dosificacion_fichas'];
+		   			}
+		   			 
+		   			
+		   			
+		   		}
 		   }
           
 		   
@@ -905,10 +930,10 @@
 						               <td style="font-size: 11px;"> <?php echo $res->cantidad_fichas_composiciones; ?>     </td> 
 						               <td style="font-size: 11px;"> <?php echo $res->nombre_unidades_medida; ?>     </td> 
 						                 <td style="font-size: 11px;">   
-					                	   <a  href="<?php echo $helper->url("FichasAlimentos","index_dos"); ?>&id_fichas_composiciones_editar=<?php echo $res->id_fichas_composiciones; ?>&id_fichas=<?php echo $id_fichas; ?>" class="btn btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
+					                	   <a  href="<?php echo $helper->url("FichasAlimentos","index_dos"); ?>&id_fichas_composiciones_editar=<?php echo $res->id_fichas_composiciones; ?>&id_fichas=<?php echo $id_fichas; ?>&nombre_fichas=<?php echo $sel_nombre_fichas; ?>&indicaciones_uso_fichas=<?php echo $sel_indicaciones_uso_fichas; ?>&periodo_retiro_fichas=<?php echo $sel_periodo_retiro_fichas; ?>&presentacion_fichas=<?php echo $sel_presentacion_fichas; ?>&registro_sanitario_fichas=<?php echo $sel_registro_sanitario_fichas; ?>&conservacion_fichas=<?php echo $sel_conservacion_fichas; ?>&ingredientes_fichas=<?php echo $sel_ingredientes_fichas; ?>&tipo_alimento_fichas=<?php echo $sel_tipo_alimento_fichas; ?>&encabezado_tabla_fichas=<?php echo $sel_encabezado_tabla_fichas; ?>&encabezado_dosificacion_fichas=<?php echo $sel_encabezado_dosificacion_fichas; ?>" class="btn btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
 						                </td>
 						               <td style="font-size: 11px;">   
-							                    <a href="<?php echo $helper->url("FichasAlimentos","index_dos"); ?>&id_fichas_composiciones_borrar=<?php echo $res->id_fichas_composiciones; ?>&id_fichas=<?php echo $id_fichas; ?>" class="btn btn-danger" onClick="return mensaje();"><i class="glyphicon glyphicon-trash"></i></a>
+							                    <a href="<?php echo $helper->url("FichasAlimentos","index_dos"); ?>&id_fichas_composiciones_borrar=<?php echo $res->id_fichas_composiciones; ?>&id_fichas=<?php echo $id_fichas; ?>&nombre_fichas=<?php echo $sel_nombre_fichas; ?>&indicaciones_uso_fichas=<?php echo $sel_indicaciones_uso_fichas; ?>&periodo_retiro_fichas=<?php echo $sel_periodo_retiro_fichas; ?>&presentacion_fichas=<?php echo $sel_presentacion_fichas; ?>&registro_sanitario_fichas=<?php echo $sel_registro_sanitario_fichas; ?>&conservacion_fichas=<?php echo $sel_conservacion_fichas; ?>&ingredientes_fichas=<?php echo $sel_ingredientes_fichas; ?>&tipo_alimento_fichas=<?php echo $sel_tipo_alimento_fichas; ?>&encabezado_tabla_fichas=<?php echo $sel_encabezado_tabla_fichas; ?>&encabezado_dosificacion_fichas=<?php echo $sel_encabezado_dosificacion_fichas; ?>" class="btn btn-danger" onClick="return mensaje();"><i class="glyphicon glyphicon-trash"></i></a>
 							           </td>
 						    		</tr>
 						        <?php } ?>
@@ -1069,10 +1094,10 @@
 						               <td style="font-size: 11px;"> <?php echo $res->nombre_especies; ?>     </td> 
 						               <td style="font-size: 11px;"> <?php echo $res->dosis_fichas_dosificacion; ?>     </td> 
 						               <td style="font-size: 11px;">   
-					                	   <a  href="<?php echo $helper->url("FichasAlimentos","index_dos"); ?>&id_fichas_dosificacion_editar=<?php echo $res->id_fichas_dosificacion; ?>&id_fichas=<?php echo $id_fichas; ?>" class="btn btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
+					                	   <a  href="<?php echo $helper->url("FichasAlimentos","index_dos"); ?>&id_fichas_dosificacion_editar=<?php echo $res->id_fichas_dosificacion; ?>&id_fichas=<?php echo $id_fichas; ?>&nombre_fichas=<?php echo $sel_nombre_fichas; ?>&indicaciones_uso_fichas=<?php echo $sel_indicaciones_uso_fichas; ?>&periodo_retiro_fichas=<?php echo $sel_periodo_retiro_fichas; ?>&presentacion_fichas=<?php echo $sel_presentacion_fichas; ?>&registro_sanitario_fichas=<?php echo $sel_registro_sanitario_fichas; ?>&conservacion_fichas=<?php echo $sel_conservacion_fichas; ?>&ingredientes_fichas=<?php echo $sel_ingredientes_fichas; ?>&tipo_alimento_fichas=<?php echo $sel_tipo_alimento_fichas; ?>&encabezado_tabla_fichas=<?php echo $sel_encabezado_tabla_fichas; ?>&encabezado_dosificacion_fichas=<?php echo $sel_encabezado_dosificacion_fichas; ?>" class="btn btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
 						                </td>
 						               <td style="font-size: 11px;">   
-							                    <a href="<?php echo $helper->url("FichasAlimentos","index_dos"); ?>&id_fichas_dosificacion_borrar=<?php echo $res->id_fichas_dosificacion; ?>&id_fichas=<?php echo $id_fichas; ?>" class="btn btn-danger" onClick="return mensaje();"><i class="glyphicon glyphicon-trash"></i></a>
+							                    <a href="<?php echo $helper->url("FichasAlimentos","index_dos"); ?>&id_fichas_dosificacion_borrar=<?php echo $res->id_fichas_dosificacion; ?>&id_fichas=<?php echo $id_fichas; ?>&nombre_fichas=<?php echo $sel_nombre_fichas; ?>&indicaciones_uso_fichas=<?php echo $sel_indicaciones_uso_fichas; ?>&periodo_retiro_fichas=<?php echo $sel_periodo_retiro_fichas; ?>&presentacion_fichas=<?php echo $sel_presentacion_fichas; ?>&registro_sanitario_fichas=<?php echo $sel_registro_sanitario_fichas; ?>&conservacion_fichas=<?php echo $sel_conservacion_fichas; ?>&ingredientes_fichas=<?php echo $sel_ingredientes_fichas; ?>&tipo_alimento_fichas=<?php echo $sel_tipo_alimento_fichas; ?>&encabezado_tabla_fichas=<?php echo $sel_encabezado_tabla_fichas; ?>&encabezado_dosificacion_fichas=<?php echo $sel_encabezado_dosificacion_fichas; ?>" class="btn btn-danger" onClick="return mensaje();"><i class="glyphicon glyphicon-trash"></i></a>
 							           </td>
 						    		</tr>
 						        <?php } ?>
@@ -1214,10 +1239,10 @@
 					                   <td style="font-size: 11px;"> <?php echo $res->id_fichas_distribuidores; ?>  </td>
 						               <td style="font-size: 11px;"> <?php echo $res->nombre_distribuidores; ?>     </td> 
 						               <td style="font-size: 11px;">   
-					                	   <a  href="<?php echo $helper->url("FichasProductos","index_dos"); ?>&id_fichas_distribuidores_editar=<?php echo $res->id_fichas_distribuidores; ?>&id_fichas=<?php echo $id_fichas; ?>" class="btn btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
+					                	   <a  href="<?php echo $helper->url("FichasProductos","index_dos"); ?>&id_fichas_distribuidores_editar=<?php echo $res->id_fichas_distribuidores; ?>&id_fichas=<?php echo $id_fichas; ?>&nombre_fichas=<?php echo $sel_nombre_fichas; ?>&indicaciones_uso_fichas=<?php echo $sel_indicaciones_uso_fichas; ?>&periodo_retiro_fichas=<?php echo $sel_periodo_retiro_fichas; ?>&presentacion_fichas=<?php echo $sel_presentacion_fichas; ?>&registro_sanitario_fichas=<?php echo $sel_registro_sanitario_fichas; ?>&conservacion_fichas=<?php echo $sel_conservacion_fichas; ?>&ingredientes_fichas=<?php echo $sel_ingredientes_fichas; ?>&tipo_alimento_fichas=<?php echo $sel_tipo_alimento_fichas; ?>&encabezado_tabla_fichas=<?php echo $sel_encabezado_tabla_fichas; ?>&encabezado_dosificacion_fichas=<?php echo $sel_encabezado_dosificacion_fichas; ?>" class="btn btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
 						                </td>
 						               <td style="font-size: 11px;">   
-							                    <a href="<?php echo $helper->url("FichasProductos","index_dos"); ?>&id_fichas_distribuidores_borrar=<?php echo $res->id_fichas_distribuidores; ?>&id_fichas=<?php echo $id_fichas; ?>" class="btn btn-danger" onClick="return mensaje();"><i class="glyphicon glyphicon-trash"></i></a>
+							                    <a href="<?php echo $helper->url("FichasProductos","index_dos"); ?>&id_fichas_distribuidores_borrar=<?php echo $res->id_fichas_distribuidores; ?>&id_fichas=<?php echo $id_fichas; ?>&nombre_fichas=<?php echo $sel_nombre_fichas; ?>&indicaciones_uso_fichas=<?php echo $sel_indicaciones_uso_fichas; ?>&periodo_retiro_fichas=<?php echo $sel_periodo_retiro_fichas; ?>&presentacion_fichas=<?php echo $sel_presentacion_fichas; ?>&registro_sanitario_fichas=<?php echo $sel_registro_sanitario_fichas; ?>&conservacion_fichas=<?php echo $sel_conservacion_fichas; ?>&ingredientes_fichas=<?php echo $sel_ingredientes_fichas; ?>&tipo_alimento_fichas=<?php echo $sel_tipo_alimento_fichas; ?>&encabezado_tabla_fichas=<?php echo $sel_encabezado_tabla_fichas; ?>&encabezado_dosificacion_fichas=<?php echo $sel_encabezado_dosificacion_fichas; ?>" class="btn btn-danger" onClick="return mensaje();"><i class="glyphicon glyphicon-trash"></i></a>
 							           </td>
 						    		</tr>
 						        <?php } ?>
@@ -1324,10 +1349,10 @@
 					                   <td style="font-size: 11px;"> <?php echo $res->id_fichas_laboratorios; ?>  </td>
 						               <td style="font-size: 11px;"> <?php echo $res->nombre_laboratorios; ?>     </td> 
 						               <td style="font-size: 11px;">   
-					                	   <a  href="<?php echo $helper->url("FichasProductos","index_dos"); ?>&id_fichas_laboratorios_editar=<?php echo $res->id_fichas_laboratorios; ?>&id_fichas=<?php echo $id_fichas; ?>" class="btn btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
+					                	   <a  href="<?php echo $helper->url("FichasProductos","index_dos"); ?>&id_fichas_laboratorios_editar=<?php echo $res->id_fichas_laboratorios; ?>&id_fichas=<?php echo $id_fichas; ?>&nombre_fichas=<?php echo $sel_nombre_fichas; ?>&indicaciones_uso_fichas=<?php echo $sel_indicaciones_uso_fichas; ?>&periodo_retiro_fichas=<?php echo $sel_periodo_retiro_fichas; ?>&presentacion_fichas=<?php echo $sel_presentacion_fichas; ?>&registro_sanitario_fichas=<?php echo $sel_registro_sanitario_fichas; ?>&conservacion_fichas=<?php echo $sel_conservacion_fichas; ?>&ingredientes_fichas=<?php echo $sel_ingredientes_fichas; ?>&tipo_alimento_fichas=<?php echo $sel_tipo_alimento_fichas; ?>&encabezado_tabla_fichas=<?php echo $sel_encabezado_tabla_fichas; ?>&encabezado_dosificacion_fichas=<?php echo $sel_encabezado_dosificacion_fichas; ?>" class="btn btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
 						                </td>
 						               <td style="font-size: 11px;">   
-							                    <a href="<?php echo $helper->url("FichasProductos","index_dos"); ?>&id_fichas_laboratorios_borrar=<?php echo $res->id_fichas_laboratorios; ?>&id_fichas=<?php echo $id_fichas; ?>" class="btn btn-danger" onClick="return mensaje();"><i class="glyphicon glyphicon-trash"></i></a>
+							                    <a href="<?php echo $helper->url("FichasProductos","index_dos"); ?>&id_fichas_laboratorios_borrar=<?php echo $res->id_fichas_laboratorios; ?>&id_fichas=<?php echo $id_fichas; ?>&nombre_fichas=<?php echo $sel_nombre_fichas; ?>&indicaciones_uso_fichas=<?php echo $sel_indicaciones_uso_fichas; ?>&periodo_retiro_fichas=<?php echo $sel_periodo_retiro_fichas; ?>&presentacion_fichas=<?php echo $sel_presentacion_fichas; ?>&registro_sanitario_fichas=<?php echo $sel_registro_sanitario_fichas; ?>&conservacion_fichas=<?php echo $sel_conservacion_fichas; ?>&ingredientes_fichas=<?php echo $sel_ingredientes_fichas; ?>&tipo_alimento_fichas=<?php echo $sel_tipo_alimento_fichas; ?>&encabezado_tabla_fichas=<?php echo $sel_encabezado_tabla_fichas; ?>&encabezado_dosificacion_fichas=<?php echo $sel_encabezado_dosificacion_fichas; ?>" class="btn btn-danger" onClick="return mensaje();"><i class="glyphicon glyphicon-trash"></i></a>
 							           </td>
 						    		</tr>
 						        <?php } ?>
@@ -1541,10 +1566,10 @@
 						               <td style="font-size: 11px;"> <?php echo $res->cantidad_fichas_composiciones; ?>     </td> 
 						               <td style="font-size: 11px;"> <?php echo $res->nombre_unidades_medida; ?>     </td> 
 						                 <td style="font-size: 11px;">   
-					                	   <a  href="<?php echo $helper->url("FichasAlimentos","index_dos"); ?>&id_fichas_composiciones_editar=<?php echo $res->id_fichas_composiciones; ?>&id_fichas=<?php echo $id_fichas; ?>" class="btn btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
+					                	   <a  href="<?php echo $helper->url("FichasAlimentos","index_dos"); ?>&id_fichas_composiciones_editar=<?php echo $res->id_fichas_composiciones; ?>&id_fichas=<?php echo $id_fichas; ?>&nombre_fichas=<?php echo $sel_nombre_fichas; ?>&indicaciones_uso_fichas=<?php echo $sel_indicaciones_uso_fichas; ?>&periodo_retiro_fichas=<?php echo $sel_periodo_retiro_fichas; ?>&presentacion_fichas=<?php echo $sel_presentacion_fichas; ?>&registro_sanitario_fichas=<?php echo $sel_registro_sanitario_fichas; ?>&conservacion_fichas=<?php echo $sel_conservacion_fichas; ?>&ingredientes_fichas=<?php echo $sel_ingredientes_fichas; ?>&tipo_alimento_fichas=<?php echo $sel_tipo_alimento_fichas; ?>&encabezado_tabla_fichas=<?php echo $sel_encabezado_tabla_fichas; ?>&encabezado_dosificacion_fichas=<?php echo $sel_encabezado_dosificacion_fichas; ?>" class="btn btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
 						                </td>
 						               <td style="font-size: 11px;">   
-							                    <a href="<?php echo $helper->url("FichasAlimentos","index_dos"); ?>&id_fichas_composiciones_borrar=<?php echo $res->id_fichas_composiciones; ?>&id_fichas=<?php echo $id_fichas; ?>" class="btn btn-danger" onClick="return mensaje();"><i class="glyphicon glyphicon-trash"></i></a>
+							                    <a href="<?php echo $helper->url("FichasAlimentos","index_dos"); ?>&id_fichas_composiciones_borrar=<?php echo $res->id_fichas_composiciones; ?>&id_fichas=<?php echo $id_fichas; ?>&nombre_fichas=<?php echo $sel_nombre_fichas; ?>&indicaciones_uso_fichas=<?php echo $sel_indicaciones_uso_fichas; ?>&periodo_retiro_fichas=<?php echo $sel_periodo_retiro_fichas; ?>&presentacion_fichas=<?php echo $sel_presentacion_fichas; ?>&registro_sanitario_fichas=<?php echo $sel_registro_sanitario_fichas; ?>&conservacion_fichas=<?php echo $sel_conservacion_fichas; ?>&ingredientes_fichas=<?php echo $sel_ingredientes_fichas; ?>&tipo_alimento_fichas=<?php echo $sel_tipo_alimento_fichas; ?>&encabezado_tabla_fichas=<?php echo $sel_encabezado_tabla_fichas; ?>&encabezado_dosificacion_fichas=<?php echo $sel_encabezado_dosificacion_fichas; ?>" class="btn btn-danger" onClick="return mensaje();"><i class="glyphicon glyphicon-trash"></i></a>
 							           </td>
 						    		</tr>
 						        <?php } ?>
@@ -1705,10 +1730,10 @@
 						               <td style="font-size: 11px;"> <?php echo $res->nombre_especies; ?>     </td> 
 						               <td style="font-size: 11px;"> <?php echo $res->dosis_fichas_dosificacion; ?>     </td> 
 						               <td style="font-size: 11px;">   
-					                	   <a  href="<?php echo $helper->url("FichasAlimentos","index_dos"); ?>&id_fichas_dosificacion_editar=<?php echo $res->id_fichas_dosificacion; ?>&id_fichas=<?php echo $id_fichas; ?>" class="btn btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
+					                	   <a  href="<?php echo $helper->url("FichasAlimentos","index_dos"); ?>&id_fichas_dosificacion_editar=<?php echo $res->id_fichas_dosificacion; ?>&id_fichas=<?php echo $id_fichas; ?>&nombre_fichas=<?php echo $sel_nombre_fichas; ?>&indicaciones_uso_fichas=<?php echo $sel_indicaciones_uso_fichas; ?>&periodo_retiro_fichas=<?php echo $sel_periodo_retiro_fichas; ?>&presentacion_fichas=<?php echo $sel_presentacion_fichas; ?>&registro_sanitario_fichas=<?php echo $sel_registro_sanitario_fichas; ?>&conservacion_fichas=<?php echo $sel_conservacion_fichas; ?>&ingredientes_fichas=<?php echo $sel_ingredientes_fichas; ?>&tipo_alimento_fichas=<?php echo $sel_tipo_alimento_fichas; ?>&encabezado_tabla_fichas=<?php echo $sel_encabezado_tabla_fichas; ?>&encabezado_dosificacion_fichas=<?php echo $sel_encabezado_dosificacion_fichas; ?>" class="btn btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
 						                </td>
 						               <td style="font-size: 11px;">   
-							                    <a href="<?php echo $helper->url("FichasAlimentos","index_dos"); ?>&id_fichas_dosificacion_borrar=<?php echo $res->id_fichas_dosificacion; ?>&id_fichas=<?php echo $id_fichas; ?>" class="btn btn-danger" onClick="return mensaje();"><i class="glyphicon glyphicon-trash"></i></a>
+							                    <a href="<?php echo $helper->url("FichasAlimentos","index_dos"); ?>&id_fichas_dosificacion_borrar=<?php echo $res->id_fichas_dosificacion; ?>&id_fichas=<?php echo $id_fichas; ?>&nombre_fichas=<?php echo $sel_nombre_fichas; ?>&indicaciones_uso_fichas=<?php echo $sel_indicaciones_uso_fichas; ?>&periodo_retiro_fichas=<?php echo $sel_periodo_retiro_fichas; ?>&presentacion_fichas=<?php echo $sel_presentacion_fichas; ?>&registro_sanitario_fichas=<?php echo $sel_registro_sanitario_fichas; ?>&conservacion_fichas=<?php echo $sel_conservacion_fichas; ?>&ingredientes_fichas=<?php echo $sel_ingredientes_fichas; ?>&tipo_alimento_fichas=<?php echo $sel_tipo_alimento_fichas; ?>&encabezado_tabla_fichas=<?php echo $sel_encabezado_tabla_fichas; ?>&encabezado_dosificacion_fichas=<?php echo $sel_encabezado_dosificacion_fichas; ?>" class="btn btn-danger" onClick="return mensaje();"><i class="glyphicon glyphicon-trash"></i></a>
 							           </td>
 						    		</tr>
 						        <?php } ?>
@@ -1850,10 +1875,10 @@
 					                   <td style="font-size: 11px;"> <?php echo $res->id_fichas_distribuidores; ?>  </td>
 						               <td style="font-size: 11px;"> <?php echo $res->nombre_distribuidores; ?>     </td> 
 						               <td style="font-size: 11px;">   
-					                	   <a  href="<?php echo $helper->url("FichasProductos","index_dos"); ?>&id_fichas_distribuidores_editar=<?php echo $res->id_fichas_distribuidores; ?>&id_fichas=<?php echo $id_fichas; ?>" class="btn btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
+					                	   <a  href="<?php echo $helper->url("FichasProductos","index_dos"); ?>&id_fichas_distribuidores_editar=<?php echo $res->id_fichas_distribuidores; ?>&id_fichas=<?php echo $id_fichas; ?>&nombre_fichas=<?php echo $sel_nombre_fichas; ?>&indicaciones_uso_fichas=<?php echo $sel_indicaciones_uso_fichas; ?>&periodo_retiro_fichas=<?php echo $sel_periodo_retiro_fichas; ?>&presentacion_fichas=<?php echo $sel_presentacion_fichas; ?>&registro_sanitario_fichas=<?php echo $sel_registro_sanitario_fichas; ?>&conservacion_fichas=<?php echo $sel_conservacion_fichas; ?>&ingredientes_fichas=<?php echo $sel_ingredientes_fichas; ?>&tipo_alimento_fichas=<?php echo $sel_tipo_alimento_fichas; ?>&encabezado_tabla_fichas=<?php echo $sel_encabezado_tabla_fichas; ?>&encabezado_dosificacion_fichas=<?php echo $sel_encabezado_dosificacion_fichas; ?>" class="btn btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
 						                </td>
 						               <td style="font-size: 11px;">   
-							                    <a href="<?php echo $helper->url("FichasProductos","index_dos"); ?>&id_fichas_distribuidores_borrar=<?php echo $res->id_fichas_distribuidores; ?>&id_fichas=<?php echo $id_fichas; ?>" class="btn btn-danger" onClick="return mensaje();"><i class="glyphicon glyphicon-trash"></i></a>
+							                    <a href="<?php echo $helper->url("FichasProductos","index_dos"); ?>&id_fichas_distribuidores_borrar=<?php echo $res->id_fichas_distribuidores; ?>&id_fichas=<?php echo $id_fichas; ?>&nombre_fichas=<?php echo $sel_nombre_fichas; ?>&indicaciones_uso_fichas=<?php echo $sel_indicaciones_uso_fichas; ?>&periodo_retiro_fichas=<?php echo $sel_periodo_retiro_fichas; ?>&presentacion_fichas=<?php echo $sel_presentacion_fichas; ?>&registro_sanitario_fichas=<?php echo $sel_registro_sanitario_fichas; ?>&conservacion_fichas=<?php echo $sel_conservacion_fichas; ?>&ingredientes_fichas=<?php echo $sel_ingredientes_fichas; ?>&tipo_alimento_fichas=<?php echo $sel_tipo_alimento_fichas; ?>&encabezado_tabla_fichas=<?php echo $sel_encabezado_tabla_fichas; ?>&encabezado_dosificacion_fichas=<?php echo $sel_encabezado_dosificacion_fichas; ?>" class="btn btn-danger" onClick="return mensaje();"><i class="glyphicon glyphicon-trash"></i></a>
 							           </td>
 						    		</tr>
 						        <?php } ?>
@@ -1960,10 +1985,10 @@
 					                   <td style="font-size: 11px;"> <?php echo $res->id_fichas_laboratorios; ?>  </td>
 						               <td style="font-size: 11px;"> <?php echo $res->nombre_laboratorios; ?>     </td> 
 						               <td style="font-size: 11px;">   
-					                	   <a  href="<?php echo $helper->url("FichasProductos","index_dos"); ?>&id_fichas_laboratorios_editar=<?php echo $res->id_fichas_laboratorios; ?>&id_fichas=<?php echo $id_fichas; ?>" class="btn btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
+					                	   <a  href="<?php echo $helper->url("FichasProductos","index_dos"); ?>&id_fichas_laboratorios_editar=<?php echo $res->id_fichas_laboratorios; ?>&id_fichas=<?php echo $id_fichas; ?>&nombre_fichas=<?php echo $sel_nombre_fichas; ?>&indicaciones_uso_fichas=<?php echo $sel_indicaciones_uso_fichas; ?>&periodo_retiro_fichas=<?php echo $sel_periodo_retiro_fichas; ?>&presentacion_fichas=<?php echo $sel_presentacion_fichas; ?>&registro_sanitario_fichas=<?php echo $sel_registro_sanitario_fichas; ?>&conservacion_fichas=<?php echo $sel_conservacion_fichas; ?>&ingredientes_fichas=<?php echo $sel_ingredientes_fichas; ?>&tipo_alimento_fichas=<?php echo $sel_tipo_alimento_fichas; ?>&encabezado_tabla_fichas=<?php echo $sel_encabezado_tabla_fichas; ?>&encabezado_dosificacion_fichas=<?php echo $sel_encabezado_dosificacion_fichas; ?>" class="btn btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
 						                </td>
 						               <td style="font-size: 11px;">   
-							                    <a href="<?php echo $helper->url("FichasProductos","index_dos"); ?>&id_fichas_laboratorios_borrar=<?php echo $res->id_fichas_laboratorios; ?>&id_fichas=<?php echo $id_fichas; ?>" class="btn btn-danger" onClick="return mensaje();"><i class="glyphicon glyphicon-trash"></i></a>
+							                    <a href="<?php echo $helper->url("FichasProductos","index_dos"); ?>&id_fichas_laboratorios_borrar=<?php echo $res->id_fichas_laboratorios; ?>&id_fichas=<?php echo $id_fichas; ?>&nombre_fichas=<?php echo $sel_nombre_fichas; ?>&indicaciones_uso_fichas=<?php echo $sel_indicaciones_uso_fichas; ?>&periodo_retiro_fichas=<?php echo $sel_periodo_retiro_fichas; ?>&presentacion_fichas=<?php echo $sel_presentacion_fichas; ?>&registro_sanitario_fichas=<?php echo $sel_registro_sanitario_fichas; ?>&conservacion_fichas=<?php echo $sel_conservacion_fichas; ?>&ingredientes_fichas=<?php echo $sel_ingredientes_fichas; ?>&tipo_alimento_fichas=<?php echo $sel_tipo_alimento_fichas; ?>&encabezado_tabla_fichas=<?php echo $sel_encabezado_tabla_fichas; ?>&encabezado_dosificacion_fichas=<?php echo $sel_encabezado_dosificacion_fichas; ?>" class="btn btn-danger" onClick="return mensaje();"><i class="glyphicon glyphicon-trash"></i></a>
 							           </td>
 						    		</tr>
 						        <?php } ?>

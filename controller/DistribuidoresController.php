@@ -8,8 +8,25 @@ class DistribuidoresController extends ControladorBase{
 public function index(){
 	session_start();
 	    $distribuidores = new DistribuidoresModel();
-		$resultSet = $distribuidores->getAll("id_distribuidores");
-	   
+		
+		
+		$columnas = "distribuidores.id_distribuidores, 
+					  distribuidores.nombre_distribuidores, 
+					  distribuidores.persona_contacto_distribuidores, 
+					  distribuidores.telefono_persona_contacto_distribuidores, 
+					  distribuidores.email_distribuidores, 
+					  distribuidores.web_distribuidores, 
+					  distribuidores.logo_distribuidores, 
+					  distribuidores.creado, 
+					  distribuidores.modificado, 
+					  distribuidores.buscador";
+		$tablas   = "public.distribuidores";
+		$where    = "distribuidores.id_distribuidores>0";
+		$id       = "distribuidores.id_distribuidores";
+			
+		$resultSet=$distribuidores->getCondiciones($columnas ,$tablas ,$where, $id);
+		
+		$existe="false";
 		$resultEdit = "";
 		$resultMenu=array(0=>'--TODOS--',1=>'Nombre Distribuidor',2=>'Nombre Persona Contacto',3=>'Email Distribuidor',4=>'Web Distribuidor');
 			
@@ -102,7 +119,7 @@ public function index(){
 			}
 		
 		$this->view("Distribuidores",array(
-				"resultSet"=>$resultSet, "resultEdit" =>$resultEdit, "resultMenu"=>$resultMenu
+				"resultSet"=>$resultSet, "resultEdit" =>$resultEdit, "resultMenu"=>$resultMenu, "existe"=>$existe
 			));
 			
 			
@@ -114,8 +131,25 @@ public function index(){
 		
 		session_start();
 		$distribuidores = new DistribuidoresModel();
-		$resultSet = $distribuidores->getAll("id_distribuidores");
+		$columnas = "distribuidores.id_distribuidores,
+					  distribuidores.nombre_distribuidores,
+					  distribuidores.persona_contacto_distribuidores,
+					  distribuidores.telefono_persona_contacto_distribuidores,
+					  distribuidores.email_distribuidores,
+					  distribuidores.web_distribuidores,
+					  distribuidores.logo_distribuidores,
+					  distribuidores.creado,
+					  distribuidores.modificado,
+					  distribuidores.buscador";
+		$tablas   = "public.distribuidores";
+		$where    = "distribuidores.id_distribuidores>0";
+		$id       = "distribuidores.id_distribuidores";
+			
+		$resultSet=$distribuidores->getCondiciones($columnas ,$tablas ,$where, $id);
 		
+		$resultMenu=array(0=>'--TODOS--',1=>'Nombre Distribuidor',2=>'Nombre Persona Contacto',3=>'Email Distribuidor',4=>'Web Distribuidor');
+		
+		$existe="false";
 		$provincias=new ProvinciasModel();
 		$resultProv = $provincias->getAll("nombre_provincia");
 		
@@ -163,9 +197,18 @@ public function index(){
 					$_id_distribuidores = $res->id_distribuidores;
 				}
 					
-				$where    = "id_distribuidores = '$_id_distribuidores' ";
-				$resultEdit = $distribuidores->getBy($where);
-				$_nuevo_distribuidores = TRUE;
+				
+				if($_id_distribuidores>0){
+					$existe="true";
+				
+					$this->view("Distribuidores",array(
+							"existe"=>$existe,"resultSet"=>$resultSet, "resultEdit" =>$resultEdit, "resultMenu"=>$resultMenu, "nombre_distribuidores"=>$_nombre_distribuidores
+					));
+						
+					
+				
+					exit();
+				}
 			}else{
 			
 			

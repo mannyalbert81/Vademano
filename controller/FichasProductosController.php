@@ -1561,7 +1561,8 @@ public function index(){
    		$laboratorios = new LaboratoriosModel();
    		
    		
-   		if(isset($_REQUEST['id_fichas'])&&isset($_REQUEST['nombre_fichas']))
+   		//if(isset($_REQUEST['id_fichas'])&&isset($_REQUEST['nombre_fichas']))
+   		if(isset($_REQUEST['id_fichas']))
    		{
    			
    			$id_fichas = $_REQUEST["id_fichas"];

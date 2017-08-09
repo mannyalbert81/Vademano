@@ -200,6 +200,7 @@
 				
 	    		<th style="text-align: left;  font-size: 14px;"></th>
 	    		<th style="text-align: left;  font-size: 14px;"></th>
+	    		<th style="text-align: left;  font-size: 14px;"></th>
 	  		</tr>
                 
 	            <?php foreach($resultSet as $res) {?>
@@ -216,7 +217,12 @@
 		               <td style="font-size: 13px;"> <?php echo $res->registro_sanitario_fichas; ?>     </td> 
 		             
 		               
-		               
+		                <td>
+			           		<div class="right">
+			                    <a href="<?php echo $helper->url("FichasProductos","verFicha"); ?>&id_fichas=<?php echo $res->id_fichas; ?>" class="btn btn-info" target="_blank"><i class="glyphicon glyphicon-print"></i></a>
+			                </div>
+			            
+			             </td>
 		               
 		               
 		               <td>

@@ -10,7 +10,7 @@ class UsuariosController extends ControladorBase{
 public function index(){
 		
 	session_start();
-			//Creamos el objeto usuario
+	$existe="false";
 	
 			$usuarios = new UsuariosModel();
 
@@ -114,7 +114,7 @@ public function index(){
 			
 					
 			$this->view("Usuarios",array(
-					"resultSet"=>$resultSet, "resultMenu"=>$resultMenu
+					"resultSet"=>$resultSet, "resultMenu"=>$resultMenu, "existe"=>$existe
 			));
 		
 		
@@ -129,9 +129,20 @@ public function index(){
 		$resultEdit = "";
 		$_usuario_usuario = "";
 		$_nuevo_usuario = "false";
-		
+		$existe="false";
 		$usuario = new UsuariosModel();
-		$resultSet = $usuario->getAll("id_usuario");
+		$columnas = "usuarios.id_usuario, usuarios.nombres_usuario, usuarios.apellidos_usuario, paises.nombre_pais,
+  						   provincias.nombre_provincia, usuarios.fecha_nacimiento_usuario, usuarios.usuario_usuario,
+  						   usuarios.telefono_usuario, usuarios.celular_usuario, usuarios.correo_usuario,
+  						   rol.nombre_rol, estado.nombre_estado, ocupaciones.nombre_ocupaciones, usuarios.extra_ocupacion_usuario , usuarios.creado, usuarios.modificado ";
+		$tablas   = "public.usuarios, public.estado, public.paises, public.provincias, public.rol, public.ocupaciones";
+		$where    = "estado.id_estado = usuarios.id_estado AND paises.id_pais = usuarios.id_pais AND
+  						 provincias.id_provincia = usuarios.id_provincia AND rol.id_rol = usuarios.id_rol AND ocupaciones.id_ocupaciones = usuarios.id_ocupaciones ";
+		$id       = "usuarios.nombres_usuario";
+			
+		$resultSet=$usuario->getCondiciones($columnas ,$tablas ,$where, $id);
+			
+		$resultMenu=array(0=>'--TODOS--',1=>'Nombre', 2=>'Apellido', 3=>'Usuario', 4=>'Rol', 5=>'Provincia');
 	
 		$provincias=new ProvinciasModel();
 		$resultProv = $provincias->getAll("nombre_provincia");
@@ -179,8 +190,17 @@ public function index(){
 					$_id_usuario = $res->id_usuario;
 				}
 					
-				$where    = "id_usuario = '$_id_usuario' ";
-				$resultEdit = $usuarios->getBy($where);
+				if($_id_usuario>0){
+					$existe="true";
+				
+				
+					
+					$this->view("Usuarios",array(
+							"existe"=>$existe,"resultSet"=>$resultSet, "resultMenu"=>$resultMenu, "usuario_usuario"=>$_usuario_usuario
+					));
+				
+					exit();
+				}
 					
 			}else{
 			

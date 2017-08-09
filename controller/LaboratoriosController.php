@@ -9,7 +9,23 @@ public function index(){
 	session_start();
 	
 	$laboratorios = new LaboratoriosModel();
-	$resultSet = $laboratorios->getAll("id_laboratorios");
+	$existe="false";
+	
+	$columnas = "laboratorios.id_laboratorios,
+					  laboratorios.nombre_laboratorios,
+					  laboratorios.persona_contacto_laboratorios,
+					  laboratorios.telefono_persona_contacto_laboratorios,
+					  laboratorios.email_laboratorios,
+					  laboratorios.web_laboratorios,
+					  laboratorios.logo_laboratorios,
+					  laboratorios.creado,
+					  laboratorios.modificado,
+					  laboratorios.buscador";
+	$tablas   = "public.laboratorios";
+	$where    = "laboratorios.id_laboratorios>0";
+	$id       = "laboratorios.id_laboratorios";
+		
+	$resultSet=$laboratorios->getCondiciones($columnas ,$tablas ,$where, $id);
 	
 	$resultEdit = "";
 	$resultMenu=array(0=>'--TODOS--',1=>'Nombre Laboratorio',2=>'Nombre Persona Contacto',3=>'Email Laboratorio',4=>'Web Laboratorio');
@@ -106,7 +122,7 @@ public function index(){
 	}
 	
 	$this->view("Laboratorios",array(
-			"resultSet"=>$resultSet, "resultEdit" =>$resultEdit, "resultMenu"=>$resultMenu
+			"resultSet"=>$resultSet, "resultEdit" =>$resultEdit, "resultMenu"=>$resultMenu, "existe"=>$existe
 	));
 	
 	
@@ -117,8 +133,24 @@ public function index(){
 		
 		session_start();
 		$laboratorios = new LaboratoriosModel();
-		$resultSet = $laboratorios->getAll("id_laboratorios");
-	
+		$columnas = "laboratorios.id_laboratorios,
+					  laboratorios.nombre_laboratorios,
+					  laboratorios.persona_contacto_laboratorios,
+					  laboratorios.telefono_persona_contacto_laboratorios,
+					  laboratorios.email_laboratorios,
+					  laboratorios.web_laboratorios,
+					  laboratorios.logo_laboratorios,
+					  laboratorios.creado,
+					  laboratorios.modificado,
+					  laboratorios.buscador";
+		$tablas   = "public.laboratorios";
+		$where    = "laboratorios.id_laboratorios>0";
+		$id       = "laboratorios.id_laboratorios";
+		
+		$resultSet=$laboratorios->getCondiciones($columnas ,$tablas ,$where, $id);
+		
+		$resultMenu=array(0=>'--TODOS--',1=>'Nombre Laboratorio',2=>'Nombre Persona Contacto',3=>'Email Laboratorio',4=>'Web Laboratorio');
+		$existe="false";
 		
 		$provincias=new ProvinciasModel();
 		$resultProv = $provincias->getAll("nombre_provincia");
@@ -164,9 +196,19 @@ public function index(){
 					$_id_laboratorios = $res->id_laboratorios;
 				}
 					
-				$where    = "id_laboratorios = '$_id_laboratorios' ";
-				$resultEdit = $laboratorios->getBy($where);
-				$_nuevo_laboratorios = TRUE;
+			if($_id_laboratorios>0){
+					$existe="true";
+				
+					
+					$this->view("Laboratorios",array(
+							"existe"=>$existe,"resultSet"=>$resultSet, "resultEdit" =>$resultEdit, "resultMenu"=>$resultMenu, "existe"=>$existe, "nombre_laboratorios"=>$_nombre_laboratorios
+					));
+					
+				
+					
+				
+					exit();
+				}
 			}else{	
 			$_nuevo_laboratorios = TRUE;
 			$funcion = "ins_laboratorios";

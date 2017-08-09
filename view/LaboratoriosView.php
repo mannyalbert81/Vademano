@@ -153,6 +153,12 @@
 				  	
 				  	<button type="submit" id="btn_agregar_laboratorio" name="btn_agregar_laboratorio"  class="btn btn-primary"><span class="glyphicon glyphicon-plus	" ><?php echo "" ;?> </span></button>
 			 </div></div></div>
+			 
+			 <div class="row">
+	        <div class="col-xs-12 col-md-12">
+		    <?php if ($existe == "true") {?><div class="alert alert-danger" role="alert">El Laboratorio <strong><?php echo $nombre_laboratorios;?></strong> ya existe.</div><?php }?>	
+	        </div>
+	        </div>
              </form>
          
        
