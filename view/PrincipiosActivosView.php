@@ -158,7 +158,7 @@
              </form>
             <div class="row">
 	       <div class="col-xs-12 col-md-12">
-		    <?php if ($existe == "true") {?><div class="alert alert-danger" role="alert">El Principio Activo <strong><?php echo $nombre_composiciones;?></strong> ya existe.</div><?php }?>	
+		    <?php if ($existe == "true") {?><div class="alert alert-danger" role="alert">El Principio Activo <strong><?php echo $nombre_composiciones;?></strong> ya esta registrado en nuestro sistema.</div><?php }?>	
 	        </div>
 	         </div>
         </div>

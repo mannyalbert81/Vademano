@@ -156,7 +156,7 @@
 			 
 			 <div class="row">
 	        <div class="col-xs-12 col-md-12">
-		    <?php if ($existe == "true") {?><div class="alert alert-danger" role="alert">El Laboratorio <strong><?php echo $nombre_laboratorios;?></strong> ya existe.</div><?php }?>	
+		    <?php if ($existe == "true") {?><div class="alert alert-danger" role="alert">El Laboratorio <strong><?php echo $nombre_laboratorios;?></strong> ya esta registrado en nuestro sistema.</div><?php }?>	
 	        </div>
 	        </div>
              </form>
