@@ -1615,13 +1615,11 @@ public function index(){
    			$dtFichas = $fichas->getCondiciones($columnas, $tablas, $where, $id);
    			
    			//para la tabla especies
-   			$columnasEsp="e.nombre_especies,fd.dosis_fichas_dosificacion,fd.id_fichas,fd.id_especies";
+   			$columnasEsp="fe.id_fichas,fe.id_especies,e.nombre_especies,e.logo_especies";
    			
-   			$tablasEsp =" public.fichas_dosificacion fd 
-   					INNER JOIN public.especies e
-   					ON fd.id_especies = e.id_especies";
+   			$tablasEsp ="public.fichas_especies fe INNER JOIN public.especies e ON e.id_especies = fe.id_especies";
    			 
-   			$whereEsp="fd.id_fichas = '$id_fichas'";
+   			$whereEsp="fe.id_fichas = '$id_fichas'";
    			
    			$idEsp="e.nombre_especies";
    			
@@ -1670,11 +1668,56 @@ public function index(){
    			AND fichas_distribuidores.id_fichas = '$id_fichas'	";
    			$id_dis = "distribuidores.nombre_distribuidores";
    			
+   			//para la consulta de dosificacion
+   			
+   			$columnasDosi="e.nombre_especies, d.dosis_fichas_dosificacion,d.id_fichas, d.id_especies";   			
+   			$tablasDosi = " public.fichas_dosificacion d INNER JOIN public.especies e ON d.id_especies = e.id_especies";
+   			$whereDosi = "d.id_especies = e.id_especies 
+   						AND  d.id_fichas = '$id_fichas'	";   			
+   			$idDosi=" d.id_especies";
    			  			
    			//parametros para el diccionario
    			$aficha = array();
    			if(!empty($dtFichas))
    			{
+   				//para la parte de las advertencias
+   				$advertencias_html = "";
+   				try{
+   					$arrayAdvertencias = explode(".",$dtFichas[0]->advertencias_fichas);
+   					if(!empty($arrayAdvertencias))
+   					{
+   						for($i=0; $i<count($arrayAdvertencias)-1; $i++)
+   						{
+   							$advertencias_html.="&nbsp;";
+   							$advertencias_html.=trim($arrayAdvertencias[$i]).".";
+   							$advertencias_html.="<br>";
+   						}
+   						
+   					}
+   				}catch(Execption $e)
+   				{
+   					$advertencias_html="";
+   				}
+   				
+   				//para la parte de presentaciones
+   				$presentaciones_html = "";
+   				try{
+   					$arrayPres = explode(".",$dtFichas[0]->presentacion_fichas);
+   					if(!empty($arrayPres))
+   					{
+   						for($i=0; $i<count($arrayPres)-1; $i++)
+   						{
+   							$presentaciones_html.="&nbsp;";
+   							$presentaciones_html.=trim($arrayPres[$i]).".";
+   							$presentaciones_html.="<br>";
+   						}
+   							
+   					}
+   				}catch(Execption $e)
+   				{
+   					$presentaciones_html="";
+   				}
+   				
    				$aficha['nombre']=$dtFichas[0]->nombre_fichas;
    				$aficha['id']=$dtFichas[0]->id_fichas;
    				$aficha['clasiFarma']=$dtFichas[0]->clasificacion_farmacologica_fichas;
@@ -1683,12 +1726,12 @@ public function index(){
    				$aficha['mecanismo']=$dtFichas[0]->mecanismo_accion_fichas;
    				$aficha['indicaciones']=$dtFichas[0]->indicaciones_uso_fichas;
    				$aficha['periodo']=$dtFichas[0]->periodo_retiro_fichas;
-   				$aficha['advertencias']=$dtFichas[0]->advertencias_fichas;
+   				$aficha['advertencias']=$advertencias_html;
    				$aficha['interaccion']=$dtFichas[0]->interacciones_fichas;
    				$aficha['contraindicaciones']=$dtFichas[0]->contraindicaciones_fichas;
    				$aficha['efectos']=$dtFichas[0]->efectos_colaterales_fichas;
    				$aficha['conservacion']=$dtFichas[0]->conservacion_fichas;
-   				$aficha['presentacion']=$dtFichas[0]->presentacion_fichas;
+   				$aficha['presentacion']=$presentaciones_html;
    				$aficha['registro']=$dtFichas[0]->registro_sanitario_fichas;
    				$aficha['dosificacion']=$dtFichas[0]->encabezado_dosificacion_fichas;
    				$aficha['encabezado']=$dtFichas[0]->encabezado_tabla_fichas;
@@ -1769,7 +1812,7 @@ public function index(){
 								ON pr.id_provincia = ca.id_provincias";
    						
    					$wherelabDir    = "d.id_laboratorios = '$res->id_laboratorios'";
-   					$idlabDir = "d.id_laboratorios";
+   					$idlabDir = "d.id_direcciones";
    					
    					$dtLabDireccion=$fichas_laboratorios->getCondiciones($columnaslabDir, $tablaslabDir, $wherelabDir, $idlabDir);
    					
@@ -1792,9 +1835,8 @@ public function index(){
    							$tablaLab.=$resd->direccion_direcciones;
    							$tablaLab.="<br>";
    							$tablaLab.="";
-   							$tablaLab.="<b>TELEFONO:</b> (593-";
+   							$tablaLab.="<b>TELEFONO:</b> (593-2)&nbsp;";
    							$tablaLab.=$resd->cod_telefono;
-   							$tablaLab.=")&nbsp;";
    							$tablaLab.=$resd->telefono_direcciones;
    							$tablaLab.="<br>";
    							$tablaLab.="";
@@ -1834,7 +1876,7 @@ public function index(){
 								ON pr.id_provincia = ca.id_provincias";
    						
    					$wheredisDir    = "d.id_distribuidores = '$res->id_distribuidores'";
-   					$iddisDir = "d.id_distribuidores";
+   					$iddisDir = "d.id_direcciones";
    			
    					$dtdisDireccion=$fichas_distribuidores->getCondiciones($columnasdisDir, $tablasdisDir, $wheredisDir, $iddisDir);
    			
@@ -1857,9 +1899,8 @@ public function index(){
    							$tablaDis.=$resdi->direccion_direcciones;
    							$tablaDis.="<br>";
    							$tablaDis.="";
-   							$tablaDis.="<b>TELEFONO:</b> (593-";
+   							$tablaDis.="<b>TELEFONO:</b> (593-2)&nbsp;";
    							$tablaDis.=$resdi->cod_telefono;
-   							$tablaDis.=")&nbsp;";
    							$tablaDis.=$resdi->telefono_direcciones;
    							$tablaDis.="<br>";
    							$tablaDis.="";
@@ -1916,6 +1957,38 @@ public function index(){
    			}else {$comp=$visible;}
    			$tablaComp.="</table>";
    			
+   			//para la tabla dosificacion
+   			
+   			$dtDosificacion = $fichas_dosificacion->getCondiciones($columnasDosi, $tablasDosi, $whereDosi, $idDosi);
+   			$tablaDosi = "<table  style='width:100%;'  border='1';>";
+   			
+   			if (!empty($dtDosificacion))
+   			{
+   				$tablaDosi.= "<tr >";
+   				$tablaDosi.="<th style=' font-family: Times New Roman; font-size:55%;'>";
+   				$tablaDosi.= "Nombre Especie";
+   				$tablaDosi.="</th>";
+   				$tablaDosi.="<th style=' font-family: Times New Roman; font-size:55%;'>";
+   				$tablaDosi.="Dosis";
+   				$tablaDosi.="</th>";
+   				$tablaDosi.="</tr>";
+   					
+   				foreach($dtDosificacion as $resdo)
+   				{
+   					$tablaDosi.="<tr>";
+   					$tablaDosi.="<td style=' text-align: left; font-family: Times New Roman; font-size:55%;'>";
+   					$tablaDosi.=$resdo->nombre_especies;
+   					$tablaDosi.="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>";
+   					$tablaDosi.="<td style='text-align:center; font-family: Times New Roman; font-size:55%;'>";
+   					$tablaDosi.=$resdo->dosis_fichas_dosificacion;
+   					$tablaDosi.="</td>";
+   					$tablaDosi.="</tr>";
+   				}
+   					
+   			}else {$dode=$visible;}
+   			$tablaDosi.="</table>";
+   			
+   			
    			//die();
    			
    			//creacion del diccionario de datos
@@ -1942,6 +2015,7 @@ public function index(){
    					'TABLAESPECIES'=>$tablaEspcies,
    					'TABLAADMINISTRACION'=>$tablaAdministracion, 
    					'TABLACOMP'=>$tablaComp,
+   					'TABLADOSI'=>$tablaDosi,
    					'FABRICADOPOR'=>$tablaLab,
    					'DISTIBUIDOPOR'=>$tablaDis,
    					'cafa'=>$cafa,
@@ -1965,7 +2039,6 @@ public function index(){
    					'admi'=>$admi
    			
    			);
-   			
    			
    			$this->verReporte('FichaProductos',array(
    					'dicContenido'=>$dicContenido

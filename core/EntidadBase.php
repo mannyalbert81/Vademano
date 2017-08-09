@@ -104,6 +104,17 @@ class EntidadBase{
     	return $resultSet;
     }
     
+    public function getCondicionesOrd($columnas ,$tablas , $where, $id ,$orden='ASC'){
+    	
+    	$query=pg_query($this->con, "SELECT $columnas FROM $tablas WHERE $where ORDER BY $id $orden");
+    	$resultSet = array();
+    	while ($row = pg_fetch_object($query)) {
+    		$resultSet[]=$row;
+    	}
+    
+    	return $resultSet;
+    }
+    
     
     public function UpdateBy($colval ,$tabla , $where){
     	try 
