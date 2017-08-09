@@ -30,18 +30,18 @@
 		    </li>
 			<li><a href="<?php echo $helper->url("PrincipiosActivos","index"); ?>"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"> Principios Activos</span></a>
 			</li>
-			<li><a href="<?php echo $helper->url("UnidadesMedida","index"); ?>"><span class="glyphicon glyphicon-user" aria-hidden="true"> Unidades de Medida</span></a>
+			<li><a href="<?php echo $helper->url("UnidadesMedida","index"); ?>"><span class="glyphicon glyphicon-glass" aria-hidden="true"> Unidades de Medida</span></a>
 			</li>
-			<li><a href="<?php echo $helper->url("Distribuidores","index"); ?>"><span class="glyphicon glyphicon-user" aria-hidden="true"> Distribuidores</span></a>
+			<li><a href="<?php echo $helper->url("Distribuidores","index"); ?>"><span class="glyphicon glyphicon-bed" aria-hidden="true"> Distribuidores</span></a>
 			</li>
-			<li><a href="<?php echo $helper->url("Laboratorios","index"); ?>"><span class="glyphicon glyphicon-user" aria-hidden="true"> Laboratorios</span></a>
+			<li><a href="<?php echo $helper->url("Laboratorios","index"); ?>"><span class="glyphicon glyphicon-compressed" aria-hidden="true"> Laboratorios</span></a>
 			</li>
 			
 			<li role="separator" class="divider"></li>
 		
-			<li><a href="<?php echo $helper->url("FichasProductos","index"); ?>"><span class="glyphicon glyphicon-user" aria-hidden="true"> Fichas de Productos</span></a>
+			<li><a href="<?php echo $helper->url("FichasProductos","index"); ?>"><span class="glyphicon glyphicon-tasks" aria-hidden="true"> Fichas de Productos</span></a>
 			</li>
-	                <li><a href="<?php echo $helper->url("FichasAlimentos","index"); ?>"><span class="glyphicon glyphicon-user" aria-hidden="true"> Fichas de Alimentos</span></a>
+	                <li><a href="<?php echo $helper->url("FichasAlimentos","index"); ?>"><span class="glyphicon glyphicon-knight" aria-hidden="true"> Fichas de Alimentos</span></a>
 			</li>
           </ul>
         </li>

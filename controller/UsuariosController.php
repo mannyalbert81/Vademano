@@ -249,8 +249,8 @@ public function index(){
 		//guardamos el distribuidores
 		if (isset($_POST["btn_guardar"]) )
 		{
-			$_nombres_usuario 	= strtoupper ( $_POST["nombres_usuario"] );
-			$_apellidos_usuario  = strtoupper ( $_POST["apellidos_usuario"] );
+			$_nombres_usuario 	= mb_strtoupper($_POST["nombres_usuario"]);
+			$_apellidos_usuario  = mb_strtoupper($_POST["apellidos_usuario"]);
 			$_usuario_usuario   = $_POST["correo_usuario"];
 			$_clave_usuario     = $usuario->encrypt($_POST["clave_usuario"]);
 			$_clave_usuario1     = $_POST["clave_usuario"];

@@ -177,7 +177,7 @@ public function index(){
 		if (isset($_POST["nombre_laboratorios"]))
 		{
 			
-			$_nombre_laboratorios             = strtoupper($_POST["nombre_laboratorios"]);
+			$_nombre_laboratorios             = mb_strtoupper($_POST["nombre_laboratorios"]);
 			
 			
 		}
@@ -186,7 +186,7 @@ public function index(){
 		//AGREGO EL NOMBRE Y DEVUELVO EL ID
 		if (isset($_POST["btn_agregar_laboratorio"]) )
 		{
-			$_nombre_laboratorios   = strtoupper($_POST["nombre_laboratorios"]);
+			$_nombre_laboratorios   = mb_strtoupper($_POST["nombre_laboratorios"]);
 			$res_laboratorios=$laboratorios->getBy("nombre_laboratorios = '$_nombre_laboratorios' ");
 				
 			if ( !empty($res_laboratorios) )
@@ -373,7 +373,7 @@ public function index(){
 		//guardamos el distribuidores
 		if (isset($_POST["btn_guardar"]) )
 		{
-			$_nombre_laboratorios             = strtoupper ( $_POST["nombre_laboratorios"]   );
+			$_nombre_laboratorios             = mb_strtoupper($_POST["nombre_laboratorios"]);
 			$_persona_contacto_laboratorios   = $_POST["persona_contacto_laboratorios"];
 			$_telefono_persona_contacto_laboratorios   = $_POST["telefono_persona_contacto_laboratorios"];
 			$_email_laboratorios              =  $_POST["email_laboratorios"] ;
@@ -414,7 +414,7 @@ public function index(){
 		
 		if (isset($_POST["btn_actualizar"]) )
 		{
-			$_nombre_laboratorios             = strtoupper ( $_POST["nombre_laboratorios"]   );
+			$_nombre_laboratorios             = mb_strtoupper($_POST["nombre_laboratorios"]);
 			$_persona_contacto_laboratorios   = $_POST["persona_contacto_laboratorios"];
 			$_telefono_persona_contacto_laboratorios   = $_POST["telefono_persona_contacto_laboratorios"];
 			$_email_laboratorios              =  $_POST["email_laboratorios"] ;
@@ -474,7 +474,7 @@ public function index(){
 		{
 				
 				
-			$_nombre_laboratorios             = strtoupper ( $_POST["nombre_laboratorios"]   );
+			$_nombre_laboratorios             = mb_strtoupper($_POST["nombre_laboratorios"]);
 			$_persona_contacto_laboratorios   = $_POST["persona_contacto_laboratorios"];
 			$_direccion_laboratorios          = $_POST["direccion_laboratorios"];
 			$_telefono_laboratorios           = $_POST["telefono_laboratorios"];

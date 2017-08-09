@@ -64,7 +64,7 @@ public function index(){
 		
 		
 			$criterio = $_POST["criterio_busqueda"];
-			$contenido = strtoupper ($_POST["contenido_busqueda"]);
+			$contenido = mb_strtoupper($_POST["contenido_busqueda"]);
 		
 		
 		
@@ -147,14 +147,14 @@ public function index(){
 		
 		if (isset($_POST["nombre_composiciones"]))
 		{
-			$_nombre_composiciones = $_POST["nombre_composiciones"];
+			$_nombre_composiciones = mb_strtoupper($_POST["nombre_composiciones"]);
 		}
 		
 		
 		//AGREGO EL NOMBRE Y DEVUELVO EL ID
 		if (isset($_POST["btn_agregar_composiciones"]) )
 		{
-			$_nombre_composiciones   = strtoupper ( $_POST["nombre_composiciones"] );
+			$_nombre_composiciones   = mb_strtoupper( $_POST["nombre_composiciones"]);
 			$res_composiciones=$composiciones->getBy("nombre_composiciones = '$_nombre_composiciones' ");
 			
 			if ( !empty($res_composiciones) )
@@ -216,7 +216,7 @@ public function index(){
 		{
 			
 			
-			$_nombre_composiciones   = strtoupper ( $_POST["nombre_composiciones"] );
+			$_nombre_composiciones   = mb_strtoupper($_POST["nombre_composiciones"]);
 			$_categoria_farmacologica_composicion = $_POST["categoria_farmacologica_composicion"]; 
 			$_subcategoria_farmacologica_composiciones = $_POST["subcategoria_farmacologica_composiciones"];
 			$_indicaciones_uso_composiciones = $_POST["indicaciones_uso_composiciones"];
