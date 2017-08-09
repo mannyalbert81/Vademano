@@ -85,10 +85,10 @@ public function index(){
 	{
 			
 		session_start();
-		//if(isset($_GET["id_laboratorios"]))
-		//{
+		if(isset($_GET["id_composiciones"]))
+		{
 		//$_id_laboratorios = $_GET["laboratorios"];
-		$_id_composiciones = 742;
+		$_id_composiciones = $_GET["id_composiciones"];
 		//	$_nombre_laboratorios = $_GET["nombre_laboratorios"];
 		//Creamos el objeto usuario
 		$composiciones=new ComposicionesModel();
@@ -118,6 +118,7 @@ public function index(){
 	
 	}
 	
+	}
     
    	
 }

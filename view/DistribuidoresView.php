@@ -225,6 +225,13 @@
 		               <td style="font-size: 13px;"> <?php echo $res->web_distribuidores; ?>     </td> 
 		                          
 		               <td style="font-size: 13px;"> <input type="image" name="image" src="view/DevuelveImagen.php?id_valor=<?php echo $res->id_distribuidores; ?>&id_nombre=id_distribuidores&tabla=distribuidores&campo=logo_distribuidores"  alt="<?php echo $res->nombre_distribuidores; ?>" width="80" height="60" >      </td>
+		              
+		              <td>
+			           		<div class="right">
+			                    <a href="<?php echo $helper->url("Distribuidores","VistaDistribuidoresOnline"); ?>&id_distribuidores=<?php echo $res->id_distribuidores; ?>" class="btn btn-info" target="_blank"><i class="glyphicon glyphicon-print"></i></a>
+			                </div>
+			            
+			             </td>
 		               <td style="font-size: 13px;">
 			           		<div class="right">
 			                    <a href="<?php echo $helper->url("Distribuidores","index_dos"); ?>&id_distribuidores_edit=<?php echo $res->id_distribuidores; ?>" class="btn btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
@@ -237,14 +244,7 @@
 			                </div>
 			                <hr/>
 		               </td>
-		               <!--  
-		               <td style="font-size: 13px;">   
-			                <div class="right">
-			                    <a href="<?php echo $helper->url("Distribuidores",""); ?>&id_distribuidores=<?php echo $res->id_distribuidores; ?>" class="btn btn-info">Productos</a>
-			                </div>
-			                <hr/>
-		               </td>
-		               -->
+		              
 		    		</tr>
 		    		<?php $registros ++; ?>
 		        <?php } ?>

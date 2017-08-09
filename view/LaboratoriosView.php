@@ -217,6 +217,13 @@
 		               <td style="font-size: 13px;"> <?php echo $res->web_laboratorios; ?>     </td> 
 		               
 		               <td style="font-size: 13px;"> <input type="image" name="image" src="view/DevuelveImagen.php?id_valor=<?php echo $res->id_laboratorios; ?>&id_nombre=id_laboratorios&tabla=laboratorios&campo=logo_laboratorios"  alt="<?php echo $res->nombre_laboratorios; ?>" width="80" height="60" >      </td>
+		             
+		              <td>
+			           		<div class="right">
+			                    <a href="<?php echo $helper->url("Laboratorios","VistaLaboratoriosOnline"); ?>&id_laboratorios=<?php echo $res->id_laboratorios; ?>" class="btn btn-info" target="_blank"><i class="glyphicon glyphicon-print"></i></a>
+			                </div>
+			            
+			             </td>
 		               <td style="font-size: 13px;">
 			           		<div class="right">
 			                    <a href="<?php echo $helper->url("Laboratorios","index_dos"); ?>&id_laboratorios_edit=<?php echo $res->id_laboratorios; ?>" class="btn btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
@@ -229,14 +236,7 @@
 			                </div>
 			                <hr/>
 		               </td>
-		                <!--  
-		               <td style="font-size: 13px;">   
-			                <div class="right">
-			                    <a href="<?php echo $helper->url("Laboratorios",""); ?>&id_laboratorios=<?php echo $res->id_laboratorios; ?>" class="btn btn-info">Productos</a>
-			                </div>
-			                <hr/>
-		               </td>
-		                 -->
+		               
 		    		</tr>
 		    		<?php $registros ++; ?>
 		        <?php } ?>

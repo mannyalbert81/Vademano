@@ -193,35 +193,32 @@
         
         <table class="table table-hover">
 	         <tr class="info">
-	    		<th style="text-align: left;  font-size: 14px;"></th>
-	    		<th style="text-align: left;  font-size: 14px;">Id</th>
-	    		<th style="text-align: left;  font-size: 14px;">Nombre Producto</th>
-	    		<th style="text-align: left;  font-size: 14px;">Tipo Alimento</th>
-	    		<th style="text-align: left;  font-size: 14px;">Registro Sanitario</th>
-	    		<th style="text-align: left;  font-size: 14px;">Indicaciones de Uso</th>
-	    		<th style="text-align: left;  font-size: 14px;">Periodo de Retiro</th>
-	    		<th style="text-align: left;  font-size: 14px;">Presentacion</th>
-	    		<th style="text-align: left;  font-size: 14px;">Conservacion</th>
-	    		<th style="text-align: left;  font-size: 14px;">Ingredientes</th>
+	    		<th style="text-align: left;  font-size: 13px;">Id</th>
+	    		<th style="text-align: left;  font-size: 13px;">Nombre Producto</th>
+	    		<th style="text-align: left;  font-size: 13px;">Tipo Alimento</th>
+	    		<th style="text-align: left;  font-size: 13px;">Ingredientes</th>
+	    		<th style="text-align: left;  font-size: 13px;">Presentacion</th>
+	    		<th style="text-align: left;  font-size: 13px;">Laboratorio</th>
+	    		<th style="text-align: left;  font-size: 13px;">Registro Sanitario</th>
+	    		<th style="text-align: left;  font-size: 13px;">Logo</th>
 	    		
-	    		<th style="text-align: left;  font-size: 14px;"></th>
-	    		<th style="text-align: left;  font-size: 14px;"></th>
-	    		<th style="text-align: left;  font-size: 14px;"></th>
+	    		<th style="text-align: left;  font-size: 13px;"></th>
+	    		<th style="text-align: left;  font-size: 13px;"></th>
+	    		<th style="text-align: left;  font-size: 13px;"></th>
 	  		</tr>
                 
 	            <?php foreach($resultSet as $res) {?>
 	        		<tr>
-	                  <td style="font-size: 13px;"> <input type="image" name="image" src="view/DevuelveImagen.php?id_valor=<?php echo $res->id_fichas_fotos; ?>&id_nombre=id_fichas_fotos&tabla=fichas_fotos&campo=foto_fichas_fotos"  alt="<?php echo $res->id_fichas_fotos; ?>" width="80" height="60" >      </td>
 	                  
-	                   <td style="font-size: 13px;"> <?php echo $res->id_fichas; ?>  </td>
-		               <td style="font-size: 13px;"> <?php echo $res->nombre_fichas; ?>     </td> 
-		               <td style="font-size: 13px;"> <?php echo $res->tipo_alimento_fichas; ?>     </td> 
-		               <td style="font-size: 13px;"> <?php echo $res->registro_sanitario_fichas; ?>     </td> 
-		               <td style="font-size: 13px;"> <?php echo $res->indicaciones_uso_fichas; ?>     </td> 
-		               <td style="font-size: 13px;"> <?php echo $res->periodo_retiro_fichas; ?>     </td> 
-		               <td style="font-size: 13px;"> <?php echo $res->presentacion_fichas; ?>     </td> 
-		               <td style="font-size: 13px;"> <?php echo $res->conservacion_fichas; ?>     </td> 
-		               <td style="font-size: 13px;"> <?php echo $res->ingredientes_fichas; ?>     </td>
+	                   <td style="font-size: 12px;"> <?php echo $res->id_fichas; ?>  </td>
+		               <td style="font-size: 12px;"> <?php echo $res->nombre_fichas; ?>     </td> 
+		               <td style="font-size: 12px;"> <?php echo $res->tipo_alimento_fichas; ?>     </td> 
+		               <td style="font-size: 12px;"> <?php echo $res->ingredientes_fichas; ?>     </td>
+		               <td style="font-size: 12px;"> <?php echo $res->presentacion_fichas; ?>     </td> 
+		               <td style="font-size: 12px;"> <?php echo $res->nombre_laboratorios; ?>     </td> 
+		               <td style="font-size: 12px;"> <?php echo $res->registro_sanitario_fichas; ?>     </td> 
+		               <td style="font-size: 12px;"> <input type="image" name="image" src="view/DevuelveImagen.php?id_valor=<?php echo $res->id_fichas_fotos; ?>&id_nombre=id_fichas_fotos&tabla=fichas_fotos&campo=foto_fichas_fotos"  alt="<?php echo $res->id_fichas_fotos; ?>" width="80" height="60" >      </td>
+	                  
 		               
 		               <td>
 			           		<div class="right">

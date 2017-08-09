@@ -44,7 +44,7 @@ public function index(){
 		if (isset($_POST["btn_guardar"]) )
 		{
 			
-			$_nombre_especies = strtoupper ( $_POST["nombre_especies"] );
+			$_nombre_especies = mb_strtoupper($_POST["nombre_especies"]);
 			
 			if ($_FILES['logo_especies']['tmp_name']!="")
 			{
@@ -69,7 +69,7 @@ public function index(){
 		if (isset($_POST["btn_actualizar"]) )
 		{
 			
-			$_nombre_especies = strtoupper ( $_POST["nombre_especies"] );
+			$_nombre_especies = mb_strtoupper($_POST["nombre_especies"]);
 			$_id_especies =  $_POST["id_especies"];
 				
 			if($_id_especies>0){

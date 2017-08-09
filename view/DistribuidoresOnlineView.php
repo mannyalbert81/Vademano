@@ -138,22 +138,16 @@
 				<div class="col-xs-6 col-md-6">
 				</div>
 			</div>		
-	 <div style="background-color:#000000;  position: fixed; bottom: 0; width: 100%; color:#ffffff; font-family: sans-serif; font-size:55%; text-align: center; ">
-	Copyright © Vademano 2015 </div>
+	 
 	         	   
        	     <?php } } else {?>
 	        		
 
 	   <?php }?>  
           </form>
-       	<div class="col-lg-12">
-  					
-    		
-   		</div>     
+         
   
-       <footer class="col-lg-12">
-     	 	
-    	 </footer> 
+      
    
      </body>  
     </html>   

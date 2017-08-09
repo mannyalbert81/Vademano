@@ -177,7 +177,7 @@ public function index(){
 		if (isset($_POST["nombre_distribuidores"]))
 		{
 			
-			$_nombre_distribuidores             = strtoupper ( $_POST["nombre_distribuidores"]   );
+			$_nombre_distribuidores      = mb_strtoupper($_POST["nombre_distribuidores"]);
 			
 			
 		}
@@ -186,7 +186,7 @@ public function index(){
 		//AGREGO EL NOMBRE Y DEVUELVO EL ID
 		if (isset($_POST["btn_agregar_distribuidor"]) )
 		{
-			$_nombre_distribuidores   = strtoupper ($_POST["nombre_distribuidores"]);
+			$_nombre_distribuidores   = mb_strtoupper($_POST["nombre_distribuidores"]);
 				
 			$res_distribuidores=$distribuidores->getBy("nombre_distribuidores = '$_nombre_distribuidores' ");
 			
@@ -376,7 +376,7 @@ public function index(){
 		//guardamos el distribuidores
 		if (isset($_POST["btn_guardar"]) )
 		{
-			$_nombre_distribuidores             = strtoupper ( $_POST["nombre_distribuidores"]   );
+			$_nombre_distribuidores             = mb_strtoupper($_POST["nombre_distribuidores"]);
 			$_persona_contacto_distribuidores   =  $_POST["persona_contacto_distribuidores"];
 			$_telefono_persona_contacto_distribuidores   = $_POST["telefono_persona_contacto_distribuidores"];
 			$_email_distribuidores              =  $_POST["email_distribuidores"] ;
@@ -416,7 +416,7 @@ public function index(){
 		
 		if (isset($_POST["btn_actualizar"]) )
 		{
-			$_nombre_distribuidores             = strtoupper ( $_POST["nombre_distribuidores"]   );
+			$_nombre_distribuidores             = mb_strtoupper($_POST["nombre_distribuidores"]);
 			$_persona_contacto_distribuidores   =  $_POST["persona_contacto_distribuidores"];
 			$_telefono_persona_contacto_distribuidores   = $_POST["telefono_persona_contacto_distribuidores"];
 			$_email_distribuidores              =  $_POST["email_distribuidores"] ;
@@ -472,7 +472,7 @@ public function index(){
 		{
 			
 			
-			$_nombre_distribuidores             = strtoupper ( $_POST["nombre_distribuidores"]   );
+			$_nombre_distribuidores             = mb_strtoupper($_POST["nombre_distribuidores"]);
 			$_persona_contacto_distribuidores   = $_POST["persona_contacto_distribuidores"];
 			$_direccion_distribuidores          =  $_POST["direccion_distribuidores"];
 			$_telefono_distribuidores           =  $_POST["telefono_distribuidores"];

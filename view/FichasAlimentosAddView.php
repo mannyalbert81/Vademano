@@ -669,6 +669,60 @@
 		}); 
 
 	</script>
+ 	
+ 	<script >
+		$(document).ready(function(){
+
+		    // cada vez que se cambia el valor del combo
+		    $("#btn_agregar_foto").click(function() 
+			{
+		    	
+		    	var foto_fichas_fotos = $("#foto_fichas_fotos").val();
+		    	
+		    	if (foto_fichas_fotos == "")
+		    	{
+					
+			    	$("#mensaje_foto_fichas_fotos").text("Seleccione");
+		    		$("#mensaje_foto_fichas_fotos").fadeIn("slow"); //Muestra mensaje de error
+		            return false;
+			    }
+		    	else 
+		    	{
+					
+			    	$("#mensaje_foto_fichas_fotos").fadeOut("slow"); //Muestra mensaje de error
+			    
+			    }
+		    	
+		    	
+
+			}); 
+			
+			$( "#foto_fichas_fotos" ).focus(function() {
+				$("#mensaje_foto_fichas_fotos").fadeOut("slow");
+    		});
+		
+			
+    							    
+		}); 
+
+	</script>
+	
+ 		
+ 		
+ 		
+ 		<script> 
+			$(function(){
+		      
+		        $("#btn_limpiar").click(function(){
+
+		        	$("#foto_fichas_fotos").val('');
+			    	
+			    	
+				     
+	    	    });
+			});
+ 		</script>
+ 		
  		
 		<script type="text/javascript">
 		function mensaje(){
@@ -1370,15 +1424,111 @@
 	         
 	         
 	         
-	        <div class="row">
-	        <div class="col-xs-3 col-md-3">
-		    <div class="form-group ">
-		                          <label for="foto_fichas_fotos" class="control-label">Imagen del Alimento:</label>
+	         <div class="col-xs-12 col-md-12 col-lg-12">
+	        <div class="panel panel-info">
+            <div class="panel-heading">
+	        <h4><i class='glyphicon glyphicon-plus'></i> Insertar Logo Alimento</h4>
+	        </div>
+	        <div class="panel-body">
+	        <div class="col-xs-6 col-md-6 col-lg-6">
+	         
+		      <?php if(!empty($resultEditLogo)){foreach($resultEditLogo as $resultEditLogo) {?>
+       	      <div class="row">
+		     <?php $cantidad=0;?>
+	         <div class="col-xs-6 col-md-6">
+		     <div class="form-group">
+                                 
+                                  <label for="foto_fichas_fotos" class="control-label">Logo del Alimento:</label>
                                   <input type="file" class="form-control" id="foto_fichas_fotos" name="foto_fichas_fotos" accept="image/*" class="form-control" />
                                   <div id="mensaje_foto_fichas_fotos" class="errores"></div>
+                                  <input type="hidden" name="id_fichas_fotos" id="id_fichas_fotos" value="<?php echo $resultEditLogo->id_fichas_fotos;   ?>" class="form-control"/>
+								  
+             </div>
+             </div>
+             
+             
+            <div class="col-xs-4 col-md-4" style="margin-top:18px";>
+		    <div class="form-group ">
+		                         <input type="submit" id="btn_agregar_foto" name="btn_agregar_foto" value="Actualizar" class="btn btn-success"/>
+			                     <input type="button" id="btn_limpiar" name="btn_limpiar" value="Limpiar" class="btn btn-danger"/> 
             </div>
 		    </div>
-	        </div> 
+            </div>
+            
+            
+             <div class="row" >
+		     <div class="col-xs-12 col-md-12 col-lg-12" style="text-align: center; margin-top: 1px;">
+		      <div class="form-group">
+		      <div><input type="image" name="image" src="view/DevuelveImagen.php?id_valor=<?php echo $resultEditLogo->id_fichas_fotos; ?>&id_nombre=id_fichas_fotos&tabla=fichas_fotos&campo=foto_fichas_fotos"  alt="<?php echo $resultEditLogo->id_fichas_fotos; ?>" width="80" height="60" ></div>      
+		      </div>
+			 </div>
+		     </div> 
+       	     
+       	     <?php }} else {?>
+       	      <div class="row">
+		     <?php $cantidad=0;?>
+	         <div class="col-xs-6 col-md-6">
+		     <div class="form-group">
+                                  <label for="foto_fichas_fotos" class="control-label">Logo del Alimento:</label>
+                                  <input type="file" class="form-control" id="foto_fichas_fotos" name="foto_fichas_fotos" accept="image/*" class="form-control" />
+                                  <div id="mensaje_foto_fichas_fotos" class="errores"></div>
+                                  <input type="hidden" name="id_fichas_fotos" id="id_fichas_fotos" value="0" class="form-control"/>
+								  
+								
+             </div>
+             </div>
+             
+             
+            <div class="col-xs-4 col-md-4" style="margin-top:18px";>
+		    <div class="form-group ">
+		                         <input type="submit" id="btn_agregar_foto" name="btn_agregar_foto" value="Agregar" class="btn btn-success"/>
+			                     <input type="button" id="btn_limpiar" name="btn_limpiar" value="Limpiar" class="btn btn-danger"/>
+            </div>
+		    </div>
+            </div>
+       	     <?php }?>
+       	     
+		    </div>
+		    
+		    
+	        <div class="col-xs-6 col-md-6 col-lg-6">
+	         <div class="col-xs-12 col-md-12">
+	         <label  class="control-label">Agregados:</label>
+			  	  	<section class="col-lg-12 " style="height:100px;overflow-y:scroll;">
+				        <table class="table table-hover">
+					         <tr class="info">
+					    		<th style="text-align: left;  font-size: 11px;">Id</th>
+					    		<th style="text-align: left;  font-size: 11px;">Logo Alimento</th>
+					    		<th style="text-align: left;  font-size: 11px;"></th>
+					    		<th style="text-align: left;  font-size: 11px;"></th>
+					    		
+					  		</tr>
+				                
+					            <?php foreach($resFicLogo as $res) {?>
+					        		<?php $cantidad= $cantidad + 1; ?>
+					        		<tr>
+					                   <td style="font-size: 11px;"> <?php echo $res->id_fichas_fotos; ?>  </td>
+						                <td style="font-size: 11px;"> <input type="image" name="image" src="view/DevuelveImagen.php?id_valor=<?php echo $res->id_fichas_fotos; ?>&id_nombre=id_fichas_fotos&tabla=fichas_fotos&campo=foto_fichas_fotos"  alt="<?php echo $res->id_fichas_fotos; ?>" width="70" height="50" >      </td>
+	                 	               <td style="font-size: 11px;">   
+					                	   <a  href="<?php echo $helper->url("FichasAlimentos","index_dos"); ?>&id_fichas_fotos_editar=<?php echo $res->id_fichas_fotos; ?>&id_fichas=<?php echo $id_fichas; ?>&nombre_fichas=<?php echo $sel_nombre_fichas; ?>&indicaciones_uso_fichas=<?php echo $sel_indicaciones_uso_fichas; ?>&periodo_retiro_fichas=<?php echo $sel_periodo_retiro_fichas; ?>&presentacion_fichas=<?php echo $sel_presentacion_fichas; ?>&registro_sanitario_fichas=<?php echo $sel_registro_sanitario_fichas; ?>&conservacion_fichas=<?php echo $sel_conservacion_fichas; ?>&ingredientes_fichas=<?php echo $sel_ingredientes_fichas; ?>&tipo_alimento_fichas=<?php echo $sel_tipo_alimento_fichas; ?>&encabezado_tabla_fichas=<?php echo $sel_encabezado_tabla_fichas; ?>&encabezado_dosificacion_fichas=<?php echo $sel_encabezado_dosificacion_fichas; ?>" class="btn btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
+						                </td>
+						               <td style="font-size: 11px;">   
+							                    <a href="<?php echo $helper->url("FichasAlimentos","index_dos"); ?>&id_fichas_fotos_borrar=<?php echo $res->id_fichas_fotos; ?>&id_fichas=<?php echo $id_fichas; ?>&nombre_fichas=<?php echo $sel_nombre_fichas; ?>&indicaciones_uso_fichas=<?php echo $sel_indicaciones_uso_fichas; ?>&periodo_retiro_fichas=<?php echo $sel_periodo_retiro_fichas; ?>&presentacion_fichas=<?php echo $sel_presentacion_fichas; ?>&registro_sanitario_fichas=<?php echo $sel_registro_sanitario_fichas; ?>&conservacion_fichas=<?php echo $sel_conservacion_fichas; ?>&ingredientes_fichas=<?php echo $sel_ingredientes_fichas; ?>&tipo_alimento_fichas=<?php echo $sel_tipo_alimento_fichas; ?>&encabezado_tabla_fichas=<?php echo $sel_encabezado_tabla_fichas; ?>&encabezado_dosificacion_fichas=<?php echo $sel_encabezado_dosificacion_fichas; ?>" class="btn btn-danger" onClick="return mensaje();"><i class="glyphicon glyphicon-trash"></i></a>
+							           </td>
+						    		</tr>
+						        <?php } ?>
+				            
+				       	</table>     
+				    </section>
+				     <label  class="control-label">Se han agregado <?php  echo $cantidad ?> Logo Alimento </label>
+			   </div>
+	        </div>
+	         
+	        
+	        </div>
+	        </div>
+	        </div>
+	    
 	        
 	        
 	        
@@ -1573,7 +1723,6 @@
 							           </td>
 						    		</tr>
 						        <?php } ?>
-				            
 				       	</table>     
 				    </section>
 				     <label  class="control-label">Se han agregado <?php  echo $cantidad ?> Principios </label>
@@ -2006,15 +2155,120 @@
 	         
 	         
 	         
-	        <div class="row">
-	        <div class="col-xs-3 col-md-3">
-		    <div class="form-group ">
-		                          <label for="foto_fichas_fotos" class="control-label">Imagen del Alimento:</label>
+	      
+	        
+	        
+	         <div class="col-xs-12 col-md-12 col-lg-12">
+	        <div class="panel panel-info">
+            <div class="panel-heading">
+	        <h4><i class='glyphicon glyphicon-plus'></i> Insertar Logo Alimento</h4>
+	        </div>
+	        <div class="panel-body">
+	        <div class="col-xs-6 col-md-6 col-lg-6">
+	         
+		      <?php if(!empty($resultEditLogo)){foreach($resultEditLogo as $resultEditLogo) {?>
+       	      <div class="row">
+		     <?php $cantidad=0;?>
+	         <div class="col-xs-6 col-md-6">
+		     <div class="form-group">
+                                 
+                                  <label for="foto_fichas_fotos" class="control-label">Logo del Alimento:</label>
                                   <input type="file" class="form-control" id="foto_fichas_fotos" name="foto_fichas_fotos" accept="image/*" class="form-control" />
                                   <div id="mensaje_foto_fichas_fotos" class="errores"></div>
+                                  <input type="hidden" name="id_fichas_fotos" id="id_fichas_fotos" value="<?php echo $resultEditLogo->id_fichas_fotos;   ?>" class="form-control"/>
+								  
+             </div>
+             </div>
+             
+             
+            <div class="col-xs-4 col-md-4" style="margin-top:18px";>
+		    <div class="form-group ">
+		                         <input type="submit" id="btn_agregar_foto" name="btn_agregar_foto" value="Actualizar" class="btn btn-success"/>
+		                         <input type="button" id="btn_limpiar" name="btn_limpiar" value="Limpiar" class="btn btn-danger"/> 
+			   
             </div>
 		    </div>
-	        </div> 
+            </div>
+            
+            
+             <div class="row" >
+		     <div class="col-xs-12 col-md-12 col-lg-12" style="text-align: center; margin-top: 1px;">
+		      <div class="form-group">
+		      <div><input type="image" name="image" src="view/DevuelveImagen.php?id_valor=<?php echo $resultEditLogo->id_fichas_fotos; ?>&id_nombre=id_fichas_fotos&tabla=fichas_fotos&campo=foto_fichas_fotos"  alt="<?php echo $resultEditLogo->id_fichas_fotos; ?>" width="80" height="60" ></div>      
+		      </div>
+			 </div>
+		     </div>
+       	     
+       	     <?php }} else {?>
+       	      <div class="row">
+		     <?php $cantidad=0;?>
+	         <div class="col-xs-6 col-md-6">
+		     <div class="form-group">
+                                  <label for="foto_fichas_fotos" class="control-label">Logo del Alimento:</label>
+                                  <input type="file" class="form-control" id="foto_fichas_fotos" name="foto_fichas_fotos" accept="image/*" class="form-control" />
+                                  <div id="mensaje_foto_fichas_fotos" class="errores"></div>
+                                  <input type="hidden" name="id_fichas_fotos" id="id_fichas_fotos" value="0" class="form-control"/>
+								  
+								
+             </div>
+             </div>
+             
+             
+            <div class="col-xs-4 col-md-4" style="margin-top:18px";>
+		    <div class="form-group ">
+		                         <input type="submit" id="btn_agregar_foto" name="btn_agregar_foto" value="Agregar" class="btn btn-success"/>
+		                         <input type="button" id="btn_limpiar" name="btn_limpiar" value="Limpiar" class="btn btn-danger"/>
+		                        
+            </div>
+		    </div>
+            </div>
+            
+            
+            
+       	     <?php }?>
+       	     
+		    </div>
+		    
+		    
+	        <div class="col-xs-6 col-md-6 col-lg-6">
+	         <div class="col-xs-12 col-md-12">
+	         <label  class="control-label">Agregados:</label>
+			  	  	<section class="col-lg-12 " style="height:100px;overflow-y:scroll;">
+				        <table class="table table-hover">
+					         <tr class="info">
+					    		<th style="text-align: left;  font-size: 11px;">Id</th>
+					    		<th style="text-align: left;  font-size: 11px;">Logo Alimento</th>
+					    		<th style="text-align: left;  font-size: 11px;"></th>
+					    		<th style="text-align: left;  font-size: 11px;"></th>
+					    		
+					  		</tr>
+				                
+					            <?php foreach($resFicLogo as $res) {?>
+					        		<?php $cantidad= $cantidad + 1; ?>
+					        		<tr>
+					                   <td style="font-size: 11px;"> <?php echo $res->id_fichas_fotos; ?>  </td>
+						                <td style="font-size: 11px;"> <input type="image" name="image" src="view/DevuelveImagen.php?id_valor=<?php echo $res->id_fichas_fotos; ?>&id_nombre=id_fichas_fotos&tabla=fichas_fotos&campo=foto_fichas_fotos"  alt="<?php echo $res->id_fichas_fotos; ?>" width="70" height="50" >      </td>
+	                 	               <td style="font-size: 11px;">   
+					                	   <a  href="<?php echo $helper->url("FichasAlimentos","index_dos"); ?>&id_fichas_fotos_editar=<?php echo $res->id_fichas_fotos; ?>&id_fichas=<?php echo $id_fichas; ?>&nombre_fichas=<?php echo $sel_nombre_fichas; ?>&indicaciones_uso_fichas=<?php echo $sel_indicaciones_uso_fichas; ?>&periodo_retiro_fichas=<?php echo $sel_periodo_retiro_fichas; ?>&presentacion_fichas=<?php echo $sel_presentacion_fichas; ?>&registro_sanitario_fichas=<?php echo $sel_registro_sanitario_fichas; ?>&conservacion_fichas=<?php echo $sel_conservacion_fichas; ?>&ingredientes_fichas=<?php echo $sel_ingredientes_fichas; ?>&tipo_alimento_fichas=<?php echo $sel_tipo_alimento_fichas; ?>&encabezado_tabla_fichas=<?php echo $sel_encabezado_tabla_fichas; ?>&encabezado_dosificacion_fichas=<?php echo $sel_encabezado_dosificacion_fichas; ?>" class="btn btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
+						                </td>
+						               <td style="font-size: 11px;">   
+							                    <a href="<?php echo $helper->url("FichasAlimentos","index_dos"); ?>&id_fichas_fotos_borrar=<?php echo $res->id_fichas_fotos; ?>&id_fichas=<?php echo $id_fichas; ?>&nombre_fichas=<?php echo $sel_nombre_fichas; ?>&indicaciones_uso_fichas=<?php echo $sel_indicaciones_uso_fichas; ?>&periodo_retiro_fichas=<?php echo $sel_periodo_retiro_fichas; ?>&presentacion_fichas=<?php echo $sel_presentacion_fichas; ?>&registro_sanitario_fichas=<?php echo $sel_registro_sanitario_fichas; ?>&conservacion_fichas=<?php echo $sel_conservacion_fichas; ?>&ingredientes_fichas=<?php echo $sel_ingredientes_fichas; ?>&tipo_alimento_fichas=<?php echo $sel_tipo_alimento_fichas; ?>&encabezado_tabla_fichas=<?php echo $sel_encabezado_tabla_fichas; ?>&encabezado_dosificacion_fichas=<?php echo $sel_encabezado_dosificacion_fichas; ?>" class="btn btn-danger" onClick="return mensaje();"><i class="glyphicon glyphicon-trash"></i></a>
+							           </td>
+						    		</tr>
+						        <?php } ?>
+				            
+				       	</table>     
+				    </section>
+				     <label  class="control-label">Se han agregado <?php  echo $cantidad ?> Logo Alimento </label>
+			   </div>
+	        </div>
+	         
+	        
+	        </div>
+	        </div>
+	        </div>
+	        
+	    
 	        
 	        
 	        
