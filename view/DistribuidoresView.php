@@ -208,12 +208,12 @@
 	    		<th style="text-align: left;  font-size: 14px;">Telefono Persona Contacto</th>
 	    		<th style="text-align: left;  font-size: 14px;">Email Distribuidor</th>
 	    		<th style="text-align: left;  font-size: 14px;">Web Distribuidor</th>
+	    		<th style="text-align: left;  font-size: 14px;">Contactos</th>
 	    		<th style="text-align: left;  font-size: 14px;">Logo</th>
-	    		
 	    		<th style="text-align: left;  font-size: 14px;"></th>
 	    		<th style="text-align: left;  font-size: 14px;"></th>
 	    		<th style="text-align: left;  font-size: 14px;"></th>
-	  		</tr>
+	  		  </tr>
                 <?php $registros = 1; ?>
 	            <?php foreach($resultSet as $res) {?>
 	        		<tr>
@@ -223,7 +223,7 @@
 					   <td style="font-size: 13px;"> <?php echo $res->telefono_persona_contacto_distribuidores; ?>     </td>
 		               <td style="font-size: 13px;"> <?php echo $res->email_distribuidores; ?>     </td> 
 		               <td style="font-size: 13px;"> <?php echo $res->web_distribuidores; ?>     </td> 
-		                          
+		               <td style="font-size: 13px;"> <?php echo $res->nombre_direcciones; ?>     </td>           
 		               <td style="font-size: 13px;"> <input type="image" name="image" src="view/DevuelveImagen.php?id_valor=<?php echo $res->id_distribuidores; ?>&id_nombre=id_distribuidores&tabla=distribuidores&campo=logo_distribuidores"  alt="<?php echo $res->nombre_distribuidores; ?>" width="80" height="60" >      </td>
 		              
 		              <td>

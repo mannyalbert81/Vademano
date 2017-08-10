@@ -12,39 +12,103 @@ public function index(){
 	
 	session_start();
 	$existe="false";
-	    $fichas = new FichasModel();
+	$fichas_laboratorios= new FichasLaboratoriosModel();
+	$laboratorios = new LaboratoriosModel();
+	$fichas = new FichasModel();
+	
+	$columnas="fichas.id_fichas";
+	$tablas="fichas";
+	$where8="fichas.id_fichas>0";
+	$id8="fichas.id_fichas";
+	$resultActual=$fichas->getCondiciones($columnas, $tablas, $where8, $id8);
+	
+	
+	$_nombre_laboratorios="";
+	
+	if(!empty($resultActual)){
+		
+		$colval = " nombre_laboratorio = '$_nombre_laboratorios'";
+		$tabla = "fichas";
+		$where1 = "id_fichas>0";
+		$resultado=$fichas->UpdateBy($colval, $tabla, $where1);
+		
+		
+		foreach($resultActual as $res)
+		{
+			$_id_fichas=$res->id_fichas;
+			$where    = "id_fichas = '$_id_fichas' ";
+			$resultGet = $fichas_laboratorios->getBy($where);
+			
+			
+			
+			if(!empty($resultGet)){
+				
+				foreach($resultGet as $res)
+				{
+					
+					$_id_laboratorios=$res->id_laboratorios;
+					$where10    = "id_laboratorios = '$_id_laboratorios' ";
+					$resultGet10 = $laboratorios->getBy($where10);
+					
+					
+					if(!empty($resultGet10)){
+					
+						foreach($resultGet10 as $res)
+						{
+							$_nombre_laboratorios=$res->nombre_laboratorios;
+							
+								$colval = " nombre_laboratorio = nombre_laboratorio || "." ' - ' "." || '$_nombre_laboratorios'";
+								$tabla = "fichas";
+								$where = "id_fichas = '$_id_fichas'";
+								$resultado=$fichas->UpdateBy($colval, $tabla, $where);
+							
+						}
+					}
+					
+				}
+				
+				
+			}
+			
+			$_nombre_laboratorios="";
+			
+		}
+		
+		
+		
+	
+	}
+	
+	
+	
+	$colval5 = "nombre_laboratorio = LTRIM(nombre_laboratorio)";
+	$tabla5 = "fichas";
+	$where5 = "id_fichas >0";
+	$resultado=$fichas->UpdateBy($colval5, $tabla5, $where5);
+	
+	
+	  
 	    $columnas = "f.id_fichas,f.nombre_fichas,f.encabezado_tabla_fichas,f.farmacocinetica_fichas
 	,accion_terapeutica_fichas,clasificacion_farmacologica_fichas,f.forma_terapeutica_fichas
 	,f.indicaciones_uso_fichas,f.interacciones_fichas,f.contraindicaciones_fichas,f.periodo_retiro_fichas
 	,f.periodo_retiro_fichas,f.advertencias_fichas,f.presentacion_fichas,f.registro_sanitario_fichas
 	,f.mecanismo_accion_fichas,f.efectos_colaterales_fichas,f.conservacion_fichas,f.encabezado_dosificacion_fichas
-	,f.ingredientes_fichas,f.tipo_alimento_fichas,ff.foto_fichas_fotos,ff.id_fichas_fotos,
-	sublab.nombre_laboratorios";
+	,f.ingredientes_fichas,f.tipo_alimento_fichas,ff.id_fichas,ff.foto_fichas_fotos,ff.id_fichas_fotos, f.nombre_laboratorio";
 	    
 	   $tablas   = "public.fichas f
 					LEFT JOIN public.fichas_fotos ff
-					ON ff.id_fichas = f.id_fichas					
-					LEFT JOIN 
-					(SELECT 
-					  fichas_laboratorios.id_laboratorios, 
-					  fichas_laboratorios.id_fichas, 
-					  laboratorios.nombre_laboratorios, 
-					  laboratorios.telefono_persona_contacto_laboratorios, 
-					  laboratorios.persona_contacto_laboratorios, 
-					  laboratorios.email_laboratorios, 
-					  laboratorios.web_laboratorios, 
-					  laboratorios.logo_laboratorios
-					FROM 
-					  public.fichas_laboratorios, 
-					  public.laboratorios
-					WHERE 
-					  laboratorios.id_laboratorios = fichas_laboratorios.id_laboratorios) sublab
-
-					  ON sublab.id_fichas = f.id_fichas";
-	$where    = "f.tipo_ficha = 'P'";
+					ON ff.id_fichas = f.id_fichas";
+	   $where    = "f.tipo_ficha = 'P'";
 	   $id = "f.id_fichas";
 	   $resultSet = $fichas->getCondiciones($columnas, $tablas, $where, $id);
 		
+	   
+	   
+	 
+	   
+	   
+	   
+	   
 	   $resultMenu=array(0=>'--TODOS--',1=>'Nombre Producto');
 	   	
 	   
@@ -57,29 +121,11 @@ public function index(){
 	,f.indicaciones_uso_fichas,f.interacciones_fichas,f.contraindicaciones_fichas,f.periodo_retiro_fichas
 	,f.periodo_retiro_fichas,f.advertencias_fichas,f.presentacion_fichas,f.registro_sanitario_fichas
 	,f.mecanismo_accion_fichas,f.efectos_colaterales_fichas,f.conservacion_fichas,f.encabezado_dosificacion_fichas
-	,f.ingredientes_fichas,f.tipo_alimento_fichas,ff.foto_fichas_fotos,ff.id_fichas_fotos,
-	sublab.nombre_laboratorios";
+	,f.ingredientes_fichas,f.tipo_alimento_fichas,ff.id_fichas,ff.foto_fichas_fotos,ff.id_fichas_fotos, f.nombre_laboratorio";
 	    
 	   $tablas1   = "public.fichas f
 					LEFT JOIN public.fichas_fotos ff
-					ON ff.id_fichas = f.id_fichas					
-					LEFT JOIN 
-					(SELECT 
-					  fichas_laboratorios.id_laboratorios, 
-					  fichas_laboratorios.id_fichas, 
-					  laboratorios.nombre_laboratorios, 
-					  laboratorios.telefono_persona_contacto_laboratorios, 
-					  laboratorios.persona_contacto_laboratorios, 
-					  laboratorios.email_laboratorios, 
-					  laboratorios.web_laboratorios, 
-					  laboratorios.logo_laboratorios
-					FROM 
-					  public.fichas_laboratorios, 
-					  public.laboratorios
-					WHERE 
-					  laboratorios.id_laboratorios = fichas_laboratorios.id_laboratorios) sublab
-
-					  ON sublab.id_fichas = f.id_fichas";
+					ON ff.id_fichas = f.id_fichas";
 	   $where1    = "f.tipo_ficha = 'P'";
 	   $id1 = "f.id_fichas";
 	   		
@@ -155,37 +201,19 @@ public function index(){
 		$existe="false";
 		$fichas = new FichasModel();
 		
-		$columnas = "f.id_fichas,f.nombre_fichas,f.encabezado_tabla_fichas,f.farmacocinetica_fichas
+		 $columnas = "f.id_fichas,f.nombre_fichas,f.encabezado_tabla_fichas,f.farmacocinetica_fichas
 	,accion_terapeutica_fichas,clasificacion_farmacologica_fichas,f.forma_terapeutica_fichas
 	,f.indicaciones_uso_fichas,f.interacciones_fichas,f.contraindicaciones_fichas,f.periodo_retiro_fichas
 	,f.periodo_retiro_fichas,f.advertencias_fichas,f.presentacion_fichas,f.registro_sanitario_fichas
 	,f.mecanismo_accion_fichas,f.efectos_colaterales_fichas,f.conservacion_fichas,f.encabezado_dosificacion_fichas
-	,f.ingredientes_fichas,f.tipo_alimento_fichas,ff.foto_fichas_fotos,ff.id_fichas_fotos,
-	sublab.nombre_laboratorios";
-		 
-		$tablas   = "public.fichas f
+	,f.ingredientes_fichas,f.tipo_alimento_fichas,ff.id_fichas,ff.foto_fichas_fotos,ff.id_fichas_fotos, f.nombre_laboratorio";
+	    
+	   $tablas   = "public.fichas f
 					LEFT JOIN public.fichas_fotos ff
-					ON ff.id_fichas = f.id_fichas
-					LEFT JOIN
-					(SELECT
-					  fichas_laboratorios.id_laboratorios,
-					  fichas_laboratorios.id_fichas,
-					  laboratorios.nombre_laboratorios,
-					  laboratorios.telefono_persona_contacto_laboratorios,
-					  laboratorios.persona_contacto_laboratorios,
-					  laboratorios.email_laboratorios,
-					  laboratorios.web_laboratorios,
-					  laboratorios.logo_laboratorios
-					FROM
-					  public.fichas_laboratorios,
-					  public.laboratorios
-					WHERE
-					  laboratorios.id_laboratorios = fichas_laboratorios.id_laboratorios) sublab
-		
-					  ON sublab.id_fichas = f.id_fichas";
-		$where    = "f.tipo_ficha = 'P'";
-		$id = "f.id_fichas";
-		$resultSet = $fichas->getCondiciones($columnas, $tablas, $where, $id);
+					ON ff.id_fichas = f.id_fichas";
+	   $where    = "f.tipo_ficha = 'P'";
+	   $id = "f.id_fichas";
+	   $resultSet = $fichas->getCondiciones($columnas, $tablas, $where, $id);
 		
 		$resultMenu=array(0=>'--TODOS--',1=>'Nombre Producto');
 		
@@ -1221,6 +1249,7 @@ public function index(){
 		//REGISTRANDO FICHAS LABORATORIOS
 		
 		$fichas_laboratorios = new FichasLaboratoriosModel();
+		$laboratorios = new LaboratoriosModel();
 		
 		if (isset($_POST["btn_agregar_laboratorios"]) )
 		{
@@ -1233,6 +1262,8 @@ public function index(){
 			$tabla = "fichas_laboratorios";
 			$where = "id_fichas_laboratorios = '$_id_fichas_laboratorios'";
 			$resultado=$fichas_laboratorios->UpdateBy($colval, $tabla, $where);
+			
+			
 			}else{
 			$funcion = "ins_fichas_laboratorios";
 			$parametros = "'$_id_fichas', '$_id_laboratorios'";
