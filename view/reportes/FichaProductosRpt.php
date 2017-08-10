@@ -20,8 +20,10 @@ if(!empty($dicContenido))
 		$template = str_replace('{'.$clave.'}', $valor, $template);
 	}
 }
-//  var_dump($template);
-//  die();
+// var_dump($template);
+
+// echo $template; 
+// die();
 ob_end_clean();
 
 

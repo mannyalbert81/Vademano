@@ -379,7 +379,7 @@
 			  	        
 			  	        <!-- cambio en action de sigte helper (FichaOnline) -->
 			  	        
-			  	      	<a href="<?php echo $helper->url("FichasProductos","verFicha"); ?>&id_fichas=<?php echo $res->id_fichas; ?>&nombre_fichas=<?php echo $res->nombre_fichas; ?>"  class="thumbnail"  target="_blank" >
+			  	      	<a href="<?php echo $helper->url("FichasProductos","verFichaOnline"); ?>&id_fichas=<?php echo $res->id_fichas; ?>&nombre_fichas=<?php echo $res->nombre_fichas; ?>"  class="thumbnail"  target="_blank" >
 			  	      		<img name="image" src="view/DevuelveImagen.php?id_valor=<?php echo $res->id_fichas; ?>&id_nombre=id_fichas&tabla=fichas_fotos&campo=foto_fichas_fotos"  alt="<?php echo $res->nombre_fichas; ?>" width="80px" height="60px" >
 			  	        </a>
 			  	        
@@ -392,7 +392,7 @@
 			  	      <p  class="formulario-subtitulo-busqueda" style="font-family: calibri;" ><?php echo $res->nombre_fichas; ?> </p> 
 			  	      <div >
 			  	      
-			  	     	<a href="<?php echo $helper->url("FichasProductos","verFicha"); ?>&id_fichas=<?php echo $res->id_fichas; ?>&nombre_fichas=<?php echo $res->nombre_fichas; ?>"  class="thumbnail"  target="_blank" >
+			  	     	<a href="<?php echo $helper->url("FichasProductos","verFichaOnline"); ?>&id_fichas=<?php echo $res->id_fichas; ?>&nombre_fichas=<?php echo $res->nombre_fichas; ?>"  class="thumbnail"  target="_blank" >
 			  	      		<img name="image"  class="img-responsive" src="view/DevuelveImagen.php?id_valor=<?php echo $res->id_fichas; ?>&id_nombre=id_fichas&tabla=fichas_fotos&campo=foto_fichas_fotos" width="80" height="60"  alt="<?php echo $res->nombre_fichas; ?>" width="120" height="100" >
 			  	        </a>
 			  	        
