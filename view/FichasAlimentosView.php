@@ -215,7 +215,7 @@
 		               <td style="font-size: 12px;"> <?php echo $res->tipo_alimento_fichas; ?>     </td> 
 		               <td style="font-size: 12px;"> <?php echo $res->ingredientes_fichas; ?>     </td>
 		               <td style="font-size: 12px;"> <?php echo $res->presentacion_fichas; ?>     </td> 
-		               <td style="font-size: 12px;"> <?php echo $res->nombre_laboratorios; ?>     </td> 
+		               <td style="font-size: 12px;"> <?php echo $res->nombre_laboratorio; ?>     </td> 
 		               <td style="font-size: 12px;"> <?php echo $res->registro_sanitario_fichas; ?>     </td> 
 		               <td style="font-size: 12px;"> <input type="image" name="image" src="view/DevuelveImagen.php?id_valor=<?php echo $res->id_fichas_fotos; ?>&id_nombre=id_fichas_fotos&tabla=fichas_fotos&campo=foto_fichas_fotos"  alt="<?php echo $res->id_fichas_fotos; ?>" width="80" height="60" >      </td>
 	                  
