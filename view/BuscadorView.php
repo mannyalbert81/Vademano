@@ -337,13 +337,15 @@
     	  <div class="row" >
     	 	<div class="col-xs-3 col-md-3">
     	 	</div>
-    	 	<div class="col-xs-6 col-md-6" >
+    	 	<div class="col-xs-9 col-md-9" >
     	 	
     	 	<ul class="nav nav-pills" role="tablist" >
 			  <li role="presentation" id="option-productos" class="active"><a href="#">Productos <span class="badge"><?php echo $CantProductos;?></span></a></li>
+			  <li role="presentation" id="option-distribuidores" ><a href="#">Alimentos <span class="badge"><?php echo $CantDistribuidores;?></span></a></li>
 			  <li role="presentation" id="option-principios" ><a href="#">Principios Activos <span class="badge"><?php echo $CantPrincipios;?></span></a></li>
 			  <li role="presentation" id="option-laboratorios" ><a href="#">Laboratorios <span class="badge"><?php echo $CantLaboratorios;?></span></a></li>
 			  <li role="presentation" id="option-distribuidores" ><a href="#">Distribuidores <span class="badge"><?php echo $CantDistribuidores;?></span></a></li>
+			  
 			</ul>
     	 	
     	 	</div>
