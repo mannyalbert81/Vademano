@@ -779,7 +779,7 @@
            <div class="col-lg-6 col-md-6 division" style="-webkit-box-shadow: 0px 2px 2px 2px rgba(0,0,0,0.69); border-radius: 24px 24px 24px 24px; margin-top: 20px">
           <h4>Informate</h4>
             <hr/>
-           <img src="" id="imagen" width="715" height="430">
+           <img src="" id="imagen" width="630" height="430">
             <br><br>
              </div>
       </form>
