@@ -13,6 +13,109 @@ public function index(){
 	session_start();
 	$existe="false";
 	    $fichas = new FichasModel();
+	    $fichas_laboratorios= new FichasLaboratoriosModel();
+	    $laboratorios = new LaboratoriosModel();
+	   
+	    
+	    $columnas="fichas.id_fichas";
+	    $tablas="fichas";
+	    $where8="fichas.id_fichas>0 AND fichas.tipo_ficha = 'A'";
+	    $id8="fichas.id_fichas";
+	    $resultActual=$fichas->getCondiciones($columnas, $tablas, $where8, $id8);
+	    
+	    
+	    
+	    if(!empty($resultActual)){
+	    
+	    	$colval = " nombre_laboratorio = ''";
+	    	$tabla = "fichas";
+	    	$where1 = "id_fichas>0 AND fichas.tipo_ficha = 'A'";
+	    	$resultado=$fichas->UpdateBy($colval, $tabla, $where1);
+	    
+	    
+	    	foreach($resultActual as $res)
+	    	{
+	    		$_id_fichas=$res->id_fichas;
+	    		$where    = "id_fichas = '$_id_fichas' ";
+	    		$resultGet = $fichas_laboratorios->getBy($where);
+	    			
+	    			
+	    		if(!empty($resultGet)){
+	    			$tablaLab="<table>";
+	    			$tablaLab.="<tr>";
+	    			$tablaLab.="<td><font size=1>";
+	    			$tablaLab.="";
+	    			foreach($resultGet as $res)
+	    			{
+	    					
+	    				$_id_laboratorios=$res->id_laboratorios;
+	    				$where10    = "id_laboratorios = '$_id_laboratorios' ";
+	    				$resultGet10 = $laboratorios->getBy($where10);
+	    					
+	    					
+	    				if(!empty($resultGet10)){
+	    						
+	    
+	    					foreach($resultGet10 as $res)
+	    					{
+	    							
+	    						$tablaLab.="<b>- </b>";
+	    						$tablaLab.=$res->nombre_laboratorios;
+	    						$tablaLab.="<br>";
+	    
+	    							
+	    					}
+	    
+	    				}
+	    					
+	    			}
+	    
+	    			$tablaLab.="</font></td>";
+	    			$tablaLab.="</tr>";
+	    			$tablaLab.="</table>";
+	    
+	    			$colval = " nombre_laboratorio =  '$tablaLab'";
+	    			$tabla = "fichas";
+	    			$where = "id_fichas ='$_id_fichas'";
+	    			$resultado=$fichas->UpdateBy($colval, $tabla, $where);
+	    
+	    			$tablaLab="";
+	    
+	    
+	    		}
+	    			
+	    			
+	    			
+	    	}
+	    
+	    
+	    
+	    
+	    }
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
 	    $columnas = "f.id_fichas,f.nombre_fichas,f.encabezado_tabla_fichas,f.farmacocinetica_fichas
 	,accion_terapeutica_fichas,clasificacion_farmacologica_fichas,f.forma_terapeutica_fichas
 	,f.indicaciones_uso_fichas,f.interacciones_fichas,f.contraindicaciones_fichas,f.periodo_retiro_fichas

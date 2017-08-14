@@ -18,7 +18,7 @@ public function index(){
 	
 	$columnas="fichas.id_fichas";
 	$tablas="fichas";
-	$where8="fichas.id_fichas>0";
+	$where8="fichas.id_fichas>0 AND fichas.tipo_ficha = 'P'";
 	$id8="fichas.id_fichas";
 	$resultActual=$fichas->getCondiciones($columnas, $tablas, $where8, $id8);
 	
@@ -28,7 +28,7 @@ public function index(){
 		
 		$colval = " nombre_laboratorio = ''";
 		$tabla = "fichas";
-		$where1 = "id_fichas>0";
+		$where1 = "id_fichas>0 AND fichas.tipo_ficha = 'P'";
 		$resultado=$fichas->UpdateBy($colval, $tabla, $where1);
 		
 		
