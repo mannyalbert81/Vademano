@@ -18,7 +18,7 @@ public function index(){
 	,f.indicaciones_uso_fichas,f.interacciones_fichas,f.contraindicaciones_fichas,f.periodo_retiro_fichas
 	,f.periodo_retiro_fichas,f.advertencias_fichas,f.presentacion_fichas,f.registro_sanitario_fichas
 	,f.mecanismo_accion_fichas,f.efectos_colaterales_fichas,f.conservacion_fichas,f.encabezado_dosificacion_fichas
-	,f.ingredientes_fichas,f.tipo_alimento_fichas,ff.id_fichas,ff.foto_fichas_fotos,ff.id_fichas_fotos, f.nombre_laboratorio";
+	,f.ingredientes_fichas,f.tipo_alimento_fichas,ff.foto_fichas_fotos,ff.id_fichas_fotos, f.nombre_laboratorio";
 	    
 	   $tablas   = "public.fichas f
 					LEFT JOIN public.fichas_fotos ff
@@ -38,7 +38,7 @@ public function index(){
 	,f.indicaciones_uso_fichas,f.interacciones_fichas,f.contraindicaciones_fichas,f.periodo_retiro_fichas
 	,f.periodo_retiro_fichas,f.advertencias_fichas,f.presentacion_fichas,f.registro_sanitario_fichas
 	,f.mecanismo_accion_fichas,f.efectos_colaterales_fichas,f.conservacion_fichas,f.encabezado_dosificacion_fichas
-	,f.ingredientes_fichas,f.tipo_alimento_fichas,ff.id_fichas,ff.foto_fichas_fotos,ff.id_fichas_fotos, f.nombre_laboratorio";
+	,f.ingredientes_fichas,f.tipo_alimento_fichas,ff.foto_fichas_fotos,ff.id_fichas_fotos, f.nombre_laboratorio";
 	    
 	   $tablas1   = "public.fichas f
 					LEFT JOIN public.fichas_fotos ff
@@ -121,7 +121,7 @@ public function index(){
 	,f.indicaciones_uso_fichas,f.interacciones_fichas,f.contraindicaciones_fichas,f.periodo_retiro_fichas
 	,f.periodo_retiro_fichas,f.advertencias_fichas,f.presentacion_fichas,f.registro_sanitario_fichas
 	,f.mecanismo_accion_fichas,f.efectos_colaterales_fichas,f.conservacion_fichas,f.encabezado_dosificacion_fichas
-	,f.ingredientes_fichas,f.tipo_alimento_fichas,ff.id_fichas,ff.foto_fichas_fotos,ff.id_fichas_fotos, f.nombre_laboratorio";
+	,f.ingredientes_fichas,f.tipo_alimento_fichas,ff.foto_fichas_fotos,ff.id_fichas_fotos, f.nombre_laboratorio";
 		 
 		$tablas   = "public.fichas f
 					LEFT JOIN public.fichas_fotos ff
