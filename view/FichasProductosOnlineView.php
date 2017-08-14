@@ -66,24 +66,24 @@
 	
 		<div id="divSerp" style="{cafa}">
 			<div style="margin-top:10px; background-color:#999E9A; color:#FFFFFF; font-family:verdana; font-size:75%; width:100%;">
-				<strong> CATEGORÍA FARMACOLÓGICA: </strong>
+				<font size=3><strong> CATEGORÍA FARMACOLÓGICA: </strong></font>
 			</div>
 			<div style="color:#010a01; font-family:Times New Roman; font-size:60%; width:100%; text-align: center;">
-			<p> <?php if($dicContenido['CLASIFICACION']!=""){echo $dicContenido['CLASIFICACION'];}else{/*{CLASIFICACION}*/} ?> </p>
+			<p><font size=2><?php if($dicContenido['CLASIFICACION']!=""){echo $dicContenido['CLASIFICACION'];}else{/*{CLASIFICACION}*/} ?> </font></p>
 			</div>
 		</div>
 		<div  id="divSerp"  style="{fofa}" >
 		<div style="margin-top:10px; background-color:#999E9A; color:#FFFFFF; font-family: verdana; font-size:75%; width:100%;">
-  			<strong> FORMA FARMACÉUTICA: </strong>
+  			<font size=3><strong> FORMA FARMACÉUTICA: </strong></font>
   		</div>
         <div style="color:#010a01; font-family: Times New Roman; font-size:60%; width:100%; text-align: center;">
-  		<p> <?php if($dicContenido['FORMA']!=""){echo $dicContenido['FORMA'];}else{/*{FORMA}*/} ?></p>
+  		<p><font size=2> <?php if($dicContenido['FORMA']!=""){echo $dicContenido['FORMA'];}else{/*{FORMA}*/} ?></font></p>
   		</div>
 	    </div>
 	
 		<div id="divSerp"  style="{esde}">
 		<div style="margin-top:10px; background-color:#999E9A; color:#FFFFFF; font-family: verdana; font-size:75%; text-align:center; width:100%;">
-		<strong> ESPECIES DE DESTINO: </strong>
+		<font size=3><strong> ESPECIES DE DESTINO: </strong></font>
 		</div>
 		 <div style=" margin-top:10px; text-align: center; font-family: Times New Roman; font-size:55%;  width:100%;" >
 		 <?php if($dicContenido['TABLAESPECIES']!=""){echo $dicContenido['TABLAESPECIES'];}else{/*{TABLAESPECIES}*/} ?>
@@ -92,72 +92,72 @@
 		
 		<div id="divSerp"  style="{comp}">
 		<div style="margin-top:10px; background-color:#999E9A; color:#FFFFFF; font-family: verdana; font-size:75%; width:100%;">
-			<strong> COMPOSICIÓN: </strong>
+			<font size=3><strong> COMPOSICIÓN: </strong></font>
 		</div>
 		<div style="color:#010a01; font-family: Times New Roman; font-size:60%; width:100%;">
-			<p><?php if($dicContenido['ENCABEZADO']!=""){echo $dicContenido['ENCABEZADO'];}else{/*{ENCABEZADO}*/} ?></p>	
+			<p><font size=2><?php if($dicContenido['ENCABEZADO']!=""){echo $dicContenido['ENCABEZADO'];}else{/*{ENCABEZADO}*/} ?></font></p>	
 		</div>
 					
 		<div style="color:#010a01; font-family: Times New Roman; font-size:55%; width:100%;">
-		<?php if($dicContenido['TABLACOMP']!=""){echo $dicContenido['TABLACOMP'];}else{/*{TABLACOMP}*/} ?>	 
+		<font size=4><?php if($dicContenido['TABLACOMP']!=""){echo $dicContenido['TABLACOMP'];}else{/*{TABLACOMP}*/} ?>	</font> 
 		</div>
 		</div>
 		
 		<div id="divSerp"  style="{cara}">
 		<div style="margin-top:10px; background-color:#999E9A; color:#FFFFFF; font-family: verdana; font-size:75%; width:100%;">
-  			<strong> CARACTERISTICAS:  </strong>
+  			<font size=3><strong> CARACTERISTICAS:  </strong></font>
   		</div>
   		<div style="color:#010a01; font-family: Times New Roman; font-size:60%; width:100%;">
-  		<p><?php if($dicContenido['ACCIONTERAPEUTICA']!=""){echo $dicContenido['ACCIONTERAPEUTICA'];}else{/*{ACCIONTERAPEUTICA}*/} ?></p>
+  		<p><font size=2><?php if($dicContenido['ACCIONTERAPEUTICA']!=""){echo $dicContenido['ACCIONTERAPEUTICA'];}else{/*{ACCIONTERAPEUTICA}*/} ?></font></p>
   		</div>
 		</div>
 	
 		<div id="divSerp"  style="{mede}">
 			<div style="margin-top:10px; background-color:#999E9A; color:#FFFFFF; font-family: verdana; font-size:75%; width:100%;">
-				<strong> MECANISMOS DE ACCIÓN:  </strong>
+				<font size=3><strong> MECANISMOS DE ACCIÓN:  </strong></font>
 			</div>
 			<div style="color:#010a01; font-family: Times New Roman; font-size:60%; width:100%;">
-			<p> <?php if($dicContenido['MECANISMOACCION']!=""){echo $dicContenido['MECANISMOACCION'];}else{/*{MECANISMOACCION}*/} ?></p>
+			<p><font size=2><?php if($dicContenido['MECANISMOACCION']!=""){echo $dicContenido['MECANISMOACCION'];}else{/*{MECANISMOACCION}*/} ?></font></p>
 			</div>
 		</div>
 	
 		<div id="divSerp"  style="{inde}">
 			<div style="margin-top:10px; background-color:#999E9A; color:#FFFFFF; font-family: verdana; font-size:75%; width:100%;">
-				<strong> INDICACIONES DE USO:   </strong>
+				<font size=3><strong> INDICACIONES DE USO:   </strong></font>
 			</div>
 			<div style="color:#010a01; font-family: Times New Roman; font-size:60%; width:100%;">
-			<p> <?php if($dicContenido['INDICACIONES']!=""){echo $dicContenido['INDICACIONES'];}else{/*{INDICACIONES}*/} ?> </p>
+			<p><font size=2><?php if($dicContenido['INDICACIONES']!=""){echo $dicContenido['INDICACIONES'];}else{/*{INDICACIONES}*/} ?></font></p>
 			</div>
 		</div>
 	
 		<div id="divSerp"  style="{dode}">
 			<div style="margin-top:10px; background-color:#999E9A; color:#FFFFFF; font-family: verdana; font-size:75%; width:100%;">
-				<strong> DOSIFICACIÓN DE <?php if($dicContenido['NOMBREFICHA']!=""){echo $dicContenido['NOMBREFICHA'];}else{/*{CLASIFICACION}*/} ?> </strong>
+				<font size=3><strong> DOSIFICACIÓN DE <?php if($dicContenido['NOMBREFICHA']!=""){echo $dicContenido['NOMBREFICHA'];}else{/*{CLASIFICACION}*/} ?> </strong></font>
 				
 			</div>
 			<div style="color:#010a01; font-family: Times New Roman; font-size:60%; width:100%;">
-			<p><?php if($dicContenido['DOSIFICACION']!=""){echo $dicContenido['DOSIFICACION'];}else{/*{DOSIFICACION}*/} ?></p>		
+			<p><font size=2><?php if($dicContenido['DOSIFICACION']!=""){echo $dicContenido['DOSIFICACION'];}else{/*{DOSIFICACION}*/} ?></font></p>		
 			</div>
 			<div style="color:#010a01; font-family: Times New Roman; font-size:55%; width:100%;">
-			<?php if($dicContenido['TABLADOSI']!=""){echo $dicContenido['TABLADOSI'];}else{/*{TABLADOSI}*/} ?> 
+			<font size=4><?php if($dicContenido['TABLADOSI']!=""){echo $dicContenido['TABLADOSI'];}else{/*{TABLADOSI}*/} ?></font>
 		    </div>
 		</div>
 	
 		<div id="divSerp"  style="{pede}">
 			<div style="margin-top:10px; background-color:#999E9A; color:#FFFFFF; font-family: verdana; font-size:75%; width:100%;">
-			<strong> PERIODO DE RETIRO:   </strong>
+			<font size=3><strong> PERIODO DE RETIRO:   </strong></font>
 			</div>
 			<div style="color:#010a01; font-family: Times New Roman; font-size:60%; width:100%;">
-			<p> <?php if($dicContenido['PERIODORETIRO']!=""){echo $dicContenido['PERIODORETIRO'];}else{/*{PERIODORETIRO}*/} ?></p>
+			<p><font size=2><?php if($dicContenido['PERIODORETIRO']!=""){echo $dicContenido['PERIODORETIRO'];}else{/*{PERIODORETIRO}*/} ?></font></p>
 			</div>
 		</div>
 	
 		<div id="divSerp"  style="{adve}">
 			<div style="margin-top:10px; background-color:#999E9A; color:#FFFFFF; font-family: verdana; font-size:75%; width:100%;">
-			<strong> ADVERTENCIAS: </strong>
+			<font size=3><strong> ADVERTENCIAS: </strong></font>
 			</div>
 			<div style="margin-top:0px; color:#010a01; font-family: Times New Roman; font-size:60%; width:100%;">
-			<p> <?php if($dicContenido['ADVERTENCIAS']!=""){echo $dicContenido['ADVERTENCIAS'];}else{/*{ADVERTENCIAS}*/} ?> </p>
+			<p><font size=2><?php if($dicContenido['ADVERTENCIAS']!=""){echo $dicContenido['ADVERTENCIAS'];}else{/*{ADVERTENCIAS}*/} ?></font></p>
 			</div>
 		</div>
 	
@@ -174,64 +174,64 @@
 		
 		<div id="divSerp"  style="{admi}">
 			<div style="background-color:#999E9A; color:#FFFFFF; font-family: verdana; font-size:75%; width:100%;">
-				<strong> VÍA DE ADMINISTRACIÓN: </strong>
+				<font size=3><strong> VÍA DE ADMINISTRACIÓN: </strong></font>
 			</div>
 			<div style="color:#010a01; font-family: Times New Roman; font-size:60%; width:100%;">
-			<?php if($dicContenido['TABLAADMINISTRACION']!=""){echo $dicContenido['TABLAADMINISTRACION'];}else{/*{TABLAADMINISTRACION}*/} ?>	  
+			<font size=2><?php if($dicContenido['TABLAADMINISTRACION']!=""){echo $dicContenido['TABLAADMINISTRACION'];}else{/*{TABLAADMINISTRACION}*/} ?></font>  
 			</div>
 		</div>
 		
 		<div id="divSerp"  style="{inte}">
 		<div style="margin-top:10px; background-color:#999E9A; color:#FFFFFF; font-family: verdana; font-size:75%; width:100%;">
-		<strong> INTERACCIONES:   </strong>
+		<font size=3><strong> INTERACCIONES:   </strong></font>
 		</div>
 		<div style="color:#010a01; font-family: Times New Roman; font-size:60%; width:100%;">
-		<p><?php if($dicContenido['INTERACIONES']!=""){echo $dicContenido['INTERACIONES'];}else{/*{INTERACIONES}*/} ?> </p>
+		<p><font size=2><?php if($dicContenido['INTERACIONES']!=""){echo $dicContenido['INTERACIONES'];}else{/*{INTERACIONES}*/} ?> </font></p>
 		</div>
 		</div>
 	
 	<div id="divSerp"  style="{cont}">
 		<div style="margin-top:10px; background-color:#999E9A; color:#FFFFFF; font-family: verdana; font-size:75%; width:100%;">
-		<strong> CONTRAINDICACIONES:   </strong>
+		<font size=3><strong> CONTRAINDICACIONES:   </strong></font>
 		</div>
 		<div style="color:#010a01; font-family: Times New Roman; font-size:60%; width:100%;">
-		<p> <?php if($dicContenido['CONTRAINDICACIONES']!=""){echo $dicContenido['CONTRAINDICACIONES'];}else{/*{CONTRAINDICACIONES}*/} ?></p>
+		<p><font size=2><?php if($dicContenido['CONTRAINDICACIONES']!=""){echo $dicContenido['CONTRAINDICACIONES'];}else{/*{CONTRAINDICACIONES}*/} ?></font></p>
 		</div>
 	</div>
 	
 	<div id="divSerp"  style="{efco}">
 		<div style="margin-top:10px; background-color:#999E9A; color:#FFFFFF; font-family: verdana; font-size:75%; width:100%;">
-		<strong> EFECTOS COLATERALES:   </strong>
+		<font size=3><strong> EFECTOS COLATERALES:   </strong></font>
 		</div>
 		<div style="color:#010a01; font-family: Times New Roman; font-size:60%; width:100%;">
-		<p><?php if($dicContenido['EFECTOS']!=""){echo $dicContenido['EFECTOS'];}else{/*{EFECTOS}*/} ?> </p>
+		<p><font size=2><?php if($dicContenido['EFECTOS']!=""){echo $dicContenido['EFECTOS'];}else{/*{EFECTOS}*/} ?></font></p>
 		</div>
 	</div>
 	
 	<div id="divSerp"  style="{cons}">
 		<div style="margin-top:10px; background-color:#999E9A; color:#FFFFFF; font-family: verdana; font-size:75%; width:100%;">
-		<strong> CONSERVACIÓN:   </strong>
+		<font size=3><strong> CONSERVACIÓN:   </strong></font>
 		</div>
 		<div style="color:#010a01; font-family: Times New Roman; font-size:60%; width:100%;">
-		<p> <?php if($dicContenido['CONSERVACION']!=""){echo $dicContenido['CONSERVACION'];}else{/*{CONSERVACION}*/} ?> </p>
+		<p> <font size=2><?php if($dicContenido['CONSERVACION']!=""){echo $dicContenido['CONSERVACION'];}else{/*{CONSERVACION}*/} ?> </font></p>
 		</div>
 	</div>
 	
 	<div id="divSerp"  style="{pres}">
 		<div style="margin-top:10px; background-color:#999E9A; color:#FFFFFF; font-family: verdana; font-size:75%; width:100%;">
-		<strong> PRESENTACIONES:   </strong>
+		<font size=3><strong> PRESENTACIONES:   </strong></font>
 		</div>
 		<div style="color:#010a01; font-family: Times New Roman; font-size:60%; width:100%;">
-		<p> <?php if($dicContenido['PRESENTACION']!=""){echo $dicContenido['PRESENTACION'];}else{/*{PRESENTACION}*/} ?> </p>
+		<p><font size=2><?php if($dicContenido['PRESENTACION']!=""){echo $dicContenido['PRESENTACION'];}else{/*{PRESENTACION}*/} ?></font></p>
 		</div>
 	</div>
 	
 	<div id="divSerp"  style="{reag}">
 		<div style="margin-top:10px; background-color:#999E9A; color:#FFFFFF; font-family: verdana; font-size:75%; width:100%;">
-			<strong> REGISTRO AGROCALIDAD: </strong>
+			<font size=3><strong> REGISTRO AGROCALIDAD: </strong></font>
 		</div>
 		<div style="margin-top:0px; color:#010a01; font-family: Times New Roman; font-size:60%; width:100%;">
-			<p> <?php if($dicContenido['REGISTO']!=""){echo $dicContenido['REGISTO'];}else{/*{REGISTO}*/} ?> </p>
+			<p><font size=2> <?php if($dicContenido['REGISTO']!=""){echo $dicContenido['REGISTO'];}else{/*{REGISTO}*/} ?> </font></p>
 		</div>
 	</div>
 	
@@ -244,12 +244,12 @@
 	<div style="width:20%; border:1px dashed white; float:left;">
 	
 	</div>
-	<div style="width:50%; border:1px dashed white; float:left;" >
+	<div style="width:50%;  float:left;" >
 		<div style="margin-top:10px; background-color:#999E9A; color:#FFFFFF; font-family: verdana; font-size:75%; width:100%;">
-  		<strong> FABRICADO POR:   </strong>
+  		<font size=3><strong> FABRICADO POR:   </strong></font>
   		</div>
-  		<div style="color:#010a01; font-family: Times New Roman; font-size:55%; width:100%;">
-  		<?php if($dicContenido['FABRICADOPOR']!=""){echo $dicContenido['FABRICADOPOR'];}else{/*{FABRICADOPOR}*/} ?> 
+  		<div style="color:#010a01; font-family: Times New Roman; font-size:75%; width:100%;"><font size=4>
+  		<?php if($dicContenido['FABRICADOPOR']!=""){echo $dicContenido['FABRICADOPOR'];}else{/*{FABRICADOPOR}*/} ?></font>
   		</div>
 	</div>
 	<div style="width:20%; border:1px dashed white; float:left;">
@@ -263,10 +263,10 @@
 	</div>
 	<div style="width:50%; border:1px dashed white; float:left;" >
 		<div style="margin-top:10px; background-color:#999E9A; color:#FFFFFF; font-family: verdana; font-size:75%; width:100%;">
-  		<strong> DISTRIBUIDO POR:   </strong>
+  		<font size=3><strong> DISTRIBUIDO POR:   </strong></font>
   		</div>
-  		<div style="color:#010a01; font-family: Times New Roman; font-size:55%; width:100%;">
-  		<?php if($dicContenido['DISTIBUIDOPOR']!=""){echo $dicContenido['DISTIBUIDOPOR'];}else{/*{DISTIBUIDOPOR}*/} ?>
+  		<div style="color:#010a01; font-family: Times New Roman; font-size:75%; width:100%;"><font size=4>
+  		<?php if($dicContenido['DISTIBUIDOPOR']!=""){echo $dicContenido['DISTIBUIDOPOR'];}else{/*{DISTIBUIDOPOR}*/} ?></font>
   		</div>
 	</div>
 	<div style="width:20%; border:1px dashed white; float:left;">
@@ -277,13 +277,13 @@
 	<div style="width:98%; float:left;  margin:10px; 0px;" >
 		<table class="info" style="width:100%;"><tr>
 		<td class="infotd" style="font-size: 60%; padding: 5px;" align="justify">
-		<strong> DECLARACIÓN LEGAL: </strong>
+		<font size=3 style="color:#010a01; font-family: Times New Roman;  width:100%;"><strong> DECLARACIÓN LEGAL: </strong></font>
 		<br>
-		El contenido de este sitio es sólo para motivos informativos y de ninguna manera
+		<font size=2 style="color:#010a01; font-family: Times New Roman;  width:100%;">El contenido de este sitio es sólo para motivos informativos y de ninguna manera
 		se debe utilizar sin consultar a un médico veterinario Toda la información es 
 		proporcionada por el fabricante y / o distribuidor del producto por lo tanto Vademano
 		no asume responsabilidad por errores u omisiones en los contenidos que se publican aquí.
-		</td>
+		</font></td>
      </tr></table>
 	</div>
 	

@@ -2328,9 +2328,9 @@ public function index(){
    		//if(isset($_REQUEST['id_fichas'])&&isset($_REQUEST['nombre_fichas']))
    		if(isset($_REQUEST['id_fichas']))
    		{
-   		
+   			$nombre_fichas="";
    			$id_fichas = $_REQUEST["id_fichas"];
-   			$nombre_fichas = $_REQUEST["nombre_fichas"];
+   			//$nombre_fichas = $_REQUEST["nombre_fichas"];
    		
    			//para la ficha general
    			$columnas = " fichas.id_fichas,fichas.nombre_fichas,  fichas.encabezado_tabla_fichas,
