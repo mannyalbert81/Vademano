@@ -104,16 +104,7 @@
 		}); 
 	</script>
        
-          
-        <style>
-            input{
-                margin-top:5px;
-                margin-bottom:5px;
-            }
-            .right{
-                float:right;
-            }
-        </style>
+      
         <style>
 			body {
 			
@@ -549,13 +540,8 @@
 	        </div>
     	  	<?php  } ?>
     	  </div>		
-		  <div class="col-lg-12">
-  					
-   		     <?php include("view/modulos/servicios.php"); ?>	
-   			 
-   		</div> 
-	<?php include("view/modulos/beforefooter.php"); ?>
-    		
+		 
+   			
 	 </form>
 	 	 
 	 	    	 

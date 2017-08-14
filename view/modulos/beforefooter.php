@@ -3,12 +3,15 @@
 <div class="row" style="margin-top: 40px; background-color: #272525;  " >
   
 
-	<div class="col-sm-2 col-md-2">
+	<div class="col-sm-1 col-md-1">
   	</div>
   	
   	<div class="col-sm-10 col-md-10">
+  	  	
+  	  	<div class="col-sm-3 col-md-3"></div>
+  	  	
   	  	<div class="col-sm-3 col-md-3">
-	  		<div class= "before-footer-titulo"   >
+	  		<div class= "before-footer-titulo">
 				<strong> Informacion </strong> 
 	    	</div>
 	    	<div style="margin-top: 20px;" >	
@@ -23,20 +26,6 @@
 	  	</div>
 	  	
 	  	
-	  	<div class="col-sm-3 col-md-3">
-	  		<div class= "before-footer-titulo"   >
-				<strong> Sitios de Interes </strong> 
-	    	</div>
-	    	<div style="margin-top: 20px;" >	
-	      		
-	      		<p class="before-footer-texto">   <span class="glyphicon glyphicon-globe" aria-hidden="true"></span> Sitio Uno</p>
-		  		<p class="before-footer-texto">   <span class="glyphicon glyphicon-globe" aria-hidden="true"></span> Sitio Dos</p>
-		  		<p class="before-footer-texto">   <span class="glyphicon glyphicon-globe" aria-hidden="true"></span> Sitio Tres</p>
-		  		<p class="before-footer-texto">   <span class="glyphicon glyphicon-globe" aria-hidden="true"></span> Sitio Cuatro</p>
-		  		<p class="before-footer-texto">   <span class="glyphicon glyphicon-globe" aria-hidden="true"></span> Sitio Cinco</p>
-			</div>
-	    	
-	  	</div>
 	  	
 	  	<div class="col-sm-3 col-md-3">
 	  		<div class= "before-footer-titulo"   >
@@ -56,10 +45,11 @@
 			</div>
 	    	
 	  	</div>
+	  	<div class="col-sm-3 col-md-3"></div>
 	  	
 	</div>
 	
-	<div class="col-sm-2 col-md-2" >
+	<div class="col-sm-1 col-md-1" >
   	</div>
   	
 </div>

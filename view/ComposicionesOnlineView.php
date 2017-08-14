@@ -156,7 +156,7 @@
 			  	 	</div>
 			  	 	
 			  	 	<div  id="divSerp">
-			  	 	<div style="margin-top:30px; background-color:#999E9A; color:#FFFFFF; font-family: sans-serif; font-size:65%; width:100%;">
+			  	 	<div style="margin-top:10px; background-color:#999E9A; color:#FFFFFF; font-family: sans-serif; font-size:65%; width:100%;">
 			  		<font size=3><strong>ITERACCIONES:</strong></font>
 			  		</div>
 			  		
@@ -166,7 +166,7 @@
 			  	 	</div>
 			  	 	
 			  	 	<div  id="divSerp">
-			  	 	<div style="margin-top:30px; background-color:#999E9A; color:#FFFFFF; font-family: sans-serif; font-size:65%; width:100%;">
+			  	 	<div style="margin-top:10px; background-color:#999E9A; color:#FFFFFF; font-family: sans-serif; font-size:65%; width:100%;">
 			  		<font size=3><strong>CONTRAINDICACIONES:</strong></font>
 			  		</div>
 			  		
@@ -177,7 +177,7 @@
 			  	 	
 			  	 	
 			  	 	<div  id="divSerp">
-			  	 	<div style="margin-top:30px; background-color:#999E9A; color:#FFFFFF; font-family: sans-serif; font-size:65%; width:100%;">
+			  	 	<div style="margin-top:10px; background-color:#999E9A; color:#FFFFFF; font-family: sans-serif; font-size:65%; width:100%;">
 			  		<font size=3><strong>PERIODO DE RETIRO:</strong></font>
 			  		</div>
 			  		

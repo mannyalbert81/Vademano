@@ -784,10 +784,11 @@
              </div>
       </form>
 
-   <div> 
+         <div class="col-lg-12"> 
    		 <?php include("view/modulos/servicios.php"); ?>	
-   		  </div>
-   		 <div style="margin-top: 20px; background-color: #4bae4f;">
+   		 </div>
+   		
+   		 <div class="col-lg-12" style="margin-top: 20px;>
    		 
    		 <?php include("view/modulos/small_slide.php"); ?>
    		 
