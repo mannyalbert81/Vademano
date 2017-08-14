@@ -25,163 +25,184 @@
  		
  	
 
- 			
-        <style>
-            input{
-                margin-top:5px;
-                margin-bottom:5px;
-            }
-            .right{
-                float:right;
-            }
-                
+ 		<style>
+        div.izq{
+	left:0px;  margin-top:-20px; width:49%; /*border: 1px solid blue;*/ float:left;
+	}
+	div.der{
+	right:0px; margin-top:-10px; width:49%; /*border: 1px solid blue;*/ float:left;
+	}
+	#divSerp{
+	 width:100%; /*border: 1px solid red;*/ padding:0px 5px;
+	}
+	.prueba{/* border:1px dashed green;*/}
+	td.infotd {
+	border:hidden;
+	}
+	table.info{
+	border: 1px solid black;
+	}
+	footer
+	{
+    margin-top:50px;
+    width:100%;
+    height:200px;
+    background-color:red;
+	}
+           
             
-        </style>
+        </style>	
+     
     </head>
     <body class="cuerpo">
      
        
-       
-       <p></p>
-  		 <form action="<?php echo $helper->url("Composiciones","index_dos"); ?>" method="post" enctype="multipart/form-data"  class="col-lg-12">
+   	 <form action="<?php echo $helper->url("Composiciones","index_dos"); ?>" method="post" enctype="multipart/form-data"  class="col-lg-12">
           
-         
-		   		
-            
           <?php if ($resultRep !="" ) { foreach($resultRep as $resRep) {?>
-	       <div class="row">
+	     
+	      <div class="col-lg-12 division"; style="-webkit-box-shadow: 0px 2px 2px 2px rgba(0,0,0,0.69); border-radius: 24px 24px 24px 24px; margin-top: 20px; "   >
+           
+	      
 	       		
 	       		<div class="col-xs-6 col-md-6">
-				
-						<div class="row">
-						  <div class="col-xs-12 col-md-12">
-						  		<p class="titulos_vistasonline"><strong><?php echo $resRep->nombre_composiciones?></strong></font></p>
-						  <hr>
-						  </div>
-						 </div>
-						
-						 <div class="row">
-						  <div class="titulos_vistasonline" >
-						  <td>
+					 
+				    <div class="row" style="margin-top:20px;">
+					<div class="col-xs-12 col-md-12">
+						  		<p style="font-family: Arial; color:#31B046; whidth: 100%; text-align: center;  "><font size=6><strong><?php echo $resRep->nombre_composiciones?></strong></font></p>
+					</div>
+					</div>
+					<div class="row">
+					<div style="color:#010a01; font-family: sans-serif; font-size:55%; width:100%; text-align: center;" >
+					<img src="<?php echo base_url ?>view/images/principios-activos.jpg"  width="120" height="90" />
+				    </div>
+				    </div>
 						 
-						 </td>
-						  <hr>
-						  </div>
-						 </div>
-						
-						
-						<div class="row">
-						 <div style=" position: absolute;  margin-left: 5%; width:40%;">
-			  	 				
-			  	 	<div class="titulos_vistasonline">
-			  		<strong>CATEGORIA FARMACOLÓGICA:</strong>
-			  		<hr>
-			  		</div>
-			  		<div class="titulos_vistasonline">
-			  		<p><?php echo $resRep->categoria_farmacologica_composicion?></font></p>
-			  		<hr>
+					
+					
+					<div class="izq" >
+		            <div  id="divSerp">
+			  	 	<div style="margin-top:40px; background-color:#999E9A; color:#FFFFFF; font-family: sans-serif; font-size:65%; width:100%;">
+			  		<font size=3><strong>CATEGORIA FARMACOLÓGICA:</strong></font>
 			  		</div>
 			  		
-			  		<div class="titulos_vistasonline">
-			  		<strong>SUBCATEGORIA FARMACOLÓGICA:</strong>
-			  		<hr>
+			  		
+			  		<div style="color:#010a01; font-family: sans-serif; font-size:50%; width:100%;">
+			  		<p style="text-align: justify;"><font size=2><?php echo $resRep->categoria_farmacologica_composicion?></font></p>
 			  		</div>
-			  		<div class="titulos_vistasonline">
-			  		<p> <?php echo $resRep->subcategoria_farmacologica_composiciones?></p>
-			  		<hr>
+			  		</div>
+			  		
+			  		<div  id="divSerp">
+			  	 	<div style="margin-top:10px; background-color:#999E9A; color:#FFFFFF; font-family: sans-serif; font-size:65%; width:100%;">
+			  		<font size=3><strong>SUBCATEGORIA FARMACOLÓGICA:</strong></font>
+			  		</div>
+			  	
+			  		<div style="color:#010a01; font-family: sans-serif; font-size:50%; width:100%;">
+			  		<p style="text-align: justify;"><font size=2> <?php echo $resRep->subcategoria_farmacologica_composiciones?></font></p>
 			  		</div>		
+			  	 	</div>
 			  	 	
-			  	 	<div class="titulos_vistasonline">
-			  		<strong>INDICACIONES DE USO:</strong>
-			  		<hr>
+			  	 	<div  id="divSerp">
+			  	 	<div style="margin-top:10px; background-color:#999E9A; color:#FFFFFF; font-family: sans-serif; font-size:65%; width:100%;">
+			  		<font size=3><strong>INDICACIONES DE USO:</strong></font>
 			  		</div>
-			  		<div class="titulos_vistasonline">
-			  		<p> <?php echo $resRep->indicaciones_uso_composiciones?></p>
-			  		<hr>
-			  		</div>
-			  		
-			  		<div class="titulos_vistasonline">
-			  		<strong>FORMA DE ADMINISTRACIÓN:</strong>
-			  		<hr>
-			  		</div>
-			  		<div class="titulos_vistasonline">
-			  		<p> <?php echo $resRep->forma_administracion_composiciones?></p>
-			  		<hr>
-			  		
-			  		</div>
-			  		<div class="titulos_vistasonline">
-			  		<strong>EFECTOS SECUNDARIOS:</strong>
-			  		<hr>
-			  		</div>
-			  		<div class="titulos_vistasonline">
-			  		<p> <?php echo $resRep->efectos_secundarios_composiciones?></p>
-			  		<hr>
+			  	
+			  		<div style="color:#010a01; font-family: sans-serif; font-size:50%; width:100%;">
+			  		<p style="text-align: justify;"><font size=2><?php echo $resRep->indicaciones_uso_composiciones?></font></p>
 			  		</div>		 
-						 </div>
-						 </div>
-						
-				   	<div class="row">
-						 <div style=" position: absolute;  margin-left: 50%; width:44%;">
-			  	 	
-			  	 	
-			  	 	<div class="titulos_vistasonline">
-			  		<strong>MECANISMOS DE ACCIÓN:</strong>
-			  		<hr>
+					</div>
+					
+					<div  id="divSerp">
+			  	 	<div style="margin-top:10px; background-color:#999E9A; color:#FFFFFF; font-family: sans-serif; font-size:65%; width:100%;">
+			  		<font size=3><strong>FORMA DE ADMINISTRACIÓN:</strong></font>
 			  		</div>
-			  		<div >
-			  		<p> <?php echo $resRep->mecanismo_accion_composiciones?></p>
-			  		<hr>
+			  	
+			  		<div style="color:#010a01; font-family: sans-serif; font-size:50%; width:100%;">
+			  		<p style="text-align: justify;"><font size=2><?php echo $resRep->forma_administracion_composiciones?></font></p>
+			  		</div>		 
+					</div>
+					
+					<div  id="divSerp">
+			  	 	<div style="margin-top:10px; background-color:#999E9A; color:#FFFFFF; font-family: sans-serif; font-size:65%; width:100%;">
+			  		<font size=3><strong>EFECTOS SECUNDARIOS:</strong></font>
 			  		</div>
-			  	 	
-			  	 	<div class="titulos_vistasonline">
-			  		   <strong>PRECAUSIONES:</strong>
-			  		<hr>
+			  	
+			  		<div style="color:#010a01; font-family: sans-serif; font-size:50%; width:100%;">
+			  		<p style="text-align: justify;"><font size=2><?php echo $resRep->efectos_secundarios_composiciones?></font></p>
+			  		</div>		 
+					</div>
+					
+					<div  id="divSerp">
+			  	 	<div style="margin-top:10px; background-color:#999E9A; color:#FFFFFF; font-family: sans-serif; font-size:65%; width:100%;">
+			  		<font size=3><strong>MECANISMOS DE ACCIÓN:</strong></font>
 			  		</div>
-			  		<div >
-			  		<p><font size=3><?php echo $resRep->precausiones_composiociones?></font></p>
-			  		<hr>
-			  		</div>
-			  	 	
-			  	 	<div class="titulos_vistasonline">
-			  		  <strong>ITERACCIONES:</strong>
-			  		<hr>
-			  		</div>
-			  		<div >
-			  		<p><<?php echo $resRep->interacciones_composiciones?></p>
-			  		<hr>
-			  		</div>			
 			  		
-			  		<div class="titulos_vistasonline">
-			  		   <strong>CONTRAINDICACIONES:</strong>
-			  		<hr>
-			  		</div>
-			  		<div class="titulos_vistasonline">
-			  		<p><?php echo $resRep->contraindicaciones_composiciones?></p>
-			  		<hr>
-			  		</div>			  	 	
-			  	 	
-			  	 	<div class="titulos_vistasonline">
-			  		   <strong>PERIODO DE RETIRO:</strong>
-			  		<hr>
-			  		</div>
-			  		<div class="titulos_vistasonline">
-			  		<p><?php echo $resRep->periodo_retirio_composiciones?></p>
-			  		<hr>
-			  		</div>
-			  		  	 	
-			  	 		</div>
-			  	 	 		</div>
-						 			</div>
+			  		<div style="color:#010a01; font-family: sans-serif; font-size:50%; width:100%;">
+			  		<p style="text-align: justify;"><font size=2> <?php echo $resRep->mecanismo_accion_composiciones?></font></p>
+			  	    </div>
+			  	 	</div>
+				    </div>
 				
+				
+				    <div class="der">
+				    <div  id="divSerp">
+			  	 	<div style="margin-top:30px; background-color:#999E9A; color:#FFFFFF; font-family: sans-serif; font-size:65%; width:100%;">
+			  		<font size=3><strong>PRECAUSIONES:</strong></font>
+			  		</div>
+			  		
+			  		<div style="color:#010a01; font-family: sans-serif; font-size:50%; width:100%;">
+			  		<p style="text-align: justify;"><font size=2> <?php echo $resRep->precausiones_composiociones?></font></p>
+			  	    </div>
+			  	 	</div>
+			  	 	
+			  	 	<div  id="divSerp">
+			  	 	<div style="margin-top:30px; background-color:#999E9A; color:#FFFFFF; font-family: sans-serif; font-size:65%; width:100%;">
+			  		<font size=3><strong>ITERACCIONES:</strong></font>
+			  		</div>
+			  		
+			  		<div style="color:#010a01; font-family: sans-serif; font-size:50%; width:100%;">
+			  		<p style="text-align: justify;"><font size=2> <?php echo $resRep->interacciones_composiciones?></font></p>
+			  	    </div>
+			  	 	</div>
+			  	 	
+			  	 	<div  id="divSerp">
+			  	 	<div style="margin-top:30px; background-color:#999E9A; color:#FFFFFF; font-family: sans-serif; font-size:65%; width:100%;">
+			  		<font size=3><strong>CONTRAINDICACIONES:</strong></font>
+			  		</div>
+			  		
+			  		<div style="color:#010a01; font-family: sans-serif; font-size:50%; width:100%;">
+			  		<p style="text-align: justify;"><font size=2> <?php echo $resRep->contraindicaciones_composiciones?></font></p>
+			  	    </div>
+			  	 	</div>
+			  	 	
+			  	 	
+			  	 	<div  id="divSerp">
+			  	 	<div style="margin-top:30px; background-color:#999E9A; color:#FFFFFF; font-family: sans-serif; font-size:65%; width:100%;">
+			  		<font size=3><strong>PERIODO DE RETIRO:</strong></font>
+			  		</div>
+			  		
+			  		<div style="color:#010a01; font-family: sans-serif; font-size:50%; width:100%;">
+			  		<p style="text-align: justify;"><font size=2> <?php echo $resRep->periodo_retirio_composiciones?></font></p>
+			  	    </div>
+			  	 	</div>
+			  	 	
+			  	 	
+			  	 	</div>
+					
+					</div>
+						 
+					
 				<div class="col-xs-6 col-md-6">
 				</div>
-			</div>		
+				
 	
 	         	   
        	     <?php } } else {?>
 	        		
 
 	   <?php }?>  
+	   
+	   </div>
           </form>
           
   

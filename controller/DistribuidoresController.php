@@ -661,13 +661,12 @@ public function index(){
 		{
 		
 		$_id_distribuidores = $_GET["id_distribuidores"];
-			//$_nombre_distribuidores = $_GET["nombre_distribuidores"];
-			//Creamos el objeto usuario
-			$distribuidores=new DistribuidoresModel();
-			//Conseguimos todos los usuarios
-				
-		 
-			$columnas = " distribuidores.id_distribuidores, 
+			
+		    $distribuidores=new DistribuidoresModel();
+			$direcciones = new DireccionesModel();
+		 	
+			
+			$columnasDis = " distribuidores.id_distribuidores, 
  			distribuidores.nombre_distribuidores, 
   			distribuidores.persona_contacto_distribuidores, 
   			distribuidores.telefono_persona_contacto_distribuidores, 
@@ -675,15 +674,77 @@ public function index(){
   			distribuidores.web_distribuidores, 
   			distribuidores.logo_distribuidores, 
   			distribuidores.creado";
-			$tablas   = "public.distribuidores";
-			$where    = " distribuidores.id_distribuidores =  $_id_distribuidores ";
-			$id       = "distribuidores.id_distribuidores";
-			 
-			$resultRep = $distribuidores->getCondiciones($columnas, $tablas, $where, $id);
+			$tablasDis  = "public.distribuidores";
+			$whereDis   = "distribuidores.id_distribuidores =  $_id_distribuidores ";
+			
+			$idDis = "distribuidores.id_distribuidores";
+				
+			$resultRep=$distribuidores->getCondiciones($columnasDis, $tablasDis, $whereDis, $idDis);
+			
+			$tablaLab="<table>";
+			if(!empty($resultRep))
+			{
+					
+					
+				foreach($resultRep as $res)
+				{
+					//para consulta de direcciones
+					$columnaslabDir = "d.direccion_direcciones,d.telefono_direcciones,d.celular_direcciones,
+						           ca.nombre_canton,pr.cod_telefono";
+			
+					$tablaslabDir   = "public.direcciones d		INNER JOIN public.canton ca
+								ON d.id_canton = ca.id_canton INNER JOIN public.codigos_provincias pr
+								ON pr.id_provincia = ca.id_provincias";
+			
+					$wherelabDir    = "d.id_distribuidores = '$res->id_distribuidores'";
+					$idlabDir = "d.id_direcciones";
+			
+					$dtLabDireccion=$direcciones->getCondiciones($columnaslabDir, $tablaslabDir, $wherelabDir, $idlabDir);
+			
+			
+					$tablaLab.="<tr>";
+					$tablaLab.="<td style='text-align:left; font-family: Times New Roman; font-size:72%;'>";
+					if(!empty($dtLabDireccion)){
+						$tablaLab.="";
+						foreach($dtLabDireccion as $resd)
+						{
+							$tablaLab.="<br>";
+							$tablaLab.="<b>CIUDAD: </b>";
+							$tablaLab.=$resd->nombre_canton;
+							$tablaLab.="<br>";
+							$tablaLab.="";
+							$tablaLab.="<b>DIRECCION: </b>";
+							$tablaLab.=$resd->direccion_direcciones;
+							$tablaLab.="<br>";
+							$tablaLab.="";
+							$tablaLab.="<b>TELÉFONO: </b> (593-2)&nbsp;";
+							$tablaLab.=$resd->cod_telefono;
+							$tablaLab.=$resd->telefono_direcciones;
+							$tablaLab.="<br>";
+							$tablaLab.="";
+							$tablaLab.="<b>CELULAR: </b> (593-2)&nbsp;";
+							$tablaLab.=$resd->celular_direcciones;
+							$tablaLab.="<br>";
+								
+			
+						}
+					}
+					$tablaLab.="</td>";
+					$tablaLab.="</tr>";
+			
+			
+				}
+					
+			}else{}
+			$tablaLab.="</table>";
+			
+				
+			
+			
 			 
 			 
 		}
-		$this->view("DistribuidoresOnline", array(	"resultRep"=>$resultRep
+		$this->view("DistribuidoresOnline", array(	"resultRep"=>$resultRep, 'tablaLab'=>$tablaLab
 		));
 		
 		

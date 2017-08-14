@@ -90,7 +90,7 @@
 			  		
 			  		<div  id="divSerp">
 			  	 	<div style="margin-top:10px; background-color:#999E9A; color:#FFFFFF; font-family: sans-serif; font-size:65%; width:100%;">
-			  		<font size=3><strong>TELEFONO:</strong></font>
+			  		<font size=3><strong>TELÉFONO:</strong></font>
 			  		</div>
 			  	
 			  		<div style="color:#010a01; font-family: sans-serif; font-size:50%; width:100%;">

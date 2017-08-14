@@ -24,17 +24,31 @@
 		</script>
  		
  	
-
- 			
-        <style>
-            input{
-                margin-top:5px;
-                margin-bottom:5px;
-            }
-            .right{
-                float:right;
-            }
-                
+ <style>
+        div.izq{
+	left:0px;  margin-top:-20px; width:49%; /*border: 1px solid blue;*/ float:left;
+	}
+	div.der{
+	right:0px; margin-top:-10px; width:49%; /*border: 1px solid blue;*/ float:left;
+	}
+	#divSerp{
+	 width:100%; /*border: 1px solid red;*/ padding:0px 5px;
+	}
+	.prueba{/* border:1px dashed green;*/}
+	td.infotd {
+	border:hidden;
+	}
+	table.info{
+	border: 1px solid black;
+	}
+	footer
+	{
+    margin-top:50px;
+    width:100%;
+    height:200px;
+    background-color:red;
+	}
+           
             
         </style>
     </head>
@@ -42,103 +56,87 @@
     
      
        
-       <p></p>
+     
   		 <form action="<?php echo $helper->url("Distribuidores","index_dos"); ?>" method="post" enctype="multipart/form-data"  class="col-lg-12">
-          
-         
-		   		
-            
-          <?php if ($resultRep !="" ) { foreach($resultRep as $resRep) {?>
-	       <div class="row">
-	       		
-	       		<div class="col-xs-6 col-md-6">
-				
-						<div class="row">
-						  <div class="col-xs-12 col-md-12">
-						  		<p style="font-family: sans-serif; color:#000000; whidth: 100%; text-align: center; "><font size=5><strong><?php echo $resRep->nombre_distribuidores?></strong></font></p>
-						  <hr>
-						  </div>
-						 </div>
-						<div class="row">
-						  <div style="color:#010a01; font-family: sans-serif; font-size:55%; width:100%; text-align: center;" >
-						  <td>
-						  		<img src="<?php echo base_url ?>view/DevuelveImagen.php?id_valor=<?php echo $resRep->id_distribuidores?>&id_nombre=id_distribuidores&tabla=distribuidores&campo=logo_distribuidores"  width="120" height="80" />
-						 </td>
-						  <hr>
-						  </div>
-						 </div>
+               <?php if ($resultRep !="" ) { foreach($resultRep as $resRep) {?>
+           <div class="col-lg-12 division"; style="-webkit-box-shadow: 0px 2px 2px 2px rgba(0,0,0,0.69); border-radius: 24px 24px 24px 24px; margin-top: 20px; "   >
+           		
+	       		   <div class="col-xs-6 col-md-6">
+				  
+				    <div class="row" style="margin-top:20px;">
+					<div class="col-xs-12 col-md-12">
+						  		<p style="font-family: Arial; color:#31B046; whidth: 100%; text-align: center;  "><font size=6><strong><?php echo $resRep->nombre_distribuidores?></strong></font></p>
+					</div>
+					</div>
+					<div class="row">
+					<div style="color:#010a01; font-family: sans-serif; font-size:55%; width:100%; text-align: center;" >
+					<img src="<?php echo base_url ?>view/DevuelveImagen.php?id_valor=<?php echo $resRep->id_distribuidores?>&id_nombre=id_distribuidores&tabla=distribuidores&campo=logo_distribuidores"  width="120" height="90" />
+				    </div>
+				    </div>
 						
 						
-						
-					  		
-					  		
-					  		
-					  		
-					  		
-					  		
-						
-						<div class="row">
-						 <div style=" position: absolute;  margin-left: 5%; width:40%;">
-			  	 				
-			  	 	<div style="margin-top:10px; background-color:#FFFFFF; color:#000000; font-family: sans-serif; font-size:75%; width:100%;">
-			  		<font size=4><strong>CONTACTOS:</strong></font>
-			  		<hr>
-			  		</div>
-			  		<div style="color:#010a01; font-family: sans-serif; font-size:55%; width:100%;">
-			  		<p><font size=3> <?php echo $resRep->persona_contacto_distribuidores?></font></p>
-			  		<hr>
+					<div class="izq" >
+		            <div  id="divSerp">
+			  	 	<div style="margin-top:40px; background-color:#999E9A; color:#FFFFFF; font-family: sans-serif; font-size:65%; width:100%;">
+			  		<font size=3><strong>CONTACTOS:</strong></font>
 			  		</div>
 			  		
-			  		<div style="margin-top:10px; background-color:#FFFFFF; color:#000000; font-family: sans-serif; font-size:75%; width:100%;">
-			  		<font size=4><strong>TELEFONO:</strong></font>
-			  		<hr>
+			  		
+			  		<div style="color:#010a01; font-family: sans-serif; font-size:50%; width:100%;">
+			  		<p> <font size=2><?php echo $resRep->persona_contacto_distribuidores?></font></p>
 			  		</div>
-			  		<div style="color:#010a01; font-family: sans-serif; font-size:55%; width:100%;">
-			  		<p><font size=3> <?php echo $resRep->telefono_persona_contacto_distribuidores?></font></p>
-			  		<hr>
+			  		</div>
+			  		
+			  		<div  id="divSerp">
+			  	 	<div style="margin-top:10px; background-color:#999E9A; color:#FFFFFF; font-family: sans-serif; font-size:65%; width:100%;">
+			  		<font size=3><strong>TELÉFONO:</strong></font>
+			  		</div>
+			  	
+			  		<div style="color:#010a01; font-family: sans-serif; font-size:50%; width:100%;">
+			  		<p><font size=2> <?php echo $resRep->telefono_persona_contacto_distribuidores?></font></p>
 			  		</div>		
-			  	 	
-			  	 	<div style="margin-top:10px; background-color:#FFFFFF; color:#000000; font-family: sans-serif; font-size:75%; width:100%;">
-			  		<font size=4><strong>MAIL:</strong></font>
-			  		<hr>
-			  		</div>
-			  		<div style="color:#010a01; font-family: sans-serif; font-size:55%; width:100%;">
-			  		<p> <font size=3><?php echo $resRep->email_distribuidores?></font></p>
-			  		<hr>
-			  		</div>		 
-						 </div>
-						 </div>
-						
-				   	<div class="row">
-						 <div style=" position: absolute;  margin-left: 50%; width:44%;">
-			  	 	
-			  	 	
-			  	 	<div style="margin-top:10px; background-color:#FFFFFF; color:#000000; font-family: sans-serif; font-size:75%; width:100%;">
-			  		<font size=4><strong>WEB:</strong></font>
-			  		<hr>
-			  		</div>
-			  		<div style="color:#010a01; font-family: sans-serif; font-size:55%; width:100%;">
-			  		<p> <font size=3><?php echo $resRep->web_distribuidores?></font></p>
-			  		<hr>
-			  		</div>
-			  	 	
-			  	 	<div style="margin-top:10px; background-color:#FFFFFF; color:#000000; font-family: sans-serif; font-size:75%; width:100%;">
-			  		<font size=4><strong>FECHA:</strong></font>
-			  		<hr>
-			  		</div>
-			  		<div style="color:#010a01; font-family: sans-serif; font-size:55%; width:100%;">
-			  		<p><font size=3><?php echo $resRep->creado?></font></p>
-			  		<hr>
-			  		</div>
-			  	 				  	 	
 			  	 	</div>
-			  	 	 </div>
-						 </div>
+			  	 	
+			  	 	<div  id="divSerp">
+			  	 	<div style="margin-top:10px; background-color:#999E9A; color:#FFFFFF; font-family: sans-serif; font-size:65%; width:100%;">
+			  		<font size=3><strong>MAIL:</strong></font>
+			  		</div>
+			  	
+			  		<div style="color:#010a01; font-family: sans-serif; font-size:50%; width:100%;">
+			  		<p> <font size=2><?php echo $resRep->email_distribuidores?></font></p>
+			  		</div>		 
+					</div>
+				    </div>
+					
+					
+					<div class="der">
+				    <div  id="divSerp">
+			  	 	<div style="margin-top:30px; background-color:#999E9A; color:#FFFFFF; font-family: sans-serif; font-size:65%; width:100%;">
+			  		<font size=3><strong>WEB:</strong></font>
+			  		</div>
+			  		
+			  		<div style="color:#010a01; font-family: sans-serif; font-size:50%; width:100%;">
+			  		<p><font size=2> <?php echo $resRep->web_distribuidores?></font></p>
+			  	    </div>
+			  	 	</div>
+			  	 	
+			  	 	<div  id="divSerp">
+			  	 	<div style="margin-top:10px; background-color:#999E9A; color:#FFFFFF; font-family: sans-serif; font-size:65%; width:100%;">
+			  		<font size=3><strong>DIRECCIÓN:</strong></font>
+			  		</div>
+			  		
+			  		<div style="color:#010a01; font-family: sans-serif; font-size:70%; width:100%;">
+			  		<font size=2><?php if($tablaLab !=""){ echo $tablaLab;}?></font>
+			  		</div>
+			  	 	</div>
+			  	 	</div>
+			  	 	</br></br></br></br></br>
+				    </div>
 				
-				<div class="col-xs-6 col-md-6">
-				</div>
-			</div>		
-	 
+			
+			<div class="col-xs-6 col-md-6" style="margin-top: 30px;">
+		   </div>
+			</div>
 	         	   
        	     <?php } } else {?>
 	        		

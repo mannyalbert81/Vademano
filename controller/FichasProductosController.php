@@ -2070,10 +2070,10 @@ public function index(){
    					
    					
    					$tablaLab.="<tr>";
-   					$tablaLab.="<td style=' text-align: left; font-family: Times New Roman; font-size:55%;'>&nbsp;";
+   					$tablaLab.="<td style=' text-align: left; font-family: Times New Roman; font-size:65%;'>&nbsp;";
    					$tablaLab.='<img src="view/DevuelveImagen.php?id_valor='.$res->id_laboratorios.'&id_nombre=id_laboratorios&tabla=laboratorios&campo=logo_laboratorios" width="80" height="60" />';
    					$tablaLab.="</td>";
-   					$tablaLab.="<td style='padding-left:10px; text-align:left; font-family: Times New Roman; font-size:55%;'>";
+   					$tablaLab.="<td style='padding-left:10px; text-align:left; font-family: Times New Roman; font-size:65%;'>";
    					if(!empty($dtLabDireccion)){
    						$tablaLab.="<br>";
    						foreach($dtLabDireccion as $resd)
@@ -2134,10 +2134,10 @@ public function index(){
    			
    			
    					$tablaDis.="<tr>";
-   					$tablaDis.="<td style=' text-align: left; font-family: Times New Roman; font-size:55%;'>&nbsp;";
+   					$tablaDis.="<td style=' text-align: left; font-family: Times New Roman; font-size:65%;'>&nbsp;";
    					$tablaDis.='<img src="view/DevuelveImagen.php?id_valor='.$res->id_distribuidores.'&id_nombre=id_distribuidores&tabla=distribuidores&campo=logo_distribuidores" width="80" height="60" />';
    					$tablaDis.="</td>";
-   					$tablaDis.="<td style='padding-left:10px; text-align:left; font-family: Times New Roman; font-size:55%;'>";
+   					$tablaDis.="<td style='padding-left:10px; text-align:left; font-family: Times New Roman; font-size:65%;'>";
    					if(!empty($dtdisDireccion)){
    						$tablaDis.="<br>";
    						foreach($dtdisDireccion as $resdi)
@@ -2423,7 +2423,7 @@ public function index(){
    					{
    						for($i=0; $i<count($arrayAdvertencias)-1; $i++)
    						{
-   							$advertencias_html.="&nbsp;";
+   							$advertencias_html.="";
    							$advertencias_html.=trim($arrayAdvertencias[$i]).".";
    							$advertencias_html.="<br>";
    						}
@@ -2553,10 +2553,10 @@ public function index(){
    		
    		
    					$tablaLab.="<tr>";
-   					$tablaLab.="<td style=' text-align: left; font-family: Times New Roman; font-size:55%;'>&nbsp;";
+   					$tablaLab.="<td style=' text-align: left; font-family: Times New Roman; font-size:72%;'>&nbsp;";
    					$tablaLab.='<img src="view/DevuelveImagen.php?id_valor='.$res->id_laboratorios.'&id_nombre=id_laboratorios&tabla=laboratorios&campo=logo_laboratorios" width="80" height="60" />';
    					$tablaLab.="</td>";
-   					$tablaLab.="<td style='padding-left:10px; text-align:left; font-family: Times New Roman; font-size:55%;'>";
+   					$tablaLab.="<td style='padding-left:10px; text-align:left; font-family: Times New Roman; font-size:72%;'>";
    					if(!empty($dtLabDireccion)){
    						$tablaLab.="<br>";
    						foreach($dtLabDireccion as $resd)
@@ -2617,10 +2617,10 @@ public function index(){
    		
    		
    					$tablaDis.="<tr>";
-   					$tablaDis.="<td style=' text-align: left; font-family: Times New Roman; font-size:55%;'>&nbsp;";
+   					$tablaDis.="<td style=' text-align: left; font-family: Times New Roman; font-size:72%;'>&nbsp;";
    					$tablaDis.='<img src="view/DevuelveImagen.php?id_valor='.$res->id_distribuidores.'&id_nombre=id_distribuidores&tabla=distribuidores&campo=logo_distribuidores" width="80" height="60" />';
    					$tablaDis.="</td>";
-   					$tablaDis.="<td style='padding-left:10px; text-align:left; font-family: Times New Roman; font-size:55%;'>";
+   					$tablaDis.="<td style='padding-left:10px; text-align:left; font-family: Times New Roman; font-size:72%;'>";
    					if(!empty($dtdisDireccion)){
    						$tablaDis.="<br>";
    						foreach($dtdisDireccion as $resdi)
@@ -2663,13 +2663,13 @@ public function index(){
    			if (!empty($dtComposicion))
    			{
    				$tablaComp.= "<tr >";
-   				$tablaComp.="<th style=' font-family: Times New Roman; font-size:55%;'>";
+   				$tablaComp.="<th style=' font-family: Times New Roman; font-size:72%;'>";
    				$tablaComp.= "Principio Activo";
    				$tablaComp.="</th>";
-   				$tablaComp.="<th style=' font-family: Times New Roman; font-size:55%;'>";
+   				$tablaComp.="<th style=' font-family: Times New Roman; font-size:72%;'>";
    				$tablaComp.="Dosis";
    				$tablaComp.="</th>";
-   				$tablaComp.="<th style=' font-family: Times New Roman; font-size:55%;'>";
+   				$tablaComp.="<th style=' font-family: Times New Roman; font-size:72%;'>";
    				$tablaComp.="U/M";
    				$tablaComp.="</th>";
    				$tablaComp.="</tr>";
@@ -2677,13 +2677,13 @@ public function index(){
    				foreach($dtComposicion as $res)
    				{
    					$tablaComp.="<tr>";
-   					$tablaComp.="<td style=' text-align: left; font-family: Times New Roman; font-size:55%;'>";
+   					$tablaComp.="<td style=' text-align: left; font-family: Times New Roman; font-size:72%;'>";
    					$tablaComp.=$res->nombre_composiciones;
    					$tablaComp.="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>";
-   					$tablaComp.="<td style='text-align:center; font-family: Times New Roman; font-size:55%;'>";
+   					$tablaComp.="<td style='text-align:center; font-family: Times New Roman; font-size:72%;'>";
    					$tablaComp.=$res->cantidad_fichas_composiciones;
    					$tablaComp.="</td>";
-   					$tablaComp.="<td style=' text-align:center; font-family: Times New Roman; font-size:55%;'>";
+   					$tablaComp.="<td style=' text-align:center; font-family: Times New Roman; font-size:72%;'>";
    					$tablaComp.=$res->nombre_unidades_medida;
    					$tablaComp.="</td>";
    					$tablaComp.="</tr>";
@@ -2700,10 +2700,10 @@ public function index(){
    			if (!empty($dtDosificacion))
    			{
    				$tablaDosi.= "<tr >";
-   				$tablaDosi.="<th style=' font-family: Times New Roman; font-size:55%;'>";
+   				$tablaDosi.="<th style=' font-family: Times New Roman; font-size:72%;'>";
    				$tablaDosi.= "Nombre Especie";
    				$tablaDosi.="</th>";
-   				$tablaDosi.="<th style=' font-family: Times New Roman; font-size:55%;'>";
+   				$tablaDosi.="<th style=' font-family: Times New Roman; font-size:72%;'>";
    				$tablaDosi.="Dosis";
    				$tablaDosi.="</th>";
    				$tablaDosi.="</tr>";
@@ -2711,10 +2711,10 @@ public function index(){
    				foreach($dtDosificacion as $resdo)
    				{
    					$tablaDosi.="<tr>";
-   					$tablaDosi.="<td style=' text-align: left; font-family: Times New Roman; font-size:55%;'>";
+   					$tablaDosi.="<td style=' text-align: left; font-family: Times New Roman; font-size:72%;'>";
    					$tablaDosi.=$resdo->nombre_especies;
    					$tablaDosi.="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>";
-   					$tablaDosi.="<td style='text-align:center; font-family: Times New Roman; font-size:55%;'>";
+   					$tablaDosi.="<td style='text-align:left; font-family: Times New Roman; font-size:72%;'>";
    					$tablaDosi.=$resdo->dosis_fichas_dosificacion;
    					$tablaDosi.="</td>";
    					$tablaDosi.="</tr>";
