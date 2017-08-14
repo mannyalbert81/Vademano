@@ -62,39 +62,43 @@
           <?php if ($resultRep !="" ) { foreach($resultRep as $resRep) {?>
            <div class="col-lg-12 division"; style="-webkit-box-shadow: 0px 2px 2px 2px rgba(0,0,0,0.69); border-radius: 24px 24px 24px 24px; margin-top: 20px; "   >
            		
-	       		<div class="col-xs-6 col-md-6">
+	       		   <div class="col-xs-6 col-md-6">
 				  
-				    <div class="row">
+				    <div class="row" style="margin-top:20px;">
 					<div class="col-xs-12 col-md-12">
-						  		<p style="font-family: Arial; color:#31B046; whidth: 100%; text-align: center;  "><font size=5><strong><?php echo $resRep->nombre_laboratorios?></strong></font></p>
+						  		<p style="font-family: Arial; color:#31B046; whidth: 100%; text-align: center;  "><font size=6><strong><?php echo $resRep->nombre_laboratorios?></strong></font></p>
 					</div>
 					</div>
 					<div class="row">
 					<div style="color:#010a01; font-family: sans-serif; font-size:55%; width:100%; text-align: center;" >
-					<img src="<?php echo base_url ?>view/DevuelveImagen.php?id_valor=<?php echo $resRep->id_laboratorios?>&id_nombre=id_laboratorios&tabla=Laboratorios&campo=logo_laboratorios"  width="120" height="80" />
+					<img src="<?php echo base_url ?>view/DevuelveImagen.php?id_valor=<?php echo $resRep->id_laboratorios?>&id_nombre=id_laboratorios&tabla=Laboratorios&campo=logo_laboratorios"  width="120" height="90" />
 				    </div>
 				    </div>
 						
-					<div class="izq">
-		
-					<div class="row">
-				    <div style="margin-left: 5%; width:40%;">
-			  	 	<div style="margin-top:10px; background-color:#999E9A; color:#FFFFFF; font-family: sans-serif; font-size:65%; width:100%;">
+						
+					<div class="izq" >
+		            <div  id="divSerp">
+			  	 	<div style="margin-top:40px; background-color:#999E9A; color:#FFFFFF; font-family: sans-serif; font-size:65%; width:100%;">
 			  		<font size=3><strong>CONTACTOS:</strong></font>
 			  		</div>
+			  		
 			  		
 			  		<div style="color:#010a01; font-family: sans-serif; font-size:50%; width:100%;">
 			  		<p> <font size=2><?php echo $resRep->persona_contacto_laboratorios?></font></p>
 			  		</div>
+			  		</div>
 			  		
-			  		<div style="margin-top:10px; background-color:#999E9A; color:#FFFFFF; font-family: sans-serif; font-size:65%; width:100%;">
+			  		<div  id="divSerp">
+			  	 	<div style="margin-top:10px; background-color:#999E9A; color:#FFFFFF; font-family: sans-serif; font-size:65%; width:100%;">
 			  		<font size=3><strong>TELEFONO:</strong></font>
 			  		</div>
 			  	
 			  		<div style="color:#010a01; font-family: sans-serif; font-size:50%; width:100%;">
 			  		<p><font size=2> <?php echo $resRep->telefono_persona_contacto_laboratorios?></font></p>
 			  		</div>		
+			  	 	</div>
 			  	 	
+			  	 	<div  id="divSerp">
 			  	 	<div style="margin-top:10px; background-color:#999E9A; color:#FFFFFF; font-family: sans-serif; font-size:65%; width:100%;">
 			  		<font size=3><strong>MAIL:</strong></font>
 			  		</div>
@@ -104,34 +108,38 @@
 			  		</div>		 
 					</div>
 				    </div>
-					</div>
+					
 					
 					<div class="der">
-				   	<div class="row">
-				    <div style=" margin-left: 50%; width:44%;">
-			  	 	<div style="margin-top:10px; background-color:#999E9A; color:#FFFFFF; font-family: sans-serif; font-size:65%; width:100%;">
+				    <div  id="divSerp">
+			  	 	<div style="margin-top:30px; background-color:#999E9A; color:#FFFFFF; font-family: sans-serif; font-size:65%; width:100%;">
 			  		<font size=3><strong>WEB:</strong></font>
 			  		</div>
 			  		
 			  		<div style="color:#010a01; font-family: sans-serif; font-size:50%; width:100%;">
 			  		<p><font size=2> <?php echo $resRep->web_laboratorios?></font></p>
 			  	    </div>
+			  	 	</div>
 			  	 	
+			  	 	<div  id="divSerp">
 			  	 	<div style="margin-top:10px; background-color:#999E9A; color:#FFFFFF; font-family: sans-serif; font-size:65%; width:100%;">
 			  		<font size=3><strong>DIRECCIÓN:</strong></font>
 			  		</div>
 			  		
-			  		<div style="color:#010a01; font-family: sans-serif; font-size:50%; width:100%;">
-			  		<p><font size=2><?php echo $resRep->creado?></font></p>
+			  		<div style="color:#010a01; font-family: sans-serif; font-size:70%; width:100%;">
+			  		<font size=2><?php if($tablaLab !=""){ echo $tablaLab;}?></font>
 			  		</div>
-			  	 	</div>			  	 	
 			  	 	</div>
 			  	 	</div>
+			  	 	</br></br></br></br></br>
 				    </div>
 				
-				<div class="col-xs-6 col-md-6">
-				</div>
-	            </div>
+			
+			<div class="col-xs-6 col-md-6" style="margin-top: 30px;">
+			
+		    <?php if (!empty($html)){echo $html;}?>
+		    </div>
+			</div>
 	         	   
        	     <?php } } else {?>
 	        		
