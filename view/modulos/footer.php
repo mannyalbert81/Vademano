@@ -14,19 +14,19 @@
 	       	 	<p>|</p>
 	       	 </div>
 	       	 <div class="col-xs-1 col-md-1">
-	       	 	<a style="font-family: calibri; color:#e9f0ea; "  href="#" >Enlace 1 </a>
+	       	 	<a style="font-family: calibri; color:#e9f0ea; "  href="#" >Enlace 2 </a>
 	       	 </div>
 	       	 <div class="col-xs-1 col-md-1">
 	       	 	<p>|</p>
 	       	 </div>
 	       	 <div class="col-xs-1 col-md-1">
-	       	 	<a style="font-family: calibri; color:#e9f0ea; "  href="#" >Enlace 1 </a>
+	       	 	<a style="font-family: calibri; color:#e9f0ea; "  href="#" >Enlace 3 </a>
 	       	 </div>
 	       	 <div class="col-xs-1 col-md-1">
 	       	 	<p>|</p>
 	       	 </div>
 	       	 <div class="col-xs-1 col-md-1">
-	       	 	<a style="font-family: calibri; color:#e9f0ea; "  href="#" >Enlace 1 </a>
+	       	 	<a style="font-family: calibri; color:#e9f0ea; "  href="#" >Enlace 4 </a>
 	       	 </div>
 	       	 <div class="col-xs-1 col-md-1">
 	       	 	<p>|</p>
