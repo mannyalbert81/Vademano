@@ -142,13 +142,13 @@
       <form id="form" action="<?php echo $helper->url("Buscador","index"); ?>" method="post"   class="col-lg-12">
          
     	 <div class="row" style=" margin-top:50px; text-align: center;"  >
-			  <div class="col-xs-4 col-md-4">
+			  <div class="col-xs-5 col-md-5">
 			  	
 			  </div>
 			  <div class="col-xs-4 col-md-4">
 			    	<img src="view/images/logo_vademano.png" class="img-responsive" alt="Responsive image"> 
 			  </div>
-			  <div class="col-xs-4 col-md-4">
+			  <div class="col-xs-3 col-md-3">
 			  	
 			  </div>
 		 </div>
