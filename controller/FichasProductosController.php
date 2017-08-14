@@ -23,11 +23,10 @@ public function index(){
 	$resultActual=$fichas->getCondiciones($columnas, $tablas, $where8, $id8);
 	
 	
-	$_nombre_laboratorios="";
 	
 	if(!empty($resultActual)){
 		
-		$colval = " nombre_laboratorio = '$_nombre_laboratorios'";
+		$colval = " nombre_laboratorio = ''";
 		$tabla = "fichas";
 		$where1 = "id_fichas>0";
 		$resultado=$fichas->UpdateBy($colval, $tabla, $where1);
@@ -40,9 +39,11 @@ public function index(){
 			$resultGet = $fichas_laboratorios->getBy($where);
 			
 			
-			
 			if(!empty($resultGet)){
-				
+				$tablaLab="<table>";
+				$tablaLab.="<tr>";
+				$tablaLab.="<td><font size=1>";
+				$tablaLab.="";
 				foreach($resultGet as $res)
 				{
 					
@@ -53,24 +54,36 @@ public function index(){
 					
 					if(!empty($resultGet10)){
 					
+						
 						foreach($resultGet10 as $res)
 						{
-							$_nombre_laboratorios=$res->nombre_laboratorios;
 							
-								$colval = " nombre_laboratorio = nombre_laboratorio || "." ' - ' "." || '$_nombre_laboratorios'";
-								$tabla = "fichas";
-								$where = "id_fichas = '$_id_fichas'";
-								$resultado=$fichas->UpdateBy($colval, $tabla, $where);
+							$tablaLab.="<b>- </b>";
+							$tablaLab.=$res->nombre_laboratorios;
+							$tablaLab.="<br>";
+								
 							
 						}
+						
 					}
 					
 				}
 				
+				$tablaLab.="</font></td>";
+				$tablaLab.="</tr>";
+				$tablaLab.="</table>";
+				
+				$colval = " nombre_laboratorio =  '$tablaLab'";
+				$tabla = "fichas";
+				$where = "id_fichas ='$_id_fichas'";
+				$resultado=$fichas->UpdateBy($colval, $tabla, $where);
+				
+				$tablaLab="";
+				
 				
 			}
 			
-			$_nombre_laboratorios="";
+			
 			
 		}
 		
@@ -79,12 +92,6 @@ public function index(){
 	
 	}
 	
-	
-	
-	$colval5 = "nombre_laboratorio = LTRIM(nombre_laboratorio)";
-	$tabla5 = "fichas";
-	$where5 = "id_fichas >0";
-	$resultado=$fichas->UpdateBy($colval5, $tabla5, $where5);
 	
 	
 	  

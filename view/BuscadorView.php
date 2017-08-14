@@ -104,6 +104,8 @@
 		}); 
 	</script>
        
+
+      
       
         <style>
 			body {
@@ -115,6 +117,10 @@
 		
 			}
 			</style>
+			
+			
+			
+			
    	 </head>
    
      
@@ -136,11 +142,14 @@
 		   }
 		?>
         
-     
-     
-    	 <?php include("view/modulos/menu_only.php"); ?>
+     <div id="caja">
+	 <?php include("view/modulos/menu_only.php"); ?>
+     </div>
+    
+    	 
       <form id="form" action="<?php echo $helper->url("Buscador","index"); ?>" method="post"   class="col-lg-12">
          
+   
     	 <div class="row" style=" margin-top:50px; text-align: center;"  >
 			  <div class="col-xs-5 col-md-5">
 			  	
