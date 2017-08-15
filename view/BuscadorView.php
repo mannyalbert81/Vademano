@@ -18,7 +18,6 @@
   		$(document).ready(function(){
 		      
 		        $("#a_imagen_favorito").click(function(){
-
       				//$("#mensaje_favorito").text("Agregando a Favoritos");
 			    	//$("#mensaje_favorito").fadeIn("slow"); //Muestra mensaje de error
 			   		//$("#mensaje_nombre").fadeOut("slow");
@@ -30,11 +29,9 @@
   	
   	<script >
 		$(document).ready(function(){
-
 		    // cada vez que se cambia el valor del combo
 		    $("#chk_busquedaavanzada").click(function() 
 			{
-
 		    	if( $("#chk_busquedaavanzada").prop('checked') ) {
 		    		
 		    		$("#div-container-avanzado").fadeIn("slow");
@@ -43,19 +40,14 @@
 		    	else
 		    	{
 		    		$("#div-container-avanzado").fadeOut("slow");
-
 				}
-
-
 			}); 
-
 		    
 		}); 
 	</script>
     
   	<script >
 		$(document).ready(function(){
-
 			
 		
 		    // cada vez que se cambia el valor del combo
@@ -66,11 +58,9 @@
 	    		$("#div-principios").fadeOut("slow");
 	    		$("#div-laboratorios").fadeOut("slow");
 	    		$("#div-distribuidores").fadeOut("slow");
-
 	    		
 	    		
 			}); 
-
 		    $("#option-principios").click(function() 
 					{
 			
@@ -79,7 +69,6 @@
 			    		$("#div-laboratorios").fadeOut("slow");
 			    		$("#div-distribuidores").fadeOut("slow");
 			}); 
-
 		    $("#option-laboratorios").click(function() 
 					{
 			
@@ -88,8 +77,6 @@
 			    		$("#div-laboratorios").fadeIn("slow");
 			    		$("#div-distribuidores").fadeOut("slow");
 			}); 
-
-
 		    $("#option-distribuidores").click(function() 
 					{
 			
@@ -104,6 +91,8 @@
 		}); 
 	</script>
        
+
+      
       
         <style>
 			body {
@@ -115,6 +104,10 @@
 		
 			}
 			</style>
+			
+			
+			
+			
    	 </head>
    
      
@@ -136,11 +129,14 @@
 		   }
 		?>
         
-     
-     
-    	 <?php include("view/modulos/menu_only.php"); ?>
+     <div id="caja">
+	 <?php include("view/modulos/menu_only.php"); ?>
+     </div>
+    
+    	 
       <form id="form" action="<?php echo $helper->url("Buscador","index"); ?>" method="post"   class="col-lg-12">
          
+   
     	 <div class="row" style=" margin-top:50px; text-align: center;"  >
 			  <div class="col-xs-5 col-md-5">
 			  	
@@ -332,7 +328,6 @@
     	 	
     	 	<ul class="nav nav-pills" role="tablist" >
 			  <li role="presentation" id="option-productos" class="active"><a href="#">Productos <span class="badge"><?php echo $CantProductos;?></span></a></li>
-			  <li role="presentation" id="option-distribuidores" ><a href="#">Alimentos <span class="badge"><?php echo $CantDistribuidores;?></span></a></li>
 			  <li role="presentation" id="option-principios" ><a href="#">Principios Activos <span class="badge"><?php echo $CantPrincipios;?></span></a></li>
 			  <li role="presentation" id="option-laboratorios" ><a href="#">Laboratorios <span class="badge"><?php echo $CantLaboratorios;?></span></a></li>
 			  <li role="presentation" id="option-distribuidores" ><a href="#">Distribuidores <span class="badge"><?php echo $CantDistribuidores;?></span></a></li>

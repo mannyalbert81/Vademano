@@ -794,11 +794,13 @@
    		 
    		 </div>
    		 
+   		 
    	 	<div style="background-color: #7acb5a;">
    	 	 <footer class="col-lg-12">
      	 	<?php include("view/modulos/footer.php"); ?>
     	 </footer> 
-    	     
+    	  </div>   
+    	  
     	</div>
      </body>  
     </html>   

@@ -90,7 +90,6 @@ class BuscadorController extends ControladorBase{
 			if (isset($_POST["id_especies"]))
 			{
 	
-
 				
 				
 				$_id_especies = $_POST["id_especies"];
