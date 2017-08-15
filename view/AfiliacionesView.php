@@ -1,4 +1,4 @@
-  <div class="head" style=" -webkit-box-shadow: 0px 2px 2px 4px rgba(0,0,0,0.69);">
+ <div class="head" style=" -webkit-box-shadow: 0px 2px 2px 4px rgba(0,0,0,0.69);">
  <?php include("view/modulos/head.php"); ?>
  </div>
 
@@ -22,9 +22,7 @@
  		
  		
  		<script>
-
 		$(document).ready(function(){
-
 		    $fecha=$('#fecha_nacimiento_usuario');
 		    if ($fecha[0].type!="date"){
 		    $fecha.attr('readonly','readonly');
@@ -35,16 +33,13 @@
 	    		yearRange: "1990:2017"
 	    		});
 		    }
-
 		}); 
-
 	</script>
  		
  	
  		
  		<script>
     var imagenes=new Array(
-
         'view/images/publicidad/1.jpg',
         'view/images/publicidad/2.jpg',
         'view/images/publicidad/3.jpg',
@@ -54,16 +49,13 @@
         'view/images/publicidad/7.jpg',
         'view/images/publicidad/8.jpg',
         'view/images/publicidad/9.jpg'
-
     );
-
     function rotarImagenes()
     {
         var index=Math.floor((Math.random()*imagenes.length));
         document.getElementById("imagen").src=imagenes[index];
         
     }
-
     onload=function()
     {
         rotarImagenes();
@@ -74,23 +66,17 @@
 
  		<script >
 		$(document).ready(function(){
-
 		    // cada vez que se cambia el valor del combo
 		    $("#paises").change(function() {
 				
                // 
                 var $provincias = $("#provincias");
-
                // lo vaciamos
                
 				///obtengo el id seleccionado
 				
-
                var id_pais = $(this).val();
-
-
                $provincias.empty();
-
                
                if(id_pais > 0)
                {
@@ -98,21 +84,16 @@
             	   var datos = {
             			   id_pais : $(this).val()
                    };
-
                   $provincias.append("<option value= " +"" +" > --SIN ESPECIFICAR--</option>");
             	           
                    
                   
             	   $.post("<?php echo $helper->url("Provincias","devuelveProvincias"); ?>", datos, function(resultProv) {
-
             		 		$.each(resultProv, function(index, value) {
             		 		$provincias.append("<option value= " +value.id_provincia +" >" + value.nombre_provincia  + "</option>");	
                        		 });
-
             		 		 	 		   
             		  }, 'json');
-
-
                }
                else
                {
@@ -120,26 +101,20 @@
                }
                
 		    });
-
-
 		   
 		   
 		    
 		}); 
-
 	</script>
 
 	
  		<script >
 		$(document).ready(function(){
-
 		    // cada vez que se cambia el valor del combo
 		    $("#ocupaciones").click(function() {
 				
                
-
                var id_ocupaciones = $(this).val();
-
 				
                
                if(id_ocupaciones > 5)
@@ -153,10 +128,8 @@
                }
                
 		    });
-
 		    $("#ocupaciones").change(function() {
 	               var id_ocupaciones = $(this).val();
-
 					
 	               
 	               if(id_ocupaciones > 5)
@@ -175,14 +148,12 @@
 		   
 		    
 		}); 
-
 	</script>
 	
  
  		<script >
  		
 		$(document).ready(function(){
-
 		    // cada vez que se cambia el valor del combo
 		    $("#btn_guardar").click(function() 
 			{
@@ -223,7 +194,6 @@
 		    		$("#mensaje_correo").fadeIn("slow"); //Muestra mensaje de error
 		            return false;	
 			    }
-
 		    	if (ccorreo_usuario == "")
 		    	{
 					
@@ -250,7 +220,6 @@
 		            return false;
 			    }
 				
-
 				//nombre y apellidos
 				
 		    	if (nombres_usuario == "")
@@ -266,7 +235,6 @@
 		            
 				}
 		    	
-
 		    	if (apellidos_usuario == "")
 		    	{
 			    	
@@ -279,8 +247,6 @@
 		    		$("#mensaje_apellidos").fadeOut("slow"); //Muestra mensaje de error
 		            
 				}
-
-
 		    	if (ocupaciones == "")
 		    	{
 			    	
@@ -296,7 +262,6 @@
 				
 						    	
 				//la clave
-
 		    	if (clave_usuario == "")
 		    	{
 		    		
@@ -310,7 +275,6 @@
 		            
 				}
 		    	
-
 		    	if (cclave_usuario == "")
 		    	{
 		    		
@@ -336,8 +300,6 @@
 		    		$("#mensaje_cclave").fadeOut("slow"); 
 			        
 		    	}	
-
-
 		    	if (paises == "")
 		    	{
 			    	
@@ -362,30 +324,22 @@
 		    		$("#mensaje_provincias").fadeOut("slow"); //Muestra mensaje de error
 		            
 				}
-
 		    	
-
 				// la fecha
-
 				if ((fecha_nacimiento_usuario.match(validaFecha)) && (fecha_nacimiento_usuario!='')) 
 				{
-			       $("#mensaje_fecha_nacimiento").fadeOut("slow");
-			    } 
+			       $("#mensaje_fecha_nacimiento").fadeOut("slow");
+			    } 
 				else 
 				{
 		    		$("#mensaje_fecha_nacimiento").text("Fecha Incorrecta");
 		    		$("#mensaje_fecha_nacimiento").fadeIn("slow"); //Muestra mensaje de error	
-			       return false;
-			    }
-
-
+			       return false;
+			    }
 				//los telefonos
 		    	
 		    			    				    
-
 			}); 
-
-
 				
 				$( "#correo_usuario" ).focus(function() {
 					$("#mensaje_correo").fadeOut("slow");
@@ -415,7 +369,6 @@
 				$( "#provincias" ).focus(function() {
 					$("#mensaje_provincias").fadeOut("slow");
     			});
-
 				
 				$( "#fecha_nacimiento_usuario" ).focus(function() {
 					$("#mensaje_fecha_nacimiento").fadeOut("slow");
@@ -424,7 +377,6 @@
 		      
 				    
 		}); 
-
 	</script>
  		
  		
