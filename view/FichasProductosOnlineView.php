@@ -23,8 +23,8 @@
 			webshims.polyfill('forms forms-ext');
 		</script>
  		
-        <style>
-        div.izq{
+    <style>
+    div.izq{
 	left:0px;  margin-top:-20px; width:49%; /*border: 1px solid blue;*/ float:left;
 	}
 	div.der{
@@ -48,8 +48,7 @@
     background-color:red;
 	}
            
-            
-        </style>
+    </style>
     </head>
     <body class="cuerpo">
     	
@@ -173,7 +172,7 @@
 		</div>
 		
 		<div id="divSerp"  style="{admi}">
-			<div style="background-color:#999E9A; color:#FFFFFF; font-family: verdana; font-size:75%; width:100%;">
+			<div style="margin-top:10px; background-color:#999E9A; color:#FFFFFF; font-family: verdana; font-size:75%; width:100%;">
 				<font size=3><strong> VÍA DE ADMINISTRACIÓN: </strong></font>
 			</div>
 			<div style="color:#010a01; font-family: Times New Roman; font-size:58%; width:100%;">

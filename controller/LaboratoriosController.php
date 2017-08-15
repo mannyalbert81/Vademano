@@ -59,7 +59,7 @@ public function index(){
 					$tablaLab.=$resd->nombre_canton;
 					$tablaLab.="<br>";
 					$tablaLab.="";
-					$tablaLab.="<b>DIRECCION: </b>";
+					$tablaLab.="<b>DIRECCIÓN: </b>";
 					$tablaLab.=$resd->direccion_direcciones;
 					$tablaLab.="<br>";
 					$tablaLab.="";
@@ -669,7 +669,6 @@ public function index(){
 				$html.='<table class="table table-hover">';
 				$html.='<thead>';
 				$html.='<tr class="info">';
-				$html.='<th style="text-align: left;  font-size: 11px;">Id</th>';
 				$html.='<th style="text-align: left;  font-size: 11px;">Nombre Producto</th>';
 				$html.='<th style="text-align: left;  font-size: 11px;">Categoria Farmacológica</th>';
 				$html.='<th style="text-align: left;  font-size: 11px;">Especies</th>';
@@ -708,7 +707,6 @@ public function index(){
 					
 					
 					$html.='<tr>';
-					$html.='<td style="font-size: 11px;">'.$res->id_fichas.'</td>';
 					$html.='<td style="font-size: 11px;">'.$res->nombre_fichas.'</td>';
 					$html.='<td style="font-size: 11px;">'.$res->clasificacion_farmacologica_fichas.'</td>';
 				    $html.='<td>'.$tablaEspcies.'</td>';
@@ -784,7 +782,7 @@ public function index(){
 							$tablaLab.=$resd->nombre_canton;
 							$tablaLab.="<br>";
 							$tablaLab.="";
-							$tablaLab.="<b>DIRECCION: </b>";
+							$tablaLab.="<b>DIRECCIÓN: </b>";
 							$tablaLab.=$resd->direccion_direcciones;
 							$tablaLab.="<br>";
 							$tablaLab.="";

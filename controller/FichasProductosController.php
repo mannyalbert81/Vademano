@@ -2386,7 +2386,7 @@ public function index(){
    			$idlab = "laboratorios.nombre_laboratorios";
    		
    			//para la tabla composicion
-   			$columnasComp = "co.nombre_composiciones,
+   			$columnasComp = "co.id_composiciones,co.nombre_composiciones,
   							fc.cantidad_fichas_composiciones, um.nombre_unidades_medida";
    			$tablasComp   = "public.fichas_composiciones fc
 				INNER JOIN public.composiciones co
@@ -2396,7 +2396,7 @@ public function index(){
    		
    			$whereComp    = "fc.id_fichas = '$id_fichas'";
    		
-   			$idComp	  = "co.nombre_composiciones";
+   			$idComp	  = "co.id_composiciones";
    		
    			//para la tablas distribuido por
    			$columnas_dis = "fichas_distribuidores.id_distribuidores,
