@@ -740,7 +740,7 @@
    		 <?php include("view/modulos/servicios.php"); ?>	
    		 </div>
    		
-   		 <div class="col-lg-12" style="margin-top: 20px;>
+   		 <div class="col-lg-12" style="margin-top: 20px;">
    		 
    		 <?php include("view/modulos/small_slide.php"); ?>
    		 
