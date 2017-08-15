@@ -7,115 +7,97 @@ class DistribuidoresController extends ControladorBase{
     
 public function index(){
 	session_start();
-	    $distribuidores = new DistribuidoresModel();
+	  
+		
+	    
+	    $distribuidores=new DistribuidoresModel();
 	    $direcciones = new DireccionesModel();
-		
-		
 	    
-	    $columnas="distribuidores.id_distribuidores";
-	    $tablas="distribuidores";
-	    $where8="distribuidores.id_distribuidores>0";
-	    $id8="distribuidores.id_distribuidores";
-	    $resultActual=$distribuidores->getCondiciones($columnas, $tablas, $where8, $id8);
+	    	
+	    $columnasDis = " distribuidores.id_distribuidores";
+	    $tablasDis  = "public.distribuidores";
+	    $whereDis   = "distribuidores.id_distribuidores>0";
+	    	
+	    $idDis = "distribuidores.id_distribuidores";
 	    
-	    
-	    $_nombre_direcciones="";
-	    
-	    if(!empty($resultActual)){
-	    
-	    	$colval = " nombre_direcciones = '$_nombre_direcciones'";
+	    $resultRep=$distribuidores->getCondiciones($columnasDis, $tablasDis, $whereDis, $idDis);
+	    	
+	   
+	    if(!empty($resultRep))
+	    {
+	    	$colval = " nombre_direcciones =  ''";
 	    	$tabla = "distribuidores";
-	    	$where1 = "distribuidores.id_distribuidores>0";
-	    	$resultado=$distribuidores->UpdateBy($colval, $tabla, $where1);
-	    
-	    
-	    	foreach($resultActual as $res)
+	    	$where = "id_distribuidores>0";
+	    	$resultado=$distribuidores->UpdateBy($colval, $tabla, $where);
+	    	
+	    		
+	    	foreach($resultRep as $res)
 	    	{
-	    		$_id_distribuidores=$res->id_distribuidores;
-	    		$where    = "id_distribuidores = '$_id_distribuidores' ";
-	    		$resultGet = $direcciones->getBy($where);
+	    		$id_distribuidores =$res->id_distribuidores;
+	    		
+	    		$columnaslabDir = "d.direccion_direcciones,d.telefono_direcciones,d.celular_direcciones,
+						           ca.nombre_canton,pr.cod_telefono";
+	    			
+	    		$tablaslabDir   = "public.direcciones d		INNER JOIN public.canton ca
+								ON d.id_canton = ca.id_canton INNER JOIN public.codigos_provincias pr
+								ON pr.id_provincia = ca.id_provincias";
+	    			
+	    		$wherelabDir    = "d.id_distribuidores = '$id_distribuidores'";
+	    		$idlabDir = "d.id_direcciones";
+	    			
+	    		$dtLabDireccion=$direcciones->getCondiciones($columnaslabDir, $tablaslabDir, $wherelabDir, $idlabDir);
 	    			
 	    			
+	    		if(!empty($dtLabDireccion)){
 	    			
-	    		if(!empty($resultGet)){
-	    
-	    			$registros = 0;
-	    			foreach($resultGet as $res)
+	    			$tablaLab="<table>";
+	    			$tablaLab.="<tr>";
+	    			$tablaLab.="<td><font size=1>";
+	    			$tablaLab.="";
+	    			
+	    			foreach($dtLabDireccion as $resd)
 	    			{
-	    					
-	    				$registros= $registros + 1;
+	    				$tablaLab.="<b>CIUDAD: </b>";
+	    				$tablaLab.=$resd->nombre_canton;
+	    				$tablaLab.="<br>";
+	    				$tablaLab.="";
+	    				$tablaLab.="<b>DIRECCION: </b>";
+	    				$tablaLab.=$resd->direccion_direcciones;
+	    				$tablaLab.="<br>";
+	    				$tablaLab.="";
+	    				$tablaLab.="<b>TELÉFONO: </b> (593-2)&nbsp;";
+	    				$tablaLab.=$resd->cod_telefono;
+	    				$tablaLab.=$resd->telefono_direcciones;
+	    				$tablaLab.="<br>";
+	    				$tablaLab.="";
+	    				$tablaLab.="<b>CELULAR: </b> (593-2)&nbsp;";
+	    				$tablaLab.=$resd->celular_direcciones;
+	    				$tablaLab.="<br>";
+	    				$tablaLab.="<br>";
 	    				
-	    						$_direccion_direcciones=$res->direccion_direcciones;
-	    						$_telefono_direcciones=$res->telefono_direcciones;
-	    						$_celular_direcciones=$res->celular_direcciones;
-	    						
-	    						$canton=new CantonModel();
-	    						$pais = new PaisesModel();
-	    						$provincia = new ProvinciasModel();
-	    						$codigos = new CodigosProvinciasModel();
-	    						
-	    						$_id_canton=$res->id_canton;
-	    						$resultCanton = $canton->getBy("id_canton='$_id_canton'");
-	    						$_nombre_canton=$resultCanton[0]->nombre_canton;
-	    						
-	    						$_id_provicnias=$res->id_provicnias;
-	    						$resultProv = $provincia->getBy("id_provincia='$_id_provicnias'");
-	    						$_nombre_provincia=$resultProv[0]->nombre_provincia;
-	    						$_id_pais=$resultProv[0]->id_pais;
-	    						
-	    						
-	    						$resultCod = $codigos->getBy("id_provincia='$_id_provicnias'");
-	    						$_cod_telefono=$resultCod[0]->cod_telefono;
-	    							
-	    						
-	    						
-	    						$resultPais = $pais->getBy("id_pais='$_id_pais'");
-	    						$_nombre_pais=$resultPais[0]->nombre_pais;
-	    						$_prefijo_telefonico_paises=$resultPais[0]->prefijo_telefonico_paises;
-	    						
-	    						
-	    						$texto="DIRECCÓN ".$registros.": Ciudad: ".$_nombre_canton." Dirección: ".$_direccion_direcciones." Teléfono: (".$_prefijo_telefonico_paises.") ".$_cod_telefono.$_telefono_direcciones." Celular: (".$_prefijo_telefonico_paises.") ".$_cod_telefono.$_celular_direcciones;                                                     
-	    						
-	    					
-	    						
-	    						$colval = " nombre_direcciones = nombre_direcciones || "." ' - ' "." || '$texto'";
-	    						$tabla = "distribuidores";
-	    						$where = "id_distribuidores = '$_id_distribuidores'";
-	    						$resultado=$distribuidores->UpdateBy($colval, $tabla, $where);
-	    							
-	    				
-	    					
 	    			}
-	    
-	    
-	    		}
+	    			$tablaLab.="</font></td>";
+	    			$tablaLab.="</tr>";
+	    			$tablaLab.="</table>";
+	    		
 	    			
-	    		$_direccion_direcciones="";
+	    			
+	    			$colval = " nombre_direcciones =  '$tablaLab'";
+	    			$tabla = "distribuidores";
+	    			$where = "id_distribuidores ='$id_distribuidores'";
+	    			$resultado=$distribuidores->UpdateBy($colval, $tabla, $where);
+	    			
+	    			$tablaLab="";
+	    			
+	    		}
+	    		
+	    		$tablaLab="";
 	    			
 	    	}
-	    
-	    
-	    
-	    
+	    		
 	    }
-	    
-	    
-	    
-	    $colval5 = "nombre_direcciones = LTRIM(nombre_direcciones)";
-	    $tabla5 = "distribuidores";
-	    $where5 = "id_distribuidores >0";
-	    $resultado=$distribuidores->UpdateBy($colval5, $tabla5, $where5);
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
+	   
+	    	
 	    
 	    
 	    

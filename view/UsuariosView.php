@@ -267,9 +267,7 @@
             
        	</table>     
        	 </section>
-         <div class="col-lg-12 col-md-12 col-xs-12"> 
-   		 <?php include("view/modulos/servicios.php"); ?>	
-   		  </div>
+         
    			<div style="background-color: #7acb5a;">
    	 	    <footer class="col-lg-12 col-md-12 col-xs-12" >
      	 	<?php include("view/modulos/footer.php"); ?>

@@ -1,5 +1,6 @@
-
-
+<div class="navbar navbar-bottom"  >
+<footer>
+        
 <div class="row" style="margin-top: 40px; background-color: #272525;  " >
   
 
@@ -52,5 +53,7 @@
 	<div class="col-sm-1 col-md-1" >
   	</div>
   	
+</div>
+</footer>
 </div>
     

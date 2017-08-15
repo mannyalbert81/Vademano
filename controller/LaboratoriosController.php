@@ -8,7 +8,98 @@ class LaboratoriosController extends ControladorBase{
 public function index(){
 	session_start();
 	
+	
 	$laboratorios = new LaboratoriosModel();
+	$direcciones = new DireccionesModel();
+	
+	$columnasDis = " laboratorios.id_laboratorios";
+	$tablasDis  = "public.laboratorios";
+	$whereDis   = "laboratorios.id_laboratorios>0";
+	
+	$idDis = "laboratorios.id_laboratorios";
+	 
+	$resultRep=$laboratorios->getCondiciones($columnasDis, $tablasDis, $whereDis, $idDis);
+	
+	
+	if(!empty($resultRep))
+	{
+		$colval = " nombre_direcciones =  ''";
+		$tabla = "laboratorios";
+		$where = "id_laboratorios>0";
+		$resultado=$laboratorios->UpdateBy($colval, $tabla, $where);
+	
+		 
+		foreach($resultRep as $res)
+		{
+			$id_laboratorios =$res->id_laboratorios;
+			 
+			$columnaslabDir = "d.direccion_direcciones,d.telefono_direcciones,d.celular_direcciones,
+						           ca.nombre_canton,pr.cod_telefono";
+	
+			$tablaslabDir   = "public.direcciones d		INNER JOIN public.canton ca
+								ON d.id_canton = ca.id_canton INNER JOIN public.codigos_provincias pr
+								ON pr.id_provincia = ca.id_provincias";
+	
+			$wherelabDir    = "d.id_laboratorios = '$id_laboratorios'";
+			$idlabDir = "d.id_direcciones";
+	
+			$dtLabDireccion=$direcciones->getCondiciones($columnaslabDir, $tablaslabDir, $wherelabDir, $idlabDir);
+	
+	
+			if(!empty($dtLabDireccion)){
+	
+				$tablaLab="<table>";
+				$tablaLab.="<tr>";
+				$tablaLab.="<td><font size=1>";
+				$tablaLab.="";
+	
+				foreach($dtLabDireccion as $resd)
+				{
+					$tablaLab.="<b>CIUDAD: </b>";
+					$tablaLab.=$resd->nombre_canton;
+					$tablaLab.="<br>";
+					$tablaLab.="";
+					$tablaLab.="<b>DIRECCION: </b>";
+					$tablaLab.=$resd->direccion_direcciones;
+					$tablaLab.="<br>";
+					$tablaLab.="";
+					$tablaLab.="<b>TELÉFONO: </b> (593-2)&nbsp;";
+					$tablaLab.=$resd->cod_telefono;
+					$tablaLab.=$resd->telefono_direcciones;
+					$tablaLab.="<br>";
+					$tablaLab.="";
+					$tablaLab.="<b>CELULAR: </b> (593-2)&nbsp;";
+					$tablaLab.=$resd->celular_direcciones;
+					$tablaLab.="<br>";
+					$tablaLab.="<br>";
+		    
+				}
+				$tablaLab.="</font></td>";
+				$tablaLab.="</tr>";
+				$tablaLab.="</table>";
+		   
+	
+	
+				$colval = " nombre_direcciones =  '$tablaLab'";
+				$tabla = "laboratorios";
+				$where = "id_laboratorios ='$id_laboratorios'";
+				$resultado=$laboratorios->UpdateBy($colval, $tabla, $where);
+	
+				$tablaLab="";
+	
+			}
+			 
+			$tablaLab="";
+	
+		}
+		 
+	}
+	
+	
+	
+	
+	
+	
 	$existe="false";
 	
 	$columnas = "laboratorios.id_laboratorios,
@@ -20,7 +111,8 @@ public function index(){
 					  laboratorios.logo_laboratorios,
 					  laboratorios.creado,
 					  laboratorios.modificado,
-					  laboratorios.buscador";
+					  laboratorios.buscador,
+			laboratorios.nombre_direcciones";
 	$tablas   = "public.laboratorios";
 	$where    = "laboratorios.id_laboratorios>0";
 	$id       = "laboratorios.id_laboratorios";
@@ -44,7 +136,8 @@ public function index(){
 					  laboratorios.logo_laboratorios,
 					  laboratorios.creado,
 					  laboratorios.modificado,
-					  laboratorios.buscador";
+					  laboratorios.buscador,
+				laboratorios.nombre_direcciones";
 	
 		$tablas1   = "public.laboratorios";
 		$where1    = "laboratorios.id_laboratorios>0";
@@ -142,7 +235,8 @@ public function index(){
 					  laboratorios.logo_laboratorios,
 					  laboratorios.creado,
 					  laboratorios.modificado,
-					  laboratorios.buscador";
+					  laboratorios.buscador,
+				laboratorios.nombre_direcciones";
 		$tablas   = "public.laboratorios";
 		$where    = "laboratorios.id_laboratorios>0";
 		$id       = "laboratorios.id_laboratorios";

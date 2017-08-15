@@ -255,10 +255,10 @@
        </form>
         	<div class="col-lg-12">
   					
-   		     <?php include("view/modulos/servicios.php"); ?>	
+   		     <?php include("view/modulos/beforefooter.php"); ?>	
    			 
    		</div>     
-  <?php include("view/modulos/beforefooter.php"); ?>
+ 
     		
        
    

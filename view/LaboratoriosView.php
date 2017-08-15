@@ -200,6 +200,7 @@
 	    		<th style="text-align: left;  font-size: 14px;">Telefono Persona Contacto</th>
 	    		<th style="text-align: left;  font-size: 14px;">Email Laboratorio</th>
 	    		<th style="text-align: left;  font-size: 14px;">Web Laboratorio</th>
+	    		<th style="text-align: left;  font-size: 14px;">Contactos</th>
 	    		<th style="text-align: left;  font-size: 14px;">Logo</th>
 	    		
 	    		<th style="text-align: left;  font-size: 14px;"></th>
@@ -215,7 +216,7 @@
 		               <td style="font-size: 13px;"> <?php echo $res->telefono_persona_contacto_laboratorios; ?>     </td>
 		               <td style="font-size: 13px;"> <?php echo $res->email_laboratorios; ?>     </td> 
 		               <td style="font-size: 13px;"> <?php echo $res->web_laboratorios; ?>     </td> 
-		               
+		               <td style="font-size: 13px;"> <?php echo $res->nombre_direcciones; ?>     </td>    
 		               <td style="font-size: 13px;"> <input type="image" name="image" src="view/DevuelveImagen.php?id_valor=<?php echo $res->id_laboratorios; ?>&id_nombre=id_laboratorios&tabla=laboratorios&campo=logo_laboratorios"  alt="<?php echo $res->nombre_laboratorios; ?>" width="80" height="60" >      </td>
 		             
 		              <td>
