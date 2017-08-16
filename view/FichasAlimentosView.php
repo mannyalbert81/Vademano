@@ -253,7 +253,7 @@
        	</table>     
     
        </form>
-        	<div class="col-lg-12">
+        	<div class="col-xs-12 col-md-12" style="margin-top: 51px;">
   					
    		     <?php include("view/modulos/beforefooter.php"); ?>	
    			 

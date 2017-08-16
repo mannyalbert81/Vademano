@@ -58,6 +58,44 @@
 		}); 
 
 	</script>
+	
+	
+	<script >
+		$(document).ready(function(){
+
+		    // cada vez que se cambia el valor del combo
+		    $("#btn_actualizar").click(function() 
+			{
+		    	var nombre_composiciones = $("#nombre_composiciones").val();
+
+
+		    	if (nombre_composiciones == "")
+		    	{
+					
+			    	$("#mensaje_nombre").text("Introduzca un Nombre");
+		    		$("#mensaje_nombre").fadeIn("slow"); //Muestra mensaje de error
+		            return false;
+			    }
+		    	else 
+		    	{
+					
+			    	$("#mensaje_nombre").fadeOut("slow"); //Muestra mensaje de error
+		            
+			    }
+
+
+			    
+	    		    				    
+
+			}); 
+			$( "#nombre_composiciones" ).focus(function() {
+					$("#mensaje_nombre").fadeOut("slow");
+    			});
+		
+				    
+		}); 
+
+	</script>
 
 	
 
@@ -124,7 +162,7 @@
 		    <div class="col-xs-6 col-md-6">
 		    <div class="form-group ">
 		                          <label for="nombre_composiciones" class="control-label">Nombre Principio Activo:</label>
-                                  <input type="text" class="form-control" id="nombre_composiciones" name="nombre_composiciones" value="<?php echo $resEdit->nombre_composiciones; ?>"  placeholder="Nombres" readonly />
+                                  <input type="text" class="form-control" id="nombre_composiciones" name="nombre_composiciones" value="<?php echo $resEdit->nombre_composiciones; ?>"  placeholder="Nombres"  />
                                  <input type="hidden" name="id_composiciones" id="id_composiciones" value="<?php echo $resEdit->id_composiciones;     ?>" class="form-control"/>
 								<div id="mensaje_nombre" class="errores"></div>
 			</div>
@@ -234,7 +272,7 @@
             <hr>
 		   <div class="row">
 			  <div class="col-xs-12 col-md-12" style="text-align: center;" >
-			  	<input type="submit" id="btn_guardar" name="btn_guardar" value="Guardar" class="btn btn-success"/>
+			  	<input type="submit" id="btn_actualizar" name="btn_actualizar" value="Actualizar" class="btn btn-success"/>
 			  </div>
 			</div>     
                
@@ -253,8 +291,8 @@
 		    <div class="col-xs-6 col-md-6">
 		    <div class="form-group ">
 		                          <label for="nombre_composiciones" class="control-label">Nombre Principio Activo:</label>
-                                  <input type="text" class="form-control" id="nombre_composiciones" name="nombre_composiciones" value="<?php echo $nombre_composiciones; ?>"  placeholder="Nombres" readonly />
-                                 <input type="hidden" name="id_composiciones" id="id_composiciones" value="" class="form-control"/>
+                                  <input type="text" class="form-control" id="nombre_composiciones" name="nombre_composiciones" value="<?php echo $nombre_composiciones; ?>"  placeholder="Nombres"  />
+                                 <input type="hidden" name="id_composiciones" id="id_composiciones" value="<?php echo $id_composiciones; ?>" class="form-control"/>
 								<div id="mensaje_nombre" class="errores"></div>
 			</div>
 		    </div>
@@ -380,10 +418,10 @@
        
              	<div class="col-lg-12">
   					
-   		     <?php include("view/modulos/servicios.php"); ?>	
+   		     <?php include("view/modulos/beforefooter.php"); ?>	
    			 
    		</div>     
-  <?php include("view/modulos/beforefooter.php"); ?>
+  
     		
        
    

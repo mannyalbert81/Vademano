@@ -147,14 +147,14 @@ public function index(){
 		
 		if (isset($_POST["nombre_composiciones"]))
 		{
-			$_nombre_composiciones = mb_strtoupper($_POST["nombre_composiciones"]);
+			$_nombre_composiciones = $_POST["nombre_composiciones"];
 		}
 		
 		
 		//AGREGO EL NOMBRE Y DEVUELVO EL ID
 		if (isset($_POST["btn_agregar_composiciones"]) )
 		{
-			$_nombre_composiciones   = mb_strtoupper( $_POST["nombre_composiciones"]);
+			$_nombre_composiciones   = $_POST["nombre_composiciones"];
 			$res_composiciones=$composiciones->getBy("nombre_composiciones = '$_nombre_composiciones' ");
 			
 			if ( !empty($res_composiciones) )
@@ -216,7 +216,7 @@ public function index(){
 		{
 			
 			
-			$_nombre_composiciones   = mb_strtoupper($_POST["nombre_composiciones"]);
+			$_nombre_composiciones   = $_POST["nombre_composiciones"];
 			$_categoria_farmacologica_composicion = $_POST["categoria_farmacologica_composicion"]; 
 			$_subcategoria_farmacologica_composiciones = $_POST["subcategoria_farmacologica_composiciones"];
 			$_indicaciones_uso_composiciones = $_POST["indicaciones_uso_composiciones"];
@@ -227,7 +227,28 @@ public function index(){
 			$_interacciones_composiciones = $_POST["interacciones_composiciones"];
 			$_contraindicaciones_composiciones = $_POST["contraindicaciones_composiciones"];
 			$_periodo_retirio_composiciones = $_POST["periodo_retirio_composiciones"];
+			$_id_composiciones = $_POST["id_composiciones"];
 			
+			
+			if($_id_composiciones>0){
+			
+			
+				$colval = "nombre_composiciones= '$_nombre_composiciones',
+				categoria_farmacologica_composicion= '$_categoria_farmacologica_composicion',
+				subcategoria_farmacologica_composiciones= '$_subcategoria_farmacologica_composiciones',
+				indicaciones_uso_composiciones= '$_indicaciones_uso_composiciones',
+				forma_administracion_composiciones= '$_forma_administracion_composiciones',
+				efectos_secundarios_composiciones= '$_efectos_secundarios_composiciones',
+				mecanismo_accion_composiciones= '$_mecanismo_accion_composiciones',
+				precausiones_composiociones= '$_precausiones_composiociones',
+				interacciones_composiciones= '$_interacciones_composiciones',
+				contraindicaciones_composiciones= '$_contraindicaciones_composiciones',
+				periodo_retirio_composiciones= '$_periodo_retirio_composiciones'";
+				$tabla = "composiciones";
+				$where = "id_composiciones = '$_id_composiciones'";
+				$resultado=$composiciones->UpdateBy($colval, $tabla, $where);
+				
+			}else{
 			
 			$funcion = "ins_composiciones";
 			
@@ -239,10 +260,59 @@ public function index(){
 			$composiciones->setFuncion($funcion);
 			$composiciones->setParametros($parametros);
 			$resultado=$composiciones->Insert();
-				
+			}	
 			$this->redirect("PrincipiosActivos", "index");
 			
 		}
+		
+		
+		if (isset($_POST["btn_actualizar"]) )
+		{
+		
+		    $_nombre_composiciones   = $_POST["nombre_composiciones"];
+			$_categoria_farmacologica_composicion = $_POST["categoria_farmacologica_composicion"]; 
+			$_subcategoria_farmacologica_composiciones = $_POST["subcategoria_farmacologica_composiciones"];
+			$_indicaciones_uso_composiciones = $_POST["indicaciones_uso_composiciones"];
+			$_forma_administracion_composiciones = $_POST["forma_administracion_composiciones"];
+			$_efectos_secundarios_composiciones = $_POST["efectos_secundarios_composiciones"];
+			$_mecanismo_accion_composiciones = $_POST["mecanismo_accion_composiciones"];
+			$_precausiones_composiociones = $_POST["precausiones_composiociones"];
+			$_interacciones_composiciones = $_POST["interacciones_composiciones"];
+			$_contraindicaciones_composiciones = $_POST["contraindicaciones_composiciones"];
+			$_periodo_retirio_composiciones = $_POST["periodo_retirio_composiciones"];
+			$_id_composiciones = $_POST["id_composiciones"];
+		
+			if($_id_composiciones>0){
+		
+		
+				$colval = "nombre_composiciones= '$_nombre_composiciones',
+			categoria_farmacologica_composicion= '$_categoria_farmacologica_composicion',
+			subcategoria_farmacologica_composiciones= '$_subcategoria_farmacologica_composiciones',
+			indicaciones_uso_composiciones= '$_indicaciones_uso_composiciones',
+			forma_administracion_composiciones= '$_forma_administracion_composiciones',
+			efectos_secundarios_composiciones= '$_efectos_secundarios_composiciones',
+			mecanismo_accion_composiciones= '$_mecanismo_accion_composiciones',
+			precausiones_composiociones= '$_precausiones_composiociones',
+			interacciones_composiciones= '$_interacciones_composiciones',
+			contraindicaciones_composiciones= '$_contraindicaciones_composiciones',
+			periodo_retirio_composiciones= '$_periodo_retirio_composiciones'";
+				$tabla = "composiciones";
+				$where = "id_composiciones = '$_id_composiciones'";
+				$resultado=$composiciones->UpdateBy($colval, $tabla, $where);
+			}
+			
+			
+			
+			
+			
+			
+			
+			$this->redirect("PrincipiosActivos", "index");
+		}
+		
+		
+		
+		
 		else 
 		{
 			$this->view("PrincipiosActivosAdd",array(
