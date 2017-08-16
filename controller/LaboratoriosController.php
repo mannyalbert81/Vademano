@@ -59,7 +59,7 @@ public function index(){
 					$tablaLab.=$resd->nombre_canton;
 					$tablaLab.="<br>";
 					$tablaLab.="";
-					$tablaLab.="<b>DIRECCION: </b>";
+					$tablaLab.="<b>DIRECCIÓN: </b>";
 					$tablaLab.=$resd->direccion_direcciones;
 					$tablaLab.="<br>";
 					$tablaLab.="";
@@ -643,6 +643,94 @@ public function index(){
 			$especies = new EspeciesModel();
 			
 			
+			
+			
+			
+			
+
+			$columnasLab = "laboratorios.id_laboratorios,
+					         laboratorios.nombre_laboratorios,
+					         laboratorios.persona_contacto_laboratorios,
+					  	     laboratorios.telefono_persona_contacto_laboratorios,
+  							 laboratorios.email_laboratorios,
+  							 laboratorios.web_laboratorios,
+					         laboratorios.logo_laboratorios";
+			$tablasLab   = "public.laboratorios";
+			$whereLab    = "laboratorios.id_laboratorios =  $_id_laboratorios ";
+			
+			$idlab = "laboratorios.id_laboratorios";
+				
+			$resultRep=$laboratorios->getCondiciones($columnasLab, $tablasLab, $whereLab, $idlab);
+			
+			$tablaLab="<table>";
+			if(!empty($resultRep))
+			{
+					
+					
+				foreach($resultRep as $res)
+				{
+					//para consulta de direcciones
+					$columnaslabDir = "d.direccion_direcciones,d.telefono_direcciones,d.celular_direcciones,
+						           ca.nombre_canton,pr.cod_telefono";
+			
+					$tablaslabDir   = "public.direcciones d		INNER JOIN public.canton ca
+								ON d.id_canton = ca.id_canton INNER JOIN public.codigos_provincias pr
+								ON pr.id_provincia = ca.id_provincias";
+			
+					$wherelabDir    = "d.id_laboratorios = '$res->id_laboratorios'";
+					$idlabDir = "d.id_direcciones";
+			
+					$dtLabDireccion=$direcciones->getCondiciones($columnaslabDir, $tablaslabDir, $wherelabDir, $idlabDir);
+			
+			
+					$nombre_laboratorio= $res->nombre_laboratorios;
+					
+					
+					$tablaLab.="<tr>";
+					$tablaLab.="<td style='text-align:left; font-family: Times New Roman; font-size:72%;'>";
+					if(!empty($dtLabDireccion)){
+						$tablaLab.="";
+						foreach($dtLabDireccion as $resd)
+						{
+							$tablaLab.="<br>";
+							$tablaLab.="<b>CIUDAD: </b>";
+							$tablaLab.=$resd->nombre_canton;
+							$tablaLab.="<br>";
+							$tablaLab.="";
+							$tablaLab.="<b>DIRECCIÓN: </b>";
+							$tablaLab.=$resd->direccion_direcciones;
+							$tablaLab.="<br>";
+							$tablaLab.="";
+							$tablaLab.="<b>TELÉFONO: </b> (593-2)&nbsp;";
+							$tablaLab.=$resd->cod_telefono;
+							$tablaLab.=$resd->telefono_direcciones;
+							$tablaLab.="<br>";
+							$tablaLab.="";
+							$tablaLab.="<b>CELULAR: </b> (593-2)&nbsp;";
+							$tablaLab.=$resd->celular_direcciones;
+							$tablaLab.="<br>";
+								
+			
+						}
+					}
+					$tablaLab.="</td>";
+					$tablaLab.="</tr>";
+			
+			
+				}
+					
+			}else{}
+			$tablaLab.="</table>";
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
 			$columnas = "f.id_fichas, f.nombre_fichas, clasificacion_farmacologica_fichas";
 			$tablas   = "public.fichas f
 					LEFT JOIN public.fichas_laboratorios ff
@@ -661,15 +749,14 @@ public function index(){
 			{
 				 
 				
-				$html.='<center><span ><strong>PRODUCTOS ASOCIADOS</strong></span></center>';
+				$html.='<center><span ><strong>PRODUCTOS DEL LABORATORIO '.$nombre_laboratorio.'</strong></span></center>';
 				$html.='<div class="pull-left">';
-				$html.='<span class="form-control"><strong>Registros: </strong>'.$cantidadResult.'</span>';
+				$html.='<span class="form-control"><strong>Productos: </strong>'.$cantidadResult.'</span>';
 				$html.='<input type="hidden" value="'.$cantidadResult.'" id="total_query" name="total_query"/>' ;
 				$html.='</div><br>';
 				$html.='<table class="table table-hover">';
 				$html.='<thead>';
 				$html.='<tr class="info">';
-				$html.='<th style="text-align: left;  font-size: 11px;">Id</th>';
 				$html.='<th style="text-align: left;  font-size: 11px;">Nombre Producto</th>';
 				$html.='<th style="text-align: left;  font-size: 11px;">Categoria Farmacológica</th>';
 				$html.='<th style="text-align: left;  font-size: 11px;">Especies</th>';
@@ -708,7 +795,6 @@ public function index(){
 					
 					
 					$html.='<tr>';
-					$html.='<td style="font-size: 11px;">'.$res->id_fichas.'</td>';
 					$html.='<td style="font-size: 11px;">'.$res->nombre_fichas.'</td>';
 					$html.='<td style="font-size: 11px;">'.$res->clasificacion_farmacologica_fichas.'</td>';
 				    $html.='<td>'.$tablaEspcies.'</td>';
@@ -719,7 +805,7 @@ public function index(){
 				 
 				$html.='</tbody>';
 				$html.='</table>';
-				$html.='</div>';
+				
 			
 				 
 			
@@ -732,83 +818,7 @@ public function index(){
 			
 			}
 			
-			
-			
-			
-			
-			
-			
-			$columnasLab = "laboratorios.id_laboratorios,
-					         laboratorios.nombre_laboratorios,
-					         laboratorios.persona_contacto_laboratorios,
-					  	     laboratorios.telefono_persona_contacto_laboratorios,
-  							 laboratorios.email_laboratorios,
-  							 laboratorios.web_laboratorios,
-					         laboratorios.logo_laboratorios";
-			$tablasLab   = "public.laboratorios";
-			$whereLab    = "laboratorios.id_laboratorios =  $_id_laboratorios ";
-			 
-			$idlab = "laboratorios.id_laboratorios";
-			
-			$resultRep=$laboratorios->getCondiciones($columnasLab, $tablasLab, $whereLab, $idlab);
-			 
-			$tablaLab="<table>";
-			if(!empty($resultRep))
-			{
-			
-			
-				foreach($resultRep as $res)
-				{
-					//para consulta de direcciones
-					$columnaslabDir = "d.direccion_direcciones,d.telefono_direcciones,d.celular_direcciones,
-						           ca.nombre_canton,pr.cod_telefono";
-						
-					$tablaslabDir   = "public.direcciones d		INNER JOIN public.canton ca
-								ON d.id_canton = ca.id_canton INNER JOIN public.codigos_provincias pr
-								ON pr.id_provincia = ca.id_provincias";
-						
-					$wherelabDir    = "d.id_laboratorios = '$res->id_laboratorios'";
-					$idlabDir = "d.id_direcciones";
-					 
-					$dtLabDireccion=$direcciones->getCondiciones($columnaslabDir, $tablaslabDir, $wherelabDir, $idlabDir);
-					 
-					 
-					$tablaLab.="<tr>";
-					$tablaLab.="<td style='text-align:left; font-family: Times New Roman; font-size:72%;'>";
-					if(!empty($dtLabDireccion)){
-						$tablaLab.="";
-						foreach($dtLabDireccion as $resd)
-						{
-							$tablaLab.="<br>";
-							$tablaLab.="<b>CIUDAD: </b>";
-							$tablaLab.=$resd->nombre_canton;
-							$tablaLab.="<br>";
-							$tablaLab.="";
-							$tablaLab.="<b>DIRECCION: </b>";
-							$tablaLab.=$resd->direccion_direcciones;
-							$tablaLab.="<br>";
-							$tablaLab.="";
-							$tablaLab.="<b>TELÉFONO: </b> (593-2)&nbsp;";
-							$tablaLab.=$resd->cod_telefono;
-							$tablaLab.=$resd->telefono_direcciones;
-							$tablaLab.="<br>";
-							$tablaLab.="";
-							$tablaLab.="<b>CELULAR: </b> (593-2)&nbsp;";
-							$tablaLab.=$resd->celular_direcciones;
-							$tablaLab.="<br>";
-							
-							 
-						}
-					}
-					$tablaLab.="</td>";
-					$tablaLab.="</tr>";
-					 
-						
-				}
-			
-			}else{}
-			$tablaLab.="</table>";
-			 
+		 
 			
 	
 		}

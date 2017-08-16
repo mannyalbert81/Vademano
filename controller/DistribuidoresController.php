@@ -61,7 +61,7 @@ public function index(){
 	    				$tablaLab.=$resd->nombre_canton;
 	    				$tablaLab.="<br>";
 	    				$tablaLab.="";
-	    				$tablaLab.="<b>DIRECCION: </b>";
+	    				$tablaLab.="<b>DIRECCIÓN: </b>";
 	    				$tablaLab.=$resd->direccion_direcciones;
 	    				$tablaLab.="<br>";
 	    				$tablaLab.="";
@@ -695,7 +695,7 @@ public function index(){
 							$tablaLab.=$resd->nombre_canton;
 							$tablaLab.="<br>";
 							$tablaLab.="";
-							$tablaLab.="<b>DIRECCION: </b>";
+							$tablaLab.="<b>DIRECCIÓN: </b>";
 							$tablaLab.=$resd->direccion_direcciones;
 							$tablaLab.="<br>";
 							$tablaLab.="";

@@ -94,26 +94,7 @@ public function index(){
 	    }
 	    
 	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
+	     
 	    
 	    
 	    $columnas = "f.id_fichas,f.nombre_fichas,f.encabezado_tabla_fichas,f.farmacocinetica_fichas
@@ -889,7 +870,7 @@ public function index(){
 		$where_fc  = " fichas_composiciones.id_composiciones = composiciones.id_composiciones 
 		AND unidades_medida.id_unidades_medida=fichas_composiciones.id_unidades_medida
 		AND fichas_composiciones.id_fichas = '$_id_fichas' ";
-		$id_fc     = " composiciones.nombre_composiciones";
+		$id_fc     = " fichas_composiciones.id_fichas_composiciones";
 		
 		$resFicCom = $fichas_composiciones->getCondiciones($columnas_fc, $tablas_fc, $where_fc, $id_fc);
 		
@@ -932,7 +913,7 @@ public function index(){
 		$tablas_ds = " public.fichas_dosificacion, public.especies";
 		$where_ds  = " fichas_dosificacion.id_especies = especies.id_especies
 		AND  fichas_dosificacion.id_fichas = '$_id_fichas' ";
-		$id_ds     = " especies.nombre_especies";
+		$id_ds     = " fichas_dosificacion.id_fichas_dosificacion";
 		
 		$resFicDos = $fichas_dosificacion->getCondiciones($columnas_ds, $tablas_ds, $where_ds, $id_ds);
 		
@@ -969,7 +950,7 @@ public function index(){
 		$tablas_distri = " public.fichas_distribuidores, public.distribuidores";
 		$where_distri  = " fichas_distribuidores.id_distribuidores = distribuidores.id_distribuidores
 		AND  fichas_distribuidores.id_fichas = '$_id_fichas' ";
-		$id_distri     = "distribuidores.nombre_distribuidores";
+		$id_distri     = "fichas_distribuidores.id_fichas_distribuidores";
 		
 		$resFicDistri = $fichas_distribuidores->getCondiciones($columnas_distri, $tablas_distri, $where_distri, $id_distri);
 		
@@ -1005,7 +986,7 @@ public function index(){
 		$tablas_labo = " public.fichas_laboratorios, public.laboratorios";
 		$where_labo  = " fichas_laboratorios.id_laboratorios = laboratorios.id_laboratorios
 		AND  fichas_laboratorios.id_fichas = '$_id_fichas' ";
-		$id_labo     = "laboratorios.nombre_laboratorios";
+		$id_labo     = "fichas_laboratorios.id_fichas_laboratorios";
 		
 		$resFicLabo = $fichas_laboratorios->getCondiciones($columnas_labo, $tablas_labo, $where_labo, $id_labo);
 		
@@ -1223,8 +1204,10 @@ public function index(){
 		$fichas = new FichasModel();
 		$fichas_composiciones = new FichasComposicionesModel();
 		$fichas_dosificaciones = new FichasDosificacionModel();
+		$fichas_especies = new FichasEspeciesModel();
 		$fichas_distribuidores = new FichasDistribuidoresModel();
 		$fichas_laboratorios = new FichasLaboratoriosModel();
+		$fichas_fotos = new FichasFotosModel();
 		
 		if(isset($_GET["id_fichas"]))
 		{
@@ -1232,11 +1215,11 @@ public function index(){
 	
 			$fichas_composiciones->deleteBy(" id_fichas",$id_fichas);
 			$fichas_dosificaciones->deleteBy(" id_fichas",$id_fichas);
+			$fichas_especies->deleteBy(" id_fichas",$id_fichas);
 			$fichas_distribuidores->deleteBy(" id_fichas",$id_fichas);
 			$fichas_laboratorios->deleteBy(" id_fichas",$id_fichas);
-				
+			$fichas_fotos->deleteBy(" id_fichas",$id_fichas);
 			$fichas->deleteBy(" id_fichas",$id_fichas);
-			
 				
 		}
 	

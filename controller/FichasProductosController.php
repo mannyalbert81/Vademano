@@ -1088,7 +1088,7 @@ public function index(){
 		$tablas_fc = " public.composiciones, public.fichas_composiciones, public.unidades_medida";
 		$where_fc  = " fichas_composiciones.id_composiciones = composiciones.id_composiciones AND fichas_composiciones.id_unidades_medida = unidades_medida.id_unidades_medida
 		AND fichas_composiciones.id_fichas = '$_id_fichas' ";
-		$id_fc     = " composiciones.nombre_composiciones";
+		$id_fc     = " fichas_composiciones.id_fichas_composiciones";
 		
 		$resFicCom = $fichas_composiciones->getCondiciones($columnas_fc, $tablas_fc, $where_fc, $id_fc);
 		
@@ -1132,7 +1132,7 @@ public function index(){
 		$tablas_ds = " public.fichas_dosificacion, public.especies";
 		$where_ds  = " fichas_dosificacion.id_especies = especies.id_especies
 		AND  fichas_dosificacion.id_fichas = '$_id_fichas' ";
-		$id_ds     = " especies.nombre_especies";
+		$id_ds     = " fichas_dosificacion.id_fichas_dosificacion";
 		
 		$resFicDos = $fichas_dosificacion->getCondiciones($columnas_ds, $tablas_ds, $where_ds, $id_ds);
 		
@@ -1172,7 +1172,7 @@ public function index(){
 		$tablas_es = " public.fichas_especies, public.especies";
 		$where_es  = " fichas_especies.id_especies = especies.id_especies
 		AND  fichas_especies.id_fichas = '$_id_fichas' ";
-		$id_es     = " especies.nombre_especies";
+		$id_es     = " fichas_especies.id_fichas_especies";
 		
 		$resFicEs = $fichas_especies->getCondiciones($columnas_es, $tablas_es, $where_es, $id_es);
 		
@@ -1210,7 +1210,7 @@ public function index(){
 		$tablas_adm = " public.fichas_formas_administracion, public.formas_administracion";
 		$where_adm  = " fichas_formas_administracion.id_formas_administracion = formas_administracion.id_formas_administracion
 		AND  fichas_formas_administracion.id_fichas = '$_id_fichas' ";
-		$id_adm     = "formas_administracion.nombre_formas_administracion";
+		$id_adm     = "fichas_formas_administracion.id_fichas_formas_administracion";
 		
 		$resFicAdm = $fichas_formas_administracion->getCondiciones($columnas_adm, $tablas_adm, $where_adm, $id_adm);
 		
@@ -1247,7 +1247,7 @@ public function index(){
 		$tablas_distri = " public.fichas_distribuidores, public.distribuidores";
 		$where_distri  = " fichas_distribuidores.id_distribuidores = distribuidores.id_distribuidores
 		AND  fichas_distribuidores.id_fichas = '$_id_fichas' ";
-		$id_distri     = "distribuidores.nombre_distribuidores";
+		$id_distri     = "fichas_distribuidores.id_fichas_distribuidores";
 		
 		$resFicDistri = $fichas_distribuidores->getCondiciones($columnas_distri, $tablas_distri, $where_distri, $id_distri);
 		
@@ -1286,7 +1286,7 @@ public function index(){
 		$tablas_labo = " public.fichas_laboratorios, public.laboratorios";
 		$where_labo  = " fichas_laboratorios.id_laboratorios = laboratorios.id_laboratorios
 		AND  fichas_laboratorios.id_fichas = '$_id_fichas' ";
-		$id_labo     = "laboratorios.nombre_laboratorios";
+		$id_labo     = "fichas_laboratorios.id_fichas_laboratorios";
 		
 		$resFicLabo = $fichas_laboratorios->getCondiciones($columnas_labo, $tablas_labo, $where_labo, $id_labo);
 		
@@ -1501,6 +1501,7 @@ public function index(){
 		$fichas_formas_administracion = new FichasFormasAdministracionModel();
 		$fichas_distribuidores = new FichasDistribuidoresModel();
 		$fichas_laboratorios = new FichasLaboratoriosModel();
+		$fichas_fotos = new FichasFotosModel();
 		
 	    if(isset($_GET["id_fichas"]))
 		{
@@ -1512,7 +1513,7 @@ public function index(){
 			$fichas_formas_administracion->deleteBy(" id_fichas",$id_fichas);
 			$fichas_distribuidores->deleteBy(" id_fichas",$id_fichas);
 			$fichas_laboratorios->deleteBy(" id_fichas",$id_fichas);
-				
+			$fichas_fotos->deleteBy(" id_fichas",$id_fichas);
 			$fichas->deleteBy(" id_fichas",$id_fichas);
 			
 			
@@ -1589,28 +1590,28 @@ public function index(){
  							 public.composiciones, public.unidades_medida";
    			$where_com    = "composiciones.id_composiciones = fichas_composiciones.id_composiciones AND fichas_composiciones.id_unidades_medida = unidades_medida.id_unidades_medida
    			AND fichas_composiciones.id_fichas = '$_id_fichas'	";
-   			$id_com		  = "composiciones.nombre_composiciones";
+   			$id_com		  = "fichas_composiciones.id_fichas_composiciones";
    				
    			$columnas_dos = "especies.nombre_especies, fichas_dosificacion.dosis_fichas_dosificacion, fichas_dosificacion.id_fichas, fichas_dosificacion.id_especies";
    			$tablas_dos   = "public.fichas_dosificacion,
   							 public.especies";
    			$where_dos    = "fichas_dosificacion.id_especies = especies.id_especies
    			AND fichas_dosificacion.id_fichas = '$_id_fichas'	";
-   			$id_dos		  = "especies.nombre_especies";
+   			$id_dos		  = "fichas_dosificacion.id_fichas_dosificacion";
    		
 		    $columnas_es = "especies.nombre_especies, fichas_especies.id_fichas, fichas_especies.id_especies";
    			$tablas_es   = "public.fichas_especies,
   							 public.especies";
    			$where_es    = "fichas_especies.id_especies = especies.id_especies
    			AND fichas_especies.id_fichas = '$_id_fichas'	";
-   			$id_es		  = "especies.nombre_especies";
+   			$id_es		  = "fichas_especies.id_fichas_especies";
    		
 		    $columnas_adm =  "fichas_formas_administracion.id_fichas_formas_administracion,
   							formas_administracion.nombre_formas_administracion";
 			$tablas_adm = "public.fichas_formas_administracion, public.formas_administracion";
 			$where_adm  = "fichas_formas_administracion.id_formas_administracion = formas_administracion.id_formas_administracion
 					AND  fichas_formas_administracion.id_fichas = '$_id_fichas' ";
-			$id_adm     = "formas_administracion.nombre_formas_administracion";
+			$id_adm     = "fichas_formas_administracion.id_fichas_formas_administracion";
 					
 			
 			
@@ -1624,7 +1625,7 @@ public function index(){
   							 public.fichas_distribuidores";
    			$where_dis    = "fichas_distribuidores.id_distribuidores = distribuidores.id_distribuidores
    							 AND fichas_distribuidores.id_fichas = '$_id_fichas'	";
-   			$id_dis = "distribuidores.nombre_distribuidores";
+   			$id_dis = "fichas_distribuidores.id_distribuidores";
    			
    			$columnas_lab = "fichas_laboratorios.id_laboratorios,
 					  laboratorios.nombre_laboratorios,
@@ -1635,7 +1636,7 @@ public function index(){
    			$where_lab    = "fichas_laboratorios.id_laboratorios = laboratorios.id_laboratorios
    			AND fichas_laboratorios.id_fichas = '$_id_fichas'	";
    			
-   			$id_lab = "laboratorios.nombre_laboratorios";
+   			$id_lab = "fichas_laboratorios.id_laboratorios";
    			
    			$resultDis = $fichas_distribuidores->getCondiciones($columnas_dis, $tablas_dis, $where_dis, $id_dis);
    			
@@ -1880,7 +1881,7 @@ public function index(){
    			 
    			$whereEsp="fe.id_fichas = '$id_fichas'";
    			
-   			$idEsp="e.nombre_especies";
+   			$idEsp="fe.id_fichas_especies";
    			
    			//para la tabla Administracion
    			$columnasAdm =  "fia.id_fichas_formas_administracion,
@@ -1888,7 +1889,7 @@ public function index(){
    			$tablasAdm = "public.fichas_formas_administracion fia INNER JOIN public.formas_administracion fa
    					ON fia.id_formas_administracion = fa.id_formas_administracion";
    			$whereAdm  = "fia.id_fichas = '$id_fichas'";
-   			$id_adm     = "fa.nombre_formas_administracion";
+   			$id_adm     = "fia.id_fichas_formas_administracion";
    			
    			//para la tabla fabricado por
    			$columnasLab = "fichas_laboratorios.id_laboratorios,
@@ -1900,7 +1901,7 @@ public function index(){
    			$whereLab    = "fichas_laboratorios.id_laboratorios = laboratorios.id_laboratorios
    			AND fichas_laboratorios.id_fichas = '$id_fichas'	";
    			
-   			$idlab = "laboratorios.nombre_laboratorios";
+   			$idlab = "fichas_laboratorios.id_laboratorios";
    			
    			//para la tabla composicion   			
    			$columnasComp = "co.nombre_composiciones,
@@ -1913,7 +1914,7 @@ public function index(){
    			
    			$whereComp    = "fc.id_fichas = '$id_fichas'";
    			
-   			$idComp	  = "co.nombre_composiciones";
+   			$idComp	  = "fc.id_fichas_composiciones";
    			
    			//para la tablas distribuido por
    			$columnas_dis = "fichas_distribuidores.id_distribuidores,
@@ -1925,7 +1926,7 @@ public function index(){
   							 public.fichas_distribuidores";
    			$where_dis    = "fichas_distribuidores.id_distribuidores = distribuidores.id_distribuidores
    			AND fichas_distribuidores.id_fichas = '$id_fichas'	";
-   			$id_dis = "distribuidores.nombre_distribuidores";
+   			$id_dis = "fichas_distribuidores.id_distribuidores";
    			
    			//para la consulta de dosificacion
    			
@@ -1933,7 +1934,7 @@ public function index(){
    			$tablasDosi = " public.fichas_dosificacion d INNER JOIN public.especies e ON d.id_especies = e.id_especies";
    			$whereDosi = "d.id_especies = e.id_especies 
    						AND  d.id_fichas = '$id_fichas'	";   			
-   			$idDosi=" d.id_especies";
+   			$idDosi=" d.id_fichas_dosificacion";
    			  			
    			//parametros para el diccionario
    			$aficha = array();
@@ -2082,24 +2083,24 @@ public function index(){
    					$tablaLab.="</td>";
    					$tablaLab.="<td style='padding-left:10px; text-align:left; font-family: Times New Roman; font-size:65%;'>";
    					if(!empty($dtLabDireccion)){
-   						$tablaLab.="<br>";
+   						$tablaLab.="";
    						foreach($dtLabDireccion as $resd)
    						{
-   							$tablaLab.="";
-   							$tablaLab.="<b>CIUDAD:</b>";
+   							$tablaLab.="<br>";
+   							$tablaLab.="<b>CIUDAD: </b>";
    							$tablaLab.=$resd->nombre_canton;
    							$tablaLab.="<br>";
    							$tablaLab.="";
-   							$tablaLab.="<b>DIRECCION:</b>";
+   							$tablaLab.="<b>DIRECCIÓN: </b>";
    							$tablaLab.=$resd->direccion_direcciones;
    							$tablaLab.="<br>";
    							$tablaLab.="";
-   							$tablaLab.="<b>TELEFONO:</b> (593-2)&nbsp;";
+   							$tablaLab.="<b>TELÉFONO: </b> (593-2)&nbsp;";
    							$tablaLab.=$resd->cod_telefono;
    							$tablaLab.=$resd->telefono_direcciones;
    							$tablaLab.="<br>";
    							$tablaLab.="";
-   							$tablaLab.="<b>CELULAR:</b>";
+   							$tablaLab.="<b>CELULAR: </b>";
    							$tablaLab.=$resd->celular_direcciones;
    							$tablaLab.="<br>";
    							
@@ -2146,24 +2147,24 @@ public function index(){
    					$tablaDis.="</td>";
    					$tablaDis.="<td style='padding-left:10px; text-align:left; font-family: Times New Roman; font-size:65%;'>";
    					if(!empty($dtdisDireccion)){
-   						$tablaDis.="<br>";
+   						$tablaDis.="";
    						foreach($dtdisDireccion as $resdi)
    						{
-   							$tablaDis.="";
-   							$tablaDis.="<b>CIUDAD:</b>";
+   							$tablaDis.="<br>";
+   							$tablaDis.="<b>CIUDAD: </b>";
    							$tablaDis.=$resdi->nombre_canton;
    							$tablaDis.="<br>";
    							$tablaDis.="";
-   							$tablaDis.="<b>DIRECCION:</b>";
+   							$tablaDis.="<b>DIRECCIÓN: </b>";
    							$tablaDis.=$resdi->direccion_direcciones;
    							$tablaDis.="<br>";
    							$tablaDis.="";
-   							$tablaDis.="<b>TELEFONO:</b> (593-2)&nbsp;";
+   							$tablaDis.="<b>TELÉFONO: </b> (593-2)&nbsp;";
    							$tablaDis.=$resdi->cod_telefono;
    							$tablaDis.=$resdi->telefono_direcciones;
    							$tablaDis.="<br>";
    							$tablaDis.="";
-   							$tablaDis.="<b>CELULAR:</b>";
+   							$tablaDis.="<b>CELULAR: </b>";
    							$tablaDis.=$resdi->celular_direcciones;
    							$tablaDis.="<br>";
    			
@@ -2235,10 +2236,10 @@ public function index(){
    				foreach($dtDosificacion as $resdo)
    				{
    					$tablaDosi.="<tr>";
-   					$tablaDosi.="<td style=' text-align: left; font-family: Times New Roman; font-size:55%;'>";
+   					$tablaDosi.="<td style=' text-align:left; font-family: Times New Roman; font-size:55%;'>";
    					$tablaDosi.=$resdo->nombre_especies;
    					$tablaDosi.="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>";
-   					$tablaDosi.="<td style='text-align:center; font-family: Times New Roman; font-size:55%;'>";
+   					$tablaDosi.="<td style='text-align:left; font-family: Times New Roman; font-size:55%;'>";
    					$tablaDosi.=$resdo->dosis_fichas_dosificacion;
    					$tablaDosi.="</td>";
    					$tablaDosi.="</tr>";
@@ -2330,7 +2331,7 @@ public function index(){
    		 
    		$distribuidores = new DistribuidoresModel();
    		$laboratorios = new LaboratoriosModel();
-   		 
+   		$especies = new EspeciesModel();
    		 
    		//if(isset($_REQUEST['id_fichas'])&&isset($_REQUEST['nombre_fichas']))
    		if(isset($_REQUEST['id_fichas']))
@@ -2363,7 +2364,7 @@ public function index(){
    				
    			$whereEsp="fe.id_fichas = '$id_fichas'";
    		
-   			$idEsp="e.nombre_especies";
+   			$idEsp="fe.id_fichas_especies";
    		
    			//para la tabla Administracion
    			$columnasAdm =  "fia.id_fichas_formas_administracion,
@@ -2371,7 +2372,7 @@ public function index(){
    			$tablasAdm = "public.fichas_formas_administracion fia INNER JOIN public.formas_administracion fa
    					ON fia.id_formas_administracion = fa.id_formas_administracion";
    			$whereAdm  = "fia.id_fichas = '$id_fichas'";
-   			$id_adm     = "fa.nombre_formas_administracion";
+   			$id_adm     = "fia.id_fichas_formas_administracion";
    		
    			//para la tabla fabricado por
    			$columnasLab = "fichas_laboratorios.id_laboratorios,
@@ -2383,10 +2384,14 @@ public function index(){
    			$whereLab    = "fichas_laboratorios.id_laboratorios = laboratorios.id_laboratorios
    			AND fichas_laboratorios.id_fichas = '$id_fichas'	";
    		
-   			$idlab = "laboratorios.nombre_laboratorios";
+   			$idlab = "fichas_laboratorios.id_laboratorios";
+   			
+   			
+   			
+   			
    		
    			//para la tabla composicion
-   			$columnasComp = "co.nombre_composiciones,
+   			$columnasComp = "co.id_composiciones,co.nombre_composiciones,
   							fc.cantidad_fichas_composiciones, um.nombre_unidades_medida";
    			$tablasComp   = "public.fichas_composiciones fc
 				INNER JOIN public.composiciones co
@@ -2396,7 +2401,7 @@ public function index(){
    		
    			$whereComp    = "fc.id_fichas = '$id_fichas'";
    		
-   			$idComp	  = "co.nombre_composiciones";
+   			$idComp	  = "fc.id_fichas_composiciones";
    		
    			//para la tablas distribuido por
    			$columnas_dis = "fichas_distribuidores.id_distribuidores,
@@ -2408,7 +2413,7 @@ public function index(){
   							 public.fichas_distribuidores";
    			$where_dis    = "fichas_distribuidores.id_distribuidores = distribuidores.id_distribuidores
    			AND fichas_distribuidores.id_fichas = '$id_fichas'	";
-   			$id_dis = "distribuidores.nombre_distribuidores";
+   			$id_dis = "fichas_distribuidores.id_distribuidores";
    		
    			//para la consulta de dosificacion
    		
@@ -2416,7 +2421,7 @@ public function index(){
    			$tablasDosi = " public.fichas_dosificacion d INNER JOIN public.especies e ON d.id_especies = e.id_especies";
    			$whereDosi = "d.id_especies = e.id_especies
    			AND  d.id_fichas = '$id_fichas'	";
-   			$idDosi=" d.id_especies";
+   			$idDosi=" d.id_fichas_dosificacion";
    				
    			//parametros para el diccionario
    			$aficha = array();
@@ -2559,30 +2564,36 @@ public function index(){
    					$dtLabDireccion=$fichas_laboratorios->getCondiciones($columnaslabDir, $tablaslabDir, $wherelabDir, $idlabDir);
    		
    		
+   					
+   					
+   					//para consultar mas fichas de ese laboratorio
+   					
+   					
+   					
    					$tablaLab.="<tr>";
    					$tablaLab.="<td style=' text-align: left; font-family: Times New Roman; font-size:72%;'>&nbsp;";
    					$tablaLab.='<img src="view/DevuelveImagen.php?id_valor='.$res->id_laboratorios.'&id_nombre=id_laboratorios&tabla=laboratorios&campo=logo_laboratorios" width="80" height="60" />';
    					$tablaLab.="</td>";
    					$tablaLab.="<td style='padding-left:10px; text-align:left; font-family: Times New Roman; font-size:72%;'>";
    					if(!empty($dtLabDireccion)){
-   						$tablaLab.="<br>";
+   						$tablaLab.="";
    						foreach($dtLabDireccion as $resd)
    						{
-   							$tablaLab.="";
-   							$tablaLab.="<b>CIUDAD:</b>";
+   							$tablaLab.="<br>";
+   							$tablaLab.="<b>CIUDAD: </b>";
    							$tablaLab.=$resd->nombre_canton;
    							$tablaLab.="<br>";
    							$tablaLab.="";
-   							$tablaLab.="<b>DIRECCION:</b>";
+   							$tablaLab.="<b>DIRECCIÓN: </b>";
    							$tablaLab.=$resd->direccion_direcciones;
    							$tablaLab.="<br>";
    							$tablaLab.="";
-   							$tablaLab.="<b>TELEFONO:</b> (593-2)&nbsp;";
+   							$tablaLab.="<b>TELÉFONO: </b> (593-2)&nbsp;";
    							$tablaLab.=$resd->cod_telefono;
    							$tablaLab.=$resd->telefono_direcciones;
    							$tablaLab.="<br>";
    							$tablaLab.="";
-   							$tablaLab.="<b>CELULAR:</b>";
+   							$tablaLab.="<b>CELULAR: </b>";
    							$tablaLab.=$resd->celular_direcciones;
    							$tablaLab.="<br>";
    		
@@ -2598,6 +2609,117 @@ public function index(){
    			$tablaLab.="</table>";
    		
    		
+   			
+   			
+   			
+   			
+   			if(!empty($dtLaboratorio))
+   			{
+   			
+   				
+   			
+   				foreach($dtLaboratorio as $res)
+   				{
+   			
+
+   			$columnasLab = "f.id_fichas, f.nombre_fichas, clasificacion_farmacologica_fichas";
+   			$tablasLab   = "public.fichas f
+					LEFT JOIN public.fichas_laboratorios ff
+					ON ff.id_fichas = f.id_fichas";
+   			$whereLab    = "f.tipo_ficha = 'P' AND ff.id_laboratorios='$res->id_laboratorios'";
+   			$idLab = "f.id_fichas";
+   			$resultSetLab = $fichas->getCondiciones($columnasLab, $tablasLab, $whereLab, $idLab);
+   			$cantidadResult= count($resultSetLab);
+   			
+   			
+   			$nombre_laboratorio= $res->nombre_laboratorios;
+   			//para mas fichas
+   			
+   			$html="";
+   			if (!empty($resultSetLab))
+   			{
+   				
+   			
+   				$html.='<center><span ><strong>OTROS PRODUCTOS DEL LABORATORIO '.$nombre_laboratorio.'</strong></span></center>';
+   				$html.='<div class="pull-left">';
+   				$html.='<span class="form-control"><strong>Productos: </strong>'.$cantidadResult.'</span>';
+   				$html.='<input type="hidden" value="'.$cantidadResult.'" id="total_query" name="total_query"/>' ;
+   				$html.='</div><br>';
+   				$html.='<table class="table table-hover">';
+   				$html.='<thead>';
+   				$html.='<tr class="info">';
+   				$html.='<th style="text-align: left;  font-size: 11px;">Nombre Producto</th>';
+   				$html.='<th style="text-align: left;  font-size: 11px;">Categoria Farmacológica</th>';
+   				$html.='<th style="text-align: left;  font-size: 11px;">Especies</th>';
+   				$html.='<th style="text-align: left;  font-size: 11px;"></th>';
+   				$html.='</tr>';
+   				$html.='</thead>';
+   				$html.='<tbody>';
+   					
+   				foreach ($resultSetLab as $res)
+   				{
+   			
+   						
+   					$columnasEsp = "especies.logo_especies,
+							especies.id_especies";
+   						
+   					$tablasEsp  = "public.fichas_especies,
+									  public.especies";
+   						
+   					$whereEsp    = "fichas_especies.id_especies = especies.id_especies AND fichas_especies.id_fichas='$res->id_fichas'";
+   					$idEsp    = "especies.id_especies";
+   						
+   					$dtEsp=$especies->getCondiciones($columnasEsp, $tablasEsp, $whereEsp, $idEsp);
+   						
+   					$tablaEspcies="";
+   					if(!empty($dtEsp))
+   					{
+   						
+   						foreach($dtEsp as $res1)
+   						{
+   							$tablaEspcies.="";
+   							//$tablaEspcies.='<img src="'.$urlimag.'/Vademano/view/DevuelveImagen.php?id_valor='.$res->id_especies.'&id_nombre=id_especies&tabla=especies&campo=logo_especies"  width="40" height="40" />';
+   							$tablaEspcies.='<img src="view/DevuelveImagen.php?id_valor='.$res1->id_especies.'&id_nombre=id_especies&tabla=especies&campo=logo_especies"  width="34px" height="26px" />';
+   							$tablaEspcies.="";
+   						}
+   							
+   					}
+   						
+   						
+   					$html.='<tr>';
+   					$html.='<td style="font-size: 11px;">'.$res->nombre_fichas.'</td>';
+   					$html.='<td style="font-size: 11px;">'.$res->clasificacion_farmacologica_fichas.'</td>';
+   					$html.='<td>'.$tablaEspcies.'</td>';
+   					$html.='<td style="font-size: 15px;"><span class="pull-right"><a href="index.php?controller=FichasProductos&action=verFichaOnline&id_fichas='.$res->id_fichas.'" target="_blank"><i class="glyphicon glyphicon-print"></i></a></span></td>';
+   					$html.='</tr>';
+   			
+   				}
+   					
+   				$html.='</tbody>';
+   				$html.='</table>';
+   			
+   					
+   				
+   					
+   			}else{
+   					
+   				$html.='<div class="alert alert-warning alert-dismissable">';
+   				$html.='<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>';
+   				$html.='<h4>Aviso!!!</h4> No hay productos para mostrar';
+   				$html.='</div>';
+   					
+   			}
+   				
+   			
+   				}
+   			
+   			
+   			}	
+   			
+   			
+   			
+   			
+   			
    			//para la seccion distribuido por
    		
    			$dtDistribuido = $fichas_distribuidores->getCondiciones($columnas_dis, $tablas_dis, $where_dis, $id_dis);
@@ -2629,24 +2751,24 @@ public function index(){
    					$tablaDis.="</td>";
    					$tablaDis.="<td style='padding-left:10px; text-align:left; font-family: Times New Roman; font-size:72%;'>";
    					if(!empty($dtdisDireccion)){
-   						$tablaDis.="<br>";
+   						$tablaDis.="";
    						foreach($dtdisDireccion as $resdi)
    						{
-   							$tablaDis.="";
-   							$tablaDis.="<b>CIUDAD:</b>";
+   							$tablaDis.="<br>";
+   							$tablaDis.="<b>CIUDAD: </b>";
    							$tablaDis.=$resdi->nombre_canton;
    							$tablaDis.="<br>";
    							$tablaDis.="";
-   							$tablaDis.="<b>DIRECCION:</b>";
+   							$tablaDis.="<b>DIRECCIÓN: </b>";
    							$tablaDis.=$resdi->direccion_direcciones;
    							$tablaDis.="<br>";
    							$tablaDis.="";
-   							$tablaDis.="<b>TELEFONO:</b> (593-2)&nbsp;";
+   							$tablaDis.="<b>TELÉFONO: </b> (593-2)&nbsp;";
    							$tablaDis.=$resdi->cod_telefono;
    							$tablaDis.=$resdi->telefono_direcciones;
    							$tablaDis.="<br>";
    							$tablaDis.="";
-   							$tablaDis.="<b>CELULAR:</b>";
+   							$tablaDis.="<b>CELULAR: </b>";
    							$tablaDis.=$resdi->celular_direcciones;
    							$tablaDis.="<br>";
    		
@@ -2784,7 +2906,8 @@ public function index(){
    			);
    		
    			$this->view('FichasProductosOnline',array(
-   					'dicContenido'=>$dicContenido
+   					'dicContenido'=>$dicContenido,
+   					'html'=>$html
    			));
    		
    		}

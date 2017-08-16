@@ -91,7 +91,7 @@
 		            	  	<p class="contacto">   <span class="glyphicon glyphicon-road" aria-hidden="true"></span>  Edif. MAGAP Piso 9</p>
 					  		<p class="contacto">   <span class="glyphicon glyphicon-globe" aria-hidden="true"></span> Quito – Ecuador</p>
 					  		<p class="contacto">   <span class="glyphicon glyphicon-phone-alt" aria-hidden="true"></span> (+59)2 436 4566 - (+59)3 987 968 467</p>
-					  		<p class="contacto">   <span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Skype: vamemano</p>
+					  		<p class="contacto">   <span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Skype: vademano</p>
 					  		<p class="contacto">  <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> info@vademano.com</p>
 					        <hr>    	  	
 		            	</div>
@@ -109,20 +109,13 @@
 			  </div>
 			</div>
    	
-   	  <div> 
-   		 <?php include("view/modulos/servicios.php"); ?>	
-   		  </div>
-   		 <div style="margin-top: 20px; background-color: #4bae4f;">
+   	
+   	
+   	 
+   		   <div class="col-lg-12">
+  			 <?php include("view/modulos/beforefooter.php"); ?>
+   			</div>  
    		 
-   		 <?php include("view/modulos/small_slide.php"); ?>
-   		 
-   		 </div>
-   		 
-   	 	<div style="background-color: #7acb5a;">
-   	 	 <footer class="col-lg-12" >
-     	 	<?php include("view/modulos/footer.php"); ?>
-    	 </footer>     
-    	    
-    	</div>
+   	 	
     </body>
 </html>
