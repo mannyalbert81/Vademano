@@ -8,9 +8,14 @@ if(!empty($_POST['valor'])){
     $boolean = $PasswordLib->verifyPasswordHash($_POST['valor'],$_COOKIE["captcha"]);
 	//Se imprime el mesaje
     if($boolean==true){
+    	
     	echo "Captcha Correcta";
+    	
+    	
     }else{
     	echo "Captcha Incorrecta";
+    	
+    	
     }
 }
  ?>
