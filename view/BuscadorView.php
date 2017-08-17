@@ -484,12 +484,13 @@
 			  	      	
 			  	        
 			  	      	<a href="<?php echo $helper->url("Laboratorios","VistaLaboratoriosOnline"); ?>&id_laboratorios=<?php echo $res->id_laboratorios; ?>"  class="thumbnail"  target="_blank" >
-			  	      		<img name="image" src="view/DevuelveImagen.php?id_valor=<?php echo $res->id_laboratorios; ?>&id_nombre=id_laboratorios&tabla=laboratorios&campo=logo_laboratorios"  alt="<?php echo $res->nombre_laboratorios; ?>" width="100" height="100" >
+			  	      		<img name="image" src="view/DevuelveImagen.php?id_valor=<?php echo $res->id_laboratorios; ?>&id_nombre=id_laboratorios&tabla=laboratorios&campo=logo_laboratorios"  alt="<?php echo $res->nombre_laboratorios; ?>" width="120" height="120" >
 			  	        </a>
 			  	        
 			  	      </div>
 			  	         
-			       
+			       <div class="table-pagination pull-right">		
+            		</div>
 			       </div>
 			       <?php if($celdas == 4) {?>
 			
@@ -502,6 +503,7 @@
 			    	<div class="row" style="text-align: center;"  >	    
 					<div class="col-xs-6 col-md-1">
     	  			</div>
+    	  			
     	  
 					<?php $celdas = 0;?>	
 				<?php } ?>        

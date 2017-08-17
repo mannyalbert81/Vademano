@@ -166,6 +166,7 @@ class BuscadorController extends ControladorBase{
 		
 	}
 	
+	
 	public function buscador(){
 		session_start();
 		$resultSet = "";
