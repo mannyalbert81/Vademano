@@ -122,7 +122,7 @@
 		}); 
 
 	</script>
-    
+
     
     </head>
     <body class="cuerpo">
@@ -375,21 +375,24 @@
 	 	
 	 	  
 	 	   <div class="row">
-	 		<div class=" col-lg-3 col-md-3 col-xs-3">
-	 		<div class="panel panel-info">
-	 	   <div class="panel-body"> 
-	 			<input type="submit" name="imprimirficha" id="imprimirficha" value="Imprimir" class="btn btn-default">
+	 		<div class=" col-lg-4 col-md-4 col-xs-3">
+	 		 
+	 	   <h4><button type="submit" name="imprimirficha" id="imprimirficha" value="" style="-webkit-box-shadow: 0px 2px 2px 2px rgba(0,0,0,0.25); border-radius: 15px 15px 15px 15px; " class='glyphicon glyphicon-print'><h4 style = "font-family: Arial;"> Imprimir Ficha Producto</h4></button></h4>
 	 			<input type="hidden" id="id_fichas" name="id_fichas" value="<?php if($dicContenido['IDFICHA']!=""){echo $dicContenido['IDFICHA'];}else{/*{DISTIBUIDOPOR}*/}?>"/>
-	 		</div>
-	 		</div>
+	 		
+	 		
            </div>
            
-           <div class=" col-lg-3 col-md-3 col-xs-3">
-	 		<div class="panel panel-info">
-	 	   <div class="panel-body"> 
-	 		<input id="enviar_email" class="btn btn-default" type="button" value="Email">
-	 		</div>
-	 		</div>
+           <div class=" col-lg-4 col-md-4 col-xs-3">
+	 		
+	 		 <h4><button type="button" name="enviar_email" id="enviar_email" style="-webkit-box-shadow: 0px 2px 2px 2px rgba(0,0,0,0.25); border-radius: 15px 15px 15px 15px;" value="" class='glyphicon glyphicon-envelope'><h4 style = "font-family: Arial;"> Enviar Ficha por Email</h4></button></h4>
+	 		
+           </div>
+           <div class=" col-lg-4 col-md-4 col-xs-3">
+	 		
+	 		 <h4><button type="button" name="consulta_tecnica" id="consulta_tecnica" style="-webkit-box-shadow: 0px 2px 2px 2px rgba(0,0,0,0.25); border-radius: 15px 15px 15px 15px;" value="" class='glyphicon glyphicon-user'><h4 style = "font-family: Arial;">   Consulta Tecnica</h4></button></h4>
+	 		
+	 		
            </div>
         </div>
         
