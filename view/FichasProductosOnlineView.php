@@ -49,13 +49,88 @@
 	}
            
     </style>
+    
+    
+    <script >
+	$(document).ready(function(){
+			
+		$("#enviar_email").click(function(){
+					
+			$('#div_email').toggle("slow");
+		
+		});
+	});
+	</script>
+	
+    
+    
+    <script >
+		$(document).ready(function(){
+
+		    // cada vez que se cambia el valor del combo
+		    $("#btn_enviar").click(function() 
+			{
+		    	 
+		    	var regex = /[\w-\.]{2,}@([\w-]{2,}\.)*([\w-]{2,}\.)[\w-]{2,4}/;
+		    	var validaFecha = /([0-9]{4})\-([0-9]{2})\-([0-9]{2})/;
+		    	 
+		    	var correo_usuario = $("#correo_usuario").val();
+		    	var nombres_usuario = $("#nombres_usuario").val();
+
+		    	if (correo_usuario == "")
+		    	{
+			    	
+		    		$("#mensaje_correo").text("Introduzca un correo");
+		    		$("#mensaje_correo").fadeIn("slow"); //Muestra mensaje de error
+		            return false;
+			    }
+		    	else if (regex.test($('#correo_usuario').val().trim()))
+		    	{
+		    		$("#mensaje_correo").fadeOut("slow"); //Muestra mensaje de error
+		            
+				}
+		    	else 
+		    	{
+		    		$("#mensaje_correo").text("Introduzca un correo Valido");
+		    		$("#mensaje_correo").fadeIn("slow"); //Muestra mensaje de error
+		            return false;	
+			    }
+
+		    	if (nombres_usuario == "")
+		    	{
+			    	
+		    		$("#mensaje_nombres").text("Introduzca un Nombre");
+		    		$("#mensaje_nombres").fadeIn("slow"); //Muestra mensaje de error
+		            return false;
+			    }
+		    	else 
+		    	{
+		    		$("#mensaje_nombres").fadeOut("slow"); //Muestra mensaje de error
+		            
+				}
+
+
+			}); 
+		    $( "#correo_usuario" ).focus(function() {
+				$("#mensaje_correo").fadeOut("slow");
+			});
+		    $( "#nombres_usuario" ).focus(function() {
+				$("#mensaje_nombres").fadeOut("slow");
+			});
+		      
+				    
+		}); 
+
+	</script>
+    
+    
     </head>
     <body class="cuerpo">
     	
 
- <form action="<?php echo $helper->url("FichasProductos","verFicha"); ?>&id_fichas=<?php echo $res->id_fichas; ?>&nombre_fichas=<?php echo $res->nombre_fichas; ?>"  method="post" target="_blank" enctype="multipart/form-data" class="col-lg-12">
+ <form action="<?php echo $helper->url("FichasProductos","verFicha"); ?>&id_fichas=<?php echo $dicContenido['IDFICHA']; ?>"  method="post" target="_blank" enctype="multipart/form-data" class="col-lg-12">
    <div class="col-lg-12 col-md-12 division" ; style="-webkit-box-shadow: 0px 2px 2px 2px rgba(0,0,0,0.69); border-radius: 24px 24px 24px 24px; margin-top: 20px; ">
-	<div class="col-lg-6 col-md-6 col-xs-12" style="margin-top: 30px;">
+	<div class="col-lg-7 col-md-7 col-xs-12" style="margin-top: 30px;">
 		<div style="font-family: Arial; font-size:16pt; color:#31B046; width: 100%; text-align: center; ">
 		<font size=6><strong> <?php if($dicContenido['NOMBREFICHA']!=""){echo $dicContenido['NOMBREFICHA'];}else{/*{NOMBREFICHA}*/} ?></strong></font>
 		</div>
@@ -296,13 +371,66 @@
 	
 	<!-- para el derecho -->
 	
-	<div class="col-lg-6 col-md-6 col-xs-12" style="margin-top: 30px;">
-	 	<div class="row">
-	 		<div class=" col-lg-12 col-md-12 col-xs-12">
-	 			<input type="submit" name="imprimirficha" id="imprimirficha" value="Imprimir" class="btn btn-success">
-	 			<input type="hidden" id="id_fichas" name="id_fichas" value="<?php if($dicContenido['IDFICHA']!=""){echo $dicContenido['IDFICHA'];}else{/*{DISTIBUIDOPOR}*/}?>">
+	<div class="col-lg-5 col-md-5 col-xs-12" style="margin-top: 30px;">
+	 	
+	 	  
+	 	   <div class="row">
+	 		<div class=" col-lg-3 col-md-3 col-xs-3">
+	 		<div class="panel panel-info">
+	 	   <div class="panel-body"> 
+	 			<input type="submit" name="imprimirficha" id="imprimirficha" value="Imprimir" class="btn btn-default">
+	 			<input type="hidden" id="id_fichas" name="id_fichas" value="<?php if($dicContenido['IDFICHA']!=""){echo $dicContenido['IDFICHA'];}else{/*{DISTIBUIDOPOR}*/}?>"/>
 	 		</div>
-	 	</div>
+	 		</div>
+           </div>
+           
+           <div class=" col-lg-3 col-md-3 col-xs-3">
+	 		<div class="panel panel-info">
+	 	   <div class="panel-body"> 
+	 		<input id="enviar_email" class="btn btn-default" type="button" value="Email">
+	 		</div>
+	 		</div>
+           </div>
+        </div>
+        
+        <div class="row">
+        <div class="col-xs-12 col-md-12" id="div_email" style="display: none;" >
+      
+       	 <div class="panel panel-info">
+	     <div class="panel-body"> 
+         
+       <div class="col-xs-6 col-md-6 col-lg-6">
+        <img src="view/DevuelveImagen.php?id_valor=<?php if($dicContenido['IDFICHA']!=""){echo $dicContenido['IDFICHA'];}else{/*{IDFICHA}*/} ?>&id_nombre=id_fichas&tabla=fichas_fotos&campo=foto_fichas_fotos" width="160px" height="190px" />
+	   </div>
+       
+       <div class="col-xs-6 col-md-6 col-lg-6">
+           <div class="col-xs-12 col-md-12">
+		    <div class="form-group ">
+		                          <label for="correo_usuario" class="control-label">Email:</label>
+                                  <input type="email" class="form-control" id="correo_usuario" name="correo_usuario" value=""  placeholder="Email">
+                                  <div id="mensaje_correo" class="errores"></div>
+            </div>
+            </div>
+            <div class="col-xs-12 col-md-12">
+		    <div class="form-group ">
+		                          <label for="nombres_usuario" class="control-label">Nombre:</label>
+                                  <input type="text" class="form-control" id="nombres_usuario" name="nombres_usuario" value=""  placeholder="Nombre">
+                                  <div id="mensaje_nombres" class="errores"></div>
+            </div>
+		    </div>
+		    
+		    <div class="row">
+		    <div class="col-xs-12 col-md-12 col-lg-12" style="text-align: center; margin-top: 20px;">
+		    <div class="form-group">
+		      <input type="submit" id="btn_enviar" name="btn_enviar"  onclick="this.form.action='<?php echo $helper->url("FichasProductos","enviarficha"); ?>&id_fichas=<?php echo $dicContenido['IDFICHA']; ?>'" value="Enviar"  class="btn btn-info"/>
+		    </div>
+		    </div>
+		    </div>
+		    </div>
+       </div>
+        </div>
+        </div>
+      </div>
 	
 	</div>
 </div>  

@@ -776,7 +776,7 @@ public function index(){
 									  public.especies";
 					
 					$whereEsp    = "fichas_especies.id_especies = especies.id_especies AND fichas_especies.id_fichas='$res->id_fichas'";
-					$idEsp    = "especies.id_especies";
+					$idEsp    = "fichas_especies.id_fichas_especies";
 					
 					$dtEsp=$especies->getCondiciones($columnasEsp, $tablasEsp, $whereEsp, $idEsp);
 					

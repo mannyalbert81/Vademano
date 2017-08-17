@@ -52,7 +52,10 @@ public function index(){
 			$afiliaciones = new UsuariosModel();
 		
 			session_start();
-			
+			$afiliaciones = new UsuariosModel();
+			$fichas = new FichasModel();
+			$where = "nombre_fichas LIKE '%%' ORDER by consultas_fichas DESC LIMIT 4";
+			$resultVis = $fichas->getBy($where);
 			
 			///INSERTAMOS EL AFILIADO EN USUARIO
 			if (isset($_POST["btn_guardar"]) )
@@ -135,7 +138,7 @@ public function index(){
 				if (mail("$destino","Afiliaciones","$resumen","$cabeceras"))
 				{
 					$this->view("Afiliaciones",array(
-							"resultSet"=>"", "resultPais"=>"", "resultProv" =>"", "resultEdit" =>"", "resultado"=>"true"
+							"resultSet"=>"", "resultPais"=>"", "resultProv" =>"", "resultEdit" =>"", "resultado"=>"true", "resultVis"=>$resultVis
 					));
 				
 				
@@ -143,7 +146,7 @@ public function index(){
 				else
 				{
 					$this->view("Afiliaciones",array(
-							"resultSet"=>"", "resultPais"=>"", "resultProv" =>"", "resultEdit" =>"", "resultado"=>"false"
+							"resultSet"=>"", "resultPais"=>"", "resultProv" =>"", "resultEdit" =>"", "resultado"=>"false", "resultVis"=>$resultVis
 					));
 				
 				
@@ -429,6 +432,11 @@ public function index(){
 		$afiliaciones = new UsuariosModel();
 		$resultSet = "";
 		
+		$fichas = new FichasModel();
+		
+		$where = "nombre_fichas LIKE '%%' ORDER by consultas_fichas DESC LIMIT 4";
+		$resultVis = $fichas->getBy($where);
+		
 		if (isset($_GET["clave_activacion"]))
 		{
 			$_clave_activacion = $_GET["clave_activacion"];
@@ -439,7 +447,7 @@ public function index(){
 				$resultSet = $afiliaciones->getBy($where);
 				
 				$this->view("ValidaAfiliado",array(
-						"resultSet"=>$resultSet
+						"resultSet"=>$resultSet, "resultVis"=>$resultVis
 		
 				));
 			} 
@@ -462,11 +470,6 @@ public function index(){
 			$afiliaciones->UpdateBy($colval, $tabla, $where);
 			
 			
-			
-			$fichas = new FichasModel();
-		
-			$where = "nombre_fichas LIKE '%%' ORDER by consultas_fichas DESC LIMIT 4";
-			$resultVis = $fichas->getBy($where);
 			
 			$this->view("Index",array(
 					"resultado"=>$resultado, "resultVis"=>$resultVis

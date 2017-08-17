@@ -1875,13 +1875,14 @@ public function index(){
    			$dtFichas = $fichas->getCondiciones($columnas, $tablas, $where, $id);
    			
    			//para la tabla especies
-   			$columnasEsp="fe.id_fichas,fe.id_especies,e.nombre_especies,e.logo_especies";
-   			
-   			$tablasEsp ="public.fichas_especies fe INNER JOIN public.especies e ON e.id_especies = fe.id_especies";
-   			 
-   			$whereEsp="fe.id_fichas = '$id_fichas'";
-   			
-   			$idEsp="fe.id_fichas_especies";
+   			$columnasEsp = "especies.logo_especies,
+							especies.id_especies";
+   				
+   			$tablasEsp  = "public.fichas_especies,
+									  public.especies";
+   				
+   			$whereEsp    = "fichas_especies.id_especies = especies.id_especies AND fichas_especies.id_fichas='$id_fichas'";
+   			$idEsp    = "fichas_especies.id_fichas_especies";
    			
    			//para la tabla Administracion
    			$columnasAdm =  "fia.id_fichas_formas_administracion,
@@ -2309,6 +2310,173 @@ public function index(){
    		
    	}
    	
+   	
+   	public function enviarficha(){
+   		
+   		session_start();
+   		$imprimir="";
+   		$fichas = new FichasModel();
+   		$especies = new EspeciesModel();
+   		
+   		$fichas = new FichasModel();
+   		$where = "nombre_fichas LIKE '%%' ORDER by consultas_fichas DESC LIMIT 4";
+   		$resultVis = $fichas->getBy($where);
+   		
+   		if(isset($_POST["btn_enviar"])){
+   			
+   			
+   			
+   			$_nombres_usuario 	= mb_strtoupper($_POST["nombres_usuario"]);
+   			$_correo_usuario   = $_POST["correo_usuario"];
+   			$_id_fichas   = $_POST["id_fichas"];
+   			
+   			
+   			$columnasLab = "f.id_fichas, f.nombre_fichas, clasificacion_farmacologica_fichas";
+   			$tablasLab   = "public.fichas f
+					LEFT JOIN public.fichas_laboratorios ff
+					ON ff.id_fichas = f.id_fichas";
+   			$whereLab    = "f.tipo_ficha = 'P' AND f.id_fichas='$_id_fichas'";
+   			$idLab = "f.id_fichas";
+   			$resultSetFic = $fichas->getCondiciones($columnasLab, $tablasLab, $whereLab, $idLab);
+   			$cantidadResult=count($resultSetFic);
+   			
+   			
+   			$baseUrl = URLVADEMANO;
+   			$controladorAccion = "controller=FichasProductos&action=verFicha&id_fichas=". $_id_fichas;
+   			$imprimir = $baseUrl.$controladorAccion;
+   			
+   			
+   			$html="";
+   			if (!empty($resultSetFic))
+   			{
+   					
+   			
+   				
+   				$html.='<table rules="all">';
+   				$html.='<thead>';
+   				$html.='<tr>';
+   				$html.='<th style="text-align: left;  font-size: 13px;" WIDTH="155"></th>';
+   				$html.='<th style="background:#A9E2F3; text-align: left;  font-size: 13px;" WIDTH="200">Nombre Producto</th>';
+   				$html.='<th style="background:#A9E2F3; text-align: left;  font-size: 13px;" WIDTH="200">Categoria Farmacológica</th>';
+   				$html.='<th style="background:#A9E2F3; text-align: left;  font-size: 13px;" WIDTH="200">Especies</th>';
+   				$html.='<th style="background:#A9E2F3; text-align: left;  font-size: 13px;" >Imprimir</th>';
+   				$html.='</tr>';
+   				$html.='</thead>';
+   				$html.='<tbody>';
+   			
+   				foreach ($resultSetFic as $res)
+   				{
+   			
+   						
+   					$columnasEsp = "especies.logo_especies,
+							especies.id_especies";
+   						
+   					$tablasEsp  = "public.fichas_especies,
+									  public.especies";
+   						
+   					$whereEsp    = "fichas_especies.id_especies = especies.id_especies AND fichas_especies.id_fichas='$res->id_fichas'";
+   					$idEsp    = "fichas_especies.id_fichas_especies";
+   						
+   					$dtEsp=$especies->getCondiciones($columnasEsp, $tablasEsp, $whereEsp, $idEsp);
+   						
+   					$tablaEspcies="";
+   					if(!empty($dtEsp))
+   					{		
+   						foreach($dtEsp as $res1)
+   						{
+   							$tablaEspcies.="";
+   							//$tablaEspcies.='<img src="'.$urlimag.'/Vademano/view/DevuelveImagen.php?id_valor='.$res->id_especies.'&id_nombre=id_especies&tabla=especies&campo=logo_especies"  width="40" height="40" />';
+   							$tablaEspcies.='<img src="http://186.4.203.42:4000/Vademano/view/DevuelveImagen.php?id_valor='.$res1->id_especies.'&id_nombre=id_especies&tabla=especies&campo=logo_especies"  width="34px" height="26px" />';
+   							$tablaEspcies.="";
+   						}
+   			
+   					}
+   						
+   						
+   					$html.='<tr>';
+   					$html.='<td style="font-size: 12px;" WIDTH="155"></td>';
+   					$html.='<td style="font-size: 12px;" WIDTH="200">'.$res->nombre_fichas.'</td>';
+   					$html.='<td style="font-size: 12px;" WIDTH="200">'.$res->clasificacion_farmacologica_fichas.'</td>';
+   					$html.='<td WIDTH="200">'.$tablaEspcies.'</td>';
+   					$html.='<td style="font-size: 12px;" ><a href='.$imprimir.'><rigth><img src="http://186.4.203.42:4000/Vademano/view/images/printer.png" WIDTH="35" HEIGHT="35" /></rigth></a></span></td>';
+   					$html.='</tr>';
+   			
+   				}
+   			
+   				$html.='</tbody>';
+   				$html.='</table>';
+   			
+   			
+   					
+   			
+   			}else{
+   			
+   				$html.='<div class="alert alert-warning alert-dismissable">';
+   				$html.='<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>';
+   				$html.='<h4>Aviso!!!</h4> No hay productos para mostrar';
+   				$html.='</div>';
+   			
+   			}
+   			
+   			
+   			
+   			
+   			
+   			
+   			
+   			$cabeceras = "MIME-Version: 1.0 \r\n";
+   			$cabeceras .= "Content-type: text/html; charset=utf-8 \r\n";
+   			$cabeceras.= "From: info@masoft.net \r\n";
+   			$destino="$_correo_usuario";
+   			$asunto="Ficha";
+   			$fecha=date("d/m/y");
+   			$hora=date("H:i:s");
+   			//align='center'
+   			$resumen="
+   			
+   			<table rules='all'>
+   			<tr style='background:#7acb5a'><td WIDTH='1000' HEIGHT='50'><rigth><img src='http://186.4.203.42:4000/Vademano/view/images/logo_vademano.png' WIDTH='200' HEIGHT='80' /></rigth></td></tr>
+   			</tabla>
+   			<p><table rules='all'></p>
+   			<tr style='background: #FFFFFF;'><td  WIDTH='1000' align='center'><b> BIENVENIDO A VADEMANO </b></td></tr></p><br>
+   			<tr style='background: #FFFFFF;'><td  WIDTH='1000' align='justify'>Bienvenido a Vademano veterinario el portal digital que reúne toda la información  de relevancia relacionada con los productos  farmacéuticos de uso veterinario que se comercializan, busca proveer a médicos veterinarios, técnicos, especialistas y público en general  el más completo vademécum digital.
+   			El Vademano Veterinario está diseñado como una herramienta web moderna, versátil y fácil de utilizar, que se ajusta a la versatilidad de los dispositivos de comunicación actual para que la búsqueda de información se convierta en una tarea sencilla que puede ser realizada a través de múltiples combinaciones de criterios:
+   			efecto terapéutico, forma farmacéutica, especies, etc.; asimismo dispondrá de la información de los productos en formato PDF, opción para imprimir, entre otras múltiples ventajas.</td></tr>
+   			</tabla>
+   			
+   			<p><table rules='all'></p>
+   			<br>
+   			<tr style='background: #FFFFFF;'><td WIDTH='1000' align='center'><b>PRODUCTO SOLICITADO</b></td></tr>
+   			<tr style='background: #FFFFFF;'><td WIDTH='1000'>Hola <b>$_nombres_usuario</b>, para imprimir la ficha da click en el icono de la impresora.</tr>
+   			</table>
+   			<br>
+   			<p>$html</p>
+   			<p><table rules='all'></p>
+   			<tr style='background:#1C1C1C'><td WIDTH='1000' HEIGHT='50' align='center'><font color='white'>Vademano. - <a href='http://www.vademano.com'><FONT COLOR='#7acb5a'>www.vademano.com</FONT></a> - Copyright © 2017-</font></td></tr>
+   			</table>";
+   			
+   			
+   			if (mail("$destino","Ficha","$resumen","$cabeceras"))
+   			{
+   			
+   				$this->view('RespuestaEnvioFicha',array(
+   						"resultado"=>"true", "resultVis"=>$resultVis
+   				));
+   				
+   			}else {
+   				$this->view('RespuestaEnvioFicha',array(
+   						"resultado"=>"false", "resultVis"=>$resultVis
+   				));
+   				
+   			}
+   			
+   			
+   			
+   			
+   		}
+   		
+   	}
+   	
    	public function verFichaOnline()
    	{
    		session_start();
@@ -2358,13 +2526,18 @@ public function index(){
    			$dtFichas = $fichas->getCondiciones($columnas, $tablas, $where, $id);
    		
    			//para la tabla especies
-   			$columnasEsp="fe.id_fichas,fe.id_especies,e.nombre_especies,e.logo_especies";
-   		
-   			$tablasEsp ="public.fichas_especies fe INNER JOIN public.especies e ON e.id_especies = fe.id_especies";
+   			
+   			$columnasEsp = "especies.logo_especies,
+							especies.id_especies";
    				
-   			$whereEsp="fe.id_fichas = '$id_fichas'";
+   			$tablasEsp  = "public.fichas_especies,
+									  public.especies";
+   				
+   			$whereEsp    = "fichas_especies.id_especies = especies.id_especies AND fichas_especies.id_fichas='$id_fichas'";
+   			$idEsp    = "fichas_especies.id_fichas_especies";
+   				
+   			
    		
-   			$idEsp="fe.id_fichas_especies";
    		
    			//para la tabla Administracion
    			$columnasAdm =  "fia.id_fichas_formas_administracion,
@@ -2667,20 +2840,20 @@ public function index(){
 									  public.especies";
    						
    					$whereEsp    = "fichas_especies.id_especies = especies.id_especies AND fichas_especies.id_fichas='$res->id_fichas'";
-   					$idEsp    = "especies.id_especies";
+   					$idEsp    = "fichas_especies.id_fichas_especies";
    						
    					$dtEsp=$especies->getCondiciones($columnasEsp, $tablasEsp, $whereEsp, $idEsp);
    						
-   					$tablaEspcies="";
+   					$tablaEspcies1="";
    					if(!empty($dtEsp))
    					{
    						
    						foreach($dtEsp as $res1)
    						{
-   							$tablaEspcies.="";
+   							$tablaEspcies1.="";
    							//$tablaEspcies.='<img src="'.$urlimag.'/Vademano/view/DevuelveImagen.php?id_valor='.$res->id_especies.'&id_nombre=id_especies&tabla=especies&campo=logo_especies"  width="40" height="40" />';
-   							$tablaEspcies.='<img src="view/DevuelveImagen.php?id_valor='.$res1->id_especies.'&id_nombre=id_especies&tabla=especies&campo=logo_especies"  width="34px" height="26px" />';
-   							$tablaEspcies.="";
+   							$tablaEspcies1.='<img src="view/DevuelveImagen.php?id_valor='.$res1->id_especies.'&id_nombre=id_especies&tabla=especies&campo=logo_especies"  width="34px" height="26px" />';
+   							$tablaEspcies1.="";
    						}
    							
    					}
@@ -2689,7 +2862,7 @@ public function index(){
    					$html.='<tr>';
    					$html.='<td style="font-size: 11px;">'.$res->nombre_fichas.'</td>';
    					$html.='<td style="font-size: 11px;">'.$res->clasificacion_farmacologica_fichas.'</td>';
-   					$html.='<td>'.$tablaEspcies.'</td>';
+   					$html.='<td>'.$tablaEspcies1.'</td>';
    					$html.='<td style="font-size: 15px;"><span class="pull-right"><a href="index.php?controller=FichasProductos&action=verFichaOnline&id_fichas='.$res->id_fichas.'" target="_blank"><i class="glyphicon glyphicon-print"></i></a></span></td>';
    					$html.='</tr>';
    			

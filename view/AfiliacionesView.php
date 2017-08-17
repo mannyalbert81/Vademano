@@ -572,9 +572,7 @@
                                   <input type="email" class="form-control" id="correo_usuario" name="correo_usuario" value=""  placeholder="Email">
                                   <div id="mensaje_correo" class="errores"></div>
             </div>
-            
-                                  
-		    </div>
+            </div>
 		    
 		    <div class="col-xs-6 col-md-6">
 		    <div class="form-group ">
