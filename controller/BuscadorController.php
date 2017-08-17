@@ -9,6 +9,9 @@ class BuscadorController extends ControladorBase{
 		session_start();
 		$resultSet = "";
 		$resultEdit = "";
+		
+		$productos = new FichasModel();
+		$resultPro = $productos->getBy("tipo_ficha= 'P'");
 	
 		$composiciones = new ComposicionesModel();
 		$resultCom = $composiciones->getAll("nombre_composiciones");
@@ -18,6 +21,9 @@ class BuscadorController extends ControladorBase{
 		
 		$distribuidores = new DistribuidoresModel();
 		$resultDis = $distribuidores->getAll("nombre_distribuidores");
+		
+		$alimentos = new FichasModel();
+		$resultAli = $alimentos->getBy("tipo_ficha= 'A'");
 		
 		$laboratorios = new LaboratoriosModel();
 		$resultLab = $laboratorios->getAll("nombre_laboratorios");
@@ -32,13 +38,17 @@ class BuscadorController extends ControladorBase{
 		
 		
 		$CantProductos = 0;
+		$CantAlimentos = 0;
 		$CantPrincipios = 0;
 		$CantLaboratorios = 0;
 		$CantDistribuidores = 0;
 		
+		
+		$resultAliBus = "";
 		$resultPrinBus = "";
 		$resultLabBus = "";
 		$resultDisBus = "";
+		
 	
 		
 		
@@ -52,22 +62,21 @@ class BuscadorController extends ControladorBase{
 			 
 			
 			$resultSet = $buscador->getBy($where);
-			$resultPrinBus = $principios_activos->getBy($where);
+			$resultAliBus = $alimentos->getBy($where);
+			$resultPrinBus = $principios_activos->getBy($where);			
 			$resultLabBus = $laboratorios->getBy($where);
 			$resultDisBus = $distribuidores->getBy($where);
 			
-			$CantProductos = count($resultSet);
 			
+			$CantProductos = count($resultPro);
+			$CantAlimentos  =  count($resultAli);
 			$CantPrincipios  =  count($resultPrinBus);
 			$CantLaboratorios  =  count($resultLabBus);
 			$CantDistribuidores  =  count($resultDisBus);
 			
 			
+			
 		}
-		
-		
-		
-		
 		if (isset($_POST["btn_filtrar"]))
 		{
 			$where1 = "";
@@ -76,6 +85,7 @@ class BuscadorController extends ControladorBase{
 			$where4 = "";
 			$where5 = "";
 			$where6 = "";
+			
 			$columnas = "fichas.nombre_fichas, fichas.id_fichas, fichas.clasificacion_farmacologica_fichas";
 			
 			$tablas = "public.fichas, public.laboratorios, public.distribuidores, 
@@ -97,9 +107,6 @@ class BuscadorController extends ControladorBase{
 				{
 					$where1 = " AND fichas_dosificacion.id_especies = '$_id_especies' ";
 				}
-				
-				
-				
 			}
 			
 			
@@ -136,7 +143,7 @@ class BuscadorController extends ControladorBase{
 					$where5 = " AND fichas.clasificacion_farmacologica_fichas = '$_clasificacion_farmacologica' ";
 				}
 			}
-			
+					
 			$where_tot = $where . $where1 . $where2 . $where3 . $where4 . $where5 . $where6; 
 			
 			
@@ -148,13 +155,11 @@ class BuscadorController extends ControladorBase{
 		
 		
 		}
-		
-		
 		$this->view("Buscador",array(
 				"resultSet"=>$resultSet, "resultEdit" =>$resultEdit, "resultCom"=>$resultCom, "resultEsp"=>$resultEsp, "resultLab"=>$resultLab,
-				"CantProductos"=>$CantProductos, "CantPrincipios"=>$CantPrincipios,
-				"CantLaboratorios"=>$CantLaboratorios, "CantDistribuidores"=>$CantDistribuidores,
-				"resultPrinBus"=>$resultPrinBus, "resultLabBus"=>$resultLabBus, "resultDisBus"=>$resultDisBus, "resultFor"=>$resultFor,
+				"CantProductos"=>$CantProductos, "CantAlimentos"=>$CantAlimentos, "CantPrincipios"=>$CantPrincipios,
+				"CantLaboratorios"=>$CantLaboratorios, "CantDistribuidores"=>$CantDistribuidores, 
+				"resultPrinBus"=>$resultPrinBus, "resultAli"=>$resultAli, "resultPro"=>$resultPro, "resultAliBus"=>$resultAliBus, "resultLabBus"=>$resultLabBus, "resultDisBus"=>$resultDisBus,  "resultFor"=>$resultFor,
 				"resultCat"=>$resultCat
 			));
 		
