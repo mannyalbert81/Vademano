@@ -4,7 +4,11 @@
         <meta charset="utf-8"/>
         <title>Vademano 2015</title>
        <link rel="stylesheet" href="view/css/bootstrap.css">
-       
+        <link rel="stylesheet" href="view/css/bootstrap.css">
+     <link rel="stylesheet" href="view/css/estilos.css">
+  <script src="view/js/jquery.js"></script>
+  <script src="view/js/bootstrapValidator.min.js"></script>
+  <script src="view/js/noty.js"></script>
           
         <style>
             input{
@@ -21,6 +25,10 @@
 		 background-image: url(view/images/templatemo_bg_homepage.jpg);
 		       }
 			</style>
+			
+			
+			
+	
    	 </head>
    
    
@@ -35,11 +43,11 @@
          <div> 
    		 <?php include("view/modulos/servicios.php"); ?>	
    		  </div>
+   		  
    		 <div style="margin-top: 20px; background-color: #4bae4f;">
-   		 
    		 <?php include("view/modulos/small_slide.php"); ?>
-   		 
    		 </div>
+   		 
    		 <div style="background-color: #7acb5a;">
    	 	 <footer class="col-lg-12">
      	 	<?php include("view/modulos/footer.php"); ?>

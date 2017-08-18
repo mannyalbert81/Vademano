@@ -1,6 +1,9 @@
  <div class="head" style=" -webkit-box-shadow: 0px 2px 2px 4px rgba(0,0,0,0.69);">
  <?php include("view/modulos/head.php"); ?>
  </div>
+ 
+ <?php include("view/modulos/slide.php"); ?>
+ 
 
 <!DOCTYPE HTML>
 <html lang="es">
@@ -13,19 +16,21 @@
   <script src="view/js/bootstrapValidator.min.js"></script>
   <script src="view/js/noty.js"></script>
         
-   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
-<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
-<script type="text/javascript" src="https://raw.github.com/HPNeo/gmaps/master/gmaps.js"></script>
+ 
   
-   <script >  
-     $(document).ready(function(){
-		  map = new GMaps({
-		    div: '#mapa',
-		    lat: -12.043333,
-		    lng: -77.028333
-		  });
-		});
-     </script>
+   <script src="http://maps.google.com/maps/api/js?key=AIzaSyDyu4jW-edLYPnTIBRqHtUxisvp3NRVBps"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/gmaps.js/0.4.24/gmaps.js"></script>
+     
+         <style type="text/css">
+		    #mapa{
+		      border:1px solid red;
+		   
+		      height: 500px;
+		        width: 100%;
+		    }
+		  </style>
+		  
+    
 	
         <style>
             input{
@@ -44,9 +49,9 @@
      <body class="cuerpo" >
     	
     	
-   
+    <form action="<?php echo $helper->url("Mensajes","Inserta"); ?>" method="post" class="col-lg-12">
    	
-   			<div class="row" style="margin-top: 20px;" >
+   			<div class="row" style="margin-top: 40px;" >
 			  <div class="col-xs-1 col-md-1">
 			  </div>
 			  
@@ -72,8 +77,8 @@
 								    de sus necesidades de promoción empresarial y concluye en la satisfacción 
 								    de sus requerimientos, nuestros profesionales exponen su información en las 
 								    mejores condiciones de presentación e imagen corporativa, ingenieros de sistemas
-								     y representantes de ventas permanentemente mantienen con amabilidad, oportunidad
-								      y eficiencia, el servicio de <strong>promoción empresarial</strong> en nuestro portal.
+								    y representantes de ventas permanentemente mantienen con amabilidad, oportunidad
+								    y eficiencia, el servicio de <strong>promoción empresarial</strong> en nuestro portal.
 								    
 							    </p>
 						  </div>
@@ -98,8 +103,104 @@
 		            </div>	
 				  	<hr>
 				  </div>
+				  <div class="col-lg-6 col-md-6 col-xs-6">
 				  
-				  <?php include("view/modulos/contacto.php"); ?>
+            <h4 >Enviar Mensaje</h4>
+            <hr/>
+           
+		    
+            <div class="row">
+            	<div class="col-xs-6 col-md-6">
+            	  <p class="formulario-subtitulo">Nombres</p>
+            	</div>
+            	<div class="col-xs-6 col-md-6">
+            	  <p class="formulario-subtitulo">Apellidos</p>
+            	</div>
+            </div>	
+		    <div class="row">
+            	<div class="col-xs-6 col-md-6">
+            	  <input type="text" name="nombres_mensajes"  class="form-control"/>
+            	</div>
+            	<div class="col-xs-6 col-md-6">
+            	  <input type="text" name="apellidos_mensajes"  class="form-control"/>
+            	</div>
+            </div>	
+		    
+		    <div class="row">
+            	<div class="col-xs-6 col-md-6">
+            	  <p class="formulario-subtitulo">Pais</p>
+            	</div>
+            	<div class="col-xs-6 col-md-6">
+            	  <p class="formulario-subtitulo">Provincia</p>
+            	</div>
+            </div>		
+	  		<div class="row">
+            	<div class="col-xs-6 col-md-6">
+            	  	<select name="paises" id="paises"  class="form-control" style="	width: 200px;">
+						<?php foreach($resultPais as $resPais) {?>
+							<option value="<?php echo $resPais->id_pais; ?>"  ><?php echo $resPais->nombre_pais; ?> </option>
+			            <?php } ?>
+					</select>
+            	</div>
+            	<div class="col-xs-6 col-md-6">
+            	  	<select name="provincias" id="provincias"  class="form-control" style="	width: 200px;">
+						
+							<option value="0"  > -- SIN ESPECIFICAR -- </option>
+			            
+					</select>
+            	</div>
+            </div>		
+	  		
+	  		 <div class="row">
+            	<div class="col-xs-6 col-md-6">
+            	  <p class="formulario-subtitulo">Telefono</p>
+            	</div>
+            	<div class="col-xs-6 col-md-6">
+            	  <p class="formulario-subtitulo">Celular</p>
+            	</div>
+            </div>    		
+        	<div class="row">
+            	<div class="col-xs-6 col-md-6">
+            	  <input type="text" name="telefono_mensajes"  class="form-control"   />
+            	</div>
+            	<div class="col-xs-6 col-md-6">
+            	  <input type="text" name="celular_mensajes"  class="form-control"   />
+            	</div>
+            </div>    		
+        	 <div class="row">
+            	<div class="col-xs-12 col-md-12">
+            	  <p class="formulario-subtitulo">Email</p>
+            	</div>
+            	
+            </div>
+	  		 <div class="row">
+            	<div class="col-xs-12 col-md-12">
+            	  <input type="email" name="email_mensajes"  class="form-control"   />
+            	</div>
+            	
+            </div>
+	  		 <div class="row">
+            	<div class="col-xs-12 col-md-12">
+            	  <p class="formulario-subtitulo">Mensaje</p>
+            	</div>
+            	
+            </div>
+             <div class="row">
+            	<div class="col-xs-12 col-md-12">
+            	  <textarea rows="4" name="mensaje_mensajes" class="form-control" ></textarea>
+            	</div>
+            	
+            </div>
+	   		<div class="row">
+            	<div class="col-xs-12 col-md-12" style="text-align: center;">
+            	  <input type="submit" value="Enviar" class="btn btn-success"/>
+            	</div>
+            	
+            </div>
+		
+     
+				  </div>
+				
 				  </div>
 				  
 				  </div>
@@ -109,13 +210,33 @@
 			  </div>
 			</div>
    	
-   	
+   	  </form>
    	
    	 
-   		   <div class="col-lg-12">
-  			 <?php include("view/modulos/beforefooter.php"); ?>
-   			</div>  
+   		  <div> 
+   		 <?php include("view/modulos/servicios.php"); ?>	
+   		  </div>
+   		  
+   		 <div style="margin-top: 20px; background-color: #4bae4f;">
+   		 <?php include("view/modulos/small_slide.php"); ?>
+   		 </div>
    		 
+   		 <div style="background-color: #7acb5a;">
+   	 	 <footer class="col-lg-12">
+     	 	<?php include("view/modulos/footer.php"); ?>
+    	 </footer> 
+		 </div>
+   		  <script type="text/javascript">
+	    var mapa = new GMaps({
+	      el: '#mapa',
+	      lat: -1.666618,
+	      lng: -78.174819,
+	      zoom:7
+	    });
+	   
+	   
+	    
+	  </script> 
    	 	
     </body>
 </html>
