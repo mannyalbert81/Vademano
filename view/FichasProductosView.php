@@ -311,12 +311,12 @@ transform: translateY(0px);
 		               <td style="font-size: 12px;"> <?php echo $res->presentacion_fichas; ?>     </td> 
 		               <td style="font-size: 12px;"> <?php echo $res->nombre_laboratorio;?>     </td> 
 		               <td style="font-size: 12px;"> <?php echo $res->registro_sanitario_fichas; ?>     </td> 
-		 <td style="font-size: 12px;"><div class="contenedor-img ejemplo-1"><img type="image" name="image" src="view/DevuelveImagen.php?id_valor=<?php echo $res->id_fichas; ?>&id_nombre=id_fichas&tabla=fichas_fotos&campo=foto_fichas_fotos"  alt="<?php echo $res->id_fichas_fotos; ?>" width="90" height="75" >      
-	       <div class="mascara">  
-           <h6><?php echo $res->nombre_fichas; ?> </h6>  
-           </div>  
-           </div>
-         </td>		               
+					 <td style="font-size: 12px;"><div class="contenedor-img ejemplo-1"><img type="image" name="image" src="view/DevuelveImagen.php?id_valor=<?php echo $res->id_fichas; ?>&id_nombre=id_fichas&tabla=fichas_fotos&campo=foto_fichas_fotos"  alt="<?php echo $res->id_fichas_fotos; ?>" width="90" height="75" >      
+				       <div class="mascara">  
+			           <h6><?php echo $res->nombre_fichas; ?> </h6>  
+			           </div>  
+			           </div>
+			         </td>		               
 		                <td>
 			           		<div class="right">
 			                    <a href="<?php echo $helper->url("FichasProductos","verFichaOnline"); ?>&id_fichas=<?php echo $res->id_fichas; ?>" class="btn btn-info" target="_blank"><i class="glyphicon glyphicon-print"></i></a>
