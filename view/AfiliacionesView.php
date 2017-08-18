@@ -381,7 +381,10 @@
     </head>
     
     <body class="cuerpo">
-    	  <div class="row" style="margin-top: 370px;" >
+    <form  action="<?php echo $helper->url("Afiliaciones","InsertaAfiliados"); ?>" method="post" class="col-lg-12">
+      
+    	  <div class="row" style="margin-top: 20px;" >
+    	 
 			  <div class="col-xs-1 col-md-1">
 			  </div>
 			  
@@ -439,18 +442,16 @@
            <?php if (isset($resultado)) {?>
         	<?php if ($resultado == "true") {?>
         	
-	        	<div class="alert alert-success" role="alert">
-				  <div class="alert alert-success" role="alert">Tu afiliacion se realizo <strong> correctamente </strong>, Enviamos a tu emil la informacion necesaria para el acceso al sistema.</div>
-				</div>
+	        	  <div class="alert alert-success" role="alert">Tu afiliacion se realizo <strong> correctamente </strong>, Enviamos a tu emil la informacion necesaria para el acceso al sistema.</div>
+				
 			<?php }else {?>
-				<div class="alert alert-success" role="alert">
 				  <div class="alert alert-danger" role="alert">Ocurrio un error al realizar su afiliacion, vuelva a intentarlo.</div>
-				</div>
+				
 			<?php } ?>
 	        
-           <?php } else { ?>
+           <?php }  ?>
 		     
-            <?php if ($resultEdit !="" ) { foreach($resultEdit as $resEdit) {?>
+            <?php if (!empty($resultEdit)) { foreach($resultEdit as $resEdit) {?>
            
            
            
@@ -772,7 +773,7 @@
            
 		<?php }?>    
 	               	
-		     <?php }?>
+		  
 			  <br>
            </div>
 				
@@ -787,29 +788,20 @@
 			</div>
     	
      
-      <form  action="<?php echo $helper->url("Afiliaciones","InsertaAfiliados"); ?>" method="post" class="col-lg-12">
-          <div style=" margin-left: 100px">
-          
-       
-       
-      </form>
-     
-         <div class="col-lg-12"> 
+</form>     
+        <div> 
    		 <?php include("view/modulos/servicios.php"); ?>	
-   		 </div>
-   		
-   		 <div class="col-lg-12" style="margin-top: 20px;">
-   		 
+   		  </div>
+   		  
+   		 <div style="margin-top: 20px; background-color: #4bae4f;">
    		 <?php include("view/modulos/small_slide.php"); ?>
-   		 
    		 </div>
    		 
-   	 	<div style="background-color: #7acb5a;">
+   		 <div style="background-color: #7acb5a;">
    	 	 <footer class="col-lg-12">
      	 	<?php include("view/modulos/footer.php"); ?>
     	 </footer> 
-    	     
-    	</div>
+		 </div>
     	  <script type="text/javascript">
 	    var mapa = new GMaps({
 	      el: '#mapa',

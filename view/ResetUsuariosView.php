@@ -67,7 +67,10 @@
     </head>
     
     <body class="cuerpo">
-    	  <div class="row" style="margin-top: 360px;" >
+     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    	 <form id="form-reset" action="<?php echo $helper->url("Usuarios","Reset"); ?>" method="post" class="col-lg-12">
+    
+    	  <div class="row" style="margin-top: 20px;" >
 			  <div class="col-xs-1 col-md-1">
 			  </div>
 			  
@@ -121,8 +124,7 @@
 				  </div>
 			  <div class="col-lg-6 division" style=" margin-top: 20px">
    
-      <form id="form-reset" action="<?php echo $helper->url("Usuarios","Reset"); ?>" method="post" class="col-lg-12">
-    
+     
      <h4>Login</h4>
             <hr/>
          
@@ -163,7 +165,7 @@
 						    <div class="col-xs-12 col-md-12 col-lg-12" style="text-align: center; ">
 						    <div class="col-xs-2 col-md-2 col-lg-2" style="text-align: center;">
 						    </div>
-						     <div class="col-xs-8 col-md-8 col-lg-8" style="text-align: center;">
+						     <div class="col-xs-9 col-md-9 col-lg-9" style="text-align: center;">
 						      <div class="form-group">
 				                                 <button type="submit" id="btn_reestablecer" name="btn_reestablecer" class="btn btn-success btn-block" >Reestablecer</button>
 				          
@@ -198,7 +200,7 @@
            
            
           </div>
-               </form>
+              
            </div>
 				
 				  </div>
@@ -211,25 +213,18 @@
 			  </div>
 			</div>
     	
-     
-      <form  action="<?php echo $helper->url("Afiliaciones","InsertaAfiliados"); ?>" method="post" class="col-lg-12">
-          <div style=" margin-left: 100px">
-          
-       
-       
       </form>
+    
      
-         <div class="col-lg-12"> 
+         <div> 
    		 <?php include("view/modulos/servicios.php"); ?>	
-   		 </div>
-   		
-   		 <div class="col-lg-12" style="margin-top: 20px;">
-   		 
-   
-   		 
+   		  </div>
+   		  
+   		 <div style="margin-top: 20px; background-color: #4bae4f;">
+   		 <?php include("view/modulos/small_slide.php"); ?>
    		 </div>
    		 
-   	 	<div style="background-color: #7acb5a;">
+   		 <div style="background-color: #7acb5a;">
    	 	 <footer class="col-lg-12">
      	 	<?php include("view/modulos/footer.php"); ?>
     	 </footer> 

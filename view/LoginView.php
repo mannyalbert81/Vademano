@@ -53,7 +53,10 @@
 </head >
 
     <body class="cuerpo">
-    	  <div class="row" style="margin-top: 360px;" >
+     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    	<form id="form-login"  action="<?php echo $helper->url("Usuarios","Loguear"); ?>" method="post" class="col-lg-12" >
+  
+    	  <div class="row" style="margin-top: 20px;" >
 			  <div class="col-xs-1 col-md-1">
 			  </div>
 			  
@@ -106,8 +109,7 @@
 				  	<hr>
 				  </div>
 			  <div class="col-lg-6 division" style=" margin-top: 20px">
-   <form id="form-login"  action="<?php echo $helper->url("Usuarios","Loguear"); ?>" method="post" class="col-lg-12" >
-  
+   
      <h4>Login</h4>
      
            <?php if (isset($resultado)) {?>
@@ -170,7 +172,7 @@
               </div>
        
               </div>
-               </form>
+               
            </div>
 				
 				  </div>
@@ -182,31 +184,20 @@
 			  
 			  </div>
 			</div>
-    	
-     
-      <form  action="<?php echo $helper->url("Afiliaciones","InsertaAfiliados"); ?>" method="post" class="col-lg-12">
-          <div style=" margin-left: 100px">
-          
-       
-       
-      </form>
-     
-         <div class="col-lg-12"> 
+     </form>
+        <div> 
    		 <?php include("view/modulos/servicios.php"); ?>	
-   		 </div>
-   		
-   		 <div class="col-lg-12" style="margin-top: 20px;">
-   		 
+   		  </div>
+   		  
+   		 <div style="margin-top: 20px; background-color: #4bae4f;">
    		 <?php include("view/modulos/small_slide.php"); ?>
-   		 
    		 </div>
    		 
-   	 	<div style="background-color: #7acb5a;">
+   		 <div style="background-color: #7acb5a;">
    	 	 <footer class="col-lg-12">
      	 	<?php include("view/modulos/footer.php"); ?>
     	 </footer> 
-    	     
-    	</div>
+		 </div>
     	  <script type="text/javascript">
 	    var mapa = new GMaps({
 	      el: '#mapa',

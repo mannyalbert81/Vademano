@@ -47,7 +47,7 @@
    
    
      <body class="cuerpo" >
-    	
+     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">	
     	
     <form action="<?php echo $helper->url("Mensajes","Inserta"); ?>" method="post" class="col-lg-12">
    	
