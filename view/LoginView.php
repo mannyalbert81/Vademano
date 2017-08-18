@@ -1,4 +1,4 @@
-﻿  <div class="head" style=" -webkit-box-shadow: 0px 2px 2px 4px rgba(0,0,0,0.69); margin-top: -19px">
+﻿  <div class="head" style=" -webkit-box-shadow: 0px 2px 2px 4px rgba(0,0,0,0.69); margin-top: -20;">
  <?php include("view/modulos/head.php"); ?>
  </div>
   

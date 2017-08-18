@@ -1,9 +1,7 @@
 <div class="head" style=" -webkit-box-shadow: 0px 2px 2px 4px rgba(0,0,0,0.69);">
  <?php include("view/modulos/head.php"); ?>
 </div>
-
 <?php include("view/modulos/slide.php"); ?>
-
 <!DOCTYPE HTML>
 <html lang="es">
       <head>
@@ -381,12 +379,13 @@
  		
  		
     </head>
+    <center>
     <body class="cuerpo">
 
      
       <form  action="<?php echo $helper->url("Afiliaciones","InsertaAfiliados"); ?>" method="post" class="col-lg-12">
-          
-            <div class="col-lg-6 division"; style="-webkit-box-shadow: 0px 2px 2px 2px rgba(0,0,0,0.69); border-radius: 24px 24px 24px 24px; margin-top: 20px; "   >
+          <div style=" margin-left: 100px">
+            <div class="col-lg-11 division" style=" margin-top: 20px">
             <h4>Afiliación</h4>
             <hr/>
            <?php if (isset($resultado)) {?>
@@ -726,18 +725,12 @@
 		<?php }?>    
 	               	
 		     <?php }?>
-			  <br><br>
+			  <br>
            </div>
        
        
-           <div class="col-lg-6 col-md-6 division" style="-webkit-box-shadow: 0px 2px 2px 2px rgba(0,0,0,0.69); border-radius: 24px 24px 24px 24px; margin-top: 20px">
-          <h4>Informate</h4>
-            <hr/>
-           <img src="" id="imagen" width="630" height="430">
-            <br><br>
-             </div>
       </form>
-
+     
          <div class="col-lg-12"> 
    		 <?php include("view/modulos/servicios.php"); ?>	
    		 </div>
