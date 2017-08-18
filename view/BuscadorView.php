@@ -55,16 +55,28 @@
 			{
 	
 	    		$("#div-productos").fadeIn("slow");
+	    		$("#div-alimentos").fadeOut("slow");
 	    		$("#div-principios").fadeOut("slow");
 	    		$("#div-laboratorios").fadeOut("slow");
 	    		$("#div-distribuidores").fadeOut("slow");
 	    		
 	    		
 			}); 
+		    $("#option-alimentos").click(function() 
+					{
+			
+			    		$("#div-productos").fadeOut("slow");
+			    		$("#div-alimentos").fadeIn("slow");
+			    		$("#div-principios").fadeOut("slow");
+			    		$("#div-laboratorios").fadeOut("slow");
+			    		$("#div-distribuidores").fadeOut("slow");
+			    		
+			});
 		    $("#option-principios").click(function() 
 					{
 			
 			    		$("#div-productos").fadeOut("slow");
+			    		$("#div-alimentos").fadeOut("slow");
 			    		$("#div-principios").fadeIn("slow");
 			    		$("#div-laboratorios").fadeOut("slow");
 			    		$("#div-distribuidores").fadeOut("slow");
@@ -73,6 +85,7 @@
 					{
 			
 			    		$("#div-productos").fadeOut("slow");
+			    		$("#div-alimentos").fadeOut("slow");
 			    		$("#div-principios").fadeOut("slow");
 			    		$("#div-laboratorios").fadeIn("slow");
 			    		$("#div-distribuidores").fadeOut("slow");
@@ -81,6 +94,7 @@
 					{
 			
 			    		$("#div-productos").fadeOut("slow");
+			    		$("#div-alimentos").fadeOut("slow");
 			    		$("#div-principios").fadeOut("slow");
 			    		$("#div-laboratorios").fadeOut("slow");
 			    		$("#div-distribuidores").fadeIn("slow");
@@ -137,6 +151,17 @@
 			padding: 10px;
 			background: rgba(0, 0, 0, 0.9);
 			margin: 20px 0 0 0
+			}
+			.contenedor-img h6 {
+			text-transform: uppercase;
+			color: black;
+			text-align: center;
+			position: relative;
+			font-size: 12px;
+			font-weight:bold;
+			padding: 0px;
+			background: rgb(170,224,111); /* Old browsers */
+			margin: 0px 0 0 0;
 			}
 			.contenedor-img p {
 			font-size: 12px;
@@ -199,6 +224,50 @@
 			transition-delay: 0.1s;
 			}
 			.ejemplo-1:hover a.link {
+			transition-delay: 0.2s; /*Aplicamos un pequeño retardo para que se muestre al final*/
+			transform: translateY(0px);
+			}
+			
+			/*principios*/
+			.principioA img {
+			transition: all 0.2s linear;
+			}
+			.principioA .mascara {
+			opacity: 0;
+			background-color: rgba(46,157,120, 0.7);
+			transition: all 0.3s ease-in-out;
+			}
+			.principioA h2 {
+			transform: translateX(-200px);/*Desplazamos a la izquierda*/
+			opacity: 0;
+			transition: all 0.7s ease-in-out;
+			}
+			.principioA p {
+			transform: translateX(200px);/*Desplazamos a la derecha*/
+			opacity: 0;
+			transition: all 0.4s linear;
+			}
+			.principioA a.link{
+			opacity: 0;
+			transition: all 0.4s ease-in-out;
+			transform: translateY(100px)/*Desplazamos para abajo*/
+			}
+			.principioA:hover img {
+			transform: scale(1.1);/*Damos un ligero zoom a la imagen*/
+			}
+			.principioA:hover .mascara {
+			opacity: 1;
+			}
+			.principioA:hover h2,
+			.principioA:hover p,
+			.principioA:hover a.link {
+			opacity: 1;
+			transform: translateX(0px);/*Regresamos a las posiciones originales*/
+			}
+			.principioA:hover p {
+			transition-delay: 0.1s;
+			}
+			.principioA:hover a.link {
 			transition-delay: 0.2s; /*Aplicamos un pequeño retardo para que se muestre al final*/
 			transform: translateY(0px);
 			}
@@ -427,9 +496,10 @@
     	 	
     	 	<ul class="nav nav-pills" role="tablist" >
 			  <li role="presentation" id="option-productos" class="active"><a href="#">Productos <span class="badge"><?php echo $CantProductos;?></span></a></li>
-			  <li role="presentation" id="option-principios" ><a href="#">Principios Activos <span class="badge"><?php echo $CantPrincipios;?></span></a></li>
-			  <li role="presentation" id="option-laboratorios" ><a href="#">Laboratorios <span class="badge"><?php echo $CantLaboratorios;?></span></a></li>
-			  <li role="presentation" id="option-distribuidores" ><a href="#">Distribuidores <span class="badge"><?php echo $CantDistribuidores;?></span></a></li>
+		      <li role="presentation" id="option-alimentos" class="active"><a href="#">Alimentos <span class="badge"><?php echo $CantAlimentos;?></span></a></li>
+			  <li role="presentation" id="option-principios" class="active"><a href="#">Principios Activos <span class="badge"><?php echo $CantPrincipios;?></span></a></li>
+			  <li role="presentation" id="option-laboratorios" class="active"><a href="#">Laboratorios <span class="badge"><?php echo $CantLaboratorios;?></span></a></li>
+			  <li role="presentation" id="option-distribuidores" class="active"><a href="#">Distribuidores <span class="badge"><?php echo $CantDistribuidores;?></span></a></li>
 			  
 			</ul>
     	 	
@@ -445,9 +515,9 @@
     	  	
     	   <?php $celdas = 0;
     	   
-    	   if ($resultSet !="") {  
+    	   if ($resultPro !="") {  
     	   	
-    	   	foreach($resultSet as $res) {
+    	   	foreach($resultPro as $res) {
     	   	
     	   	if ($celdas < 5) { 
     	   		
@@ -487,11 +557,7 @@
 		        
 		        
 		          <?php  }?>
-			       <?php if($celdas == 4) {?>
-			
-			      	  			
-			       <?php } $celdas = $celdas + 1 ; ?>
-			    
+			      
     	   	<?php } else {?>
 				     </div>  
 				     
@@ -508,138 +574,100 @@
     	  </div>
     	  
     	  <div id= "div-principios" class="row" style="margin-top:50px; text-align: center; display: none;"   > 
-		  	
-	      <div class="row" style="margin-top:50px; text-align: center;"   > 
+		   <div class="col-xs-1 col-md-1">
+    	    </div>	
+	      <div  class="col-md-11 col-xs-11" style="margin-top:50px; text-align: center;"   > 
 		  
     	  	
     	   <?php $celdas = 0;?>
-    		<?php if ($resultPrinBus !="") { ?>
+    		<?php if (!empty($resultPrinBus)) { ?>
     	    <?php foreach($resultPrinBus as $res) {?>
 	      		  
-	        	<?php if ($celdas < 5) { ?>
-				   <div class="col-xs-6 col-md-2">
-			  	      <p  class="formulario-subtitulo-busqueda" style="font-family: calibri;" ><?php echo $res->nombre_composiciones; ?> </p> 
-			  	      <div class="img-rounded">
-			  	      
-			  	      	
-			  	      	<a href="<?php echo $helper->url("Composiciones","VistaComposicionesOnline"); ?>&id_composiciones=<?php echo $res->id_composiciones; ?>"  class="thumbnail"  target="_blank" >
-			  	      		<img name="image" src="view/images/principios-activos.jpg"  alt="<?php echo $res->nombre_composiciones; ?>" width="120" height="100" >
-			  	        </a>
-			  	        
-			  	      </div>
-			  	         
-			       
-			       </div>
-			       <?php if($celdas == 4) {?>
-			
-			      	 </div> 			
-			       <?php }?>
-			       <?php $celdas = $celdas + 1 ;?>
-			
-				<?php } else {?>
-				    
-			    	<div class="row" style="text-align: center; " >	    
-					<div class="col-xs-6 col-md-1">
-    	  			</div>
-    	  
-					<?php $celdas = 0;?>	
-				<?php } ?>        
+	      		 <div class="contenedor-img principioA">
+	      		 <h6><?php echo $res->nombre_composiciones; ?></h6>
+                 <img src="view/images/principios-activos.jpg" width="200" height="150"  alt=""  />
+                 <div class="mascara">
+                 <h2><?php echo $res->nombre_composiciones; ?></h2>
+                 <a class="link" href="<?php echo $helper->url("Composiciones","VistaComposicionesOnline"); ?>&id_composiciones=<?php echo $res->id_composiciones;?>" target="_blank" >Leer mas</a>
+                 </div>
+                 </div>
+	        	
+				<?php }  ?>        
 	        
-	        <?php  } ?>
-	        </div>
     	  	<?php  } ?>
-    	  
+    	   </div> 
 		 </div>
 	
 		<div id= "div-laboratorios" class="row" style="margin-top:50px; text-align: center; display: none;"  >	
-		   <div class="row" style="margin-top:50px; text-align: center; "  >
-		
-    	  	
+		   <div class="col-xs-1 col-md-1">
+    	    </div>	
+	      <div  class="col-md-11 col-xs-11" style="margin-top:50px; text-align: center;"   > 
     	   <?php $celdas = 0;?>
     		<?php if ($resultLabBus !="") { ?>
     	    <?php foreach($resultLabBus as $res) {?>
 	      		  
-	        	<?php if ($celdas < 6) { ?>
-				   <div class="col-xs-6 col-md-2">
-			  	      <p  class="formulario-subtitulo-busqueda" style="font-family: calibri;" ><?php echo $res->nombre_laboratorios; ?> </p> 
-			  	      <div class="img-rounded">
-			  	      
-			  	      	
-			  	        
-			  	      	<a href="<?php echo $helper->url("Laboratorios","VistaLaboratoriosOnline"); ?>&id_laboratorios=<?php echo $res->id_laboratorios; ?>"  class="thumbnail"  target="_blank" >
-			  	      		<img name="image" src="view/DevuelveImagen.php?id_valor=<?php echo $res->id_laboratorios; ?>&id_nombre=id_laboratorios&tabla=laboratorios&campo=logo_laboratorios"  alt="<?php echo $res->nombre_laboratorios; ?>" width="200" height="400" >
-			  	        </a>
-			  	        
-			  	      </div>
-			  	         
-			       
-			       </div>
-			       <?php if($celdas == 5) {?>
-			
-			      	 </div> 			
+	      		 <div class="contenedor-img ejemplo-1">
+                 <img src="view/DevuelveImagen.php?id_valor=<?php echo $res->id_laboratorios; ?>&id_nombre=id_laboratorios&tabla=laboratorios&campo=logo_laboratorios" width="200" height="150"  alt="<?php echo $res->nombre_fichas; ?>" />
+                 <div class="mascara">
+                 <h2><?php echo $res->nombre_laboratorios; ?></h2>
+                 <p><?php echo ''; ?></p>
+                 <a class="link" href="<?php echo $helper->url("Laboratorios","VistaLaboratoriosOnline"); ?>&id_fichas=<?php echo $res->id_fichas; ?>&nombre_fichas=<?php echo $res->nombre_fichas; ?>"  target="_blank" >Leer mas</a>
+                 </div>
+                 </div>
+	        	
+			      				
 			       <?php }?>
-			       <?php $celdas = $celdas + 1 ;?>
 			
-				<?php } else {?>
-				    
-			    	<div class="row" style="text-align: center;"  >	    
-					<div class="col-xs-6 col-md-1">
-    	  			</div>
-    	  
-					<?php $celdas = 0;?>	
-				<?php } ?>        
 	        
-	        <?php  } ?>
-	        </div>
     	  	<?php  } ?>
-    	  	
+    	  	</div>
 		  </div>
+		  
 	     <div  id= "div-distribuidores" class="row" style="margin-top:50px; text-align: center; display: none;"  >
-	      <div  class="row" style="margin-top:50px; text-align: center; "  >
-		
-    	  	
+	      <div class="col-xs-1 col-md-1">
+    	    </div>	
+	      <div  class="col-md-11 col-xs-11" style="margin-top:50px; text-align: center;"   > 
     	   <?php $celdas = 0;?>
     		<?php if ($resultDisBus !="") { ?>
     	    <?php foreach($resultDisBus as $res) {?>
 	      		  
-	        	<?php if ($celdas < 6) { ?>
-				   <div class="col-xs-6 col-md-2">
-			  	      <p  class="formulario-subtitulo-busqueda" style="font-family: calibri;" ><?php echo $res->nombre_distribuidores; ?> </p> 
-			  	      <div class="img-rounded">
-			  	      
-			  	      	
-			  	        
-			  	      	<a href="<?php echo $helper->url("Distribuidores","VistaDistribuidoresOnline"); ?>&id_distribuidores=<?php echo $res->id_distribuidores; ?>"  class="thumbnail"  target="_blank" >
-			  	      		<img name="image" src="view/DevuelveImagen.php?id_valor=<?php echo $res->id_distribuidores; ?>&id_nombre=id_distribuidores&tabla=distribuidores&campo=logo_distribuidores"  alt="<?php echo $res->nombre_distribuidores; ?>" width="200" height="100" >
-			  	        </a>
-			  	        
-			  	      </div>
-			  	         
-			       
-			       </div>
-			       <?php if($celdas == 5) {?>
-			
-			      	 </div> 			
-			       <?php }?>
-			       <?php $celdas = $celdas + 1 ;?>
-			
-				<?php } else {?>
-				    
-			    	<div class="row" style="text-align: center;"  >	    
-					<div class="col-xs-6 col-md-1">
-    	  			</div>
-    	  
-					<?php $celdas = 0;?>	
-				<?php } ?>        
-	        
-	        <?php  } ?>
-	        </div>
-    	  	<?php  } ?>
+	        	<div class="contenedor-img ejemplo-1">
+                 <img src="view/DevuelveImagen.php?id_valor=<?php echo $res->id_distribuidores; ?>&id_nombre=id_distribuidores&tabla=distribuidores&campo=logo_distribuidores" width="200" height="150"  alt="<?php echo $res->nombre_fichas; ?>" />
+                 <div class="mascara">
+                 <h2><?php echo $res->nombre_distribuidores; ?></h2>
+                 <p><?php echo ''; ?></p>
+                 <a class="link" href="<?php echo $helper->url("Distribuidores","VistaDistribuidoresOnline"); ?>&id_distribuidores=<?php echo $res->id_distribuidores; ?>"  target="_blank" >Leer mas</a>
+                 </div>
+                 </div>
+                  <?php }?>
+    	  	<?php } ?>
+    	   </div>
     	  </div>		
-		 
+		 <div  id= "div-alimentos" class="row" style="margin-top:50px; text-align: center; display: none;"  >
+	       <div class="col-xs-1 col-md-1">
+    	    </div>	
+	       <div  class="col-md-11 col-xs-11" style="margin-top:50px; text-align: center;"   > 
+    	   <?php $celdas = 0;?>
+    		<?php if ($resultAli !="") { ?>
+    	    <?php foreach($resultAli as $res) {?>
+    	         
+    	         <div class="contenedor-img ejemplo-1">
+                 <img src="view/DevuelveImagen.php?id_valor=<?php echo $res->id_fichas; ?>&id_nombre=id_fichas&tabla=fichas_fotos&campo=foto_fichas_fotos" width="200" height="150"  alt="<?php echo $res->nombre_fichas; ?>" />
+                 <div class="mascara">
+                 <h2><?php echo $res->nombre_fichas; ?></h2>
+                 <p><?php echo ''; ?></p>
+                 <a class="link" href="<?php echo $helper->url("FichasProductos","verFichaOnline"); ?>&id_fichas=<?php echo $res->id_fichas; ?>&nombre_fichas=<?php echo $res->nombre_fichas; ?>"  target="_blank" >Leer mas</a>
+                 </div>
+                 </div>
+                 
+	        <?php  } ?>
+	        
+    	  	<?php  } ?>
+    	  	</div>
+    	  </div>
    			
 	 </form>
 	 	 
-	 	    	 
+	 <div style="width: 100%; padding:50px 0px; float: left;"></div>	    	 
     </body>
 </html>
