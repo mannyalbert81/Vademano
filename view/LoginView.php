@@ -106,6 +106,8 @@
 				  	<hr>
 				  </div>
 			  <div class="col-lg-6 division" style=" margin-top: 20px">
+   <form id="form-login"  action="<?php echo $helper->url("Usuarios","Loguear"); ?>" method="post" class="col-lg-12" >
+  
      <h4>Login</h4>
      
            <?php if (isset($resultado)) {?>
@@ -168,6 +170,7 @@
               </div>
        
               </div>
+               </form>
            </div>
 				
 				  </div>
