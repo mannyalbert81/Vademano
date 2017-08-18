@@ -1,9 +1,8 @@
-
-
- <div class="head" style=" -webkit-box-shadow: 0px 2px 2px 4px rgba(0,0,0,0.69);">
+<div class="head" style=" -webkit-box-shadow: 0px 2px 2px 4px rgba(0,0,0,0.69);">
  <?php include("view/modulos/head.php"); ?>
- </div>
+</div>
 
+<?php include("view/modulos/slide.php"); ?>
 
 <!DOCTYPE HTML>
 <html lang="es">
