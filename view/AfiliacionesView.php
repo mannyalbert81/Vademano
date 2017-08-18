@@ -17,9 +17,7 @@
   
     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 	
-	
- 		
- 		
+		
  		<script>
 		$(document).ready(function(){
 		    $fecha=$('#fecha_nacimiento_usuario');
@@ -84,9 +82,7 @@
             			   id_pais : $(this).val()
                    };
                   $provincias.append("<option value= " +"" +" > --SIN ESPECIFICAR--</option>");
-            	           
-                   
-                  
+            	     
             	   $.post("<?php echo $helper->url("Provincias","devuelveProvincias"); ?>", datos, function(resultProv) {
             		 		$.each(resultProv, function(index, value) {
             		 		$provincias.append("<option value= " +value.id_provincia +" >" + value.nombre_provincia  + "</option>");	

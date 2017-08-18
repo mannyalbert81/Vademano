@@ -392,10 +392,6 @@
 
 	 		 <h4><button type="button" name="consulta_tecnica" id="consulta_tecnica" style="-webkit-box-shadow: 0px 2px 2px 2px rgba(0,0,0,0.25); border-radius: 15px 15px 15px 15px; width: 150; height: 100" value="" class='glyphicon glyphicon-user' ><h4 style = "font-family: Arial;">   Consulta Técnica</h4> </button></h4>
 
-	 		 <h4><button type="button" name="consulta_tecnica" id="consulta_tecnica" style="-webkit-box-shadow: 0px 2px 2px 2px rgba(0,0,0,0.25); border-radius: 15px 15px 15px 15px;" value="" class='glyphicon glyphicon-user'><h4 style = "font-family: Arial;"> Consulta Tecnica</h4></button></h4>
-
-	 		
-	 		
            </div>
         </div>
         
