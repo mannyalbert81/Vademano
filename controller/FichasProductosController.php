@@ -3026,7 +3026,10 @@ public function index(){
    			$tablaDosi.="</table>";
    		
    		
-   			//die();
+   			$colval_upd = " consultas_fichas = consultas_fichas + 1 ";
+   			$tabla_upd = "fichas";
+   			$where_upd = "id_fichas = '$id_fichas' ";
+   			$resultUpd =  $fichas->UpdateBy($colval_upd, $tabla_upd, $where_upd);
    		
    			//creacion del diccionario de datos
    			//para visualizar cabeceras toma las 2 primeras letras de cada palabra

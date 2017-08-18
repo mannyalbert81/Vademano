@@ -31,13 +31,14 @@
    
      <body class="cuerpo" >
     	 
-    	 <div  >
+    
     	 	<?php include("view/modulos/slide.php"); ?>
-   		 </div> 	
+   		 	
 
-   <br>
-   	
-   			<div class="row" style="margin-top: 20px; " >
+   
+   	<form action="<?php echo $helper->url("Preguntas","index"); ?>" method="post" class="col-lg-12">
+   			<div class="row" style="margin-top: 30px; " >
+			   <div class="col-xs-12 col-md-12 col-lg-12">
 			  <div class="col-xs-1 col-md-1">
 			  </div>
 			  
@@ -70,16 +71,16 @@
 			  <div class="col-xs-1 col-md-1">
 			  </div>
 			</div>
+   	</div>
+   	
+   	</form>
    	
    	
-   	
-   	
-   	
-   		 <?php include("view/modulos/servicios.php"); ?>	
-   		 <?php include("view/modulos/beforefooter.php"); ?>
+   		
+   		
     
-    	 <footer class="col-lg-12">
-     	 	<?php include("view/modulos/footer.php"); ?>
-    	 </footer>     
+    	 <div class="col-lg-12">
+     	 	 <?php include("view/modulos/beforefooter.php"); ?>
+    	 </div>     
     </body>
 </html>

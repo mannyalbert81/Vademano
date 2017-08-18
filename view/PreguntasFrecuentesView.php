@@ -1,19 +1,216 @@
  <div class="head" style=" -webkit-box-shadow: 0px 2px 2px 4px rgba(0,0,0,0.69);">
  <?php include("view/modulos/head.php"); ?>
  </div>
+ 
+ <?php include("view/modulos/slide.php"); ?>
+ 
+
 <!DOCTYPE HTML>
 <html lang="es">
    	 <head>
         <meta charset="utf-8"/>
-        <title>Vademano 2015</title>
-       	<link rel="stylesheet" href="view/css/bootstrap.css">
+        <title>Quienes Somos - Vademano 2015</title>
+        	<link rel="stylesheet" href="view/css/bootstrap.css">
      <link rel="stylesheet" href="view/css/estilos.css">
   <script src="view/js/jquery.js"></script>
   <script src="view/js/bootstrapValidator.min.js"></script>
   <script src="view/js/noty.js"></script>
-       
-       
-          
+        
+ 
+  
+   <script src="http://maps.google.com/maps/api/js?key=AIzaSyDyu4jW-edLYPnTIBRqHtUxisvp3NRVBps"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/gmaps.js/0.4.24/gmaps.js"></script>
+     
+         <style type="text/css">
+		    #mapa{
+		      border:1px solid red;
+		   
+		      height: 500px;
+		        width: 100%;
+		    }
+		  </style>
+		  
+    	<script >
+		$(document).ready(function(){
+		    // cada vez que se cambia el valor del combo
+		    $("#paises").change(function() {
+				
+               // 
+                var $provincias = $("#provincias");
+               // lo vaciamos
+               
+				///obtengo el id seleccionado
+				
+               var id_pais = $(this).val();
+               $provincias.empty();
+               
+               if(id_pais > 0)
+               {
+            	   
+            	   var datos = {
+            			   id_pais : $(this).val()
+                   };
+                  $provincias.append("<option value= " +"" +" > --SIN ESPECIFICAR--</option>");
+            	           
+                   
+                  
+            	   $.post("<?php echo $helper->url("Provincias","devuelveProvincias"); ?>", datos, function(resultProv) {
+            		 		$.each(resultProv, function(index, value) {
+            		 		$provincias.append("<option value= " +value.id_provincia +" >" + value.nombre_provincia  + "</option>");	
+                       		 });
+            		 		 	 		   
+            		  }, 'json');
+               }
+               else
+               {
+            	  
+               }
+               
+		    });
+		   
+		   
+		    
+		}); 
+	</script>
+	
+	
+	
+		<script >
+ 		
+		$(document).ready(function(){
+			
+		    // cada vez que se cambia el valor del combo
+		    $("#btn_guardar").click(function() 
+			{
+		    	var regex = /[\w-\.]{2,}@([\w-]{2,}\.)*([\w-]{2,}\.)[\w-]{2,4}/;
+		    	 
+		    	var correo_usuario = $("#correo_usuario").val();
+		    	var nombres_usuario = $("#nombres_usuario").val();
+		    	var apellidos_usuario = $("#apellidos_usuario").val();
+		    	var paises = $("#paises").val();
+		    	var provincias = $("#provincias").val();
+		    	
+		    	var mensaje = $("#mensaje").val();
+		    	
+		    	
+
+		    	if (nombres_usuario == "")
+		    	{
+			    	
+		    		$("#mensaje_nombres").text("Introduzca un Nombre");
+		    		$("#mensaje_nombres").fadeIn("slow"); //Muestra mensaje de error
+		            return false;
+			    }
+		    	else 
+		    	{
+		    		$("#mensaje_nombres").fadeOut("slow"); //Muestra mensaje de error
+		            
+				}
+		    	
+		    	if (apellidos_usuario == "")
+		    	{
+			    	
+		    		$("#mensaje_apellidos").text("Introduzca un Apellido");
+		    		$("#mensaje_apellidos").fadeIn("slow"); //Muestra mensaje de error
+		            return false;
+			    }
+		    	else 
+		    	{
+		    		$("#mensaje_apellidos").fadeOut("slow"); //Muestra mensaje de error
+		            
+				}
+		    	
+				
+						    	
+			
+		    	if (paises == "")
+		    	{
+			    	
+		    		$("#mensaje_paises").text("Seleccione");
+		    		$("#mensaje_paises").fadeIn("slow"); //Muestra mensaje de error
+		            return false;
+			    }
+		    	else 
+		    	{
+		    		$("#mensaje_paises").fadeOut("slow"); //Muestra mensaje de error
+		            
+				}
+		    	if (provincias == "")
+		    	{
+			    	
+		    		$("#mensaje_provincias").text("Seleccione");
+		    		$("#mensaje_provincias").fadeIn("slow"); //Muestra mensaje de error
+		            return false;
+			    }
+		    	else 
+		    	{
+		    		$("#mensaje_provincias").fadeOut("slow"); //Muestra mensaje de error
+		            
+				}
+		    	
+					
+		    	if (correo_usuario == "")
+		    	{
+			    	
+		    		$("#mensaje_correo").text("Introduzca un correo");
+		    		$("#mensaje_correo").fadeIn("slow"); //Muestra mensaje de error
+		            return false;
+			    }
+		    	else if (regex.test($('#correo_usuario').val().trim()))
+		    	{
+		    		$("#mensaje_correo").fadeOut("slow"); //Muestra mensaje de error
+		            
+				}
+		    	else 
+		    	{
+		    		$("#mensaje_correo").text("Introduzca un correo Valido");
+		    		$("#mensaje_correo").fadeIn("slow"); //Muestra mensaje de error
+		            return false;	
+			    }
+
+
+		    	if (mensaje == "")
+		    	{
+			    	
+		    		$("#mensaje_mensaje").text("Ingrese Pregunta a Enviar");
+		    		$("#mensaje_mensaje").fadeIn("slow"); //Muestra mensaje de error
+		            return false;
+			    }
+		    	else 
+		    	{
+		    		$("#mensaje_mensaje").fadeOut("slow"); //Muestra mensaje de error
+		            
+				}
+		    	
+		    			    				    
+			}); 
+		    $( "#nombres_usuario" ).focus(function() {
+				$("#mensaje_nombres").fadeOut("slow");
+			});
+			$( "#apellidos_usuario" ).focus(function() {
+				$("#mensaje_apellidos").fadeOut("slow");
+			});
+			
+			$( "#paises" ).focus(function() {
+				$("#mensaje_paises").fadeOut("slow");
+			});
+			$( "#provincias" ).focus(function() {
+				$("#mensaje_provincias").fadeOut("slow");
+			});
+			$( "#correo_usuario" ).focus(function() {
+					$("#mensaje_correo").fadeOut("slow");
+    		});
+			$( "#mensaje" ).focus(function() {
+				$("#mensaje_mensaje").fadeOut("slow");
+		});
+		
+		      
+				    
+		}); 
+	</script>
+ 		
+	
+	
         <style>
             input{
                 margin-top:5px;
@@ -21,19 +218,19 @@
             }
             .right{
                 float:right;
-            }
+            } 
         </style>
         
    	 </head>
    
- 
+   
    
      <body class="cuerpo" >
     	
     	
-   
+    <form action="<?php echo $helper->url("Preguntas","index"); ?>" method="post" class="col-lg-12">
    	
-   			<div class="row" style="margin-top: 20px; " >
+   			<div class="row" style="margin-top: 40px;" >
 			  <div class="col-xs-1 col-md-1">
 			  </div>
 			  
@@ -44,7 +241,9 @@
 				    	<div class="media">
 				
 						  <div class="media-body">
-						    <h4 class="media-heading">Quienes Somos </h4>
+						    <div>
+						    	<h4 class="media-heading"    >Preguntas Frecuentes</h4>
+						    </div>
 						    	<p>
 								    Somos un equipo de trabajo comprometido en <strong> PROMOVER SU NEGOCIO AGROPECUARIO  </strong> 
 								    como página de contacto y donde usted y su empresa pueden promover  e 
@@ -57,8 +256,8 @@
 								    de sus necesidades de promoción empresarial y concluye en la satisfacción 
 								    de sus requerimientos, nuestros profesionales exponen su información en las 
 								    mejores condiciones de presentación e imagen corporativa, ingenieros de sistemas
-								     y representantes de ventas permanentemente mantienen con amabilidad, oportunidad
-								      y eficiencia, el servicio de <strong>promoción empresarial</strong> en nuestro portal.
+								    y representantes de ventas permanentemente mantienen con amabilidad, oportunidad
+								    y eficiencia, el servicio de <strong>promoción empresarial</strong> en nuestro portal.
 								    
 							    </p>
 						  </div>
@@ -76,15 +275,120 @@
 		            	  	<p class="contacto">   <span class="glyphicon glyphicon-road" aria-hidden="true"></span>  Edif. MAGAP Piso 9</p>
 					  		<p class="contacto">   <span class="glyphicon glyphicon-globe" aria-hidden="true"></span> Quito – Ecuador</p>
 					  		<p class="contacto">   <span class="glyphicon glyphicon-phone-alt" aria-hidden="true"></span> (+59)2 436 4566 - (+59)3 987 968 467</p>
-					  		<p class="contacto">   <span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Skype: vamemano</p>
-					  		<p class="contacto">  <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> info@vademoano.com</p>
+					  		<p class="contacto">   <span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Skype: vademano</p>
+					  		<p class="contacto">  <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> info@vademano.com</p>
 					        <hr>    	  	
 		            	</div>
 		            </div>	
 				  	<hr>
 				  </div>
+				  <div class="col-lg-6 col-md-6 col-xs-6">
 				  
-				  <?php include("view/modulos/contacto.php"); ?>
+            <h4 >Enviar Pregunta</h4>
+            <hr/>
+           <?php if (isset($resultado)) {?>
+        	<?php if ($resultado == "true") {?>
+        	
+	        	  <div class="alert alert-success" role="alert">Tu pregunta se envio <strong> correctamente </strong>, Responderemos tu pregunta al correo que ingresaste.</div>
+				
+			<?php }else {?>
+				  <div class="alert alert-danger" role="alert">Ocurrio un error al enviar su pregunta, vuelva a intentarlo.</div>
+				
+			<?php }} ?>
+		    <div class="row">
+		    <div class="col-xs-6 col-md-6">
+		    <div class="form-group ">
+		                          <label for="nombres_usuario" class="control-label">Nombres:</label>
+                                  <input type="text" class="form-control" id="nombres_usuario" name="nombres_usuario" value=""  placeholder="Nombres">
+                                  <div id="mensaje_nombres" class="errores"></div>
+            </div>
+		    </div>
+		    
+		    <div class="col-xs-6 col-md-6">
+		    <div class="form-group ">
+		                          <label for="apellidos_usuario" class="control-label">Apellidos:</label>
+                                  <input type="text" class="form-control" id="apellidos_usuario" name="apellidos_usuario" value=""  placeholder="Apellidos">
+                                   <div id="mensaje_apellidos" class="errores"></div>
+            </div>
+		    </div>
+			</div>
+		    
+		    <div class="row">
+			<div class="col-xs-6 col-md-6">
+		    <div class="form-group">
+                                  <label for="paises" class="control-label">Pais:</label>
+                                  <select name="paises" id="paises"  class="form-control" >
+                                  <option value="" selected="selected">--Seleccione--</option>
+									<?php foreach($resultPais as $res) {?>
+										<option value="<?php echo $res->id_pais; ?>" ><?php echo $res->nombre_pais; ?> </option>
+							        <?php } ?>
+								   </select> 
+                                  <div id="mensaje_paises" class="errores"></div>
+            </div>
+            
+            </div>
+			
+		    <div class="col-xs-6 col-md-6">
+		    <div class="form-group">
+                                  <label for="provincias" class="control-label">Provincia:</label>
+                                  <select name="provincias" id="provincias"  class="form-control" >
+                                  <option value=""> -- SIN ESPECIFICAR -- </option>
+								   </select> 
+                             <div id="mensaje_provincias" class="errores"></div>
+            </div>
+            
+            </div>
+			</div>		
+	  		
+	  		  		
+            <div class="row">
+             <div class="col-xs-6 col-md-6">
+		    <div class="form-group ">
+		                          <label for="telefono_usuario" class="control-label">Teléfono:</label>
+                                  <input type="text" class="form-control" id="telefono_usuario" name="telefono_usuario" value=""  placeholder="Teléfono">
+                                 
+            </div>
+		    </div>
+           <div class="col-xs-6 col-md-6">
+		    <div class="form-group ">
+		                          <label for="celular_usuario" class="control-label">Celular:</label>
+                                  <input type="text" class="form-control" id="celular_usuario" name="celular_usuario" value=""  placeholder="Celular">
+                                
+            </div>
+		    </div>
+           </div>
+        	
+        			
+        	<div class="row">
+		    <div class="col-xs-12 col-md-12">
+		    <div class="form-group ">
+		                          <label for="correo_usuario" class="control-label">Email:</label>
+                                  <input type="email" class="form-control" id="correo_usuario" name="correo_usuario" value=""  placeholder="Email">
+                                  <div id="mensaje_correo" class="errores"></div>
+            </div>
+            </div>
+            </div>
+            
+             <div class="row">
+	         <div class="col-xs-12 col-md-12">
+		     <div class="form-group ">
+		                          <label for="mensaje" class="control-label">Pregunta:</label>
+                                  <textarea type="text"  class="form-control" id="mensaje" name="mensaje" value=""  placeholder="Pregunta"></textarea>
+                                  <div id="mensaje_mensaje" class="errores"></div>
+			 
+             </div>
+		     </div>
+	  		 </div> 
+           
+	   		 <div class="row">
+		    <div class="col-xs-12 col-md-12 col-lg-12" style="text-align: center; margin-top: 20px;">
+		    <div class="form-group">
+                                  <button type="submit" id="btn_guardar" name="btn_guardar" class="btn btn-info">Enviar</button>
+            </div>
+		    </div>
+		    </div>
+		     	  </div>
+				
 				  </div>
 				  
 				  </div>
@@ -94,21 +398,33 @@
 			  </div>
 			</div>
    	
-   	  <div> 
+   	  </form>
+   	
+   	 
+   		  <div> 
    		 <?php include("view/modulos/servicios.php"); ?>	
    		  </div>
-   		 <div style="margin-top: 20px; background-color: #4bae4f;">
-   		 
+   		  
+   		 <div class="col-xs-12 col-md-12">
    		 <?php include("view/modulos/small_slide.php"); ?>
-   		 
    		 </div>
    		 
-   	 	<div style="background-color: #7acb5a;">
-   	 	 
-    	 <footer class="col-lg-12" >
+   		 <div style="background-color: #7acb5a;">
+   	 	 <footer class="col-lg-12">
      	 	<?php include("view/modulos/footer.php"); ?>
-    	 </footer>     
-    	</div>
+    	 </footer> 
+		 </div>
+   		  <script type="text/javascript">
+	    var mapa = new GMaps({
+	      el: '#mapa',
+	      lat: -1.666618,
+	      lng: -78.174819,
+	      zoom:7
+	    });
+	   
+	   
+	    
+	  </script> 
+   	 	
     </body>
-   
 </html>

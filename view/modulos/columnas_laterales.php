@@ -1,6 +1,6 @@
-<!DOCTYPE html>
 
-	<div class="col-xs-3 col-md-3"  style=" margin-top: 20px; " >
+
+	<div class="col-xs-3 col-md-3" >
 	   <h4>Fichas Mas Visitadas</h4>		
 		<div  style="background-color: #f5f5f5;"   >
 			<?php foreach($resultVis as $res) {?>
@@ -22,4 +22,4 @@
 	</div>
 	
 
-</html>
+

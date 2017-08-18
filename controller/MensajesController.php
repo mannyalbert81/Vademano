@@ -16,11 +16,83 @@ class MensajesController extends ControladorBase{
 		
 		$provincias=new ProvinciasModel();
 		$resultProv = $provincias->getAll("nombre_provincia");
+		$mensajes = new MensajesModel();
+		
+		$fichas = new FichasModel();
+		
+		$where = "nombre_fichas LIKE '%%' ORDER by consultas_fichas DESC LIMIT 4";
+		$resultVis = $fichas->getBy($where);
+		
+		if(isset($_POST["btn_guardar"])){
+			
+			$_id_tipo_documentos  = 1;
+			$_nombres_mensajes = $_POST["nombres_usuario"];
+			$_apellidos_mensajes = $_POST["apellidos_usuario"];
+			$_id_pais            = $_POST["paises"];
+			$_id_provincia       = $_POST["provincias"];
+			$_telefono_mensajes = $_POST["telefono_usuario"];
+			$_celular_mensajes = $_POST["celular_usuario"];
+			$_email_mensajes = $_POST["correo_usuario"];
+			$_mensaje_mensajes = $_POST["mensaje"];
+				
+				
+		
+			
+			$funcion = "ins_mensajes";
+			$parametros = " '$_id_tipo_documentos', '$_nombres_mensajes', '$_apellidos_mensajes' , '$_id_pais' , '$_id_provincia', '$_telefono_mensajes' , '$_celular_mensajes' , '$_email_mensajes' , '$_mensaje_mensajes' ";
+			$mensajes->setFuncion($funcion);
+			$mensajes->setParametros($parametros);
+			$resultado=$mensajes->Insert();
+			
+			
+			$cabeceras = "MIME-Version: 1.0 \r\n";
+			$cabeceras .= "Content-type: text/html; charset=utf-8 \r\n";
+			$cabeceras.= "From: $_email_mensajes \r\n ";
+			$destino="steven@masoft.net";
+			$asunto="Mensaje";
+			$fecha=date("d/m/y");
+			$hora=date("H:i:s");
+			//align='center'
+			$resumen="
+			<table rules='all'>
+			<tr style='background:#7acb5a'><td WIDTH='1000' HEIGHT='50'><rigth><img src='http://186.4.203.42:4000/Vademano/view/images/logo_vademano.png' WIDTH='200' HEIGHT='80' /></rigth></td></tr>
+			</tabla>
+			<p><table rules='all'></p>
+			<tr style='background: #FFFFFF;'><td  WIDTH='1000' align='center'><b> TE ENVIARON ESTE MENSAJE</b></td></tr>
+			<tr style='background: #FFFFFF;'><td WIDTH='1000' align='justify'><b> Mensaje: </b>$_mensaje_mensajes</td></tr>
+			</tabla>
+			<p><table rules='all'></p>
+			<tr style='background:#1C1C1C'><td WIDTH='1000' HEIGHT='50' align='center'><font color='white'>Vademano. - <a href='http://www.vademano.com'><FONT COLOR='#7acb5a'>www.vademano.com</FONT></a> - Copyright © 2017-</font></td></tr>
+			</table>";
+			
+			if (mail("$destino","Mensaje","$resumen","$cabeceras"))
+			{
+				
+			
+				$this->view("QuienesSomos",array(
+						"resultSet"=>"", "resultPais"=>$resultPais, "resultProv"=>$resultProv, "resultado"=>"true", "resultVis"=>$resultVis
+				));
+			
+				exit();
+			}
+			else
+			{
+				
+			
+				$this->view("QuienesSomos",array(
+						"resultSet"=>"", "resultPais"=>$resultPais, "resultProv"=>$resultProv, "resultado"=>"false", "resultVis"=>$resultVis
+				));
+			
+				exit();
+			}
+			
+		}
 		
 		
-		$this->view("Contacto",array(
-				"resultSet"=>"", "resultPais"=>$resultPais, "resultProv"=>$resultProv
+		$this->view("QuienesSomos",array(
+				"resultSet"=>"", "resultPais"=>$resultPais, "resultProv"=>$resultProv, "resultVis"=>$resultVis
 		));
+		
 	}
 	
 	public function Inserta(){
@@ -56,7 +128,7 @@ class MensajesController extends ControladorBase{
 		
 				
 				//envio el correo
-				$para = 'manuel@masoft.net';
+				$para = 'steven@masoft.net';
 				$titulo = 'Correo';
 				$mensaje = 'Hola, bienvenido a mi sitio web \r\n Saludos'; //Mensaje de 2 lineas
 				$cabeceras = 'From: desarrollo@masoft.net' . "\r\n" . //La direccion de correo desde donde supuestamente se envió
@@ -65,7 +137,7 @@ class MensajesController extends ControladorBase{
 				
 				mail($para, $titulo, $mensaje, $cabeceras);
 		
-				$this->redirect("Mensajes", "index");
+				$this->redirect("QuienesSomos", "index");
 					
 			}
 			catch (Exeption $Ex)
@@ -83,65 +155,7 @@ class MensajesController extends ControladorBase{
 			
 	}
 	
-	public function borrarId()
-	{
-
-		session_start();
 		
-		$nombre_controladores = "Roles";
-		$id_rol= $_SESSION['id_rol'];
-		$resultPer = $permisos_rol->getPermisosEditar("   controladores.nombre_controladores = '$nombre_controladores' AND permisos_rol.id_rol = '$id_rol' " );
-			
-		if (!empty($resultPer))
-		{
-			if(isset($_GET["id_rol"]))
-			{
-				$id_rol=(int)$_GET["id_rol"];
-		
-				$roles=new RolesModel();
-				
-				$roles->deleteBy(" id_rol",$id_rol);
-				
-				
-			}
-			
-			$this->redirect("Roles", "index");
-			
-			
-		}
-		else
-		{
-			$this->view("Error",array(
-				"resultado"=>"No tiene Permisos de Borrar Roles"
-			
-			));
-		}
-				
-	}
-	
-	
-	public function Reporte(){
-	
-		//Creamos el objeto usuario
-		$roles=new RolesModel();
-		//Conseguimos todos los usuarios
-		
-	
-	
-		session_start();
-	
-	
-		if (isset(  $_SESSION['usuario']) )
-		{
-			$resultRep = $roles->getByPDF("id_rol, nombre_rol", " nombre_rol != '' ");
-			$this->report("Roles",array(	"resultRep"=>$resultRep));
-	
-		}
-					
-	
-	}
-	
-	
 	
 }
 ?>
