@@ -611,7 +611,7 @@
                  <div class="mascara">
                  <h2><?php echo $res->nombre_laboratorios; ?></h2>
                  <p><?php echo ''; ?></p>
-                 <a class="link" href="<?php echo $helper->url("Laboratorios","VistaLaboratoriosOnline"); ?>&id_fichas=<?php echo $res->id_fichas; ?>&nombre_fichas=<?php echo $res->nombre_fichas; ?>"  target="_blank" >Leer mas</a>
+                 <a class="link" href="<?php echo $helper->url("Laboratorios","VistaLaboratoriosOnline"); ?>&id_laboratorios=<?php echo $res->id_laboratorios; ?>"  target="_blank" >Leer mas</a>
                  </div>
                  </div>
 	        	

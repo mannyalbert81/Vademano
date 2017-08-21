@@ -77,8 +77,59 @@ class BuscadorController extends ControladorBase{
 			
 			
 		}
+		/* para los filtros*/
 		if (isset($_POST["btn_filtrar"]))
 		{
+// 			para buscar filtro inicial 
+			$colIni="f.clasificacion_farmacologica_fichas,f.id_fichas";
+// 			,fe.id_especies,fc.id_composiciones,fad.id_formas_administracion,
+// 					fl.id_laboratorios";			
+			$tabIni="public.fichas f ";			
+			$whereIni="1=1";
+			
+			$clasificacion_farmacologica=isset($_POST["clasificacion_farmacologica"])?$_POST["clasificacion_farmacologica"]:"";
+			$especiesId=isset($_POST["id_especies"])?$_POST["id_especies"]:"";
+			$composicionesId=isset($_POST["id_composiciones"])?$_POST["id_composiciones"]:"";
+			$formasAdministracion=isset($_POST["forma_administracion"])?$_POST["forma_administracion"]:"";
+			$laboratoriosId=isset($_POST["id_laboratorios"])?$_POST["id_laboratorios"]:"";
+
+			if ($clasificacion_farmacologica !="0")
+			{
+				$whereIni .= " AND fichas.clasificacion_farmacologica_fichas = '$clasificacion_farmacologica' ";
+			}
+			if ($clasificacion_farmacologica !="0")
+			{
+				$whereIni .= " AND fichas.clasificacion_farmacologica_fichas = '$clasificacion_farmacologica' ";
+			}
+			if ($clasificacion_farmacologica !="0")
+			{
+				$whereIni .= " AND fichas.clasificacion_farmacologica_fichas = '$clasificacion_farmacologica' ";
+			}
+			if ($clasificacion_farmacologica !="0")
+			{
+				$whereIni .= " AND fichas.clasificacion_farmacologica_fichas = '$clasificacion_farmacologica' ";
+			}
+			if ($clasificacion_farmacologica !="0")
+			{
+				$whereIni .= " AND fichas.clasificacion_farmacologica_fichas = '$clasificacion_farmacologica' ";
+			}
+			
+			
+			
+			$resultSet = $buscador->getBy($where);
+			$resultAliBus = $alimentos->getBy($where);
+			$resultPrinBus = $principios_activos->getBy($where);
+			$resultLabBus = $laboratorios->getBy($where);
+			$resultDisBus = $distribuidores->getBy($where);
+				
+				
+			$CantProductos = count($resultPro);
+			$CantAlimentos  =  count($resultAli);
+			$CantPrincipios  =  count($resultPrinBus);
+			$CantLaboratorios  =  count($resultLabBus);
+			$CantDistribuidores  =  count($resultDisBus);
+				
+			
 			$where1 = "";
 			$where2 = "";
 			$where3 = "";
