@@ -20,47 +20,8 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/gmaps.js/0.4.24/gmaps.js"></script>
      
 		
- 		<script>
-		$(document).ready(function(){
-		    $fecha=$('#fecha_nacimiento_usuario');
-		    if ($fecha[0].type!="date"){
-		    $fecha.attr('readonly','readonly');
-		    $fecha.datepicker({
-	    		changeMonth: true,
-	    		changeYear: true,
-	    		dateFormat: "yy-mm-dd",
-	    		yearRange: "1990:2017"
-	    		});
-		    }
-		}); 
-	</script>
- 		
  	
  		
- 		<script>
-    var imagenes=new Array(
-        'view/images/publicidad/1.jpg',
-        'view/images/publicidad/2.jpg',
-        'view/images/publicidad/3.jpg',
-        'view/images/publicidad/4.jpg',
-        'view/images/publicidad/5.jpg',
-        'view/images/publicidad/6.jpg',
-        'view/images/publicidad/7.jpg',
-        'view/images/publicidad/8.jpg',
-        'view/images/publicidad/9.jpg'
-    );
-    function rotarImagenes()
-    {
-        var index=Math.floor((Math.random()*imagenes.length));
-        document.getElementById("imagen").src=imagenes[index];
-        
-    }
-    onload=function()
-    {
-        rotarImagenes();
-        setInterval(rotarImagenes,3000);
-    }
-    </script>
 
 
  		<script >

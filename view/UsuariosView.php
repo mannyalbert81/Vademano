@@ -65,69 +65,12 @@
 
 	</script>
 	
-	
-	<script >
-	/*
-		$(document).ready(function(){
 
-		    // cada vez que se cambia el valor del combo
-		    $("#btn_buscar").click(function() 
-			{
-		    	
-		    	var contenido_busqueda = $("#contenido_busqueda").val();
-		    	//var criterio_busqueda = $("#criterio_busqueda").val();
-		    	if (contenido_busqueda == "")
-		    	{
-					
-			    	$("#mensaje_contenido_busqueda").text("Introduzca un Contenido a Buscar");
-		    		$("#mensaje_contenido_busqueda").fadeIn("slow"); //Muestra mensaje de error
-		            return false;
-			    }
-		    	else 
-		    	{
-					
-			    	$("#mensaje_contenido_busqueda").fadeOut("slow"); //Muestra mensaje de error
-		            
-			    }
-
-		    	if (criterio_busqueda == 0)
-		    	{
-					
-			    	$("#criterio_busqueda").text("Introduzca un Criterio de Busqueda");
-		    		$("#criterio_busqueda").fadeIn("slow"); //Muestra mensaje de error
-		            return false;
-			    }
-		    	else 
-		    	{
-					
-			    	$("#criterio_busqueda").fadeOut("slow"); //Muestra mensaje de error
-		            
-			    }
-
-				
-			    	    		    				    
-
-			}); 
-			$( "#contenido_busqueda" ).focus(function() {
-					$("#mensaje_contenido_busqueda").fadeOut("slow");
-    			});
-
-			$( "#criterio_busqueda" ).focus(function() {
-				$("#mensaje_criterio_busqueda").fadeOut("slow");
-			});
-	        
-				    
-		}); 
-*/
-	</script>
-
-<script type="text/javascript">
-		function mensaje(){
-			
-		  var respuesta = confirm('Seguro Desea Eliminar')
+        <script type="text/javascript">
+		   function mensaje(){
+		   var respuesta = confirm('Seguro Desea Eliminar')
 		   return respuesta;
-		}
-		
+		   }
 		</script>
 
  			
@@ -139,9 +82,8 @@
             .right{
                 float:right;
             }
-                
-            
         </style>
+
     </head>
     <body style="background-color: #FAFAFA;">
     
@@ -200,7 +142,6 @@
         </div></div></div>
        </form>
       
-       
         
         <section class="col-lg-12 col-md-12 col-xs-2" >  
         <table class="table table-hover">
