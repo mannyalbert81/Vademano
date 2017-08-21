@@ -520,31 +520,23 @@
     	   	
     	   	foreach($resultPro as $res) {
     	   	
-    	   	if ($celdas < 5) { 
-    	   		
     	   		$status = session_status();  
     	   		
     	   		if  (isset( $_SESSION['id_usuario'] )){  ?> 
 		        
-		             <div class="col-xs-6 col-md-2">
-			  	      <p  class="formulario-subtitulo-busqueda" style="font-family: calibri;" ><?php echo $res->nombre_fichas; ?> </p> 
-			  	      <div class="img-rounded">
-			  	      
-			  	      	<div   class="buscador_favorito" >
-			  	      	<a  href="<?php echo $helper->url("FichasFavoritos","InsertaFavoritos"); ?>&id_fichas=<?php echo $res->id_fichas; ?>&nombre_fichas=<?php echo $res->nombre_fichas; ?>" id="a_imagen_favorito" href="" class="thumbnail" >
-			  	      		<img  id="imagen_favorito" name="imagen_favorito" src="view/images/icono_heart.png" alt="Agregar a Favoritos" >
-			  	        </a>
-			  	        </div>
-			  	        
-			  	        <!-- cambio en action de sigte helper (FichaOnline) -->
-			  	        
-			  	      	<a href="<?php echo $helper->url("FichasProductos","verFichaOnline"); ?>&id_fichas=<?php echo $res->id_fichas; ?>&nombre_fichas=<?php echo $res->nombre_fichas; ?>"  class="thumbnail"  target="_blank" >
-			  	      		<img name="image" src="view/DevuelveImagen.php?id_valor=<?php echo $res->id_fichas; ?>&id_nombre=id_fichas&tabla=fichas_fotos&campo=foto_fichas_fotos"  alt="<?php echo $res->nombre_fichas; ?>" width="80px" height="60px" >
-			  	        </a>
-			  	        
-			  	      </div>
-			  	      <p  class="formulario-subtitulo-busqueda" style="font-family: calibri;" ><?php echo $res->clasificacion_farmacologica_fichas; ?> </p>
-			  	     </div>
+		        <div class="contenedor-img ejemplo-1">
+		        
+                 <img src="view/DevuelveImagen.php?id_valor=<?php echo $res->id_fichas; ?>&id_nombre=id_fichas&tabla=fichas_fotos&campo=foto_fichas_fotos" width="200" height="150"  alt="<?php echo $res->nombre_fichas; ?>" />
+                <a href="<?php echo $helper->url("FichasFavoritos","InsertaFavoritos"); ?>&id_fichas=<?php echo $res->id_fichas; ?>&nombre_fichas=<?php echo $res->nombre_fichas; ?>" id="a_imagen_favorito" href="" class="thumbnail" >
+	  	      		<img  id="imagen_favorito" name="imagen_favorito" width="10px;" height="10px;" src="view/images/icono_heart.png" alt="Agregar a Favoritos" >
+	  	        </a>
+                 <div class="mascara">
+                 <h2><?php echo $res->nombre_fichas; ?></h2>
+                 <p><?php echo $res->clasificacion_farmacologica_fichas; ?></p>
+                 <a class="link" href="<?php echo $helper->url("FichasProductos","verFichaOnline"); ?>&id_fichas=<?php echo $res->id_fichas; ?>&nombre_fichas=<?php echo $res->nombre_fichas; ?>">Leer mas</a>
+                 </div>
+                 </div>
+				             
 		         <?php } else { ?>	
 		         
 		         <div class="contenedor-img ejemplo-1">
@@ -559,19 +551,11 @@
 		        
 		          <?php  }?>
 			      
-    	   	<?php } else {?>
-				     </div>  
-				     
-			    	<div class="row" style="text-align: center;"   >	    
-					<div class="col-xs-6 col-md-1">
-    	  			</div>
-    	  
-					<?php $celdas = 0; 
-    	   	}   
-    	   } ?>
-    	  	</div>
+    	   	<?php } ?>
+				 
+				  
     	  	<?php  } ?>
-    	  
+    	  </div>  
     	  </div>
     	  
     	  <div id= "div-principios" class="row" style="margin-top:50px; text-align: center; display: none;"   > 
@@ -581,7 +565,7 @@
 		  
     	  	
     	   <?php $celdas = 0;?>
-    		<?php if (!empty($resultPrinBus)) { ?>
+    		<?php if (!empty($resultPrinBus) || $resultPrinBus!="") { ?>
     	    <?php foreach($resultPrinBus as $res) {?>
 	      		  
 	      		 <div class="contenedor-img principioA">
