@@ -656,7 +656,7 @@
                  <div class="mascara">
                  <h2><?php echo $res->nombre_fichas; ?></h2>
                  <p><?php echo ''; ?></p>
-                 <a class="link" href="<?php echo $helper->url("FichasProductos","verFichaOnline"); ?>&id_fichas=<?php echo $res->id_fichas; ?>&nombre_fichas=<?php echo $res->nombre_fichas; ?>"  target="_blank" >Leer mas</a>
+                 <a class="link" href="<?php echo $helper->url("FichasAlimentos","verFichaOnline"); ?>&id_fichas=<?php echo $res->id_fichas; ?>&nombre_fichas=<?php echo $res->nombre_fichas; ?>"  target="_blank" >Leer mas</a>
                  </div>
                  </div>
                  
