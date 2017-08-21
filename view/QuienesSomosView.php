@@ -41,7 +41,49 @@
                 float:right;
             } 
         </style>
-        
+       <script >
+		$(document).ready(function(){
+		    // cada vez que se cambia el valor del combo
+		    $("#paises").change(function() {
+				
+               // 
+                var $provincias = $("#provincias");
+               // lo vaciamos
+               
+				///obtengo el id seleccionado
+				
+               var id_pais = $(this).val();
+               $provincias.empty();
+               
+               if(id_pais > 0)
+               {
+            	   
+            	   var datos = {
+            			   id_pais : $(this).val()
+                   };
+                  $provincias.append("<option value= " +"" +" > --SIN ESPECIFICAR--</option>");
+            	           
+                   
+                  
+            	   $.post("<?php echo $helper->url("Provincias","devuelveProvincias"); ?>", datos, function(resultProv) {
+            		 		$.each(resultProv, function(index, value) {
+            		 		$provincias.append("<option value= " +value.id_provincia +" >" + value.nombre_provincia  + "</option>");	
+                       		 });
+            		 		 	 		   
+            		  }, 'json');
+               }
+               else
+               {
+            	  
+               }
+               
+		    });
+		   
+		   
+		    
+		}); 
+	</script>
+	 
    	 </head>
    
    
@@ -105,101 +147,110 @@
 				  </div>
 				  <div class="col-lg-6 col-md-6 col-xs-6">
 				  
-            <h4 >Enviar Mensaje</h4>
+           <h4 >Enviar Mensaje</h4>
             <hr/>
-           
-		    
-            <div class="row">
-            	<div class="col-xs-6 col-md-6">
-            	  <p class="formulario-subtitulo">Nombres</p>
-            	</div>
-            	<div class="col-xs-6 col-md-6">
-            	  <p class="formulario-subtitulo">Apellidos</p>
-            	</div>
-            </div>	
+           <?php if (isset($resultado)) {?>
+        	<?php if ($resultado == "true") {?>
+        	
+	        	  <div class="alert alert-success" role="alert">Tu mensaje se envio <strong> correctamente </strong>, Responderemos tu mensaje al correo que ingresaste.</div>
+				
+			<?php }else {?>
+				  <div class="alert alert-danger" role="alert">Ocurrio un error al enviar su mensaje, vuelva a intentarlo.</div>
+				
+			<?php }} ?>
 		    <div class="row">
-            	<div class="col-xs-6 col-md-6">
-            	  <input type="text" name="nombres_mensajes"  class="form-control"/>
-            	</div>
-            	<div class="col-xs-6 col-md-6">
-            	  <input type="text" name="apellidos_mensajes"  class="form-control"/>
-            	</div>
-            </div>	
+		    <div class="col-xs-6 col-md-6">
+		    <div class="form-group ">
+		                          <label for="nombres_usuario" class="control-label">Nombres:</label>
+                                  <input type="text" class="form-control" id="nombres_usuario" name="nombres_usuario" value=""  placeholder="Nombres">
+                                  <div id="mensaje_nombres" class="errores"></div>
+            </div>
+		    </div>
+		    
+		    <div class="col-xs-6 col-md-6">
+		    <div class="form-group ">
+		                          <label for="apellidos_usuario" class="control-label">Apellidos:</label>
+                                  <input type="text" class="form-control" id="apellidos_usuario" name="apellidos_usuario" value=""  placeholder="Apellidos">
+                                   <div id="mensaje_apellidos" class="errores"></div>
+            </div>
+		    </div>
+			</div>
 		    
 		    <div class="row">
-            	<div class="col-xs-6 col-md-6">
-            	  <p class="formulario-subtitulo">Pais</p>
-            	</div>
-            	<div class="col-xs-6 col-md-6">
-            	  <p class="formulario-subtitulo">Provincia</p>
-            	</div>
-            </div>		
-	  		<div class="row">
-            	<div class="col-xs-6 col-md-6">
-            	  	<select name="paises" id="paises"  class="form-control" style="	width: 200px;">
-						<?php foreach($resultPais as $resPais) {?>
-							<option value="<?php echo $resPais->id_pais; ?>"  ><?php echo $resPais->nombre_pais; ?> </option>
-			            <?php } ?>
-					</select>
-            	</div>
-            	<div class="col-xs-6 col-md-6">
-            	  	<select name="provincias" id="provincias"  class="form-control" style="	width: 200px;">
-						
-							<option value="0"  > -- SIN ESPECIFICAR -- </option>
-			            
-					</select>
-            	</div>
-            </div>		
+			<div class="col-xs-6 col-md-6">
+		    <div class="form-group">
+                                  <label for="paises" class="control-label">Pais:</label>
+                                  <select name="paises" id="paises"  class="form-control" >
+                                  <option value="" selected="selected">--Seleccione--</option>
+									<?php foreach($resultPais as $res) {?>
+										<option value="<?php echo $res->id_pais; ?>" ><?php echo $res->nombre_pais; ?> </option>
+							        <?php } ?>
+								   </select> 
+                                  <div id="mensaje_paises" class="errores"></div>
+            </div>
+            
+            </div>
+			
+		    <div class="col-xs-6 col-md-6">
+		    <div class="form-group">
+                                  <label for="provincias" class="control-label">Provincia:</label>
+                                  <select name="provincias" id="provincias"  class="form-control" >
+                                  <option value=""> -- SIN ESPECIFICAR -- </option>
+								   </select> 
+                             <div id="mensaje_provincias" class="errores"></div>
+            </div>
+            
+            </div>
+			</div>		
 	  		
-	  		 <div class="row">
-            	<div class="col-xs-6 col-md-6">
-            	  <p class="formulario-subtitulo">Telefono</p>
-            	</div>
-            	<div class="col-xs-6 col-md-6">
-            	  <p class="formulario-subtitulo">Celular</p>
-            	</div>
-            </div>    		
+	  		  		
+            <div class="row">
+             <div class="col-xs-6 col-md-6">
+		    <div class="form-group ">
+		                          <label for="telefono_usuario" class="control-label">Teléfono:</label>
+                                  <input type="text" class="form-control" id="telefono_usuario" name="telefono_usuario" value=""  placeholder="Teléfono">
+                                 
+            </div>
+		    </div>
+           <div class="col-xs-6 col-md-6">
+		    <div class="form-group ">
+		                          <label for="celular_usuario" class="control-label">Celular:</label>
+                                  <input type="text" class="form-control" id="celular_usuario" name="celular_usuario" value=""  placeholder="Celular">
+                                
+            </div>
+		    </div>
+           </div>
+        	
+        			
         	<div class="row">
-            	<div class="col-xs-6 col-md-6">
-            	  <input type="text" name="telefono_mensajes"  class="form-control"   />
-            	</div>
-            	<div class="col-xs-6 col-md-6">
-            	  <input type="text" name="celular_mensajes"  class="form-control"   />
-            	</div>
-            </div>    		
-        	 <div class="row">
-            	<div class="col-xs-12 col-md-12">
-            	  <p class="formulario-subtitulo">Email</p>
-            	</div>
-            	
+		    <div class="col-xs-12 col-md-12">
+		    <div class="form-group ">
+		                          <label for="correo_usuario" class="control-label">Email:</label>
+                                  <input type="email" class="form-control" id="correo_usuario" name="correo_usuario" value=""  placeholder="Email">
+                                  <div id="mensaje_correo" class="errores"></div>
             </div>
-	  		 <div class="row">
-            	<div class="col-xs-12 col-md-12">
-            	  <input type="email" name="email_mensajes"  class="form-control"   />
-            	</div>
-            	
             </div>
-	  		 <div class="row">
-            	<div class="col-xs-12 col-md-12">
-            	  <p class="formulario-subtitulo">Mensaje</p>
-            	</div>
-            	
             </div>
+            
              <div class="row">
-            	<div class="col-xs-12 col-md-12">
-            	  <textarea rows="4" name="mensaje_mensajes" class="form-control" ></textarea>
-            	</div>
-            	
+	         <div class="col-xs-12 col-md-12">
+		     <div class="form-group ">
+		                          <label for="mensaje" class="control-label">Mensaje:</label>
+                                  <textarea type="text"  class="form-control" id="mensaje" name="mensaje" value=""  placeholder="Pregunta"></textarea>
+                                  <div id="mensaje_mensaje" class="errores"></div>
+			 
+             </div>
+		     </div>
+	  		 </div> 
+           
+	   		 <div class="row">
+		    <div class="col-xs-12 col-md-12 col-lg-12" style="text-align: center; margin-top: 20px;">
+		    <div class="form-group">
+                                  <button type="submit" id="btn_guardar" name="btn_guardar" class="btn btn-info">Enviar</button>
             </div>
-	   		<div class="row">
-            	<div class="col-xs-12 col-md-12" style="text-align: center;">
-            	  <input type="submit" value="Enviar" class="btn btn-success"/>
-            	</div>
-            	
-            </div>
-		
-     
-				  </div>
+		    </div>
+		    </div>
+		     	  </div>
 				
 				  </div>
 				  
