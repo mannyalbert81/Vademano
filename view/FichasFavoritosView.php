@@ -107,24 +107,22 @@
            <img src="" id="imagen" width="715" height="430">
             <br><br>
              </div>       
-       
-            
       </form>
 
-   <div> 
+  		  <div> 
    		 <?php include("view/modulos/servicios.php"); ?>	
    		  </div>
+   		  
    		 <div style="margin-top: 20px; background-color: #4bae4f;">
-   		 
    		 <?php include("view/modulos/small_slide.php"); ?>
-   		 
    		 </div>
    		 
-   	 	<div style="background-color: #7acb5a;">
-   	 	 
-    	 <footer class="col-lg-12" >
+   		 <div style="background-color: #7acb5a;">
+   	 	 <footer class="col-lg-12">
      	 	<?php include("view/modulos/footer.php"); ?>
-    	 </footer>     
-    	</div>
+    	 </footer> 
+		 </div>
+ 
+ 
      </body>  
     </html>   

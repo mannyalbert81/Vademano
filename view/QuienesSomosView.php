@@ -251,9 +251,7 @@
 		    </div>
 		    </div>
 		     	  </div>
-				
 				  </div>
-				  
 				  </div>
 				  
 			  
@@ -277,16 +275,14 @@
      	 	<?php include("view/modulos/footer.php"); ?>
     	 </footer> 
 		 </div>
-   		  <script type="text/javascript">
+   		
+   	  <script type="text/javascript">
 	    var mapa = new GMaps({
 	      el: '#mapa',
 	      lat: -1.666618,
 	      lng: -78.174819,
 	      zoom:7
 	    });
-	   
-	   
-	    
 	  </script> 
    	 	
     </body>

@@ -84,25 +84,21 @@
             <hr>
             <div class="img-responsive">
              <img alt="publicidad" src="view/images/publicidad.png">
-             
             </div>
-            
       </form>
 
-   <div> 
-   		 <?php include("view/modulos/servicios.php"); ?>	
+          <div> 
+   		  <?php include("view/modulos/servicios.php"); ?>	
    		  </div>
-   		 <div style="margin-top: 20px; background-color: #4bae4f;">
+   		  
+   		  <div style="margin-top: 20px; background-color: #4bae4f;">
+   		  <?php include("view/modulos/small_slide.php"); ?>
+   		  </div>
    		 
-   		 <?php include("view/modulos/small_slide.php"); ?>
-   		 
-   		 </div>
-   		 
-   	 	<div style="background-color: #7acb5a;">
-   	 	 
-    	 <footer class="col-lg-12" >
+   		 <div style="background-color: #7acb5a;">
+   	 	 <footer class="col-lg-12">
      	 	<?php include("view/modulos/footer.php"); ?>
-    	 </footer>     
-    	</div>
+    	 </footer> 
+		 </div>
      </body>  
     </html>   
