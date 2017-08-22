@@ -101,7 +101,25 @@
 			    		$("#div-distribuidores").fadeIn("slow");
 			}); 
 				    
-		    	    
+		    $(".contenedor-img a.linkfavorito").click(function(){
+				var link=$(this).attr("href");
+				var producto = $(this).data("producto");
+				var nombreproducto = $(this).data("nomproducto");
+				
+				if(producto>0)
+				{
+					var datos = {id_fichas:producto};
+
+					 $.post(link, datos, function(resultado) {
+
+						 if(resultado==1){alert('El producto se ha añadido a la lista de favoritos');}else{alert('Error al ingresar a la list de favoritos');}
+							 
+         		  	}, 'json');
+					 
+				}
+			   
+			    return false;
+		    });	    
 		    
 		}); 
 	</script>
@@ -149,9 +167,9 @@
 			text-align: center;
 			position: relative;
 			font-size: 17px;
-			padding: 10px;
+			padding: 3px;
 			background: rgba(0, 0, 0, 0.9);
-			margin: 20px 0 0 0
+			margin: 10px 0 0 0;
 			}
 			.contenedor-img h6 {
 			text-transform: uppercase;
@@ -168,7 +186,7 @@
 			font-size: 12px;
 			position: relative;
 			color: #fff;
-			padding: 10px 20px 10px;
+			padding: 10px;
 			text-align: center;
 			font-weight: bold;
 			}
@@ -183,6 +201,16 @@
 			}
 			.contenedor-img a.link:hover {
 			box-shadow: 0 0 5px #000
+			}
+			/*agregado para link de favorito*/
+			.contenedor-img a.linkfavorito {
+			display: inline-block;
+			text-decoration: none;
+			padding: 5px;
+			background: #222;
+			color: #fff;
+			text-transform: uppercase;
+			box-shadow: 0 0 1px #000
 			}
 			
 			/*Ejemplo 1*/
@@ -511,6 +539,7 @@
     	 	</div>
     	  <div  class="row " id= "div-productos"   style="margin-top:50px; text-align: center; display: none;"  >
     	    <div class="col-xs-1 col-md-1">
+    	    <span id="respuesta"></span>
     	    </div>
     	    <div   class="col-md-11 col-xs-11" style="margin-top:50px; text-align: center; "  > 	
     	  	
@@ -527,10 +556,10 @@
 		        <div class="contenedor-img ejemplo-1">
 		        
                  <img src="view/DevuelveImagen.php?id_valor=<?php echo $res->id_fichas; ?>&id_nombre=id_fichas&tabla=fichas_fotos&campo=foto_fichas_fotos" width="200" height="150"  alt="<?php echo $res->nombre_fichas; ?>" />
-                <a href="<?php echo $helper->url("FichasFavoritos","InsertaFavoritos"); ?>&id_fichas=<?php echo $res->id_fichas; ?>&nombre_fichas=<?php echo $res->nombre_fichas; ?>" id="a_imagen_favorito" href="" class="thumbnail" >
-	  	      		<img  id="imagen_favorito" name="imagen_favorito" width="10px;" height="10px;" src="view/images/icono_heart.png" alt="Agregar a Favoritos" >
-	  	        </a>
                  <div class="mascara">
+                 <a class="linkfavorito" href="<?php echo $helper->url("FichasFavoritos","AgregarFavoritos"); ?>" id="a_imagen_favorito" data-producto="<?php echo $res->id_fichas; ?>" data-nomproducto="<?php echo $res->nombre_fichas; ?>" >
+	  	      		<img  id="imagen_favorito" name="imagen_favorito" width="10px;" height="10px;" src="view/images/icono_heart.png" alt="Agregar a Favoritos" >
+	  	         </a>
                  <h2><?php echo $res->nombre_fichas; ?></h2>
                  <p><?php echo $res->clasificacion_farmacologica_fichas; ?></p>
                  <a class="link" href="<?php echo $helper->url("FichasProductos","verFichaOnline"); ?>&id_fichas=<?php echo $res->id_fichas; ?>&nombre_fichas=<?php echo $res->nombre_fichas; ?>">Leer mas</a>
@@ -573,6 +602,7 @@
                  <img src="view/images/principios-activos.jpg" width="200" height="150"  alt=""  />
                  <div class="mascara">
                  <h2><?php echo $res->nombre_composiciones; ?></h2>
+                 <p><?php echo ''; ?></p>
                  <a class="link" href="<?php echo $helper->url("Composiciones","VistaComposicionesOnline"); ?>&id_composiciones=<?php echo $res->id_composiciones;?>" target="_blank" >Leer mas</a>
                  </div>
                  </div>
@@ -601,10 +631,8 @@
                  </div>
 	        	
 			      				
-			       <?php }?>
-			
-	        
-    	  	<?php  } ?>
+			       <?php }
+    	   		} ?>
     	  	</div>
 		  </div>
 		  

@@ -141,7 +141,39 @@ public function index(){
 		}
 	}
 	
-    
+	public function AgregarFavoritos(){
+	
+		session_start();
+		$resultado=0;
+		if(isset($_POST["id_fichas"]))
+		{
+			$fichas_favoritos = new FichasFavoritosModel();
+			$id_fichas=(int)$_POST["id_fichas"];
+			$id_usuario =$_SESSION["id_usuario"];
+			$funcion = "ins_fichas_favoritos";				
+			$parametros = " '$id_fichas' ,'$id_usuario' ";
+			$fichas_favoritos->setFuncion($funcion);
+			$fichas_favoritos->setParametros($parametros);
+			
+			$resultSes=$fichas_favoritos->Insert();
+			
+			if(is_string($resultSes))
+			{
+				$buscar=strpos($resultSes, "Error");
+				
+				if($buscar===false)
+				{
+					$resultado=1;
+				}else{
+					$resultado=0;
+				}
+			}
+	
+		}
+		
+		echo json_encode($resultado);
+	
+	}
    	
 }
 ?>
