@@ -88,12 +88,12 @@
       </form>
 
           <div> 
-   		  <?php include("view/modulos/servicios.php"); ?>	
+   		 <?php include("view/modulos/servicios.php"); ?>	
    		  </div>
    		  
-   		  <div style="margin-top: 20px; background-color: #4bae4f;">
-   		  <?php include("view/modulos/small_slide.php"); ?>
-   		  </div>
+   		 <div class="col-xs-12 col-md-12">
+   		 <?php include("view/modulos/small_slide.php"); ?>
+   		 </div>
    		 
    		 <div style="background-color: #7acb5a;">
    	 	 <footer class="col-lg-12">
