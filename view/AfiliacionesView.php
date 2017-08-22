@@ -396,7 +396,7 @@
 				
 						  <div class="media-body">
 						    <div>
-						    	<h4  class="media-heading" style="font-family: Sans-serif; color: blue"> Vademano</h4>
+						    	<h4  class="media-heading"> Vademano</h4>
 						    </div>
 						    	<p>
 								    Somos un equipo de trabajo comprometido en <strong> PROMOVER SU NEGOCIO AGROPECUARIO  </strong> 
