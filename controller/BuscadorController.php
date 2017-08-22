@@ -49,9 +49,6 @@ class BuscadorController extends ControladorBase{
 		$resultLabBus = "";
 		$resultDisBus = "";
 		
-	
-		
-		
 		$principios_activos = new ComposicionesModel();
 		
 		if (isset($_POST["btn_buscar"]))
@@ -80,129 +77,98 @@ class BuscadorController extends ControladorBase{
 		/* para los filtros*/
 		if (isset($_POST["btn_filtrar"]))
 		{
+			$resultPro=array();
 // 			para buscar filtro inicial 
 			$colIni="f.clasificacion_farmacologica_fichas,f.id_fichas";
-// 			,fe.id_especies,fc.id_composiciones,fad.id_formas_administracion,
-// 					fl.id_laboratorios";			
+// 					
 			$tabIni="public.fichas f ";			
 			$whereIni="1=1";
 			
-			$clasificacion_farmacologica=isset($_POST["clasificacion_farmacologica"])?$_POST["clasificacion_farmacologica"]:"";
-			$especiesId=isset($_POST["id_especies"])?$_POST["id_especies"]:"";
-			$composicionesId=isset($_POST["id_composiciones"])?$_POST["id_composiciones"]:"";
-			$formasAdministracion=isset($_POST["forma_administracion"])?$_POST["forma_administracion"]:"";
-			$laboratoriosId=isset($_POST["id_laboratorios"])?$_POST["id_laboratorios"]:"";
+			$clasificacion_farmacologica=isset($_POST["clasificacion_farmacologica"])?$_POST["clasificacion_farmacologica"]:"0";
+			$especiesId=isset($_POST["id_especies"])?$_POST["id_especies"]:"0";
+			$composicionesId=isset($_POST["id_composiciones"])?$_POST["id_composiciones"]:"0";
+			$formasAdministracion=isset($_POST["forma_administracion"])?$_POST["forma_administracion"]:"0";
+			$laboratoriosId=isset($_POST["id_laboratorios"])?$_POST["id_laboratorios"]:"0";
 
 			if ($clasificacion_farmacologica !="0")
 			{
-				$whereIni .= " AND fichas.clasificacion_farmacologica_fichas = '$clasificacion_farmacologica' ";
+				$whereIni .= " AND f.clasificacion_farmacologica_fichas = '$clasificacion_farmacologica' ";
 			}
-			if ($clasificacion_farmacologica !="0")
+			if ($especiesId !="0")
 			{
-				$whereIni .= " AND fichas.clasificacion_farmacologica_fichas = '$clasificacion_farmacologica' ";
+				$colIni .=",fe.id_especies";
+				$tabIni .=" INNER JOIN public.fichas_especies fe ON fe.id_fichas = f.id_fichas";
+				$whereIni .= " AND fe.id_especies = '$especiesId' ";
 			}
-			if ($clasificacion_farmacologica !="0")
+			if ($composicionesId !="0")
 			{
-				$whereIni .= " AND fichas.clasificacion_farmacologica_fichas = '$clasificacion_farmacologica' ";
+				$colIni .=",fc.id_composiciones";
+				$tabIni .=" INNER JOIN public.fichas_composiciones fc ON fc.id_fichas = f.id_fichas";
+				$whereIni .= " AND fc.id_composiciones = '$composicionesId' ";
 			}
-			if ($clasificacion_farmacologica !="0")
+			if ($formasAdministracion !="0")
 			{
-				$whereIni .= " AND fichas.clasificacion_farmacologica_fichas = '$clasificacion_farmacologica' ";
+				$colIni .=",fad.id_formas_administracion";
+				$tabIni .=" INNER JOIN public.fichas_formas_administracion fad ON fad.id_fichas = fad.id_fichas";
+				$whereIni .= " AND fad.id_formas_administracion = '$formasAdministracion' ";
 			}
-			if ($clasificacion_farmacologica !="0")
+			if ($laboratoriosId !="0")
 			{
-				$whereIni .= " AND fichas.clasificacion_farmacologica_fichas = '$clasificacion_farmacologica' ";
+				$colIni .=",fl.id_laboratorios";
+				$tabIni .=" INNER JOIN public.fichas_laboratorios fl ON fl.id_fichas = f.id_fichas";
+				$whereIni .= " AND fl.id_laboratorios = '$laboratoriosId' ";
 			}
 			
+			$dtInicial = $buscador->getCondiciones($colIni, $tabIni, $whereIni, "f.id_fichas");
+// 			para los ids
+			$fichaConsultadaIds="0,";
 			
-			
-			$resultSet = $buscador->getBy($where);
-			$resultAliBus = $alimentos->getBy($where);
-			$resultPrinBus = $principios_activos->getBy($where);
-			$resultLabBus = $laboratorios->getBy($where);
-			$resultDisBus = $distribuidores->getBy($where);
+			if(	!empty($dtInicial))
+			{
+				foreach ($dtInicial as $res)
+				{
+					$fichaConsultadaIds.=$res->id_fichas.",";
+				}
+				$fichaConsultadaIds=trim($fichaConsultadaIds,',');
+				$_contenido_busqueda =  strtoupper ( $_POST['contenido_busqueda'] );
+				$where = " buscador LIKE '%$_contenido_busqueda%' ";
 				
 				
-			$CantProductos = count($resultPro);
-			$CantAlimentos  =  count($resultAli);
-			$CantPrincipios  =  count($resultPrinBus);
-			$CantLaboratorios  =  count($resultLabBus);
-			$CantDistribuidores  =  count($resultDisBus);
-				
-			
-			$where1 = "";
-			$where2 = "";
-			$where3 = "";
-			$where4 = "";
-			$where5 = "";
-			$where6 = "";
-			
-			$columnas = "fichas.nombre_fichas, fichas.id_fichas, fichas.clasificacion_farmacologica_fichas";
-			
-			$tablas = "public.fichas, public.laboratorios, public.distribuidores, 
-  						public.fichas_composiciones, public.fichas_dosificacion";
-			
-			$where = "laboratorios.id_laboratorios = fichas.id_laboratorios AND
-  						distribuidores.id_distribuidores = fichas.id_distribuidores AND
-  						fichas_composiciones.id_fichas = fichas.id_fichas AND
-  						fichas_dosificacion.id_fichas = fichas.id_fichas";
-			$id = "fichas.nombre_fichas";
-			
-			if (isset($_POST["id_especies"]))
-			{
-	
-				
-				
-				$_id_especies = $_POST["id_especies"];
-				if ($_id_especies > 0)
+				if($fichaConsultadaIds!="0")
 				{
-					$where1 = " AND fichas_dosificacion.id_especies = '$_id_especies' ";
-				}
-			}
-			
-			
-			if (isset($_POST["id_composiciones"]))
-			{
-				$_id_composiciones = $_POST["id_composiciones"];
-				if ($_id_composiciones > 0)
-				{
-					$where2 = " AND fichas_composiciones.id_composiciones = '$_id_composiciones' ";
-				}
-			}
-			if (isset($_POST["forma_administracion"]))
-			{
-				$_forma_administracion = $_POST["forma_administracion"];
-				if ($_forma_administracion != "0")
-				{
-					$where3 = " AND fichas.forma_administracion_fichas = '$_forma_administracion' ";
-				}
-			}
-			
-			if (isset($_POST["id_laboratorios"]))
-			{
-				$_id_laboratorios = $_POST["id_laboratorios"];
-				if ($_id_laboratorios > 0)
-				{
-					$where4 = " AND fichas.id_laboratorios = '$_id_laboratorios' ";
-				}
-			}
-			if (isset($_POST["clasificacion_farmacologica"]))
-			{
-				$_clasificacion_farmacologica = $_POST["clasificacion_farmacologica"];
-				if ($_clasificacion_farmacologica > 0)
-				{
-					$where5 = " AND fichas.clasificacion_farmacologica_fichas = '$_clasificacion_farmacologica' ";
-				}
-			}
+					$columnaDis =" DISTINCT (d.*)";
+					$tablaDis ="public.fichas_distribuidores fd INNER JOIN public.distribuidores d ON fd.id_distribuidores = d.id_distribuidores";
+					$whereDis = "fd.id_fichas  IN(".$fichaConsultadaIds.") AND ".$where;
 					
-			$where_tot = $where . $where1 . $where2 . $where3 . $where4 . $where5 . $where6; 
-			
-			
-			
-			$resultSet = $buscador->getCondiciones($columnas, $tablas, $where_tot, $id);
-		
-			$CantProductos = count($resultSet);
+					$resultDisBus = $distribuidores->getCondiciones($columnaDis,$tablaDis,$whereDis,"d.id_distribuidores");
+					
+					$columnaLab =" DISTINCT l.*";
+					$tablaLab ="public.fichas_laboratorios fl INNER JOIN public.laboratorios l ON fl.id_laboratorios = l.id_laboratorios";
+					$whereLab = "fl.id_fichas IN(".$fichaConsultadaIds.") AND ".$where;
+						
+					$resultLabBus = $laboratorios->getCondiciones($columnaLab,$tablaLab,$whereLab,"l.id_laboratorios");
+					
+					$columnaPrincAct =" DISTINCT comp.*";
+					$tablaPrincAct = "public.fichas_composiciones fc INNER JOIN public.composiciones comp ON fc.id_composiciones = comp.id_composiciones";
+					$wherePrincAct = " fc.id_fichas IN (".$fichaConsultadaIds.") AND ".$where;
+						
+					$resultPrinBus = $principios_activos->getCondiciones($columnaPrincAct, $tablaPrincAct, $wherePrincAct, "comp.id_composiciones");
+					
+					//$resultSet = $buscador->getBy( "id_fichas  IN(".$fichaConsultadaIds.") AND ".$where);
+					$resultPro = $productos->getBy(" tipo_ficha= 'P' AND id_fichas  IN(".$fichaConsultadaIds.") AND ".$where);
+					//$resultAliBus = $alimentos->getBy( "id_fichas  IN(".$fichaConsultadaIds.") AND ".$where);
+					$resultAli = $alimentos->getBy("tipo_ficha= 'A' AND id_fichas  IN(".$fichaConsultadaIds.") AND ".$where);
+				}
 				
+				//tipo_ficha= 'P'
+				$CantProductos = count($resultPro);
+				$CantAlimentos  =  count($resultAli);
+				$CantPrincipios  =  count($resultPrinBus);
+				$CantLaboratorios  =  count($resultLabBus);
+				$CantDistribuidores  =  count($resultDisBus);
+				
+				
+			}
 		
 		
 		}

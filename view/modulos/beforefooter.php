@@ -49,8 +49,8 @@
 			 	
 	      		<a href="#" class="before-footer-texto" ><span class="glyphicon glyphicon-star-empty" ><?php echo " Productos Favoritos" ;?></span> </a><br>
 				<a href="#" class="before-footer-texto" ><span class="glyphicon glyphicon-heart" ><?php echo " Productos Recientes" ;?></span> </a><br>
+				<a href="<?php echo $helper->url("Afiliaciones","VistaActualizarDatos"); ?>" class="before-footer-texto" ><span class="glyphicon glyphicon-list-alt" ><?php echo " Actualizar Datos de Usuario" ;?></span> </a>
 				
-				<a href="#" class="before-footer-texto" ><span class="glyphicon glyphicon-tasks" ><?php echo " Actualizar Datos de Usuario" ;?></span> </a><br>
 				
 				<?php } ?>
 			</div>
