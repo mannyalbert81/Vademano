@@ -385,12 +385,9 @@
     	  	<div class="col-xs-6 col-md-1">
 			</div>
     	    <div class="col-xs-6 col-md-10">
-			    <div class="col-xs-6 col-md-1">
-	    	  		
-	    	  		
-				</div>
+			  
     	  
-	    	  	<div class="col-xs-6 col-md-2">
+	    	  	<div class="col-xs-6 col-md-3">
 	    	  		<p class="calibri-bold" >Clasificacion Farmacologica</p>
 				</div>
 	    	  
@@ -398,7 +395,7 @@
 				  	<p class="calibri-bold" >Especies</p>
 				  	
 				</div>
-	    	  	<div class="col-xs-6 col-md-2">
+	    	  	<div class="col-xs-6 col-md-3">
 				  	<p class="calibri-bold">Principios Activos</p>
 				</div>
 	    	  	<div class="col-xs-6 col-md-2">
@@ -410,10 +407,7 @@
 				
 				</div>
 	    	  
-	    	  	<div class="col-xs-6 col-md-1">
-	    	  		
-	    	  		
-				</div>
+	    	  	
     	  	</div>
 			<div class="col-xs-6 col-md-1">
 	    	</div>
@@ -424,13 +418,10 @@
     	  	<div class="col-xs-6 col-md-1">
     	  	</div>
     	  	<div class="col-xs-6 col-md-10">
-	    	  <div class="col-xs-6 col-md-1">
-	    	  		
-	    	  		
-				</div>
+	    	 
 	    	  
-	    	  	<div class="col-xs-6 col-md-2">
-	    	  	<select name="categoria_farmacologica" id="categoria_farmacologica"  class="form-control" size="4" style="font-family: calibri; " >
+	    	  	<div class="col-xs-6 col-md-3">
+	    	  	<select name="categoria_farmacologica" id="categoria_farmacologica"  class="form-control" size="5" style="font-family: calibri; " >
 							<option value="0"  > --SELECCIONE--</option>
 							<?php foreach($resultCat as $resCat) {?>
 								<option value="<?php echo $resCat->clasificacion_farmacologica_fichas; ?>"  ><?php echo $resCat->clasificacion_farmacologica_fichas; ?> </option>
@@ -440,7 +431,7 @@
 				</div>
 	    	  
 	    	  	<div class="col-xs-6 col-md-2" >
-				  	<select name="id_especies" id="id_especies"  class="form-control" size="4" style="font-family: calibri; " >
+				  	<select name="id_especies" id="id_especies"  class="form-control" size="5" style="font-family: calibri; " >
 							<option value="0"  > --SELECCIONE--</option>
 							<?php foreach($resultEsp as $resEsp) {?>
 								<option value="<?php echo $resEsp->id_especies; ?>"  ><?php echo $resEsp->nombre_especies; ?> </option>
@@ -449,8 +440,8 @@
 					</select> 
 				  	
 				</div>
-	    	  	<div class="col-xs-6 col-md-2" >
-				  	<select name="id_composiciones" id="id_composiciones"  class="form-control" size="4" style="font-family: calibri; ">
+	    	  	<div class="col-xs-6 col-md-3" >
+				  	<select name="id_composiciones" id="id_composiciones"  class="form-control" size="5" style="font-family: calibri; ">
 							<option value="0"  > --SELECCIONE--</option>
 							<?php foreach($resultCom as $resCom) {?>
 								<option value="<?php echo $resCom->id_composiciones; ?>"  ><?php echo $resCom->nombre_composiciones; ?> </option>
@@ -459,7 +450,7 @@
 					</select>
 				</div>
 	    	  	<div class="col-xs-6 col-md-2" style="height: 60px;">
-				  	<select name="forma_administracion" id="forma_administracion"  class="form-control" size="4" style="font-family: calibri;">
+				  	<select name="forma_administracion" id="forma_administracion"  class="form-control" size="5" style="font-family: calibri;">
 							<option value="0"  > --SELECCIONE--</option>
 							<?php foreach($resultFor as $resFor) {?>
 								<option value="<?php echo $resFor->id_formas_administracion; ?>"  ><?php echo $resFor->nombre_formas_administracion; ?> </option>
@@ -468,17 +459,14 @@
 					</select>
 				</div>
 	    	  	<div class="col-xs-6 col-md-2" style="height: 60px;">
-				  		<select name="id_laboratorios" id="id_laboratorios"  class="form-control" size="4" style="font-family: calibri;">
+				  		<select name="id_laboratorios" id="id_laboratorios"  class="form-control" size="5" style="font-family: calibri;">
 							<option value="0"  > --SELECCIONE--</option>	
 							<?php foreach($resultLab as $resLab) {?>
 					    	<option value="<?php echo $resLab->id_laboratorios; ?>"  ><?php echo $resLab->nombre_laboratorios; ?> </option>
 							<?php } ?>
 					 </select>
 				</div>
-	    	  	<div class="col-xs-6 col-md-1">
-	    	  		
-	    	  		
-				</div>
+	    	  
 	    	  	
 			</div>
 			
