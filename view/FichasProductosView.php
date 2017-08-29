@@ -323,7 +323,7 @@ transform: translateY(0px);
 	          	<div id="mensaje_contenido_busqueda" class="errores"></div>
 	          </div>
 	          
-	       <div class="col-lg-4" style="margin-top: 4px;">
+	       <div class="col-lg-4" style="margin-top: 2px;">
            <select name="criterio_busqueda" id="criterio_busqueda"  class="form-control">
                                     <?php foreach($resultMenu as $val=>$desc) {?>
                                          <option value="<?php echo $val ?>" <?php //if ($resRol->id_rol == $resEdit->id_rol )  echo  ' selected="selected" '  ;  ?> ><?php echo $desc ?> </option>
