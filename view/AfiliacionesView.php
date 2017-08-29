@@ -15,6 +15,7 @@
   
     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 	
+	  <link rel="stylesheet" href="view/font-awesome/css/font-awesome.min.css">
 	
    <script src="http://maps.google.com/maps/api/js?key=AIzaSyDyu4jW-edLYPnTIBRqHtUxisvp3NRVBps"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/gmaps.js/0.4.24/gmaps.js"></script>
@@ -666,19 +667,28 @@
 
   			<div class="row">
 		    <div class="col-xs-6 col-md-6">
-		    <div class="form-group ">
-		                          <label for="correo_usuario" class="control-label">Email:</label>
-                                  <input type="email" class="form-control" id="correo_usuario" name="correo_usuario" value=""  placeholder="Email">
-                                  <div id="mensaje_correo" class="errores"></div>
-            </div>
+		    <div class="form-group">
+                             <label for="correo_usuario" class="control-label">Email:</label></br>
+                             <div class="input-group margin-bottom-sm">
+                             <span class="input-group-addon"><i class="fa fa-envelope-o fa-fw"></i></span>
+							  <input class="form-control" type="email" id="correo_usuario" name="correo_usuario" placeholder="Email">
+							</div>
+							<span class="help-block errores" id="mensaje_correo" ></span>
+							</div>
+            
+            
             </div>
 		    
 		    <div class="col-xs-6 col-md-6">
-		    <div class="form-group ">
-		                          <label for="ccorreo_usuario" class="control-label">Confirme Email:</label>
-                                  <input type="email" class="form-control" id="ccorreo_usuario" name="ccorreo_usuario" value=""  placeholder="Confirme Email">
-                                  <div id="mensaje_ccorreo" class="errores"></div>
-            </div>
+		    <div class="form-group">
+                             <label for="ccorreo_usuario" class="control-label">Confirme Email:</label></br>
+                             <div class="input-group margin-bottom-sm">
+                             <span class="input-group-addon"><i class="fa fa-envelope-o fa-fw"></i></span>
+							  <input class="form-control" type="email" id="ccorreo_usuario" name="ccorreo_usuario" placeholder="Confirme Email">
+							</div>
+                        	<span class="help-block errores" id="mensaje_ccorreo" ></span>
+							</div>
+            
 		    </div>
 			</div>
            
@@ -686,19 +696,27 @@
            
            <div class="row">
 		    <div class="col-xs-6 col-md-6">
-		    <div class="form-group ">
-		                          <label for="nombres_usuario" class="control-label">Nombres:</label>
-                                  <input type="text" class="form-control" id="nombres_usuario" name="nombres_usuario" value=""  placeholder="Nombres">
-                                  <div id="mensaje_nombres" class="errores"></div>
-            </div>
+		    
+		    <div class="form-group">
+                             <label for="nombres_usuario" class="control-label">Nombres:</label></br>
+                             <div class="input-group margin-bottom-sm">
+                             <span class="input-group-addon"><i class="fa fa-user-circle"></i></span>
+							  <input class="form-control" type="text" id="nombres_usuario" name="nombres_usuario" placeholder="Nombres">
+							</div>
+                            <span class="help-block errores" id="mensaje_nombres" ></span>
+							</div>
 		    </div>
 		    
 		    <div class="col-xs-6 col-md-6">
-		    <div class="form-group ">
-		                          <label for="apellidos_usuario" class="control-label">Apellidos:</label>
-                                  <input type="text" class="form-control" id="apellidos_usuario" name="apellidos_usuario" value=""  placeholder="Apellidos">
-                                  <div id="mensaje_apellidos" class="errores"></div>
-            </div>
+		    <div class="form-group">
+                             <label for="apellidos_usuario" class="control-label">Apellidos:</label></br>
+                             <div class="input-group margin-bottom-sm">
+                             <span class="input-group-addon"><i class="fa fa-user-circle"></i></span>
+							  <input class="form-control" type="text" id="apellidos_usuario" name="apellidos_usuario" placeholder="Apellidos">
+							</div>
+                            <span class="help-block errores" id="mensaje_apellidos" ></span>
+							</div>
+		    
 		    </div>
 			</div>
          
@@ -719,31 +737,42 @@
             </div>
             
             <div class="col-xs-6 col-md-6" id="div_extra_ocupaciones_usuario" style="display: none;" >
-		    <div class="form-group ">
-		                          <label for="extra_ocupaciones_usuario" class="control-label">Especifique su Ocupación:</label>
-                                  <input type="text" class="form-control" id="extra_ocupaciones_usuario" name="extra_ocupaciones_usuario" value=""  placeholder="Ocupación">
-                                  <span class="help-block"></span>
-            </div>
+		    <div class="form-group">
+                             <label for="extra_ocupaciones_usuario" class="control-label">Especifique su Ocupación:</label></br>
+                             <div class="input-group margin-bottom-sm">
+                             <span class="input-group-addon"><i class="fa fa-folder-open"></i></span>
+							  <input class="form-control" type="text" id="extra_ocupaciones_usuario" name="extra_ocupaciones_usuario" placeholder="Ocupación">
+							</div>
+                        	</div>
+		    
 		    </div>
             </div>
 			
-			
+				
 			 
             <div class="row">
 		    <div class="col-xs-6 col-md-6">
-		    <div class="form-group ">
-		                          <label for="clave_usuario" class="control-label">Clave Usuario:</label>
-                                  <input type="password" class="form-control" id="clave_usuario" name="clave_usuario" value=""  placeholder="Clave">
-                                <div id="mensaje_clave" class="errores"></div>
-            </div>
+		    <div class="form-group">
+                             <label for="clave_usuario" class="control-label">Clave Usuario:</label></br>
+                             <div class="input-group margin-bottom-sm">
+                             <span class="input-group-addon"><i class="fa fa-unlock-alt"></i></span>
+							  <input class="form-control" type="password" id="clave_usuario" name="clave_usuario" placeholder="Clave">
+							</div>
+                            <span class="help-block errores" id="mensaje_clave" ></span>
+							</div>
+		    
 		    </div>
 		    
 		    <div class="col-xs-6 col-md-6">
-		    <div class="form-group ">
-		                          <label for="cclave_usuario" class="control-label">Confirme Clave:</label>
-                                  <input type="password" class="form-control" id="cclave_usuario" name="cclave_usuario" value=""  placeholder="Confirme Clave">
-                               <div id="mensaje_cclave" class="errores"></div>
-            </div>
+		    <div class="form-group">
+                             <label for="cclave_usuario" class="control-label">Confirme Usuario:</label></br>
+                             <div class="input-group margin-bottom-sm">
+                             <span class="input-group-addon"><i class="fa fa-unlock-alt"></i></span>
+							  <input class="form-control" type="password" id="cclave_usuario" name="cclave_usuario" placeholder="Confirme Clave">
+							</div>
+                            <span class="help-block errores" id="mensaje_cclave" ></span>
+							</div>
+		    
 		    </div>
 			</div>
 			
@@ -782,19 +811,26 @@
 			
 			<div class="row">
 		    <div class="col-xs-6 col-md-6">
-		    <div class="form-group ">
-		                          <label for="fecha_nacimiento_usuario" class="control-label">Fecha Nacimiento:</label>
-                                  <input type="date" class="form-control" id="fecha_nacimiento_usuario" name="fecha_nacimiento_usuario" value=""  placeholder="Fecha Nacimiento">
-                                  <div id="mensaje_fecha_nacimiento" class="errores"></div>
-            </div>
+		    <div class="form-group">
+                             <label for="fecha_nacimiento_usuario" class="control-label">Fecha Nacimiento:</label></br>
+                             <div class="input-group margin-bottom-sm">
+                             <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+							  <input class="form-control" type="date" id="fecha_nacimiento_usuario" name="fecha_nacimiento_usuario" placeholder="Fecha Nacimiento">
+							</div>
+                            <span class="help-block errores" id="mensaje_fecha_nacimiento" ></span>
+							</div>
+		    
 		    </div>
 		    
 		    <div class="col-xs-6 col-md-6">
-		    <div class="form-group ">
-		                          <label for="telefono_usuario" class="control-label">Teléfono:</label>
-                                  <input type="text" class="form-control" id="telefono_usuario" name="telefono_usuario" value=""  placeholder="Teléfono">
-                                 
-            </div>
+		    
+		    <div class="form-group">
+                             <label for="telefono_usuario" class="control-label">Teléfono:</label></br>
+                             <div class="input-group margin-bottom-sm">
+                             <span class="input-group-addon"><i class="fa fa-tablet"></i></span>
+							  <input class="form-control" type="text" id="telefono_usuario" name="telefono_usuario" placeholder="Teléfono">
+							</div>
+                          </div>
 		    </div>
 		    
 		   
@@ -802,11 +838,13 @@
            
           <div class="row">
            <div class="col-xs-6 col-md-6">
-		    <div class="form-group ">
-		                          <label for="celular_usuario" class="control-label">Celular:</label>
-                                  <input type="text" class="form-control" id="celular_usuario" name="celular_usuario" value=""  placeholder="Celular">
-                                
-            </div>
+		     <div class="form-group">
+                             <label for="celular_usuario" class="control-label">Celular:</label></br>
+                             <div class="input-group margin-bottom-sm">
+                             <span class="input-group-addon"><i class="fa fa-tablet"></i></span>
+							  <input class="form-control" type="text" id="celular_usuario" name="celular_usuario" placeholder="Celular">
+							</div>
+                          </div>
 		    </div>
            </div>
            
@@ -817,7 +855,7 @@
             <div class="row">
 		    <div class="col-xs-12 col-md-12 col-lg-12" style="text-align: center; margin-top: 20px;">
 		    <div class="form-group">
-                                  <button type="submit" id="btn_guardar" name="btn_guardar" class="btn btn-success">Afiliarse</button>
+                                  <button type="submit" id="btn_guardar" name="btn_guardar" class="btn btn-success"><i class="fa fa-lock fa-spin" aria-hidden="true"></i> Afiliarse</button>
             </div>
 		    </div>
 		    </div>
