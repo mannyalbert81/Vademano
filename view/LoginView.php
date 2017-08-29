@@ -21,15 +21,22 @@
      
 	<style type="text/css">
 
-.menu-fixed {
-	position:fixed;
-	z-index:1000;
-	top:0;
-	left:0;
-	right: 0;
-	
-}
-	</style>
+	.menu-fixed {
+		position:fixed;
+		z-index:1000;
+		top:0;
+		left:0;
+		right: 0;
+	  }
+	 h4 {
+	    font-size: 25px;
+	    font-style: verdana;
+	    color:#696969;
+	    text-decoration:none;
+	    text-shadow: -0px -0px 0px #101010, 0px 1px 0px #505050;
+	  }
+
+  	</style>
 	
 	
 	<script>

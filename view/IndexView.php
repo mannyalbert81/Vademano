@@ -20,7 +20,7 @@
 	right: 0;
 	
 }
-	</style>
+</style>
 	
 	
 	<script>

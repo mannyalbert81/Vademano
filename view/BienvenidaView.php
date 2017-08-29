@@ -15,15 +15,13 @@
   <script src="view/js/noty.js"></script>
        
      <style type="text/css">
-
-.menu-fixed {
-	position:fixed;
-	z-index:1000;
-	top:0;
-	left:0;
-	right: 0;
-	
-}
+	.menu-fixed {
+		position:fixed;
+		z-index:1000;
+		top:0;
+		left:0;
+		right: 0;
+		}
 	</style>
 	
 	
@@ -40,6 +38,7 @@
 			});
 		});
 	 </script>     
+    
         <style>
             input{
                 margin-top:5px;
@@ -53,14 +52,9 @@
    	 </head>
    
    
-   
      <body class="cuerpo" >
-    	 
-    
     	 	<?php include("view/modulos/slide.php"); ?>
-   		 	
-
-   
+      
    	<form action="<?php echo $helper->url("Preguntas","index"); ?>" method="post" class="col-lg-12">
    			<div class="row" style="margin-top: 30px; " >
 			   <div class="col-xs-12 col-md-12 col-lg-12">
