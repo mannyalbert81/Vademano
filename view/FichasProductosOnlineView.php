@@ -32,6 +32,8 @@
 	right: 0;
 	
 }
+
+
 	</style>
 	
 	
@@ -48,6 +50,28 @@
 			});
 		});
 	 </script>
+	
+	
+	<script type="text/javascript">
+	$(document).ready(function(){
+		 
+		$('.ir-arriba').click(function(){
+			$('body, html').animate({
+				scrollTop: '0px'
+			}, 300);
+		});
+	 
+		$(window).scroll(function(){
+			if( $(this).scrollTop() > 0 ){
+				$('.ir-arriba').slideDown(300);
+			} else {
+				$('.ir-arriba').slideUp(300);
+			}
+		});
+	 
+	});
+	</script>
+	
 	
     <style>
     div.izq{
@@ -464,7 +488,9 @@
 	
 	</div>
 </div>  
+<span class="ir-arriba">^</span>
   </form>
+
  <div style="float: left;  width: 98%; margin-top: 50px;">
  <div class="row">
     <div style="background-color:#000000;  width: 100%; color:#ffffff; font-family: sans-serif; font-size:85%; text-align: center; ">
@@ -472,5 +498,7 @@
 	</div>	
  </div>
  </div>  
+ 
+   
  </body>  
 </html>   
