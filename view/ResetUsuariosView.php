@@ -138,7 +138,7 @@
 			  <div class="col-lg-6 division" style=" margin-top: 20px">
    
      
-   			   <h4>Login</h4>
+   			   <h4>Restablecer Contraseña</h4>
                <div class="well">        
                <div class="row" style="padding-top: 10px">
                <div class="col-lg-6 col-md-3" >
