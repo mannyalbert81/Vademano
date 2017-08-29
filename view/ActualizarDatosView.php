@@ -1,4 +1,4 @@
- <div class="head" style=" -webkit-box-shadow: 0px 2px 2px 4px rgba(0,0,0,0.69);">
+ <div class="head menu" style=" -webkit-box-shadow: 0px 2px 2px 4px rgba(0,0,0,0.69);">
  <?php include("view/modulos/head.php"); ?>
  </div>
 <!DOCTYPE HTML>
@@ -20,7 +20,54 @@
 			webshims.polyfill('forms forms-ext');
 		</script>
  		
- 		
+ 	<style type="text/css">
+
+.menu-fixed {
+	position:fixed;
+	z-index:1000;
+	top:0;
+	left:0;
+	right: 0;
+	
+}
+	</style>
+	
+	
+	<script>
+			$(document).ready(function(){
+			var altura = $('.menu').offset().top;
+			
+			$(window).on('scroll', function(){
+				if ( $(window).scrollTop() > altura ){
+					$('.menu').addClass('menu-fixed');
+				} else {
+					$('.menu').removeClass('menu-fixed');
+				}
+			});
+		});
+	 </script>
+	 
+	 
+	 <script type="text/javascript">
+	$(document).ready(function(){
+		 
+		$('.ir-arriba').click(function(){
+			$('body, html').animate({
+				scrollTop: '0px'
+			}, 300);
+		});
+	 
+		$(window).scroll(function(){
+			if( $(this).scrollTop() > 0 ){
+				$('.ir-arriba').slideDown(300);
+			} else {
+				$('.ir-arriba').slideUp(300);
+			}
+		});
+	 
+	});
+	</script>
+		
 	<script>
     var imagenes=new Array(
 
@@ -776,11 +823,13 @@
            <img src="" id="imagen" width="715" height="430">
             <br><br>
              </div>
+             
+             
       </form>
 
         <div class="col-lg-12 col-md-12"> 
    		  <?php include("view/modulos/beforefooter.php"); ?>	
    		  </div>
-   		
+   		<span class="ir-arriba">^</span>
      </body>  
     </html>   

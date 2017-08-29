@@ -5,7 +5,7 @@
 </div>
 
 
-<div class="row" style="text-align: center; margin-top:20px; background-color: #4bae4f; "  >
+<div class="row head" style="text-align: center; margin-top:20px;"  >
 
 	 <div class="col-xs-2 col-md-2">
 	 </div>
@@ -14,8 +14,8 @@
  
  		<div class="col-xs-4 col-md-4">
  			 
- 			 <p class="calibri-bold-dos">Fichas Mas Visitadas</p>
- 			 <hr>	
+ 			 <h4><p class="calibri-bold-dos">Fichas Mas Visitadas</p></h4>
+ 				
  				<div id="myCarousel2" class="carousel slide" data-ride="carousel">
 					  <!-- Indicators -->
 				  
@@ -26,14 +26,14 @@
 					    <?php foreach($resultVis as $res) {?>
 				      		<?php if ($registro == 1) {?>
 				      			<div class="item active" >
-							      <div class="media" >
+							      <div class="media"  >
 									  <div class="media-left">
-									    <a href="<?php echo $helper->url("FichasProductos","ReporteFicha"); ?>&id_fichas=<?php echo $res->id_fichas; ?>&nombre_fichas=<?php echo $res->nombre_fichas; ?>">
-									      <img class="media-object" src="view/DevuelveImagen.php?id_valor=<?php echo $res->id_fichas; ?>&id_nombre=id_fichas&tabla=fichas_fotos&campo=foto_fichas_fotos" <?php echo $res->nombre_fichas; ?>" width="80" height="70">
+									    <a href="<?php echo $helper->url("FichasProductos","verFichaOnline"); ?>&id_fichas=<?php echo $res->id_fichas; ?>&nombre_fichas=<?php echo $res->nombre_fichas; ?>" target="_blank" >
+									      <img class="media-object" src="view/DevuelveImagen.php?id_valor=<?php echo $res->id_fichas; ?>&id_nombre=id_fichas&tabla=fichas_fotos&campo=foto_fichas_fotos" <?php echo $res->nombre_fichas; ?>" width="95" height="120">
 									    </a>
 									  </div>
-									  <div class="media-body">
-									    <h5 class="media-heading" style="color: #c80097; " > <strong> <?php echo $res->nombre_fichas; ?> </strong> </h5>
+									  <div class="media-body" style="width:480px; height:120px;">
+									    <h3 class="media-heading" style="color: #c80097; margin-top:30px;" > <strong> <?php echo $res->nombre_fichas; ?> </strong> </h3>
 									    <p>Consultas:  <?php echo $res->consultas_fichas; ?> </p>
 									  </div>
 								  </div>
@@ -44,12 +44,12 @@
 				    			<div class="item">
 								   	<div class="media">
 									  <div class="media-left">
-									    <a href="<?php echo $helper->url("FichasProductos","ReporteFicha"); ?>&id_fichas=<?php echo $res->id_fichas; ?>&nombre_fichas=<?php echo $res->nombre_fichas; ?>">
-									      <img class="media-object" src="view/DevuelveImagen.php?id_valor=<?php echo $res->id_fichas; ?>&id_nombre=id_fichas&tabla=fichas_fotos&campo=foto_fichas_fotos" <?php echo $res->nombre_fichas; ?>" width="80" height="70">
+									    <a href="<?php echo $helper->url("FichasProductos","verFichaOnline"); ?>&id_fichas=<?php echo $res->id_fichas; ?>&nombre_fichas=<?php echo $res->nombre_fichas; ?>" target="_blank">
+									      <img class="media-object" src="view/DevuelveImagen.php?id_valor=<?php echo $res->id_fichas; ?>&id_nombre=id_fichas&tabla=fichas_fotos&campo=foto_fichas_fotos" <?php echo $res->nombre_fichas; ?>" width="95" height="120">
 									    </a>
 									  </div>
-									  <div class="media-body">
-									    <h5 class="media-heading" style="color: #c80097; " > <strong> <?php echo $res->nombre_fichas; ?> </strong> </h5>
+									  <div class="media-body" style="width:480px; height:120px;">
+									    <h3 class="media-heading" style="color: #c80097; margin-top:30px;" > <strong> <?php echo $res->nombre_fichas; ?> </strong> </h3>
 									    <p>Consultas:  <?php echo $res->consultas_fichas; ?> </p>
 									  </div>
 								  </div>
@@ -74,7 +74,7 @@
 				   </div>
 					
 				</div>
-			<hr>	 	
+			<br>	 	
  		</div>
  		
  	</div>

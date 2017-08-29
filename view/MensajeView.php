@@ -36,8 +36,35 @@
                 float:right;
             }
                 
-            
+         h4 {
+	    font-size: 25px;
+	    font-style: verdana;
+	    color:#696969;
+	    text-decoration:none;
+	    text-shadow: -0px -0px 0px #101010, 0px 1px 0px #505050;
+	  }    
         </style>
+        
+        <script type="text/javascript">
+	$(document).ready(function(){
+		 
+		$('.ir-arriba').click(function(){
+			$('body, html').animate({
+				scrollTop: '0px'
+			}, 300);
+		});
+	 
+		$(window).scroll(function(){
+			if( $(this).scrollTop() > 0 ){
+				$('.ir-arriba').slideDown(300);
+			} else {
+				$('.ir-arriba').slideUp(300);
+			}
+		});
+	 
+	});
+	</script>
+        
     </head>
     <body>
     
@@ -224,6 +251,6 @@
        <footer class="col-lg-12">
      	 	<?php include("view/modulos/footer.php"); ?>
     	 </footer> 
-   
+   <span class="ir-arriba">^</span>
      </body>  
     </html>   

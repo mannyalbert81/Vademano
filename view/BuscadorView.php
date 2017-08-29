@@ -47,6 +47,26 @@
 		}); 
 	</script>
     
+    <script type="text/javascript">
+	$(document).ready(function(){
+		 
+		$('.ir-arriba').click(function(){
+			$('body, html').animate({
+				scrollTop: '0px'
+			}, 300);
+		});
+	 
+		$(window).scroll(function(){
+			if( $(this).scrollTop() > 0 ){
+				$('.ir-arriba').slideDown(300);
+			} else {
+				$('.ir-arriba').slideUp(300);
+			}
+		});
+	 
+	});
+	</script>
+    
   	<script >
 		$(document).ready(function(){
 			
@@ -385,12 +405,9 @@
     	  	<div class="col-xs-6 col-md-1">
 			</div>
     	    <div class="col-xs-6 col-md-10">
-			    <div class="col-xs-6 col-md-1">
-	    	  		
-	    	  		
-				</div>
+			  
     	  
-	    	  	<div class="col-xs-6 col-md-2">
+	    	  	<div class="col-xs-6 col-md-3">
 	    	  		<p class="calibri-bold" >Clasificacion Farmacologica</p>
 				</div>
 	    	  
@@ -398,7 +415,7 @@
 				  	<p class="calibri-bold" >Especies</p>
 				  	
 				</div>
-	    	  	<div class="col-xs-6 col-md-2">
+	    	  	<div class="col-xs-6 col-md-3">
 				  	<p class="calibri-bold">Principios Activos</p>
 				</div>
 	    	  	<div class="col-xs-6 col-md-2">
@@ -410,10 +427,7 @@
 				
 				</div>
 	    	  
-	    	  	<div class="col-xs-6 col-md-1">
-	    	  		
-	    	  		
-				</div>
+	    	  	
     	  	</div>
 			<div class="col-xs-6 col-md-1">
 	    	</div>
@@ -424,13 +438,10 @@
     	  	<div class="col-xs-6 col-md-1">
     	  	</div>
     	  	<div class="col-xs-6 col-md-10">
-	    	  <div class="col-xs-6 col-md-1">
-	    	  		
-	    	  		
-				</div>
+	    	 
 	    	  
-	    	  	<div class="col-xs-6 col-md-2">
-	    	  	<select name="categoria_farmacologica" id="categoria_farmacologica"  class="form-control" size="4" style="font-family: calibri; " >
+	    	  	<div class="col-xs-6 col-md-3">
+	    	  	<select name="categoria_farmacologica" id="categoria_farmacologica"  class="form-control" size="5" style="font-family: calibri; " >
 							<option value="0"  > --SELECCIONE--</option>
 							<?php foreach($resultCat as $resCat) {?>
 								<option value="<?php echo $resCat->clasificacion_farmacologica_fichas; ?>"  ><?php echo $resCat->clasificacion_farmacologica_fichas; ?> </option>
@@ -440,7 +451,7 @@
 				</div>
 	    	  
 	    	  	<div class="col-xs-6 col-md-2" >
-				  	<select name="id_especies" id="id_especies"  class="form-control" size="4" style="font-family: calibri; " >
+				  	<select name="id_especies" id="id_especies"  class="form-control" size="5" style="font-family: calibri; " >
 							<option value="0"  > --SELECCIONE--</option>
 							<?php foreach($resultEsp as $resEsp) {?>
 								<option value="<?php echo $resEsp->id_especies; ?>"  ><?php echo $resEsp->nombre_especies; ?> </option>
@@ -449,8 +460,8 @@
 					</select> 
 				  	
 				</div>
-	    	  	<div class="col-xs-6 col-md-2" >
-				  	<select name="id_composiciones" id="id_composiciones"  class="form-control" size="4" style="font-family: calibri; ">
+	    	  	<div class="col-xs-6 col-md-3" >
+				  	<select name="id_composiciones" id="id_composiciones"  class="form-control" size="5" style="font-family: calibri; ">
 							<option value="0"  > --SELECCIONE--</option>
 							<?php foreach($resultCom as $resCom) {?>
 								<option value="<?php echo $resCom->id_composiciones; ?>"  ><?php echo $resCom->nombre_composiciones; ?> </option>
@@ -459,7 +470,7 @@
 					</select>
 				</div>
 	    	  	<div class="col-xs-6 col-md-2" style="height: 60px;">
-				  	<select name="forma_administracion" id="forma_administracion"  class="form-control" size="4" style="font-family: calibri;">
+				  	<select name="forma_administracion" id="forma_administracion"  class="form-control" size="5" style="font-family: calibri;">
 							<option value="0"  > --SELECCIONE--</option>
 							<?php foreach($resultFor as $resFor) {?>
 								<option value="<?php echo $resFor->id_formas_administracion; ?>"  ><?php echo $resFor->nombre_formas_administracion; ?> </option>
@@ -468,17 +479,14 @@
 					</select>
 				</div>
 	    	  	<div class="col-xs-6 col-md-2" style="height: 60px;">
-				  		<select name="id_laboratorios" id="id_laboratorios"  class="form-control" size="4" style="font-family: calibri;">
+				  		<select name="id_laboratorios" id="id_laboratorios"  class="form-control" size="5" style="font-family: calibri;">
 							<option value="0"  > --SELECCIONE--</option>	
 							<?php foreach($resultLab as $resLab) {?>
 					    	<option value="<?php echo $resLab->id_laboratorios; ?>"  ><?php echo $resLab->nombre_laboratorios; ?> </option>
 							<?php } ?>
 					 </select>
 				</div>
-	    	  	<div class="col-xs-6 col-md-1">
-	    	  		
-	    	  		
-				</div>
+	    	  
 	    	  	
 			</div>
 			
@@ -562,7 +570,7 @@
 	  	         </a>
                  <h2><?php echo $res->nombre_fichas; ?></h2>
                  <p><?php echo $res->clasificacion_farmacologica_fichas; ?></p>
-                 <a class="link" href="<?php echo $helper->url("FichasProductos","verFichaOnline"); ?>&id_fichas=<?php echo $res->id_fichas; ?>&nombre_fichas=<?php echo $res->nombre_fichas; ?>">Leer mas</a>
+                 <a class="link" href="<?php echo $helper->url("FichasProductos","verFichaOnline"); ?>&id_fichas=<?php echo $res->id_fichas; ?>&nombre_fichas=<?php echo $res->nombre_fichas; ?>" target="_blank">Leer mas</a>
                  </div>
                  </div>
 				             
@@ -573,7 +581,7 @@
                  <div class="mascara">
                  <h2><?php echo $res->nombre_fichas; ?></h2>
                  <p><?php echo $res->clasificacion_farmacologica_fichas; ?></p>
-                 <a class="link" href="<?php echo $helper->url("FichasProductos","verFichaOnline"); ?>&id_fichas=<?php echo $res->id_fichas; ?>&nombre_fichas=<?php echo $res->nombre_fichas; ?>">Leer mas</a>
+                 <a class="link" href="<?php echo $helper->url("FichasProductos","verFichaOnline"); ?>&id_fichas=<?php echo $res->id_fichas; ?>&nombre_fichas=<?php echo $res->nombre_fichas; ?>" target="_blank">Leer mas</a>
                  </div>
                  </div>
 		        
@@ -681,6 +689,7 @@
    			
 	 </form>
 	 	 
-	 <div style="width: 100%; padding:50px 0px; float: left;"></div>	    	 
+	 <div style="width: 100%; padding:50px 0px; float: left;"></div>	
+	 <span class="ir-arriba">^</span>    	 
     </body>
 </html>

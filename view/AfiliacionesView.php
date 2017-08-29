@@ -1,4 +1,4 @@
-<div class="head" style=" -webkit-box-shadow: 0px 2px 2px 4px rgba(0,0,0,0.69);">
+<div class="head menu" style=" -webkit-box-shadow: 0px 2px 2px 4px rgba(0,0,0,0.69);">
  <?php include("view/modulos/head.php"); ?>
 </div>
 <?php include("view/modulos/slide.php"); ?>
@@ -19,6 +19,38 @@
    <script src="http://maps.google.com/maps/api/js?key=AIzaSyDyu4jW-edLYPnTIBRqHtUxisvp3NRVBps"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/gmaps.js/0.4.24/gmaps.js"></script>
      
+	<style type="text/css">
+.menu-fixed {
+	position:fixed;
+	z-index:1000;
+	top:0;
+	left:0;
+	right: 0;
+	
+}
+ h4 {
+	    font-size: 25px;
+	    font-style: verdana;
+	    color:#696969;
+	    text-decoration:none;
+	    text-shadow: -0px -0px 0px #101010, 0px 1px 0px #505050;
+	  }
+	</style>
+	
+	
+	<script>
+			$(document).ready(function(){
+			var altura = $('.menu').offset().top;
+			
+			$(window).on('scroll', function(){
+				if ( $(window).scrollTop() > altura ){
+					$('.menu').addClass('menu-fixed');
+				} else {
+					$('.menu').removeClass('menu-fixed');
+				}
+			});
+		});
+	 </script>
 		
  		<script>
 		$(document).ready(function(){
@@ -62,6 +94,26 @@
     }
     </script>
 
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		 
+		$('.ir-arriba').click(function(){
+			$('body, html').animate({
+				scrollTop: '0px'
+			}, 300);
+		});
+	 
+		$(window).scroll(function(){
+			if( $(this).scrollTop() > 0 ){
+				$('.ir-arriba').slideDown(300);
+			} else {
+				$('.ir-arriba').slideUp(300);
+			}
+		});
+	 
+	});
+	</script>
 
  		<script >
 		$(document).ready(function(){
@@ -671,7 +723,7 @@
 		                          <label for="extra_ocupaciones_usuario" class="control-label">Especifique su Ocupación:</label>
                                   <input type="text" class="form-control" id="extra_ocupaciones_usuario" name="extra_ocupaciones_usuario" value=""  placeholder="Ocupación">
                                   <span class="help-block"></span>
-            </div> 
+            </div>
 		    </div>
             </div>
 			
@@ -758,7 +810,11 @@
 		    </div>
            </div>
            
-        <div class="row">
+          
+           
+           
+        
+            <div class="row">
 		    <div class="col-xs-12 col-md-12 col-lg-12" style="text-align: center; margin-top: 20px;">
 		    <div class="form-group">
                                   <button type="submit" id="btn_guardar" name="btn_guardar" class="btn btn-success">Afiliarse</button>
@@ -805,7 +861,17 @@
 	      lng: -78.174819,
 	      zoom:7
 	    });
-		  </script> 
-   	 	
+	   
+	   
+	    
+	  </script> 
+   	 <span class="ir-arriba">^</span>	
      </body>  
-    </html>   
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    </html> 

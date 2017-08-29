@@ -1,7 +1,9 @@
- <div class="head" style=" -webkit-box-shadow: 0px 2px 2px 4px rgba(0,0,0,0.69);">
+ <div class="head menu" style=" -webkit-box-shadow: 0px 2px 2px 4px rgba(0,0,0,0.69);">
  <?php include("view/modulos/headadmin.php"); ?>
  </div>
-
+<div class="menu1">
+     <?php include("view/modulos/menuadmin.php"); ?>
+     </div>
 <!DOCTYPE HTML>
 <html lang="es">
       <head>
@@ -19,7 +21,64 @@
 		    webshims.setOptions('forms-ext', {types: 'date'});
 			webshims.polyfill('forms forms-ext');
 		</script>
- 		
+ 		<style type="text/css">
+
+.menu-fixed {
+	position:fixed;
+	z-index:1000;
+	top:0;
+	left:0;
+	right: 0;
+	
+}
+.menu1-fixed {
+	position:fixed;
+	z-index:1000;
+	top:120;
+	left:0;
+	right: 0;
+	
+}
+
+	</style>
+	
+	
+	<script>
+			$(document).ready(function(){
+			var altura = $('.menu').offset().top;
+			
+			$(window).on('scroll', function(){
+				if ( $(window).scrollTop() > altura ){
+					$('.menu').addClass('menu-fixed');
+					$('.menu1').addClass('menu1-fixed');
+					
+				} else {
+					$('.menu').removeClass('menu-fixed');
+					$('.menu1').removeClass('menu1-fixed');
+				}
+			});
+		});
+	 </script>  
+	 
+	 <script type="text/javascript">
+	$(document).ready(function(){
+		 
+		$('.ir-arriba').click(function(){
+			$('body, html').animate({
+				scrollTop: '0px'
+			}, 300);
+		});
+	 
+		$(window).scroll(function(){
+			if( $(this).scrollTop() > 0 ){
+				$('.ir-arriba').slideDown(300);
+			} else {
+				$('.ir-arriba').slideUp(300);
+			}
+		});
+	 
+	});
+	</script>
  			<script >
 		$(document).ready(function(){
 
@@ -133,9 +192,7 @@
     </head>
     <body style="background-color: #FAFAFA;">
     
-       <div style=" -webkit-box-shadow: 0px 2px 2px 4px rgba(0,0,0,0.69);">
-     <?php include("view/modulos/menuadmin.php"); ?>
-     </div>
+     
        
   	  
              <form action="<?php echo $helper->url("Laboratorios","index_dos"); ?>" method="post"   class="col-lg-6">
@@ -258,6 +315,6 @@
    		</div>     
   
     		
-   
+   <span class="ir-arriba">^</span>
      </body>  
     </html>   
