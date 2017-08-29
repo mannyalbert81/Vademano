@@ -4,7 +4,7 @@
         <meta charset="utf-8"/>
         <title>Vademano 2015</title>
          <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-		  			   
+		  <link rel="stylesheet" href="view/css/bootstrap.css">		   
           <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 	      <script src="//code.jquery.com/jquery-1.10.2.js"></script>
 		  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
@@ -14,6 +14,25 @@
         <script src="http://jqueryvalidation.org/files/dist/additional-methods.min.js"></script>
  		
  		<script src="//cdn.jsdelivr.net/webshim/1.14.5/polyfiller.js"></script>
+ 		  <link rel="stylesheet" href="view/font-awesome/css/font-awesome.min.css">
+ 		  
+ 		<style type="text/css">
+		.zoom{
+			transition: 1.5s ease;
+	 		-moz-transition: 1.5s ease; /* Firefox */
+	 		-webkit-transition: 1.5s ease; /* Chrome - Safari */
+	 		-o-transition: 1.5s ease; /* Opera */
+		}
+		.zoom:hover{
+			transform : scale(1.2);
+			-moz-transform : scale(1.2); /* Firefox */
+			-webkit-transform : scale(1.2); /* Chrome - Safari */
+			-o-transform : scale(1.2); /* Opera */
+			-ms-transform : scale(1.2); /* IE9 */
+		}
+	   </style>
+ 		
+ 		
   		<script> 
   		$(document).ready(function(){
 		      
@@ -359,7 +378,7 @@
 			  	
 			  </div>
 			  <div class="col-xs-4 col-md-4">
-			    	<img src="view/images/logo_vademano.png" class="img-responsive" alt="Responsive image"> 
+			    	<img src="view/images/logo_vademano.png" class="img-responsive zoom" alt="Responsive image"> 
 			  </div>
 			  <div class="col-xs-3 col-md-3">
 			  	
@@ -367,8 +386,8 @@
 		 </div>
 	     <div class="row" style="text-align: center;"  >
 	     <div class="col-xs-4 col-md-4">
-			  		
-	       </div>
+		 </div>
+		 
 			  <div class="col-xs-4 col-md-4">
 			  	<div class="input-group">
 			      <input type="text" name="contenido_busqueda" id="contenido_busqueda" value="<?php if ($sel_contenido_busqueda != ""){echo $sel_contenido_busqueda;} ?>" class="form-control" placeholder="Texto a buscar...">
@@ -376,7 +395,7 @@
 			      <span class="input-group-btn">
 			        <button type="submit" id="btn_buscar" name="btn_buscar" class="btn btn-primary"><span class="glyphicon glyphicon-search	" ><?php echo "" ;?> </span></button>
 			      </span>
-			    </div><!-- /input-group -->
+			    </div>
 			  </div>
 			  <div class="col-xs-4 col-md-4">
 			  	

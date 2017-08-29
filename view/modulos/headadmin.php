@@ -20,6 +20,21 @@
         <script src="http://jqueryvalidation.org/files/dist/jquery.validate.min.js"></script>
         <script src="http://jqueryvalidation.org/files/dist/additional-methods.min.js"></script>
  
+ 	<style type="text/css">
+	.zoom{
+		transition: 1.5s ease;
+ 		-moz-transition: 1.5s ease; /* Firefox */
+ 		-webkit-transition: 1.5s ease; /* Chrome - Safari */
+ 		-o-transition: 1.5s ease; /* Opera */
+	}
+	.zoom:hover{
+		transform : scale(1.2);
+		-moz-transform : scale(1.2); /* Firefox */
+		-webkit-transform : scale(1.2); /* Chrome - Safari */
+		-o-transform : scale(1.2); /* Opera */
+		-ms-transform : scale(1.2); /* IE9 */
+	}
+</style>
 	
 </head>
 <body>
@@ -30,7 +45,7 @@
   
  <div class="pull-left" >
  
-    <img src="view/images/logo_vademano.png" class="img-responsive" alt="Responsive image">
+    <img src="view/images/logo_vademano.png" class="img-responsive zoom" alt="Responsive image">
  </div>
  <div class="pull-right">
    <a href="https://play.google.com">

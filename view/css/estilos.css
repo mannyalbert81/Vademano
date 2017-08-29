@@ -205,10 +205,10 @@
     display: none;
     font-size: 12px;
     margin-top: -35px;
-    margin-left: 150px;
+    margin-left: 90%;
     padding: 10px;
     position: absolute;
-     z-index: 1;
+    z-index:1;
 }
 .errores:before{ /* Este es un truco para crear una flechita */
     content: '';

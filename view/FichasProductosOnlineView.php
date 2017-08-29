@@ -15,7 +15,7 @@
   <script src="view/js/jquery.js"></script>
   <script src="view/js/bootstrapValidator.min.js"></script>
   <script src="view/js/noty.js"></script>
- 		
+ 		  <link rel="stylesheet" href="view/font-awesome/css/font-awesome.min.css">
  		<script src="//cdn.jsdelivr.net/webshim/1.14.5/polyfiller.js"></script>
 		
 		<script>
@@ -459,11 +459,16 @@
        
        <div class="col-xs-6 col-md-6 col-lg-6">
            <div class="col-xs-12 col-md-12">
-		    <div class="form-group ">
-		                          <label for="correo_usuario" class="control-label">Email:</label>
-                                  <input type="email" class="form-control" id="correo_usuario" name="correo_usuario" value=""  placeholder="Email">
-                                  <div id="mensaje_correo" class="errores"></div>
-            </div>
+		     				 <div class="form-group">
+		     				 <label for="correo_usuario" class="control-label">Usuario</label></br>
+                             <div class="input-group margin-bottom-sm">
+                             <span class="input-group-addon"><i class="fa fa-envelope-o fa-fw"></i></span>
+							  <input class="form-control" type="email" id="correo_usuario" name="correo_usuario" placeholder="Email address">
+							</div>
+							 <span class="help-block errores" id="mensaje_correo" ></span>
+							</div>
+							
+		   
             </div>
             <div class="col-xs-12 col-md-12">
 		    <div class="form-group ">
