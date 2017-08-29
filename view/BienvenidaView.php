@@ -120,6 +120,8 @@
     
     	 <div class="col-lg-12">
      	 	 <?php include("view/modulos/beforefooter.php"); ?>
-    	 </div>     
+    	 </div>  
+    	 
+    	 <span class="ir-arriba">^</span>   
     </body>
 </html>

@@ -120,5 +120,7 @@
      	 	<?php include("view/modulos/footer.php"); ?>
     	 </footer> 
 		 </div>
+		 
+		 <span class="ir-arriba">^</span>
      </body>  
     </html>   

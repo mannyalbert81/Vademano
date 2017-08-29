@@ -488,7 +488,7 @@
 	
 	</div>
 </div>  
-<span class="ir-arriba">^</span>
+
   </form>
 
  <div style="float: left;  width: 98%; margin-top: 50px;">
@@ -499,6 +499,6 @@
  </div>
  </div>  
  
-   
+  <span class="ir-arriba">^</span> 
  </body>  
 </html>   

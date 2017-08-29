@@ -2705,6 +2705,6 @@
   <?php include("view/modulos/beforefooter.php"); ?>
     		
        
-   
+   <span class="ir-arriba">^</span>
      </body>  
     </html>   

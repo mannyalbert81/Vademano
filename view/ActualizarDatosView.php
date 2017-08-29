@@ -823,11 +823,13 @@
            <img src="" id="imagen" width="715" height="430">
             <br><br>
              </div>
+             
+             
       </form>
 
         <div class="col-lg-12 col-md-12"> 
    		  <?php include("view/modulos/beforefooter.php"); ?>	
    		  </div>
-   		
+   		<span class="ir-arriba">^</span>
      </body>  
     </html>   

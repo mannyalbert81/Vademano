@@ -335,6 +335,6 @@
 	      zoom:7
 	    });
 	  </script> 
-   	 	
+   	 	<span class="ir-arriba">^</span>
     </body>
 </html>

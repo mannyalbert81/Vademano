@@ -270,5 +270,6 @@
      	 	 <?php include("view/modulos/beforefooter.php"); ?>
     	 </footer>     
     	</div>
+    	<span class="ir-arriba">^</span>
      </body>  
     </html>   

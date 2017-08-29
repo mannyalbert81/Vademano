@@ -124,6 +124,6 @@
    	 	 <footer class="col-lg-12">
      	 	<?php include("view/modulos/footer.php"); ?>
     	 </footer> 
-   
+   <span class="ir-arriba">^</span>
      </body>  
     </html>   
