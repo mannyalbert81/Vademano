@@ -15,7 +15,7 @@
   <script src="view/js/jquery.js"></script>
   <script src="view/js/bootstrapValidator.min.js"></script>
   <script src="view/js/noty.js"></script>
- 		
+ 		  <link rel="stylesheet" href="view/font-awesome/css/font-awesome.min.css">
  		<script src="//cdn.jsdelivr.net/webshim/1.14.5/polyfiller.js"></script>
 		
 		<script>
@@ -438,7 +438,7 @@
 	 	
 	 	  
 	 	   <div class="row">
-	 		<div class=" col-lg-4 col-md-4 col-xs-3">
+	 		<div class=" col-lg-4 col-md-4 col-xs-6">
 	 		 
 	 	   <h4><button type="submit" name="imprimirficha" id="imprimirficha" value="" style="-webkit-box-shadow: 0px 2px 2px 2px rgba(0,0,0,0.25); border-radius: 15px 15px 15px 15px; width: 150; height: 100" class='glyphicon glyphicon-print'><h4 style = "font-family: Arial;"> Imprimir Ficha Alimento</h4></button></h4>
 	 			<input type="hidden" id="id_fichas" name="id_fichas" value="<?php if($dicContenido['IDFICHA']!=""){echo $dicContenido['IDFICHA'];}else{/*{DISTIBUIDOPOR}*/}?>"/>
@@ -446,18 +446,17 @@
 	 		
            </div>
            
-           <div class=" col-lg-4 col-md-4 col-xs-3">
+           <div class=" col-lg-4 col-md-4 col-xs-6">
 	 		
 	 		 <h4><button type="button" name="enviar_email" id="enviar_email" style="-webkit-box-shadow: 0px 2px 2px 2px rgba(0,0,0,0.25); border-radius: 15px 15px 15px 15px; width: 150; height: 100" value="" class='glyphicon glyphicon-envelope'><h4 style = "font-family: Arial;"> Enviar Ficha por Email</h4></button></h4>
 	 		
            </div>
-           <div class=" col-lg-4 col-md-4 col-xs-3">
+           <div class=" col-lg-4 col-md-4 col-xs-6">
 
 	 		 <h4><button type="submit" id="consulta_tecnica" name="consulta_tecnica"  onclick="this.form.action='<?php echo $helper->url("ConsultaTecnica","index"); ?>'" style="-webkit-box-shadow: 0px 2px 2px 2px rgba(0,0,0,0.25); border-radius: 15px 15px 15px 15px; width: 150; height: 100" value="" class='glyphicon glyphicon-user'><h4 style = "font-family: Arial;"> Consulta Técnica</h4></button></h4>
 				<input type="hidden" id="id_fichas" name="id_fichas" value="<?php if($dicContenido['IDFICHA']!=""){echo $dicContenido['IDFICHA'];}else{/*{DISTIBUIDOPOR}*/}?>"/>
 	 		   <input type="hidden" id="nombre_fichas" name="nombre_fichas" value="<?php if($dicContenido['IDFICHA']!=""){echo $dicContenido['NOMBREFICHA'];}else{/*{DISTIBUIDOPOR}*/}?>"/>
-	 		   
-           </div>
+	 		 </div>
         </div>
         
         <div class="row">
@@ -472,24 +471,36 @@
        
        <div class="col-xs-6 col-md-6 col-lg-6">
            <div class="col-xs-12 col-md-12">
-		    <div class="form-group ">
-		                          <label for="correo_usuario" class="control-label">Email:</label>
-                                  <input type="email" class="form-control" id="correo_usuario" name="correo_usuario" value=""  placeholder="Email">
-                                  <div id="mensaje_correo" class="errores"></div>
+		     				 <div class="form-group">
+		     				 <label for="correo_usuario" class="control-label">Usuario:</label></br>
+                             <div class="input-group margin-bottom-sm">
+                             <span class="input-group-addon"><i class="fa fa-envelope-o fa-fw"></i></span>
+							  <input class="form-control" type="email" id="correo_usuario" name="correo_usuario" placeholder="Email address">
+							</div>
+							 <span class="help-block errores" id="mensaje_correo" ></span>
+							</div>
+							
+		   
             </div>
+            
+             <div class="col-xs-12 col-md-12">
+		     				 <div class="form-group">
+		     				 <label for="nombres_usuario" class="control-label">Nombre:</label></br>
+                             <div class="input-group margin-bottom-sm">
+                             <span class="input-group-addon"><i class="fa fa-address-book"></i></span>
+							  <input class="form-control" type="text" id="nombres_usuario" name="nombres_usuario" placeholder="Nombre">
+							</div>
+							 <span class="help-block errores" id="mensaje_nombres" ></span>
+							</div>
+							
+		   
             </div>
-            <div class="col-xs-12 col-md-12">
-		    <div class="form-group ">
-		                          <label for="nombres_usuario" class="control-label">Nombre:</label>
-                                  <input type="text" class="form-control" id="nombres_usuario" name="nombres_usuario" value=""  placeholder="Nombre">
-                                  <div id="mensaje_nombres" class="errores"></div>
-            </div>
-		    </div>
+            
 		    
 		    <div class="row">
 		    <div class="col-xs-12 col-md-12 col-lg-12" style="text-align: center; margin-top: 20px;">
 		    <div class="form-group">
-		      <input type="submit" id="btn_enviar" name="btn_enviar"  onclick="this.form.action='<?php echo $helper->url("FichasAlimentos","enviarficha"); ?>&id_fichas=<?php echo $dicContenido['IDFICHA']; ?>'" value="Enviar"  class="btn btn-info"/>
+		      <button type="submit" id="btn_enviar" name="btn_enviar"  onclick="this.form.action='<?php echo $helper->url("FichasAlimentos","enviarficha"); ?>&id_fichas=<?php echo $dicContenido['IDFICHA']; ?>'" value="Enviar"  class="btn btn-info"><i class="fa fa-envelope fa-spin" aria-hidden="true"></i> Enviar</button>
 		    </div>
 		    </div>
 		    </div>
