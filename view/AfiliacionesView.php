@@ -671,7 +671,7 @@
 		                          <label for="extra_ocupaciones_usuario" class="control-label">Especifique su Ocupación:</label>
                                   <input type="text" class="form-control" id="extra_ocupaciones_usuario" name="extra_ocupaciones_usuario" value=""  placeholder="Ocupación">
                                   <span class="help-block"></span>
-            </div>
+            </div> 
 		    </div>
             </div>
 			
@@ -758,11 +758,7 @@
 		    </div>
            </div>
            
-          
-           
-           
-        
-            <div class="row">
+        <div class="row">
 		    <div class="col-xs-12 col-md-12 col-lg-12" style="text-align: center; margin-top: 20px;">
 		    <div class="form-group">
                                   <button type="submit" id="btn_guardar" name="btn_guardar" class="btn btn-success">Afiliarse</button>
@@ -809,17 +805,7 @@
 	      lng: -78.174819,
 	      zoom:7
 	    });
-	   
-	   
-	    
-	  </script> 
+		  </script> 
    	 	
      </body>  
-    	
-    	
-    	
-    	
-    	
-    	
-    	
     </html>   
