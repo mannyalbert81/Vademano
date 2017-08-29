@@ -27,6 +27,23 @@
 		
 		<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
 		<script type="text/javascript" src="https://raw.github.com/HPNeo/gmaps/master/gmaps.js"></script>
+		
+		
+		<style type="text/css">
+	.zoom{
+		transition: 1.5s ease;
+ 		-moz-transition: 1.5s ease; /* Firefox */
+ 		-webkit-transition: 1.5s ease; /* Chrome - Safari */
+ 		-o-transition: 1.5s ease; /* Opera */
+	}
+	.zoom:hover{
+		transform : scale(1.2);
+		-moz-transform : scale(1.2); /* Firefox */
+		-webkit-transform : scale(1.2); /* Chrome - Safari */
+		-o-transform : scale(1.2); /* Opera */
+		-ms-transform : scale(1.2); /* IE9 */
+	}
+</style>
 			
 	 <script>
 		 $(document).ready(function() {
@@ -56,7 +73,7 @@
 <div class="container" >
  	<div class="pull-left" >
     	  
-		<img src="view/images/logo_vademano.png" class="img-responsive" alt="Vademano">
+		<img src="view/images/logo_vademano.png" class="img-responsive zoom" alt="Vademano">
  	</div>
  	<div class="pull-right" >
    

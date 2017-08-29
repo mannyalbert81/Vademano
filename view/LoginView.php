@@ -15,7 +15,7 @@
   <script src="view/js/bootstrapValidator.min.js"></script>
   <script src="view/js/noty.js"></script>
   <script src="view/js/ValidarLogin.js"></script>
-	
+  <link rel="stylesheet" href="view/font-awesome/css/font-awesome.min.css">
 	   <script src="http://maps.google.com/maps/api/js?key=AIzaSyDyu4jW-edLYPnTIBRqHtUxisvp3NRVBps"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/gmaps.js/0.4.24/gmaps.js"></script>
      
@@ -35,7 +35,7 @@
 	    text-decoration:none;
 	    text-shadow: -0px -0px 0px #101010, 0px 1px 0px #505050;
 	  }
-
+	
   	</style>
 	
 	
@@ -153,30 +153,34 @@
         <div class="row" style="padding-top: 10px">
     
                <div class="col-lg-6 col-md-3" >
-                     
-                              <div class="form-group">
-                                  <label for="usuario_usuario" class="control-label">Usuario</label>
-                                  <input type="text" class="form-control" id="usuario_usuario" name="usuario_usuario" value=""  placeholder="Usuario">
-                                  <span class="help-block"></span>
-                              </div>
-                              <div class="form-group">
-                                  <label for="clave_usuario" class="control-label">Password</label>
-                                  <input type="password" class="form-control" id="clave_usuario" name="clave_usuario" value="" placeholder="Password">
-                                  <span class="help-block"></span>
-                              </div>
-                             
-                              
+                             <div class="form-group">
+                             <label for="usuario_usuario" class="control-label">Usuario</label></br>
+                             <div class="input-group margin-bottom-sm">
+                             <span class="input-group-addon"><i class="fa fa-envelope-o fa-fw"></i></span>
+							  <input class="form-control" type="text" id="usuario_usuario" name="usuario_usuario" placeholder="Email address">
+							 <span class="help-block"></span>
+							</div>
+                            </div>
+                            
+                             <div class="form-group">
+                             <label for="clave_usuario" class="control-label">Password</label></br>
+                             <div class="input-group margin-bottom-sm">
+                             <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
+							  <input class="form-control" type="password" id="clave_usuario" name="clave_usuario" placeholder="Password">
+							 <span class="help-block"></span>
+							 </div>
+                             </div>
                             
 						    <div class="col-xs-12 col-md-12 col-lg-12" style="text-align: center; ">
-						    <div class="col-xs-3 col-md-3 col-lg-3" style="text-align: center;">
+						    <div class="col-xs-2 col-md-2 col-lg-2" style="text-align: center;">
 						    </div>
-						     <div class="col-xs-6 col-md-6 col-lg-6" style="text-align: center;">
-						      <div class="form-group">
-				                                 <button type="submit" class="btn btn-success btn-block">Login</button>
+						    <div class="col-xs-8 col-md-8 col-lg-8" style="text-align: center;">
+						    <div class="form-group">
+				                                 <button type="submit" class="btn btn-success btn-block"><i class="fa fa-unlock fa-spin" aria-hidden="true"></i> Login</button>
 				          
 				            </div>
 						    </div>
-						     <div class="col-xs-3 col-md-3 col-lg-3" style="text-align: center;">
+						    <div class="col-xs-2 col-md-2 col-lg-2" style="text-align: center;">
 						    </div>
 						    </div>
 						     
@@ -232,6 +236,6 @@
 	   
 	    
 	  </script> 
-   	 	<span class="ir-arriba">^</span>
+	  	<span class="ir-arriba">^</span>
      </body>
 </html>

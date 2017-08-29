@@ -10,7 +10,7 @@
         <title>Login - Vademano 2015</title>
    
    			<link rel="stylesheet" href="view/css/bootstrap.css">
-    
+            <link rel="stylesheet" href="view/font-awesome/css/font-awesome.min.css">
   <script src="view/js/jquery.js"></script>
   <script src="view/js/bootstrap.min.js"></script>
   <script src="view/js/bootstrapValidator.min.js"></script>
@@ -75,48 +75,7 @@
 	});
 	</script>
 	
-        <style>
-            input{
-                margin-top:5px;
-                margin-bottom:5px;
-            }
-            .right{
-                float:right;
-            }
-                
-            
-        </style>
-        
-        <script>
-    var imagenes=new Array(
-
-        'view/images/publicidad/1.jpg',
-        'view/images/publicidad/2.jpg',
-        'view/images/publicidad/3.jpg',
-        'view/images/publicidad/4.jpg',
-        'view/images/publicidad/5.jpg',
-        'view/images/publicidad/6.jpg',
-        'view/images/publicidad/7.jpg',
-        'view/images/publicidad/8.jpg',
-        'view/images/publicidad/9.jpg'
-
-    );
-
-    function rotarImagenes()
-    {
-        var index=Math.floor((Math.random()*imagenes.length));
-        document.getElementById("imagen").src=imagenes[index];
-        
-    }
-
-    onload=function()
-    {
-        rotarImagenes();
-        setInterval(rotarImagenes,3000);
-    }
-    </script>
-        
-        
+       
         
     </head>
     
@@ -179,26 +138,25 @@
 			  <div class="col-lg-6 division" style=" margin-top: 20px">
    
      
-     <h4>Login</h4>
-            <hr/>
-         
-     
-       
-           
-             <div class="well">        
-        <div class="row" style="padding-top: 10px">
-    
+   			   <h4>Login</h4>
+               <div class="well">        
+               <div class="row" style="padding-top: 10px">
                <div class="col-lg-6 col-md-3" >
                      
-                              <div class="form-group">
-                                  <label for="reestablecer_usuario" class="control-label">Usuario</label>
-                                  <input type="email" class="form-control" id="reestablecer_usuario" name="reestablecer_usuario" value=""  placeholder="Usuario o Email">
-                                  <span class="help-block"></span>
-                              </div>
+                       <div class="form-group">
+                             <label for="reestablecer_usuario" class="control-label">Usuario</label></br>
+                             <div class="input-group margin-bottom-sm">
+                             <span class="input-group-addon"><i class="fa fa-envelope-o fa-fw"></i></span>
+							  <input class="form-control" type="text" id="reestablecer_usuario" name="reestablecer_usuario" placeholder="Email address">
+							 <span class="help-block"></span>
+							</div>
+                            </div>
+                     
+                            
                             
                               <?php if ($resultSet == "") {?>
 								
-						  		 <div class="alert alert-success" role="alert">Introduzca un nombre de usuario o correo electrónico del usuario registrado en el sistema.</div>
+						  		 <div class="alert alert-warning" role="alert">Introduzca un nombre de usuario o correo electrónico del usuario registrado en el sistema.</div>
 								
 					        <?php    } ?>
                               <?php if (isset($resultSet)) {?>
@@ -221,7 +179,7 @@
 						    </div>
 						     <div class="col-xs-9 col-md-9 col-lg-9" style="text-align: center;">
 						      <div class="form-group">
-				                                 <button type="submit" id="btn_reestablecer" name="btn_reestablecer" class="btn btn-success btn-block" >Reestablecer</button>
+				                                 <button type="submit" id="btn_reestablecer" name="btn_reestablecer" class="btn btn-success btn-block" ><i class="fa fa-unlock fa-spin" aria-hidden="true"></i> Reestablecer</button>
 				          
 				            </div>
 						    </div>
