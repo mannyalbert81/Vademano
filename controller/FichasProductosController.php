@@ -2041,7 +2041,7 @@ public function index(){
 //    			var_dump($dtAdministracion);
 //    			die();
    			
-   			$tablaAdministracion="<br>";
+   			$tablaAdministracion="";
    			if(!empty($dtAdministracion))
    			{
    				
@@ -2700,7 +2700,7 @@ public function index(){
    			//    			var_dump($dtAdministracion);
    			//    			die();
    		
-   			$tablaAdministracion="<br>";
+   			$tablaAdministracion="";
    			if(!empty($dtAdministracion))
    			{
    					
