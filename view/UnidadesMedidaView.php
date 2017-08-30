@@ -88,8 +88,22 @@
 			{
 		    	 
 		    	var nombre_unidades_medida = $("#nombre_unidades_medida").val();
+		    	var descripcion_unidades_medida = $("#descripcion_unidades_medida").val();
+		    	
+		    	
+
+		    	if (descripcion_unidades_medida == "")
+		    	{	$("#mensaje_descripcion_unidades_medida").text("Introduzca Nombre");
+		    		$("#mensaje_descripcion_unidades_medida").fadeIn("slow"); //Muestra mensaje de error
+		            return false;
+			    }
+		    	else 
+		    	{
+			    		$("#mensaje_descripcion_unidades_medida").fadeOut("slow"); //Muestra mensaje de error
+		        }
+		        
 		    	if (nombre_unidades_medida == "")
-		    	{	$("#mensaje_nombre").text("Introduzca una Unidad de Medida");
+		    	{	$("#mensaje_nombre").text("Introduzca Simbología");
 		    		$("#mensaje_nombre").fadeIn("slow"); //Muestra mensaje de error
 		            return false;
 			    }
@@ -100,6 +114,9 @@
 
 
 			}); 
+		    $( "#descripcion_unidades_medida" ).focus(function() {
+				$("#mensaje_descripcion_unidades_medida").fadeOut("slow");
+			});
 			$( "#nombre_unidades_medida" ).focus(function() {
 					$("#mensaje_nombre").fadeOut("slow");
     			});
@@ -117,8 +134,20 @@
 			{
 		    	 
 		    	var nombre_unidades_medida = $("#nombre_unidades_medida").val();
+		    	var descripcion_unidades_medida = $("#descripcion_unidades_medida").val();
+		    	
+		    	if (descripcion_unidades_medida == "")
+		    	{	$("#mensaje_descripcion_unidades_medida").text("Introduzca Nombre");
+		    		$("#mensaje_descripcion_unidades_medida").fadeIn("slow"); //Muestra mensaje de error
+		            return false;
+			    }
+		    	else 
+		    	{
+			    		$("#mensaje_descripcion_unidades_medida").fadeOut("slow"); //Muestra mensaje de error
+		        }
+		        
 		    	if (nombre_unidades_medida == "")
-		    	{	$("#mensaje_nombre").text("Introduzca una Unidad de Medida");
+		    	{	$("#mensaje_nombre").text("Introduzca Simbología");
 		    		$("#mensaje_nombre").fadeIn("slow"); //Muestra mensaje de error
 		            return false;
 			    }
@@ -129,9 +158,12 @@
 
 
 			}); 
+		    $( "#descripcion_unidades_medida" ).focus(function() {
+				$("#mensaje_descripcion_unidades_medida").fadeOut("slow");
+			});
 			$( "#nombre_unidades_medida" ).focus(function() {
 					$("#mensaje_nombre").fadeOut("slow");
-    			});
+    		});
 		      
 				    
 		}); 
@@ -157,10 +189,17 @@
             	<hr/>
           <?php if ($resultEdit !="" ) { foreach($resultEdit as $resEdit) {?>
 	         <div class="row">
-	         <div class="col-xs-8 col-md-8">
+	        <div class="col-xs-6 col-md-6">
+		    <div class="form-group ">
+		                          <label for="descripcion_unidades_medida" class="control-label">Nombre Unidad de Medida:</label>
+                                  <input type="text" class="form-control" id="descripcion_unidades_medida" name="descripcion_unidades_medida" value="<?php echo $resEdit->descripcion_unidades_medida; ?>"  placeholder="Nombre u/m">
+                                  <div id="mensaje_descripcion_unidades_medida" class="errores"></div>
+            </div>
+		    </div>
+	         <div class="col-xs-6 col-md-6">
 		    <div class="form-group ">
 		                          <label for="nombre_unidades_medida" class="control-label">Unidad de Medida:</label>
-                                  <input type="text" class="form-control" id="nombre_unidades_medida" name="nombre_unidades_medida" value="<?php echo $resEdit->nombre_unidades_medida; ?>"  placeholder="Unidad de Medida">
+                                  <input type="text" class="form-control" id="nombre_unidades_medida" name="nombre_unidades_medida" value="<?php echo $resEdit->nombre_unidades_medida; ?>"  placeholder="Simbolo u/m">
                                   <input type="hidden" name="id_unidades_medida" id="id_unidades_medida" value="<?php echo $resEdit->id_unidades_medida; ?>" class="form-control"/>
 					              <div id="mensaje_nombre" class="errores"></div>
             </div>
@@ -179,11 +218,19 @@
                   
            
              <?php } } else {?>
-	       <div class="row">
-			  <div class="col-xs-8 col-md-8">
+	      
+	        <div class="row">
+	        <div class="col-xs-6 col-md-6">
+		    <div class="form-group ">
+		                          <label for="descripcion_unidades_medida" class="control-label">Nombre Unidad de Medida:</label>
+                                  <input type="text" class="form-control" id="descripcion_unidades_medida" name="descripcion_unidades_medida" value=""  placeholder="Nombre u/m">
+                                  <div id="mensaje_descripcion_unidades_medida" class="errores"></div>
+            </div>
+		    </div>
+			<div class="col-xs-6 col-md-6">
 		    <div class="form-group ">
 		                          <label for="nombre_unidades_medida" class="control-label">Unidad de Medida:</label>
-                                  <input type="text" class="form-control" id="nombre_unidades_medida" name="nombre_unidades_medida" value=""  placeholder="Unidad de Medida">
+                                  <input type="text" class="form-control" id="nombre_unidades_medida" name="nombre_unidades_medida" value=""  placeholder="Simbolo u/m">
                                   <div id="mensaje_nombre" class="errores"></div>
             </div>
 		    </div>
@@ -213,6 +260,7 @@
         <table class="table table-hover">
 	         <tr class="info">
 	    		<th style="text-align: left;  font-size: 13px;">Id</th>
+	    		<th style="text-align: left;  font-size: 13px;">Nombre de Medida</th>
 	    		<th style="text-align: left;  font-size: 13px;">Unidad de Medida</th>
 	    		
 	    		<th style="text-align: left;  font-size: 13px;"></th>
@@ -222,6 +270,7 @@
 	            <?php foreach($resultSet as $res) {?>
 	        		<tr>
 	                   <td style="font-size: 13px;"> <?php echo $registros; ?>  </td>
+	                   <td style="font-size: 13px;"> <?php echo $res->descripcion_unidades_medida; ?>     </td> 
 		               <td style="font-size: 13px;"> <?php echo $res->nombre_unidades_medida; ?>     </td> 
 		               <td style="font-size: 13px;">	
 		               		<div class="right">

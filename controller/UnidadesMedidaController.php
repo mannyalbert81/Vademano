@@ -13,7 +13,7 @@ public function index(){
 			
 		$unidades_medida = new UnidadesMedidaModel();
 		
-		$columnas = "id_unidades_medida, nombre_unidades_medida";
+		$columnas = "id_unidades_medida, nombre_unidades_medida, descripcion_unidades_medida";
 		$tablas = "unidades_medida"; 
 		$where = "nombre_unidades_medida LIKE '%%' ";
 		$id = "nombre_unidades_medida";
@@ -43,18 +43,14 @@ public function index(){
 		{
 			
 			$_nombre_unidades_medida = $_POST["nombre_unidades_medida"];
+			$_descripcion_unidades_medida = $_POST["descripcion_unidades_medida"];
 			
-            
+			 
 			$funcion = "ins_unidades_medida";
-				
-			$parametros = " '$_nombre_unidades_medida' ";
+			$parametros = " '$_nombre_unidades_medida', '$_descripcion_unidades_medida' ";
 			$unidades_medida->setFuncion($funcion);
-			
 			$unidades_medida->setParametros($parametros);
-			
-			
 			$resultado=$unidades_medida->Insert();
-			
 			
 			
 		}
@@ -64,11 +60,12 @@ public function index(){
 				
 			$_nombre_unidades_medida = $_POST["nombre_unidades_medida"];
 			$_id_unidades_medida =  $_POST["id_unidades_medida"];
+			$_descripcion_unidades_medida = $_POST["descripcion_unidades_medida"];
 		
 			if($_id_unidades_medida>0){
 		
 						
-					$colval = " nombre_unidades_medida = '$_nombre_unidades_medida'";
+					$colval = " nombre_unidades_medida = '$_nombre_unidades_medida', descripcion_unidades_medida='$_descripcion_unidades_medida'";
 					$tabla = "unidades_medida";
 					$where = "id_unidades_medida = '$_id_unidades_medida'";
 					$resultado=$unidades_medida->UpdateBy($colval, $tabla, $where);
