@@ -222,6 +222,15 @@
     top: 8px;
 }
 
+
+.errorprueba{
+	font-size: 12px;
+	color: red;
+	}
+
+
+
+
 .buscador_favorito {
 	width: calc(15% - 1px);
 	height: calc(15% - 1px);

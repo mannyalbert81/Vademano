@@ -142,19 +142,24 @@
 		    	var provincias = $("#provincias").val();
 		    	
 		    	var mensaje = $("#mensaje").val();
+		    
+				
 		    	
-		    	
-
 		    	if (nombres_usuario == "")
 		    	{
 			    	
 		    		$("#mensaje_nombres").text("Introduzca un Nombre");
-		    		$("#mensaje_nombres").fadeIn("slow"); //Muestra mensaje de error
+		    		$("#nombres_usuario").css({"border-color": "#b03535", "box-shadow": "0 0 5px #d45252"});
+		    		$("#nombres_usuario_label").css({"color": "#b03535","font-size": "13px"});
+		    		$("#nombres_usuario_span").css({"border-color": "#b03535", "background":"#F6D8CE","box-shadow": "0 0 5px #d45252"});
+		    		
+		    		$("#mensaje_nombres").fadeIn("slow"); 
 		            return false;
 			    }
 		    	else 
 		    	{
-		    		$("#mensaje_nombres").fadeOut("slow"); //Muestra mensaje de error
+		    		 
+		    		$("#mensaje_nombres").fadeOut("slow"); 
 		            
 				}
 		    	
@@ -235,6 +240,14 @@
 		    	
 		    			    				    
 			}); 
+
+		    $("#nombres_usuario").keypress(function(){
+    			$("#nombres_usuario").css({"border-color": "#28921f", "box-shadow": "0 0 5px #28921f"});
+	    		$("#nombres_usuario_label").css({"color": "#28921f","font-size": "13px"});
+	    		$("#nombres_usuario_span").css({"border-color": "#28921f", "background":"#CEF6D8", "box-shadow": "0 0 5px #28921f"});
+	    		
+    		});
+			
 		    $( "#nombres_usuario" ).focus(function() {
 				$("#mensaje_nombres").fadeOut("slow");
 			});
@@ -338,12 +351,12 @@
 			<div class="row">
 		    <div class="col-xs-6 col-md-6">
 		    <div class="form-group">
-                             <label for="nombres_usuario" class="control-label">Nombres:</label></br>
+                             <label id="nombres_usuario_label"  class="control-label">Nombres:</label></br>
                              <div class="input-group margin-bottom-sm">
-                             <span class="input-group-addon"><i class="fa fa-address-book"></i></span>
+                             <span class="input-group-addon" id="nombres_usuario_span"><i class="fa fa-address-book" ></i></span>
 							  <input class="form-control" type="text" id="nombres_usuario" name="nombres_usuario" placeholder="Nombres">
 							</div>
-							<span class="help-block errores" id="mensaje_nombres" ></span>
+							<span class="help-block errorprueba" id="mensaje_nombres" ></span>
 							</div>
             
             

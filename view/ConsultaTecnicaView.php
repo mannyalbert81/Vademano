@@ -307,6 +307,7 @@
                              <div class="input-group margin-bottom-sm">
                              <span class="input-group-addon"><i class="fa fa-address-book"></i></span>
 							  <input class="form-control" type="text" id="nombres_usuario" name="nombres_usuario" placeholder="Nombres">
+							   <input class="form-control" type="hidden" id="id_fichas" name="id_fichas" value="<?php echo $id_fichas;?>">
 							</div>
 							<span class="help-block errores" id="mensaje_nombres" ></span>
 							</div>
