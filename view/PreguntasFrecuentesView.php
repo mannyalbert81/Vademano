@@ -455,7 +455,7 @@
 	   		 <div class="row">
 		    <div class="col-xs-12 col-md-12 col-lg-12" style="text-align: center; margin-top: 20px;">
 		    <div class="form-group">
-                                  <button type="submit" id="btn_guardar" name="btn_guardar" class="btn btn-info">Enviar</button>
+                                  <button type="submit" id="btn_guardar" name="btn_guardar" class="btn btn-info"><i class="fa fa-envelope fa-spin" aria-hidden="true"></i> Enviar</button>
             </div>
 		    </div>
 		    </div>
