@@ -73,7 +73,7 @@
 <div class="container" >
  	<div class="pull-left" >
     	  
-		<img src="view/images/logo_vademano.png" class="img-responsive zoom" alt="Vademano">
+		<a href="index.php?controller=Usuarios&action=cerrar_sesion"><img src="view/images/logo_vademano.png" class="img-responsive zoom" alt="Vademano"></a>
  	</div>
  	<div class="pull-right" >
    

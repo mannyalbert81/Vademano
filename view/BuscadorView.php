@@ -378,7 +378,7 @@
 			  	
 			  </div>
 			  <div class="col-xs-4 col-md-4">
-			    	<img src="view/images/logo_vademano.png" class="img-responsive zoom" alt="Responsive image"> 
+			    	<a href="index.php?controller=Usuarios&action=cerrar_sesion"><img src="view/images/logo_vademano.png" class="img-responsive zoom" alt="Responsive image"></a>
 			  </div>
 			  <div class="col-xs-3 col-md-3">
 			  	
