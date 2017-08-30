@@ -46,6 +46,17 @@
           </ul>
         </li>
      
+     
+       <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-file" ><?php echo " De la Mano" ;?> </span> <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+          <li><a href="<?php echo $helper->url("DelaMano","index"); ?>"><span class="glyphicon glyphicon-tower" aria-hidden="true"> Con la Industria</span></a>
+		    </li>
+			<li><a href="<?php echo $helper->url("DelaMano","index2"); ?>"><span class="glyphicon glyphicon-copyright-mark" aria-hidden="true"> Con la Investigación</span></a>
+			</li>
+			
+          </ul>
+        </li>
       
     
     </div><!-- /.navbar-collapse -->
