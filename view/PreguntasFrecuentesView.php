@@ -16,6 +16,7 @@
   <script src="view/js/bootstrapValidator.min.js"></script>
   <script src="view/js/noty.js"></script>
         
+  <link rel="stylesheet" href="view/font-awesome/css/font-awesome.min.css">    
  
   
    <script src="http://maps.google.com/maps/api/js?key=AIzaSyDyu4jW-edLYPnTIBRqHtUxisvp3NRVBps"></script>
@@ -265,15 +266,6 @@
  		
 	
 	
-        <style>
-            input{
-                margin-top:5px;
-                margin-bottom:5px;
-            }
-            .right{
-                float:right;
-            } 
-        </style>
         
    	 </head>
    
@@ -351,21 +343,33 @@
 			<?php }} ?>
 		    <div class="row">
 		    <div class="col-xs-6 col-md-6">
-		    <div class="form-group ">
-		                          <label for="nombres_usuario" class="control-label">Nombres:</label>
-                                  <input type="text" class="form-control" id="nombres_usuario" name="nombres_usuario" value=""  placeholder="Nombres">
-                                  <div id="mensaje_nombres" class="errores"></div>
+		    <div class="form-group">
+                             <label for="nombres_usuario" class="control-label">Nombres:</label></br>
+                             <div class="input-group margin-bottom-sm">
+                             <span class="input-group-addon"><i class="fa fa-address-book"></i></span>
+							  <input class="form-control" type="text" id="nombres_usuario" name="nombres_usuario" placeholder="Nombres">
+							</div>
+							<span class="help-block errores" id="mensaje_nombres" ></span>
+							</div>
+            
+            
             </div>
-		    </div>
 		    
 		    <div class="col-xs-6 col-md-6">
-		    <div class="form-group ">
-		                          <label for="apellidos_usuario" class="control-label">Apellidos:</label>
-                                  <input type="text" class="form-control" id="apellidos_usuario" name="apellidos_usuario" value=""  placeholder="Apellidos">
-                                   <div id="mensaje_apellidos" class="errores"></div>
-            </div>
+		    <div class="form-group">
+                             <label for="apellidos_usuario" class="control-label">Apellidos:</label></br>
+                             <div class="input-group margin-bottom-sm">
+                             <span class="input-group-addon"><i class="fa fa-address-book-o"></i></span>
+							  <input class="form-control" type="text" id="apellidos_usuario" name="apellidos_usuario" placeholder="Apellidos">
+							</div>
+                        	<span class="help-block errores" id="mensaje_apellidos" ></span>
+							</div>
+            
 		    </div>
 			</div>
+			
+			
+		
 		    
 		    <div class="row">
 			<div class="col-xs-6 col-md-6">
@@ -394,33 +398,47 @@
             </div>
 			</div>		
 	  		
-	  		  		
-            <div class="row">
-             <div class="col-xs-6 col-md-6">
-		    <div class="form-group ">
-		                          <label for="telefono_usuario" class="control-label">Teléfono:</label>
-                                  <input type="text" class="form-control" id="telefono_usuario" name="telefono_usuario" value=""  placeholder="Teléfono">
-                                 
+	  		<div class="row">
+		    <div class="col-xs-6 col-md-6">
+		    <div class="form-group">
+                             <label for="telefono_usuario" class="control-label">Teléfono:</label></br>
+                             <div class="input-group margin-bottom-sm">
+                             <span class="input-group-addon"><i class="fa fa-volume-control-phone"></i></span>
+							  <input class="form-control" type="text" id="telefono_usuario" name="telefono_usuario" placeholder="Teléfono">
+							</div>							
+							</div>
+            
+            
             </div>
+		    
+		    <div class="col-xs-6 col-md-6">
+		    <div class="form-group">
+                             <label for="celular_usuario" class="control-label">Celular:</label></br>
+                             <div class="input-group margin-bottom-sm">
+                             <span class="input-group-addon"><i class="fa fa-mobile"></i></span>
+							  <input class="form-control" type="text" id="celular_usuario" name="celular_usuario" placeholder="Celular">
+							</div>                        	
+							</div>
+            
 		    </div>
-           <div class="col-xs-6 col-md-6">
-		    <div class="form-group ">
-		                          <label for="celular_usuario" class="control-label">Celular:</label>
-                                  <input type="text" class="form-control" id="celular_usuario" name="celular_usuario" value=""  placeholder="Celular">
-                                
-            </div>
-		    </div>
-           </div>
+			</div>
+			
+
         	
         			
-        	<div class="row">
-		    <div class="col-xs-12 col-md-12">
-		    <div class="form-group ">
-		                          <label for="correo_usuario" class="control-label">Email:</label>
-                                  <input type="email" class="form-control" id="correo_usuario" name="correo_usuario" value=""  placeholder="Email">
-                                  <div id="mensaje_correo" class="errores"></div>
-            </div>
-            </div>
+        	<div class="row">        	
+        	  
+		    <div class="col-xs-6 col-md-12">
+		    <div class="form-group">
+                             <label for="correo_usuario" class="control-label">Email:</label></br>
+                             <div class="input-group margin-bottom-sm">
+                             <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+							  <input class="form-control" type="email" id="correo_usuario" name="correo_usuario" placeholder="Email">
+							</div>
+                        	<span class="help-block errores" id="mensaje_correo" ></span>
+							</div>
+            
+		    </div>        	
             </div>
             
              <div class="row">
