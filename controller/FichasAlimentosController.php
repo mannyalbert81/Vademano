@@ -1694,15 +1694,22 @@ public function index(){
    						
    					$wherelabDir    = "d.id_laboratorios = '$res->id_laboratorios'";
    					$idlabDir = "d.id_direcciones";
-   	
+   			
    					$dtLabDireccion=$fichas_laboratorios->getCondiciones($columnaslabDir, $tablaslabDir, $wherelabDir, $idlabDir);
-   	
-   	
+   			
+   					$tablaLab.="<tr  style=' margin-top:10px;'>";
+   					$tablaLab.="<td>";
+   					$tablaLab.="<table>";
+   					$tablaLab.="<tr>";
+   					$tablaLab.="<td colspan='2' style='background-color:#999E9A; color:#FFFFFF; font-family: verdana; font-size:75%; width:100%;'>&nbsp;";
+   					$tablaLab.="<strong>FABRICADO POR:   </strong>";
+   					$tablaLab.="</td>";
+   					$tablaLab.="</tr>";
    					$tablaLab.="<tr>";
    					$tablaLab.="<td style=' text-align: left; font-family: Times New Roman; font-size:65%;'>&nbsp;";
    					$tablaLab.='<img src="view/DevuelveImagen.php?id_valor='.$res->id_laboratorios.'&id_nombre=id_laboratorios&tabla=laboratorios&campo=logo_laboratorios" width="80" height="60" />';
    					$tablaLab.="</td>";
-   					$tablaLab.="<td style='padding-left:10px; text-align:left; font-family: Times New Roman; font-size:65%;'>";
+   					$tablaLab.="<td style='padding-left:10px; text-align:left; font-family: Times New Roman; font-size:7pt;'>";
    					if(!empty($dtLabDireccion)){
    						$tablaLab.="";
    						foreach($dtLabDireccion as $resd)
@@ -1724,12 +1731,14 @@ public function index(){
    							$tablaLab.="<b>CELULAR: </b>";
    							$tablaLab.=$resd->celular_direcciones;
    							$tablaLab.="<br>";
-   	
+   			
    						}
    					}
    					$tablaLab.="</td>";
    					$tablaLab.="</tr>";
-   	
+   					$tablaLab.="</table>";
+   					$tablaLab.="</td>";
+   					$tablaLab.="</tr>";
    						
    				}
    					
