@@ -201,7 +201,7 @@
 </form>   
 
 
-
+ 
          <div class="col-xs-12 col-md-12">
    		 <?php include("view/modulos/small_slide.php"); ?>
    		 </div>

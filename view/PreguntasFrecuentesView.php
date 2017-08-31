@@ -473,9 +473,7 @@
    	  </form>
    	
    	 
-   		  <div> 
-   		 <?php include("view/modulos/servicios.php"); ?>	
-   		  </div>
+   		 
    		  
    		 <div class="col-xs-12 col-md-12">
    		 <?php include("view/modulos/small_slide.php"); ?>

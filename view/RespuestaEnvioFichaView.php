@@ -111,9 +111,7 @@
            
 		</form>            
       
-      <div> 
-   		 <?php include("view/modulos/servicios.php"); ?>	
-   		  </div>
+    
    		 <div style="margin-top: 20px; background-color: #4bae4f;">
    		 
    		 <?php include("view/modulos/small_slide.php"); ?>
