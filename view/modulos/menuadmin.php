@@ -21,6 +21,10 @@
           <ul class="dropdown-menu">
         	<li><a href="index.php?controller=Usuarios&action=index"><span class="glyphicon glyphicon-user" aria-hidden="true"> Usuarios</span></a>
             </li>
+            <li><a href="index.php?controller=alianzas&action=index"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"> Alianzas</span></a>
+            </li>
+             <li><a href="index.php?controller=publicidad&action=index"><span class="glyphicon glyphicon-picture" aria-hidden="true"> Publicidad</span></a>
+            </li>
 		 </ul>
         </li>
            <li class="dropdown">
@@ -48,7 +52,7 @@
      
      
        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-file" ><?php echo " De la Mano" ;?> </span> <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-cog" ><?php echo " De la Mano" ;?> </span> <span class="caret"></span></a>
           <ul class="dropdown-menu">
           <li><a href="<?php echo $helper->url("DelaMano","index"); ?>"><span class="glyphicon glyphicon-tower" aria-hidden="true"> Con la Industria</span></a>
 		    </li>
