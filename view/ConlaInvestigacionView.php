@@ -55,7 +55,14 @@
 	</style>
 	
 	
-	
+	<script type="text/javascript">
+		function mensaje(){
+			
+		  var respuesta = confirm('Seguro Desea Eliminar')
+		   return respuesta;
+		}
+		
+		</script>
 	
 	<style type="text/css">
 		.zoom{

@@ -72,7 +72,14 @@
 	</style>
 	
 	
-	
+	<script type="text/javascript">
+		function mensaje(){
+			
+		  var respuesta = confirm('Seguro Desea Eliminar')
+		   return respuesta;
+		}
+		
+		</script>
 	
 	<script type="text/javascript">
 	$(document).ready(function(){
