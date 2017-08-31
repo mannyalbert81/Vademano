@@ -7,15 +7,14 @@
      <head>
         <meta charset="utf-8"/>
         <title>Quienes Somos - Vademano 2015</title>
-        	<link rel="stylesheet" href="view/css/bootstrap.css">
+        	  <link rel="stylesheet" href="view/css/bootstrap.css">
      <link rel="stylesheet" href="view/css/estilos.css">
   <script src="view/js/jquery.js"></script>
   <script src="view/js/bootstrapValidator.min.js"></script>
   <script src="view/js/noty.js"></script>
-        
-   <link rel="stylesheet" href="view/font-awesome/css/font-awesome.min.css">   
-  
-   <script src="http://maps.google.com/maps/api/js?key=AIzaSyDyu4jW-edLYPnTIBRqHtUxisvp3NRVBps"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <link rel="stylesheet" href="view/font-awesome/css/font-awesome.min.css">
+	<script src="http://maps.google.com/maps/api/js?key=AIzaSyDyu4jW-edLYPnTIBRqHtUxisvp3NRVBps"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/gmaps.js/0.4.24/gmaps.js"></script>
      
 <style type="text/css">
@@ -90,7 +89,7 @@
 		
 		<script>
 		$(document).ready(function(){
-		    $fecha=$('#calendario');
+		    $fecha=$('#contenido_busqueda1');
 		    if ($fecha[0].type!="date"){
 		    $fecha.attr('readonly','readonly');
 		    $fecha.datepicker({

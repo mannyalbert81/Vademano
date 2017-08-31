@@ -12,12 +12,9 @@
   <script src="view/js/jquery.js"></script>
   <script src="view/js/bootstrapValidator.min.js"></script>
   <script src="view/js/noty.js"></script>
-  
     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-	
-	  <link rel="stylesheet" href="view/font-awesome/css/font-awesome.min.css">
-	
-   <script src="http://maps.google.com/maps/api/js?key=AIzaSyDyu4jW-edLYPnTIBRqHtUxisvp3NRVBps"></script>
+    <link rel="stylesheet" href="view/font-awesome/css/font-awesome.min.css">
+	<script src="http://maps.google.com/maps/api/js?key=AIzaSyDyu4jW-edLYPnTIBRqHtUxisvp3NRVBps"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/gmaps.js/0.4.24/gmaps.js"></script>
      
 	<style type="text/css">

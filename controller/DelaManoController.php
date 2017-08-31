@@ -27,6 +27,8 @@ class DelaManoController extends ControladorBase{
 			$where1    = "id_industria = '$_id_industria' ";
 			$resultEdit = $industria->getBy($where1);
 		
+			
+			
 		}
 		
 		
