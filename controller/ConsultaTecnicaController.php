@@ -13,9 +13,10 @@ class ConsultaTecnicaController extends ControladorBase{
 		$nombre_fichas="";
 		$id_fichas="";
 		$mensajes = new MensajesModel();
-		$fichas = new FichasModel();
+		
 		$fichas_laboratorios= new FichasLaboratoriosModel();
 		$laboratorios = new LaboratoriosModel();
+		$fichas = new FichasModel();
 		$where = "nombre_fichas LIKE '%%' ORDER by consultas_fichas DESC LIMIT 4";
 		$resultVis = $fichas->getBy($where);
 		

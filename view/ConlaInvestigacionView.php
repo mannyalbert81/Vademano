@@ -1,6 +1,9 @@
 <div class="head menu" style=" -webkit-box-shadow: 0px 2px 2px 4px rgba(0,0,0,0.69);">
- <?php include("view/modulos/head.php"); ?>
-</div>
+ <?php include("view/modulos/headadmin.php"); ?>
+ </div>
+<div class="menu1">
+     <?php include("view/modulos/menuadmin.php"); ?>
+     </div>
 
 <!DOCTYPE HTML>
 <html lang="es">
@@ -20,14 +23,6 @@
      
 <style type="text/css">
 
-.menu-fixed {
-	position:fixed;
-	z-index:1000;
-	top:0;
-	left:0;
-	right: 0;
-	
-}
 
  h4 {
 	    font-size: 25px;
@@ -37,6 +32,29 @@
 	    text-shadow: -0px -0px 0px #101010, 0px 1px 0px #505050;
 	  }
 	</style>
+	
+	<style type="text/css">
+
+.menu-fixed {
+	position:fixed;
+	z-index:1000;
+	top:0;
+	left:0;
+	right: 0;
+	
+}
+.menu1-fixed {
+	position:fixed;
+	z-index:1000;
+	top:120;
+	left:0;
+	right: 0;
+	
+}
+
+	</style>
+	
+	
 	
 	
 	<style type="text/css">
@@ -55,19 +73,7 @@
 		}
 	   </style>
 	
-	<script>
-			$(document).ready(function(){
-			var altura = $('.menu').offset().top;
-			
-			$(window).on('scroll', function(){
-				if ( $(window).scrollTop() > altura ){
-					$('.menu').addClass('menu-fixed');
-				} else {
-					$('.menu').removeClass('menu-fixed');
-				}
-			});
-		});
-	 </script>
+	
 	
 		<script>
 		$(document).ready(function(){

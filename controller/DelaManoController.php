@@ -247,6 +247,157 @@ class DelaManoController extends ControladorBase{
 			
 			
 	}
+	
+	public function  index3()
+	{
+		session_start();
+		$industria = new IndustriaModel();
+		$fichas = new FichasModel();
+		$where10 = "nombre_fichas LIKE '%%' ORDER by consultas_fichas DESC LIMIT 4";
+		$resultVis = $fichas->getBy($where10);
+		$resultInd="";
+		
+		$resultMenu=array(0=>'--TODOS--',1=>'Descripción');
+		
+		$columnas = "*";
+		$tablas   = "public.industria";
+		$where    = "industria.id_industria>0";
+		$id = "industria.id_industria";
+		$resultInd=$industria->getCondiciones($columnas ,$tablas ,$where, $id);
+		
+		
+		if (isset($_POST["btn_buscar"]))
+		{
+			$columnas1 = "*";
+			$tablas1   = "public.industria";
+			$where1    = "industria.id_industria>0";
+			$id1       = "industria.id_industria";
+				
+				
+			$criterio = $_POST["criterio_busqueda"];
+			$contenido = $_POST["contenido_busqueda"];
+				
+				
+				
+			if ($contenido !="")
+			{
+		
+				$where_0 = "";
+				$where_2 = "";
+				
+					switch ($criterio) {
+					case 0:
+						$where_0 = " ";
+						break;
+					case 1:
+		
+						$where_2 = " AND  industria.descripcion_industria LIKE '$contenido%'  ";
+						break;
+					
+				}
+		
+				$where_to  = $where1 .  $where_0.  $where_2;
+				$resultInd=$industria->getCondiciones($columnas1 ,$tablas1 ,$where_to, $id1);
+		
+			}
+		}
+		
+		
+		
+		$this->view("CatalogoIndustria", array("resultInd"=>$resultInd, "resultMenu"=>$resultMenu, "resultVis"=>$resultVis
+		));
+	}
+	
+	
+	public function  index4()
+	{
+		session_start();
+		$investigacion = new InvestigacionModel();
+		
+		$resultInv="";
+		
+		$resultMenu=array(0=>'--TODOS--',1=>'Descripción', 2=>'Fecha');
+		$fichas = new FichasModel();
+		$where11 = "nombre_fichas LIKE '%%' ORDER by consultas_fichas DESC LIMIT 4";
+		$resultVis = $fichas->getBy($where11);
+		
+		$columnas = "*";
+		$tablas   = "public.investigacion";
+		$where    = "investigacion.id_investigacion>0";
+		$id = "investigacion.id_investigacion";
+		$resultInv=$investigacion->getCondiciones($columnas ,$tablas ,$where, $id);
+	
+		if (isset($_POST["btn_buscar"]))
+		{
+			
+			
+			$columnas1 = "*";
+			$tablas1   = "public.investigacion";
+			$where1    = "investigacion.id_investigacion>0";
+			$id1       = "investigacion.id_investigacion";
+		
+		
+			$criterio = $_POST["criterio_busqueda"];
+			$contenido = $_POST["contenido_busqueda"];
+			$contenido1 = $_POST["contenido_busqueda1"];
+		
+		
+			$where_0 = "";
+			$where_2 = "";
+			$where_3 = "";
+			
+		if(!empty($contenido))
+			{
+				
+		
+				switch ($criterio) {
+					case 0:
+						$where_0 = " ";
+						break;
+					case 1:
+		
+						$where_2 = " AND  investigacion.descripcion_investigacion LIKE '$contenido%'  ";
+						break;
+						
+						
+							
+				}
+				
+				
+		
+			
+		
+			}
+			
+			if(!empty($contenido1))
+			{
+				switch ($criterio) {
+					case 0:
+						$where_0 = " ";
+						break;
+					
+			
+					case 2:
+			
+						$where_3 = " AND  investigacion.fecha_investigacion = '$contenido1'";
+						break;
+							
+				}
+				
+				
+				
+			}
+			
+			$where_to  = $where1 .  $where_0.  $where_2.  $where_3;
+			$resultInv=$investigacion->getCondiciones($columnas1 ,$tablas1 ,$where_to, $id1);
+			
+		}
+		
+		
+		$this->view("CatalogoInvestigacion", array("resultInv"=>$resultInv, "resultMenu"=>$resultMenu, "resultVis"=>$resultVis
+		));
+	}
+	
 
 }
 	

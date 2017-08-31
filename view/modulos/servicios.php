@@ -15,9 +15,9 @@
 		                        <div class="row">
 								
 								 
-								    <div class="col-sm-4"><a href="#x"><img src="view/images/mouseover/foto_1.jpg" onmouseover="this.src='view/images/left-box.png'" onmouseout="this.src='view/images/mouseover/foto_1.jpg';" width="215" height="300" alt="" class=""></a>
+								    <div class="col-sm-4"><a href="index.php?controller=DelaMano&action=index3" target="_blank"><img src="view/images/mouseover/foto_1.jpg" onmouseover="this.src='view/images/left-box.png'" onmouseout="this.src='view/images/mouseover/foto_1.jpg';" width="215" height="300" alt="" class=""></a>
 		                            </div>
-		                            <div class="col-sm-4"><a href="#x"><img src="view/images/mouseover/foto_2.jpg" onmouseover="this.src='view/images/center-box.png'" onmouseout="this.src='view/images/mouseover/foto_2.jpg';" width="215" height="300" alt="" class=""></a>
+		                            <div class="col-sm-4"><a href="index.php?controller=DelaMano&action=index4" target="_blank"><img src="view/images/mouseover/foto_2.jpg" onmouseover="this.src='view/images/center-box.png'" onmouseout="this.src='view/images/mouseover/foto_2.jpg';" width="215" height="300" alt="" class=""></a>
 		                            </div>
 		                             <div class="col-sm-4"><a href="index.php?controller=Buscador&action=index"><img src="view/images/mouseover/foto_3.jpg"  onmouseover="this.src='view/images/rigth-box.png'" onmouseout="this.src='view/images/mouseover/foto_3.jpg';" width="215" height="300" alt="" class=""></a>
 		                           </div>
