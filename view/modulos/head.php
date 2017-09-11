@@ -77,70 +77,14 @@
  	</div>
  	<div class="pull-right" >
    
-   		<nav class="navbar navbar-default " style="height: 10px;" >
-		  <div class="container-fluid"  >
-		    <!-- Brand and toggle get grouped for better mobile display -->
-			 <div class="navbar-header" >
-		      <button type="button" class="navbar-toggle collapsed"  data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-		        <span class="sr-only"    >Toggle navigation</span>
-		        <span class="icon-bar"></span>
-		        <span class="icon-bar"></span>
-		        <span class="icon-bar"></span>
-		      </button>
-		      <a class="nav navbar-brand" href="#"></a>
-		    </div>
-			
-		    <!-- Collect the nav links, forms, and other content for toggling -->
-		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-		      <ul class="nav navbar-nav" >
-		        <li  ><a href="index.php?controller=Usuarios&action=cerrar_sesion"><span class="glyphicon glyphicon-home" ><?php echo " Inicio" ;?></span> <span class="sr-only">(current)</span></a></li>
-		        <li  ><a href="index.php?controller=Buscador&action=index"><span class="glyphicon glyphicon-folder-open" ><?php echo " Vademécum" ;?></span> <span class="sr-only">(current)</span></a></li>
-		        <li class="dropdown">
-		          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-briefcase" ><?php echo " Nosotros" ;?></span> <span class="caret"></span></a>
-		          <ul class="dropdown-menu">
-		        	<li><a href="index.php?controller=Mensajes&action=index">Quienes Somos</a>
-				    </li>
-					
-				  </ul>
-		        </li>
-		        <li  ><a href="index.php?controller=Afiliaciones&action=index"><span class="glyphicon glyphicon-folder-open" ><?php echo " Afiliarse" ;?></span> <span class="sr-only">(current)</span></a></li>  
-		       	
-		        <?php $status = session_status();  ?>
-		        <?php if  (isset( $_SESSION['nombres_usuario'] )){  ?> 
-			 		<li class="dropdown">
-			          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user" ><?php echo " " . $_SESSION['nombres_usuario'] ;?></span> <span class="caret"></span></a>
-			          <ul class="dropdown-menu">
-			        	<li><a href="<?php echo $helper->url("FichasFavoritos","index"); ?>"><span class="glyphicon glyphicon-star-empty" ><?php echo " Productos Favoritos" ;?></span> </a>
-					  	</li>
-					  
-					  	
-					  	<li><a href="<?php echo $helper->url("Afiliaciones","VistaActualizarDatos"); ?>"><span class="glyphicon glyphicon-list-alt" ><?php echo " Actualizar Datos" ;?></span> </a>
-					  	</li>
-					  	<li><a href="<?php echo $helper->url("Usuarios","cerrar_sesion"); ?>"><span class="glyphicon glyphicon-lock" ><?php echo " Cerrar Sesion" ;?></span> </a>
-					  	</li>
-					  	
-					  	
-					  </ul>
-			        </li>
-			 	  
-			 		
-				 
-			 	 <?php } else { ?>	
-			 	
-			 		   	<li><a href="<?php echo $helper->url("Usuarios","Loguear"); ?>"><span class="glyphicon glyphicon-lock" ><?php echo " Login" ;?></span> </a>
-					  	</li>
-				 
-			 	 	
-			 	 <?php  }?>
-			 		
-		   
-		      </ul>
-		 
-		 	
-		 	     
-		    </div><!-- /.navbar-collapse -->
-		  </div><!-- /.container-fluid -->
-		</nav>
+  	   <div style="margin-top: 20px;" >	
+	      		
+	      		<p class="before-footer-texto">   <span class="glyphicon glyphicon-road" aria-hidden="true"></span>  Edif. MAGAP Piso 9</p>
+		  		<p class="before-footer-texto">   <span class="glyphicon glyphicon-globe" aria-hidden="true"></span> Quito – Ecuador</p>
+		  		<p class="before-footer-texto">   <span class="glyphicon glyphicon-phone-alt" aria-hidden="true"></span> (+59)2 436 4566 - (+59)3 987 968 467</p>
+		  		<p class="before-footer-texto">   <span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Skype: vademano</p>
+		  		<p class="before-footer-texto">  <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> info@vademano.com</p>
+			</div>
    		
    
    
