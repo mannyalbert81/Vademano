@@ -34,7 +34,8 @@ class BuscadorController extends ControladorBase{
 		
 		$buscador = new FichasModel();
 		
-		$resultCat = $buscador->getAll("clasificacion_farmacologica_fichas");
+		
+		$resultCat = $buscador->getCondiciones("DISTINCT clasificacion_farmacologica_fichas ", "fichas", "1=1", "clasificacion_farmacologica_fichas");
 		
 		
 		$CantProductos = 0;
@@ -84,12 +85,12 @@ class BuscadorController extends ControladorBase{
 			$tabIni="public.fichas f ";			
 			$whereIni="1=1";
 			
-			$clasificacion_farmacologica=isset($_POST["clasificacion_farmacologica"])?$_POST["clasificacion_farmacologica"]:"0";
+			$clasificacion_farmacologica=isset($_POST["categoria_farmacologica"])?$_POST["categoria_farmacologica"]:"0";
 			$especiesId=isset($_POST["id_especies"])?$_POST["id_especies"]:"0";
 			$composicionesId=isset($_POST["id_composiciones"])?$_POST["id_composiciones"]:"0";
 			$formasAdministracion=isset($_POST["forma_administracion"])?$_POST["forma_administracion"]:"0";
 			$laboratoriosId=isset($_POST["id_laboratorios"])?$_POST["id_laboratorios"]:"0";
-
+			
 			if ($clasificacion_farmacologica !="0")
 			{
 				$whereIni .= " AND f.clasificacion_farmacologica_fichas = '$clasificacion_farmacologica' ";
@@ -120,6 +121,10 @@ class BuscadorController extends ControladorBase{
 			}
 			
 			$dtInicial = $buscador->getCondiciones($colIni, $tabIni, $whereIni, "f.id_fichas");
+			
+			//para ver la consulta
+// 			echo $colIni."<br>".$tabIni."\n".$whereIni;
+// 			die();
 // 			para los ids
 			$fichaConsultadaIds="0,";
 			

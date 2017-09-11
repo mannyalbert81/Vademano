@@ -6260,12 +6260,10 @@ button.close {
 
 .head{
 	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#2c7f26+10,69b74e+40,69b74e+60,2c7f26+90 */
-background: #2c7f26; /* Old browsers */
-background: -moz-linear-gradient(left,  #2c7f26 10%, #69b74e 40%, #69b74e 60%, #2c7f26 90%); /* FF3.6-15 */
-background: -webkit-linear-gradient(left,  #2c7f26 10%,#69b74e 40%,#69b74e 60%,#2c7f26 90%); /* Chrome10-25,Safari5.1-6 */
-background: linear-gradient(to right,  #2c7f26 10%,#69b74e 40%,#69b74e 60%,#2c7f26 90%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2c7f26', endColorstr='#2c7f26',GradientType=1 ); /* IE6-9 */
-	
+/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+0,ffffff+100&1+0,0+100;White+to+Transparent */
+background: #ffffff;
+
+
 }
 
 .cuerpo{
