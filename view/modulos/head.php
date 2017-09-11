@@ -30,6 +30,16 @@
 		
 		
 		<style type="text/css">
+		
+		.menu{
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#42992a+0,42992a+100 */
+background: rgb(66,153,42); /* Old browsers */
+background: -moz-linear-gradient(top,  rgba(66,153,42,1) 0%, rgba(66,153,42,1) 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top,  rgba(66,153,42,1) 0%,rgba(66,153,42,1) 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom,  rgba(66,153,42,1) 0%,rgba(66,153,42,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#42992a', endColorstr='#42992a',GradientType=0 ); /* IE6-9 */
+	
+		}
 	.zoom{
 		transition: 1.5s ease;
  		-moz-transition: 1.5s ease; /* Firefox */
@@ -91,19 +101,19 @@
 		    </div>
 			
 		    <!-- Collect the nav links, forms, and other content for toggling -->
-		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+		    <div class="collapse navbar-collapse menu" id="bs-example-navbar-collapse-1">
 		      <ul class="nav navbar-nav" >
-		        <li  ><a href="index.php?controller=Usuarios&action=cerrar_sesion"><span class="glyphicon glyphicon-home" ><?php echo " Inicio" ;?></span> <span class="sr-only">(current)</span></a></li>
-		        <li  ><a href="index.php?controller=Buscador&action=index"><span class="glyphicon glyphicon-folder-open" ><?php echo " Vademécum" ;?></span> <span class="sr-only">(current)</span></a></li>
+		        <li  ><a href="index.php?controller=Usuarios&action=cerrar_sesion"><span class="glyphicon glyphicon-home" style="color: #ffffff;;"><?php echo " Inicio" ;?></span> <span class="sr-only">(current)</span></a></li>
+		        <li  ><a href="index.php?controller=Buscador&action=index"><span class="glyphicon glyphicon-folder-open" style="color: #ffffff;;"><?php echo " Vademécum" ;?></span> <span class="sr-only">(current)</span></a></li>
 		        <li class="dropdown">
-		          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-briefcase" ><?php echo " Nosotros" ;?></span> <span class="caret"></span></a>
+		          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-briefcase" style="color: #ffffff;;"><?php echo " Nosotros" ;?></span> <span class="caret"></span></a>
 		          <ul class="dropdown-menu">
 		        	<li><a href="index.php?controller=Mensajes&action=index">Quienes Somos</a>
 				    </li>
 					
 				  </ul>
 		        </li>
-		        <li  ><a href="index.php?controller=Afiliaciones&action=index"><span class="glyphicon glyphicon-folder-open" ><?php echo " Afiliarse" ;?></span> <span class="sr-only">(current)</span></a></li>  
+		        <li  ><a href="index.php?controller=Afiliaciones&action=index"><span class="glyphicon glyphicon-folder-open" style="color: #ffffff;;"><?php echo " Afiliarse" ;?></span> <span class="sr-only">(current)</span></a></li>  
 		       	
 		        <?php $status = session_status();  ?>
 		        <?php if  (isset( $_SESSION['nombres_usuario'] )){  ?> 
@@ -114,9 +124,9 @@
 					  	</li>
 					  
 					  	
-					  	<li><a href="<?php echo $helper->url("Afiliaciones","VistaActualizarDatos"); ?>"><span class="glyphicon glyphicon-list-alt" ><?php echo " Actualizar Datos" ;?></span> </a>
+					  	<li><a href="<?php echo $helper->url("Afiliaciones","VistaActualizarDatos"); ?>"><span class="glyphicon glyphicon-list-alt" style="color: #ffffff;;"><?php echo " Actualizar Datos" ;?></span> </a>
 					  	</li>
-					  	<li><a href="<?php echo $helper->url("Usuarios","cerrar_sesion"); ?>"><span class="glyphicon glyphicon-lock" ><?php echo " Cerrar Sesion" ;?></span> </a>
+					  	<li><a href="<?php echo $helper->url("Usuarios","cerrar_sesion"); ?>"><span class="glyphicon glyphicon-lock" style="color: #ffffff;;"><?php echo " Cerrar Sesion" ;?></span> </a>
 					  	</li>
 					  	
 					  	
@@ -127,7 +137,7 @@
 				 
 			 	 <?php } else { ?>	
 			 	
-			 		   	<li><a href="<?php echo $helper->url("Usuarios","Loguear"); ?>"><span class="glyphicon glyphicon-lock" ><?php echo " Login" ;?></span> </a>
+			 		   	<li><a href="<?php echo $helper->url("Usuarios","Loguear"); ?>"><span class="glyphicon glyphicon-lock" style="color: #ffffff;;"><?php echo " Login" ;?></span> </a>
 					  	</li>
 				 
 			 	 	
