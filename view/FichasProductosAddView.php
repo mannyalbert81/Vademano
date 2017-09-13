@@ -23,44 +23,7 @@
 			webshims.polyfill('forms forms-ext');
 		</script>
  		
- 			<style type="text/css">
 
-.menu-fixed {
-	position:fixed;
-	z-index:1000;
-	top:0;
-	left:0;
-	right: 0;
-	
-}
-.menu1-fixed {
-	position:fixed;
-	z-index:1000;
-	top:120;
-	left:0;
-	right: 0;
-	
-}
-
-	</style>
-	
-	
-	<script>
-			$(document).ready(function(){
-			var altura = $('.menu').offset().top;
-			
-			$(window).on('scroll', function(){
-				if ( $(window).scrollTop() > altura ){
-					$('.menu').addClass('menu-fixed');
-					$('.menu1').addClass('menu1-fixed');
-					
-				} else {
-					$('.menu').removeClass('menu-fixed');
-					$('.menu1').removeClass('menu1-fixed');
-				}
-			});
-		});
-	 </script>  
 	
 	<script type="text/javascript">
 	$(document).ready(function(){

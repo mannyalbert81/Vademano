@@ -19,16 +19,6 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/gmaps.js/0.4.24/gmaps.js"></script>
      
 <style type="text/css">
-
-.menu-fixed {
-	position:fixed;
-	z-index:1000;
-	top:0;
-	left:0;
-	right: 0;
-	
-}
-
  h4 {
 	    font-size: 25px;
 	    font-style: verdana;

@@ -50,26 +50,7 @@
 		}
 	   </style>
 	
-	<style type="text/css">
 
-.menu-fixed {
-	position:fixed;
-	z-index:1000;
-	top:0;
-	left:0;
-	right: 0;
-	
-}
-.menu1-fixed {
-	position:fixed;
-	z-index:1000;
-	top:120;
-	left:0;
-	right: 0;
-	
-}
-
-	</style>
 	
 	
 	<script type="text/javascript">

@@ -1,3 +1,7 @@
+<div class="head menu" style=" -webkit-box-shadow: 0px 2px 2px 4px rgba(0,0,0,0.69);">
+ <?php include("view/modulos/head.php"); ?>
+</div>
+
 <!DOCTYPE HTML>
 <html lang="es">
    	 <head>
@@ -9,17 +13,7 @@
   <script src="view/js/bootstrapValidator.min.js"></script>
   <script src="view/js/noty.js"></script>
          
-          <style type="text/css">
-
-.menu-fixed {
-	position:fixed;
-	z-index:1000;
-	top:0;
-	left:0;
-	right: 0;
-	
-}
-</style>
+         
 	
 	
 	<script>
@@ -79,9 +73,7 @@
    
     
      <body class="cuerpo" >
-    	 <div class="head menu" style=" -webkit-box-shadow: 0px 2px 2px 4px rgba(0,0,0,0.69);">
-		 <?php include("view/modulos/head.php"); ?>
-		 </div>
+    	
     	 <div>
     	 	<?php include("view/modulos/slide.php"); ?>
    		 </div> 	
