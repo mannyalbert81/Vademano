@@ -27,10 +27,9 @@
 			</li>
 		    <li><a href="index.php?controller=RegistroCartonDocumentos&action=index">Registro de Cartones</a>
 			</li>
-		
-	          
-          </ul>
+		 </ul>
         </li>
+        
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-file" ><?php echo " Gestión Documental" ;?> </span> <span class="caret"></span></a>
           <ul class="dropdown-menu">

@@ -152,6 +152,8 @@
 							 </div>
                              </div>
                             
+                             <p><a href="<?php echo $helper->url("Usuarios","Reset"); ?>" >Olvidaste tu Cuenta</a> </p>
+                            
 						    <div class="col-xs-12 col-md-12 col-lg-12" style="text-align: center; ">
 						    <div class="col-xs-2 col-md-2 col-lg-2" style="text-align: center;">
 						    </div>
@@ -174,7 +176,7 @@
 		                          <li><span class="fa fa-check text-success"></span> No enseñes a nadie tu clave.</li>
 		                          <li><span class="fa fa-check text-success"></span> La clave es personal.</li>
 		                          <li><span class="fa fa-check text-success"></span> Cuidala.</li>
-		                          <p><a href="<?php echo $helper->url("Usuarios","Reset"); ?>" >Olvidaste tu Cuenta</a> </p>
+		                         
 		                      </ul>
 		                  </div>
               </div>

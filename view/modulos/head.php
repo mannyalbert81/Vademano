@@ -87,7 +87,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#42992a', end
  	</div>
  	<div class="pull-right" >
 
-   		<nav class="navbar navbar-default">
+   		<nav class="navbar" style="background-color: #77CD6A;">
 		  <div class="container-fluid">
 		    <!-- Brand and toggle get grouped for better mobile display -->
 			 <div class="navbar-header">
@@ -101,16 +101,15 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#42992a', end
 		    </div>
 			
 		    <!-- Collect the nav links, forms, and other content for toggling -->
-		    <div class="collapse navbar-collapse menu" id="bs-example-navbar-collapse-1">
-		      <ul class="nav navbar-nav">
-		        <li  ><a href="index.php?controller=Usuarios&action=cerrar_sesion"><span class="glyphicon glyphicon-home" style="color: #ffffff;;"><?php echo " Inicio" ;?></span> <span class="sr-only">(current)</span></a></li>
-		        <li  ><a href="index.php?controller=Buscador&action=index"><span class="glyphicon glyphicon-folder-open" style="color: #ffffff;;"><?php echo " Vademécum" ;?></span> <span class="sr-only">(current)</span></a></li>
+		    <div class="collapse navbar-collapse" style="background-color: #77CD6A; " id="bs-example-navbar-collapse-1">
+		      <ul class="nav navbar-nav" >
+		        <li  ><a href="index.php?controller=Usuarios&action=cerrar_sesion"  ><span class="glyphicon glyphicon-home" style="color: #ffffff;"><?php echo " Inicio" ;?></span> <span class="sr-only">(current)</span></a></li>
+		        <li  ><a href="index.php?controller=Buscador&action=index" ><span class="glyphicon glyphicon-folder-open" style="color: #ffffff;"><?php echo " Vademécum" ;?></span> <span class="sr-only">(current)</span></a></li>
 		        <li class="dropdown">
-		          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-briefcase" style="color: #ffffff;;"><?php echo " Nosotros" ;?></span> <span class="caret"></span></a>
-		          <ul class="dropdown-menu" style="color: #ffffff;" >
+		          <a href="#" class="dropdown-toggle"  data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-briefcase" style="color: #ffffff;;"><?php echo " Nosotros" ;?></span> <span class="caret"></span></a>
+		          <ul class="dropdown-menu" style="color: #000000;" >
 		        	<li ><a href="index.php?controller=Mensajes&action=index" style="color: #000000;">Quienes Somos</a>
 				    </li>
-					
 				  </ul>
 		        </li>
 		        <li  ><a href="index.php?controller=Afiliaciones&action=index"><span class="glyphicon glyphicon-folder-open" style="color: #ffffff;;"><?php echo " Afiliarse" ;?></span> <span class="sr-only">(current)</span></a></li>  
@@ -118,15 +117,15 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#42992a', end
 		        <?php $status = session_status();  ?>
 		        <?php if  (isset( $_SESSION['nombres_usuario'] )){  ?> 
 			 		<li class="dropdown">
-			          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user" ><?php echo " " . $_SESSION['nombres_usuario'] ;?></span> <span class="caret"></span></a>
+			          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="color: #ffffff;"><span class="glyphicon glyphicon-user" ><?php echo " " . $_SESSION['nombres_usuario'] ;?></span> <span class="caret"></span></a>
 			          <ul class="dropdown-menu">
-			        	<li><a href="<?php echo $helper->url("FichasFavoritos","index"); ?>"><span class="glyphicon glyphicon-star-empty" ><?php echo " Productos Favoritos" ;?></span> </a>
+			        	<li><a href="<?php echo $helper->url("FichasFavoritos","index"); ?>"><span class="glyphicon glyphicon-star-empty" style="color: #000000;" ><?php echo " Productos Favoritos" ;?></span> </a>
 					  	</li>
 					  
 					  	
-					  	<li><a href="<?php echo $helper->url("Afiliaciones","VistaActualizarDatos"); ?>"><span class="glyphicon glyphicon-list-alt" style="color: #ffffff;;"><?php echo " Actualizar Datos" ;?></span> </a>
+					  	<li><a href="<?php echo $helper->url("Afiliaciones","VistaActualizarDatos"); ?>"><span class="glyphicon glyphicon-list-alt" style="color: #000000;"><?php echo " Actualizar Datos" ;?></span> </a>
 					  	</li>
-					  	<li><a href="<?php echo $helper->url("Usuarios","cerrar_sesion"); ?>"><span class="glyphicon glyphicon-lock" style="color: #ffffff;;"><?php echo " Cerrar Sesion" ;?></span> </a>
+					  	<li><a href="<?php echo $helper->url("Usuarios","cerrar_sesion"); ?>"><span class="glyphicon glyphicon-lock" style="color: #000000;" ><?php echo " Cerrar Sesion" ;?></span> </a>
 					  	</li>
 					  	
 					  	
