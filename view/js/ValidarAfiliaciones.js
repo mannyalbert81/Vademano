@@ -127,20 +127,7 @@
             },
             
             
-            fecha_nacimiento_usuario: {
-           	 
-      			 validators: {
-       
-      				 notEmpty: {
-       
-      					 message: 'La fecha es requerida'
-       
-      				 }
-       
-      			 }
-       
-      		 },
-	        	
+           	        	
       		telefono_usuario: {
 	        		message: 'El telefono no es valido',
 	                        validators: {

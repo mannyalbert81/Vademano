@@ -83,13 +83,12 @@
            		$apellidos_usuario = "";
            		
            ?>
-           <?php if ($resultSet != "") {?>
+           <?php if (!empty($resultSet)) {?>
            
            <?php $registros = count($resultSet);  ?>
            
             <?php foreach($resultSet as $res) { 
             	
-        		
         		
         		$id_usuario = $res->id_usuario;
         		$nombres_usuario = $res->nombres_usuario;

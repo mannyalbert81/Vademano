@@ -7,13 +7,15 @@
       <head>
         <meta charset="utf-8"/>
         <title>Afiliaciones - Vademano 2015</title>
- 	<link rel="stylesheet" href="view/css/bootstrap.css">
-     <link rel="stylesheet" href="view/css/estilos.css">
-  <script src="view/js/jquery.js"></script>
-  <script src="view/js/bootstrapValidator.min.js"></script>
-  <script src="view/js/noty.js"></script>
-    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+ 	 	<link rel="stylesheet" href="view/css/bootstrap.css">
+           <script src="view/js/jquery.js"></script>
+		  <script src="view/js/bootstrapValidator.min.js"></script>
+		  <script src="view/js/noty.js"></script>
+		  <script src="view/js/ValidarAfiliaciones.js"></script>   
+          <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    
     <link rel="stylesheet" href="view/font-awesome/css/font-awesome.min.css">
+    
 	<script src="http://maps.google.com/maps/api/js?key=AIzaSyDyu4jW-edLYPnTIBRqHtUxisvp3NRVBps"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/gmaps.js/0.4.24/gmaps.js"></script>
      
@@ -48,32 +50,7 @@
  		
  	
  		
- 		<script>
-    var imagenes=new Array(
-        'view/images/publicidad/1.jpg',
-        'view/images/publicidad/2.jpg',
-        'view/images/publicidad/3.jpg',
-        'view/images/publicidad/4.jpg',
-        'view/images/publicidad/5.jpg',
-        'view/images/publicidad/6.jpg',
-        'view/images/publicidad/7.jpg',
-        'view/images/publicidad/8.jpg',
-        'view/images/publicidad/9.jpg'
-    );
-    function rotarImagenes()
-    {
-        var index=Math.floor((Math.random()*imagenes.length));
-        document.getElementById("imagen").src=imagenes[index];
-        
-    }
-    onload=function()
-    {
-        rotarImagenes();
-        setInterval(rotarImagenes,3000);
-    }
-    </script>
-
-
+ 		
 <script type="text/javascript">
 	$(document).ready(function(){
 		 
@@ -179,240 +156,11 @@
 	</script>
 	
  
- 		<script >
- 		
-		$(document).ready(function(){
-			
-		    // cada vez que se cambia el valor del combo
-		    $("#btn_guardar").click(function() 
-			{
-		    	var regex = /[\w-\.]{2,}@([\w-]{2,}\.)*([\w-]{2,}\.)[\w-]{2,4}/;
-		    	var validaFecha = /([0-9]{4})\-([0-9]{2})\-([0-9]{2})/;
-		    	 
-		    	var correo_usuario = $("#correo_usuario").val();
-		    	var ccorreo_usuario = $("#ccorreo_usuario").val();
-		    	var clave_usuario = $("#clave_usuario").val();
-		    	var cclave_usuario = $("#cclave_usuario").val();	
-		    	var nombres_usuario = $("#nombres_usuario").val();
-		    	var apellidos_usuario = $("#apellidos_usuario").val();
-		    	var ocupaciones = $("#ocupaciones").val();
-		    	var paises = $("#paises").val();
-		    	var provincias = $("#provincias").val();
-		    	
-		    	var telefono_usuario = $("#telefono_usuario").val();
-		    	var celular_usuario = $("#celular_usuario").val();
-				
-		    	
-				var fecha_nacimiento_usuario = $("#fecha_nacimiento_usuario").val(); 	
-					
-		    	if (correo_usuario == "")
-		    	{
-			    	
-		    		$("#mensaje_correo").text("Introduzca un correo");
-		    		$("#mensaje_correo").fadeIn("slow"); //Muestra mensaje de error
-		            return false;
-			    }
-		    	else if (regex.test($('#correo_usuario').val().trim()))
-		    	{
-		    		$("#mensaje_correo").fadeOut("slow"); //Muestra mensaje de error
-		            
-				}
-		    	else 
-		    	{
-		    		$("#mensaje_correo").text("Introduzca un correo Valido");
-		    		$("#mensaje_correo").fadeIn("slow"); //Muestra mensaje de error
-		            return false;	
-			    }
-		    	if (ccorreo_usuario == "")
-		    	{
-					
-			    	$("#mensaje_ccorreo").text("Introduzca un correo");
-		    		$("#mensaje_ccorreo").fadeIn("slow"); //Muestra mensaje de error
-		            return false;
-			    }
-		    	else if (regex.test($('#ccorreo_usuario').val().trim()))
-		    	{
-		    		$("#mensaje_ccorreo").fadeOut("slow"); //Muestra mensaje de error
-		            
-				}
-		    	else 
-		    	{
-		    		$("#mensaje_ccorreo").text("Introduzca un correo Valido");
-		    		$("#mensaje_ccorreo").fadeIn("slow"); //Muestra mensaje de error
-		            return false;	
-			    }
-		    	if (correo_usuario != ccorreo_usuario)
-		    	{
-			    	
-		    		$("#mensaje_ccorreo").text("Correos no Coinciden");
-		    		$("#mensaje_ccorreo").fadeIn("slow"); //Muestra mensaje de error
-		            return false;
-			    }
-				
-				//nombre y apellidos
-				
-		    	if (nombres_usuario == "")
-		    	{
-			    	
-		    		$("#mensaje_nombres").text("Introduzca un Nombre");
-		    		$("#mensaje_nombres").fadeIn("slow"); //Muestra mensaje de error
-		            return false;
-			    }
-		    	else 
-		    	{
-		    		$("#mensaje_nombres").fadeOut("slow"); //Muestra mensaje de error
-		            
-				}
-		    	
-		    	if (apellidos_usuario == "")
-		    	{
-			    	
-		    		$("#mensaje_apellidos").text("Introduzca un Apellido");
-		    		$("#mensaje_apellidos").fadeIn("slow"); //Muestra mensaje de error
-		            return false;
-			    }
-		    	else 
-		    	{
-		    		$("#mensaje_apellidos").fadeOut("slow"); //Muestra mensaje de error
-		            
-				}
-		    	if (ocupaciones == "")
-		    	{
-			    	
-		    		$("#mensaje_ocupaciones").text("Seleccione");
-		    		$("#mensaje_ocupaciones").fadeIn("slow"); //Muestra mensaje de error
-		            return false;
-			    }
-		    	else 
-		    	{
-		    		$("#mensaje_ocupaciones").fadeOut("slow"); //Muestra mensaje de error
-		            
-				}
-				
-						    	
-				//la clave
-		    	if (clave_usuario == "")
-		    	{
-		    		
-		    		$("#mensaje_clave").text("Introduzca una Clave");
-		    		$("#mensaje_clave").fadeIn("slow"); //Muestra mensaje de error
-		            return false;
-			    }
-		    	else 
-		    	{
-		    		$("#mensaje_clave").fadeOut("slow"); //Muestra mensaje de error
-		            
-				}
-		    	
-		    	if (cclave_usuario == "")
-		    	{
-		    		
-		    		$("#mensaje_cclave").text("Introduzca una Clave");
-		    		$("#mensaje_cclave").fadeIn("slow"); //Muestra mensaje de error
-		            return false;
-			    }
-		    	else 
-		    	{
-		    		$("#mensaje_cclave").fadeOut("slow"); 
-		            
-				}
-		    	
-		    	if (clave_usuario != cclave_usuario)
-		    	{
-			    	
-		    		$("#mensaje_cclave").text("Correos no Coinciden");
-		    		$("#mensaje_cclave").fadeIn("slow"); //Muestra mensaje de error
-		            return false;
-			    }
-		    	else
-		    	{
-		    		$("#mensaje_cclave").fadeOut("slow"); 
-			        
-		    	}	
-		    	if (paises == "")
-		    	{
-			    	
-		    		$("#mensaje_paises").text("Seleccione");
-		    		$("#mensaje_paises").fadeIn("slow"); //Muestra mensaje de error
-		            return false;
-			    }
-		    	else 
-		    	{
-		    		$("#mensaje_paises").fadeOut("slow"); //Muestra mensaje de error
-		            
-				}
-		    	if (provincias == "")
-		    	{
-			    	
-		    		$("#mensaje_provincias").text("Seleccione");
-		    		$("#mensaje_provincias").fadeIn("slow"); //Muestra mensaje de error
-		            return false;
-			    }
-		    	else 
-		    	{
-		    		$("#mensaje_provincias").fadeOut("slow"); //Muestra mensaje de error
-		            
-				}
-		    	
-				// la fecha
-				if ((fecha_nacimiento_usuario.match(validaFecha)) && (fecha_nacimiento_usuario!='')) 
-				{
-			       $("#mensaje_fecha_nacimiento").fadeOut("slow");
-			    } 
-				else 
-				{
-		    		$("#mensaje_fecha_nacimiento").text("Fecha Incorrecta");
-		    		$("#mensaje_fecha_nacimiento").fadeIn("slow"); //Muestra mensaje de error	
-			       return false;
-			    }
-				//los telefonos
-		    	
-		    			    				    
-			}); 
-				
-				$( "#correo_usuario" ).focus(function() {
-					$("#mensaje_correo").fadeOut("slow");
-    			});
-		
-				$( "#ccorreo_usuario" ).focus(function() {
-					$("#mensaje_ccorreo").fadeOut("slow");
-    			});
-				$( "#nombres_usuario" ).focus(function() {
-					$("#mensaje_nombres").fadeOut("slow");
-    			});
-				$( "#apellidos_usuario" ).focus(function() {
-					$("#mensaje_apellidos").fadeOut("slow");
-    			});
-				$( "#ocupaciones" ).focus(function() {
-					$("#mensaje_ocupaciones").fadeOut("slow");
-    			});
-				$( "#clave_usuario" ).focus(function() {
-					$("#mensaje_clave").fadeOut("slow");
-    			});
-				$( "#cclave_usuario" ).focus(function() {
-					$("#mensaje_cclave").fadeOut("slow");
-    			});
-				$( "#paises" ).focus(function() {
-					$("#mensaje_paises").fadeOut("slow");
-    			});
-				$( "#provincias" ).focus(function() {
-					$("#mensaje_provincias").fadeOut("slow");
-    			});
-				
-				$( "#fecha_nacimiento_usuario" ).focus(function() {
-					$("#mensaje_fecha_nacimiento").fadeOut("slow");
-    			});
-				
-		      
-				    
-		}); 
-	</script>
- 		
- 		
+ 			
     </head>
     
     <body class="cuerpo">
-    <form  action="<?php echo $helper->url("Afiliaciones","InsertaAfiliados"); ?>" method="post" class="col-lg-12">
+    <form  id="form-afiliaciones" action="<?php echo $helper->url("Afiliaciones","InsertaAfiliados"); ?>" method="post" class="col-lg-12">
       
     	  <div class="row" style="margin-top: 20px;" >
     	 
@@ -651,7 +399,7 @@
                              <span class="input-group-addon"><i class="fa fa-envelope-o fa-fw"></i></span>
 							  <input class="form-control" type="email" id="correo_usuario" name="correo_usuario" placeholder="Email">
 							</div>
-							<span class="help-block errores" id="mensaje_correo" ></span>
+							<span class="help-block"></span>
 							</div>
             
             
@@ -664,7 +412,7 @@
                              <span class="input-group-addon"><i class="fa fa-envelope-o fa-fw"></i></span>
 							  <input class="form-control" type="email" id="ccorreo_usuario" name="ccorreo_usuario" placeholder="Confirme Email">
 							</div>
-                        	<span class="help-block errores" id="mensaje_ccorreo" ></span>
+                        	<span class="help-block "></span>
 							</div>
             
 		    </div>
@@ -681,7 +429,7 @@
                              <span class="input-group-addon"><i class="fa fa-user-circle"></i></span>
 							  <input class="form-control" type="text" id="nombres_usuario" name="nombres_usuario" placeholder="Nombres">
 							</div>
-                            <span class="help-block errores" id="mensaje_nombres" ></span>
+                            <span class="help-block "></span>
 							</div>
 		    </div>
 		    
@@ -692,7 +440,7 @@
                              <span class="input-group-addon"><i class="fa fa-user-circle"></i></span>
 							  <input class="form-control" type="text" id="apellidos_usuario" name="apellidos_usuario" placeholder="Apellidos">
 							</div>
-                            <span class="help-block errores" id="mensaje_apellidos" ></span>
+                            <span class="help-block " ></span>
 							</div>
 		    
 		    </div>
@@ -709,7 +457,7 @@
 										<option value="<?php echo $res->id_ocupaciones; ?>"  ><?php echo $res->nombre_ocupaciones; ?> </option>
 							        <?php } ?>
 								   </select> 
-                                  <div id="mensaje_ocupaciones" class="errores"></div>
+                                  <span class="help-block"></span>
             </div>
             
             </div>
@@ -736,7 +484,7 @@
                              <span class="input-group-addon"><i class="fa fa-unlock-alt"></i></span>
 							  <input class="form-control" type="password" id="clave_usuario" name="clave_usuario" placeholder="Clave">
 							</div>
-                            <span class="help-block errores" id="mensaje_clave" ></span>
+                            <span class="help-block"></span>
 							</div>
 		    
 		    </div>
@@ -748,7 +496,7 @@
                              <span class="input-group-addon"><i class="fa fa-unlock-alt"></i></span>
 							  <input class="form-control" type="password" id="cclave_usuario" name="cclave_usuario" placeholder="Confirme Clave">
 							</div>
-                            <span class="help-block errores" id="mensaje_cclave" ></span>
+                            <span class="help-block" ></span>
 							</div>
 		    
 		    </div>
@@ -769,7 +517,7 @@
 										<option value="<?php echo $res->id_pais; ?>" ><?php echo $res->nombre_pais; ?> </option>
 							        <?php } ?>
 								   </select> 
-                                  <div id="mensaje_paises" class="errores"></div>
+                                  <span class="help-block"></span>
             </div>
             
             </div>
@@ -780,7 +528,7 @@
                                   <select name="provincias" id="provincias"  class="form-control" >
                                   <option value=""> -- SIN ESPECIFICAR -- </option>
 								   </select> 
-                             <div id="mensaje_provincias" class="errores"></div>
+                             <span class="help-block"></span>
             </div>
             
             </div>
@@ -795,7 +543,7 @@
                              <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
 							  <input class="form-control" type="date" id="fecha_nacimiento_usuario" name="fecha_nacimiento_usuario" placeholder="Fecha Nacimiento">
 							</div>
-                            <span class="help-block errores" id="mensaje_fecha_nacimiento" ></span>
+                            <span class="help-block"></span>
 							</div>
 		    
 		    </div>
@@ -828,15 +576,22 @@
            
           
            
+          
+		    
+		     <div class="col-xs-12 col-md-12 col-lg-12" style="text-align: center; ">
+						    <div class="col-xs-4 col-md-4 col-lg-4" style="text-align: center;">
+						    </div>
+						     <div class="col-xs-4 col-md-4 col-lg-4" style="text-align: center;">
+						      <div class="form-group">
+						      
+				                    <button type="submit" id="btn_guardar" name="btn_guardar" class="btn btn-success btn-block"><i class="fa fa-lock fa-spin" aria-hidden="true"></i> Afiliarse</button>
            
-        
-            <div class="row">
-		    <div class="col-xs-12 col-md-12 col-lg-12" style="text-align: center; margin-top: 20px;">
-		    <div class="form-group">
-                                  <button type="submit" id="btn_guardar" name="btn_guardar" class="btn btn-success"><i class="fa fa-lock fa-spin" aria-hidden="true"></i> Afiliarse</button>
-            </div>
-		    </div>
-		    </div>
+				            </div>
+						    </div>
+						     <div class="col-xs-4 col-md-4 col-lg-4" style="text-align: center;">
+						    </div>
+						    </div>
+		    
         
            
 		<?php }?>    

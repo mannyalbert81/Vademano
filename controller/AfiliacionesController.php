@@ -58,7 +58,7 @@ public function index(){
 			$resultVis = $fichas->getBy($where);
 			
 			///INSERTAMOS EL AFILIADO EN USUARIO
-			if (isset($_POST["btn_guardar"]) )
+			if (isset($_POST["nombres_usuario"]) )
 			{
 							
 				$_nombres_usuario 	= strtoupper ( $_POST["nombres_usuario"] ); 
