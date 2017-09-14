@@ -50,7 +50,7 @@ public function index(){
 	public function InsertaAfiliados(){
 		
 			$afiliaciones = new UsuariosModel();
-		
+			$res="";
 			session_start();
 			$afiliaciones = new UsuariosModel();
 			$fichas = new FichasModel();
@@ -77,81 +77,102 @@ public function index(){
 				$_fecha_nacimiento = $_POST["fecha_nacimiento_usuario"];
 				$_id_ocupaciones    = $_POST["ocupaciones"];
 				$_extra_ocupaciones_usuario    = $_POST["extra_ocupaciones_usuario"];
-				$funcion = "ins_usuarios";
-				$parametros = " '$_nombres_usuario','$_apellidos_usuario', '$_usuario_usuario', '$_clave_usuario'
-								 ,'$_id_pais', '$_id_provincia', '$_telefono_usuario', '$_celular_usuario'
-								 ,'$_correo_usuario', '$_id_rol','$_id_estado', '$_clave_activacion_usuario'
-								 , '$_fecha_nacimiento' , '$_id_ocupaciones' , '$_extra_ocupaciones_usuario'  ";
-				$afiliaciones->setFuncion($funcion);
-				$afiliaciones->setParametros($parametros);
-				$resultado=$afiliaciones->Insert();
-			
-				$baseUrl = URLVADEMANO;
-				$controladorAccion = "controller=Afiliaciones&action=ValidarAfiliado&clave_activacion=" . $_clave_activacion_usuario;
-				$activacion = $baseUrl.$controladorAccion;
-				$cabeceras = "MIME-Version: 1.0 \r\n";
-				$cabeceras .= "Content-type: text/html; charset=utf-8 \r\n";
-				$cabeceras.= "From: info@masoft.net \r\n";
-				$destino="$_correo_usuario";
-				$asunto="Afiliacion";
-				$fecha=date("d/m/y");
-				$hora=date("H:i:s");
-				//align='center'
-				$resumen="
-						
-				<table rules='all'>
-				<tr style='background:#7acb5a'><td WIDTH='1000' HEIGHT='50'><rigth><img src='http://186.4.203.42:4000/Vademano/view/images/logo_vademano.png' WIDTH='200' HEIGHT='80' /></rigth></td></tr>
-				</tabla>
-				<p><table rules='all'></p>
-				<tr style='background: #FFFFFF;'><td  WIDTH='1000' align='center'><b> BIENVENIDO A VADEMANO </b></td></tr></p>
-				<tr style='background: #FFFFFF;'><td  WIDTH='1000' align='justify'>Bienvenido a Vademano veterinario el portal digital que reúne toda la información  de relevancia relacionada con los productos  farmacéuticos de uso veterinario que se comercializan, busca proveer a médicos veterinarios, técnicos, especialistas y público en general  el más completo vademécum digital. 
-                                      El Vademano Veterinario está diseñado como una herramienta web moderna, versátil y fácil de utilizar, que se ajusta a la versatilidad de los dispositivos de comunicación actual para que la búsqueda de información se convierta en una tarea sencilla que puede ser realizada a través de múltiples combinaciones de criterios: 
-						              efecto terapéutico, forma farmacéutica, especies, etc.; asimismo dispondrá de la información de los productos en formato PDF, opción para imprimir, entre otras múltiples ventajas.</td></tr>
-				</tabla>
-				<p><table rules='all'></p>
-				<tr style='background: #FFFFFF;'><td  WIDTH='1000' align='center'><b> ESTAS REGISTRADO EN VADEMANO</b></td></tr>
-				<tr style='background: #FFFFFF;'><td WIDTH='1000'><b> Nombre: </b>$_nombres_usuario</td></tr>
-				<tr style='background: #FFFFFF;'><td WIDTH='1000'><b> Apellido: </b>$_apellidos_usuario </td></tr>
-				<tr style='background: #FFFFFF;'><td WIDTH='1000'></td></tr>
-				</tabla>
-				<p><table rules='all'></p>
-				<tr style='background: #FFFFFF;'><td  WIDTH='1000' align='center'><b> TUS DATOS DE ACCESO SON: </b></td></tr>
-				<tr style='background: #FFFFFF;'><td WIDTH='1000'><b> Usuario: </b>$_correo_usuario </td></tr>
-				<tr style='background: #FFFFFF;'><td WIDTH='1000'><b> Clave: </b>$_clave_usuario1 </td></tr>
-				<tr style='background: #FFFFFF;'><td WIDTH='1000'></td></tr>
-				</tabla>
-				<p><table rules='all'></p>
-				<tr style='background: #FFFFFF;'><td WIDTH='1000' align='center'><b>  LINK DE ACTIVACIÓN </b></td></tr>
-				<tr style='background: #FFFFFF;'><td WIDTH='1000' align='center'><a href=$activacion>Activación</A></td></tr>
-				<tr style='background: #FFFFFF;'><td WIDTH='1000'></td></tr>
-				</table>
-				<p><table rules='all'></p>
-				<tr style='background:#1C1C1C'><td WIDTH='1000' HEIGHT='50' align='center'><font color='white'>Vademano. - <a href='http://www.vademano.com'><FONT COLOR='#7acb5a'>www.vademano.com</FONT></a> - Copyright © 2017-</font></td></tr>
-				</table>";
 				
-				/*<table rules='all'>
-				<tr style='background:#FFFFFF'><td WIDTH='1000' HEIGHT='50' align='center'><center><img src='http://186.4.203.42:4000/Vademano/view/images/left-box.png' WIDTH='180' HEIGHT='220' /><img src='http://186.4.203.42:4000/Vademano/view/images/center-box.png' WIDTH='180' HEIGHT='220' /><img src='http://186.4.203.42:4000/Vademano/view/images/rigth-box.png' WIDTH='180' HEIGHT='220' /></center></td></tr>
-				</tabla>
-				</tabla>*/
 				
+				if($_fecha_nacimiento !=""){
 					
-				if (mail("$destino","Afiliaciones","$resumen","$cabeceras"))
-				{
-					$this->view("Afiliaciones",array(
-							"resultSet"=>"", "resultPais"=>"", "resultProv" =>"", "resultEdit" =>"", "resultado"=>"true", "resultVis"=>$resultVis
-					));
-				
-				
+					$funcion = "ins_usuarios";
+					$parametros = " '$_nombres_usuario','$_apellidos_usuario', '$_usuario_usuario', '$_clave_usuario'
+					,'$_id_pais', '$_id_provincia', '$_telefono_usuario', '$_celular_usuario'
+					,'$_correo_usuario', '$_id_rol','$_id_estado', '$_clave_activacion_usuario'
+					, '$_fecha_nacimiento' , '$_id_ocupaciones' , '$_extra_ocupaciones_usuario'  ";
+					$afiliaciones->setFuncion($funcion);
+					$afiliaciones->setParametros($parametros);
+					$resultado=$afiliaciones->Insert();
+					$res="1";
+				}else{
+					
+					$res="0";
 				}
-				else
-				{
+				
+			
+				if($res==1){
+					
+					$baseUrl = URLVADEMANO;
+					$controladorAccion = "controller=Afiliaciones&action=ValidarAfiliado&clave_activacion=" . $_clave_activacion_usuario;
+					$activacion = $baseUrl.$controladorAccion;
+					$cabeceras = "MIME-Version: 1.0 \r\n";
+					$cabeceras .= "Content-type: text/html; charset=utf-8 \r\n";
+					$cabeceras.= "From: info@masoft.net \r\n";
+					$destino="$_correo_usuario";
+					$asunto="Afiliacion";
+					$fecha=date("d/m/y");
+					$hora=date("H:i:s");
+					//align='center'
+					$resumen="
+					
+					<table rules='all'>
+					<tr style='background:#7acb5a'><td WIDTH='1000' HEIGHT='50'><rigth><img src='http://186.4.203.42:4000/Vademano/view/images/logo_vademano.png' WIDTH='200' HEIGHT='80' /></rigth></td></tr>
+					</tabla>
+					<p><table rules='all'></p>
+					<tr style='background: #FFFFFF;'><td  WIDTH='1000' align='center'><b> BIENVENIDO A VADEMANO </b></td></tr></p>
+					<tr style='background: #FFFFFF;'><td  WIDTH='1000' align='justify'>Bienvenido a Vademano veterinario el portal digital que reúne toda la información  de relevancia relacionada con los productos  farmacéuticos de uso veterinario que se comercializan, busca proveer a médicos veterinarios, técnicos, especialistas y público en general  el más completo vademécum digital.
+					El Vademano Veterinario está diseñado como una herramienta web moderna, versátil y fácil de utilizar, que se ajusta a la versatilidad de los dispositivos de comunicación actual para que la búsqueda de información se convierta en una tarea sencilla que puede ser realizada a través de múltiples combinaciones de criterios:
+					efecto terapéutico, forma farmacéutica, especies, etc.; asimismo dispondrá de la información de los productos en formato PDF, opción para imprimir, entre otras múltiples ventajas.</td></tr>
+					</tabla>
+					<p><table rules='all'></p>
+					<tr style='background: #FFFFFF;'><td  WIDTH='1000' align='center'><b> ESTAS REGISTRADO EN VADEMANO</b></td></tr>
+					<tr style='background: #FFFFFF;'><td WIDTH='1000'><b> Nombre: </b>$_nombres_usuario</td></tr>
+					<tr style='background: #FFFFFF;'><td WIDTH='1000'><b> Apellido: </b>$_apellidos_usuario </td></tr>
+					<tr style='background: #FFFFFF;'><td WIDTH='1000'></td></tr>
+					</tabla>
+					<p><table rules='all'></p>
+					<tr style='background: #FFFFFF;'><td  WIDTH='1000' align='center'><b> TUS DATOS DE ACCESO SON: </b></td></tr>
+					<tr style='background: #FFFFFF;'><td WIDTH='1000'><b> Usuario: </b>$_correo_usuario </td></tr>
+					<tr style='background: #FFFFFF;'><td WIDTH='1000'><b> Clave: </b>$_clave_usuario1 </td></tr>
+					<tr style='background: #FFFFFF;'><td WIDTH='1000'></td></tr>
+					</tabla>
+					<p><table rules='all'></p>
+					<tr style='background: #FFFFFF;'><td WIDTH='1000' align='center'><b>  LINK DE ACTIVACIÓN </b></td></tr>
+					<tr style='background: #FFFFFF;'><td WIDTH='1000' align='center'><a href=$activacion>Activación</A></td></tr>
+					<tr style='background: #FFFFFF;'><td WIDTH='1000'></td></tr>
+					</table>
+					<p><table rules='all'></p>
+					<tr style='background:#1C1C1C'><td WIDTH='1000' HEIGHT='50' align='center'><font color='white'>Vademano. - <a href='http://www.vademano.com'><FONT COLOR='#7acb5a'>www.vademano.com</FONT></a> - Copyright © 2017-</font></td></tr>
+					</table>";
+					
+					if (mail("$destino","Afiliaciones","$resumen","$cabeceras"))
+					{
+						$this->view("Afiliaciones",array(
+								"resultSet"=>"", "resultPais"=>"", "resultProv" =>"", "resultEdit" =>"", "resultado"=>"true", "resultVis"=>$resultVis
+						));
+					
+						die();
+					
+					}
+					else
+					{
+						$this->view("Afiliaciones",array(
+								"resultSet"=>"", "resultPais"=>"", "resultProv" =>"", "resultEdit" =>"", "resultado"=>"false", "resultVis"=>$resultVis
+						));
+					
+						die();
+					
+					}
+					
+				}else{
+					
 					$this->view("Afiliaciones",array(
 							"resultSet"=>"", "resultPais"=>"", "resultProv" =>"", "resultEdit" =>"", "resultado"=>"false", "resultVis"=>$resultVis
 					));
-				
-				
-				
+					die();
+					
 				}
+				
+				
+				
+					
+				
 				
 			}
 			

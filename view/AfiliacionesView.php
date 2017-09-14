@@ -45,10 +45,33 @@
 	    		yearRange: "1990:2017"
 	    		});
 		    }
+
+		   
+
 		}); 
 	</script>
  		
  	
+ 		<script>
+		
+ 		$(document).ready(function(){
+
+		    // cada vez que se cambia el valor del combo
+		    $("#btn_guardar").click(function() 
+			{
+		    var datafecha= $("#fecha_nacimiento_usuario").val();
+			if (datafecha ==""){
+	    		alert('Seleccione Fecha Nacimiento');	    		
+	    		return false;
+	    	}
+			});
+
+
+			});
+		
+	</script>
+ 	
+		
  		
  		
 <script type="text/javascript">
