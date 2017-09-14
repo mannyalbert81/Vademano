@@ -61,7 +61,7 @@ class BuscadorController extends ControladorBase{
 			 
 			
 			$resultPro = $buscador->getBy($where."  AND tipo_ficha= 'P' ");
-			$resultAli = $alimentos->getBy($where);
+			$resultAli = $alimentos->getBy($where."  AND tipo_ficha= 'A' ");
 			$resultPrinBus = $principios_activos->getBy("buscador LIKE '%".$_POST['contenido_busqueda']."%'");			
 			$resultLabBus = $laboratorios->getBy($where);
 			$resultDisBus = $distribuidores->getBy($where);

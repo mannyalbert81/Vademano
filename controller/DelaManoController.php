@@ -293,7 +293,7 @@ class DelaManoController extends ControladorBase{
 						break;
 					case 1:
 		
-						$where_2 = " AND  industria.descripcion_industria LIKE '$contenido%'  ";
+						$where_2 = " AND  industria.descripcion_industria LIKE '%$contenido%'  ";
 						break;
 					
 				}
@@ -358,7 +358,7 @@ class DelaManoController extends ControladorBase{
 						break;
 					case 1:
 		
-						$where_2 = " AND  investigacion.descripcion_investigacion LIKE '$contenido%'  ";
+						$where_2 = " AND  investigacion.descripcion_investigacion LIKE '%$contenido%'  ";
 						break;
 						
 						
