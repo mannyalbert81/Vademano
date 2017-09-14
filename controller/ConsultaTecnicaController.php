@@ -40,7 +40,7 @@ class ConsultaTecnicaController extends ControladorBase{
 		}
 		
 		
-		if  (isset($_POST["btn_guardar"])){
+		if  (isset($_POST["nombres_usuario"])){
 			
 			$_id_tipo_documentos  = 1;
 			$_nombres_mensajes = $_POST["nombres_usuario"];

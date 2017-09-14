@@ -11,7 +11,7 @@
 		<link rel="stylesheet" href="view/css/bootstrap.css">
     
   <script src="view/js/jquery.js"></script>
-  <script src="view/js/bootstrap.min.js"></script>
+  
   <script src="view/js/bootstrapValidator.min.js"></script>
   <script src="view/js/noty.js"></script>
   <script src="view/js/ValidarLogin.js"></script>

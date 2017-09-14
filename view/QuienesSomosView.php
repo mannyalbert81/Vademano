@@ -11,12 +11,13 @@
         <meta charset="utf-8"/>
         <title>Quienes Somos - Vademano 2015</title>
         	<link rel="stylesheet" href="view/css/bootstrap.css">
-     <link rel="stylesheet" href="view/css/estilos.css">
-  <script src="view/js/jquery.js"></script>
-  <script src="view/js/bootstrapValidator.min.js"></script>
-  <script src="view/js/noty.js"></script>
-      <link rel="stylesheet" href="view/font-awesome/css/font-awesome.min.css">    
+           <script src="view/js/jquery.js"></script>
+		  
+		  <script src="view/js/bootstrapValidator.min.js"></script>
+		  <script src="view/js/noty.js"></script>
+		  <script src="view/js/ValidarQuienesSomos.js"></script>   
  
+  <link rel="stylesheet" href="view/font-awesome/css/font-awesome.min.css">
   
    <script src="http://maps.google.com/maps/api/js?key=AIzaSyDyu4jW-edLYPnTIBRqHtUxisvp3NRVBps"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/gmaps.js/0.4.24/gmaps.js"></script>
@@ -105,152 +106,7 @@
 		    
 		}); 
 	</script>
-	 <script >
- 		
-		$(document).ready(function(){
-			
-		    // cada vez que se cambia el valor del combo
-		    $("#btn_guardar").click(function() 
-			{
-		    	var regex = /[\w-\.]{2,}@([\w-]{2,}\.)*([\w-]{2,}\.)[\w-]{2,4}/;
-		    	 
-		    	var correo_usuario = $("#correo_usuario").val();
-		    	var nombres_usuario = $("#nombres_usuario").val();
-		    	var apellidos_usuario = $("#apellidos_usuario").val();
-		    	var paises = $("#paises").val();
-		    	var provincias = $("#provincias").val();
-		    	
-		    	var mensaje = $("#mensaje").val();
-		    
-				
-		    	
-		    	if (nombres_usuario == "")
-		    	{
-			    	
-		    		$("#mensaje_nombres").text("Introduzca un Nombre");
-		    		$("#nombres_usuario").css({"border-color": "#b03535", "box-shadow": "0 0 5px #d45252"});
-		    		$("#nombres_usuario_label").css({"color": "#b03535","font-size": "13px"});
-		    		$("#nombres_usuario_span").css({"border-color": "#b03535", "background":"#F6D8CE","box-shadow": "0 0 5px #d45252"});
-		    		
-		    		$("#mensaje_nombres").fadeIn("slow"); 
-		            return false;
-			    }
-		    	else 
-		    	{
-		    		 
-		    		$("#mensaje_nombres").fadeOut("slow"); 
-		            
-				}
-		    	
-		    	if (apellidos_usuario == "")
-		    	{
-			    	
-		    		$("#mensaje_apellidos").text("Introduzca un Apellido");
-		    		$("#mensaje_apellidos").fadeIn("slow"); //Muestra mensaje de error
-		            return false;
-			    }
-		    	else 
-		    	{
-		    		$("#mensaje_apellidos").fadeOut("slow"); //Muestra mensaje de error
-		            
-				}
-		    	
-				
-						    	
-			
-		    	if (paises == "")
-		    	{
-			    	
-		    		$("#mensaje_paises").text("Seleccione");
-		    		$("#mensaje_paises").fadeIn("slow"); //Muestra mensaje de error
-		            return false;
-			    }
-		    	else 
-		    	{
-		    		$("#mensaje_paises").fadeOut("slow"); //Muestra mensaje de error
-		            
-				}
-		    	if (provincias == "")
-		    	{
-			    	
-		    		$("#mensaje_provincias").text("Seleccione");
-		    		$("#mensaje_provincias").fadeIn("slow"); //Muestra mensaje de error
-		            return false;
-			    }
-		    	else 
-		    	{
-		    		$("#mensaje_provincias").fadeOut("slow"); //Muestra mensaje de error
-		            
-				}
-		    	
-					
-		    	if (correo_usuario == "")
-		    	{
-			    	
-		    		$("#mensaje_correo").text("Introduzca un correo");
-		    		$("#mensaje_correo").fadeIn("slow"); //Muestra mensaje de error
-		            return false;
-			    }
-		    	else if (regex.test($('#correo_usuario').val().trim()))
-		    	{
-		    		$("#mensaje_correo").fadeOut("slow"); //Muestra mensaje de error
-		            
-				}
-		    	else 
-		    	{
-		    		$("#mensaje_correo").text("Introduzca un correo Valido");
-		    		$("#mensaje_correo").fadeIn("slow"); //Muestra mensaje de error
-		            return false;	
-			    }
-
-
-		    	if (mensaje == "")
-		    	{
-			    	
-		    		$("#mensaje_mensaje").text("Ingrese Mensaje a Enviar");
-		    		$("#mensaje_mensaje").fadeIn("slow"); //Muestra mensaje de error
-		            return false;
-			    }
-		    	else 
-		    	{
-		    		$("#mensaje_mensaje").fadeOut("slow"); //Muestra mensaje de error
-		            
-				}
-		    	
-		    			    				    
-			}); 
-
-		    $("#nombres_usuario").keypress(function(){
-    			$("#nombres_usuario").css({"border-color": "#28921f", "box-shadow": "0 0 5px #28921f"});
-	    		$("#nombres_usuario_label").css({"color": "#28921f","font-size": "13px"});
-	    		$("#nombres_usuario_span").css({"border-color": "#28921f", "background":"#CEF6D8", "box-shadow": "0 0 5px #28921f"});
-	    		
-    		});
-			
-		    $( "#nombres_usuario" ).focus(function() {
-				$("#mensaje_nombres").fadeOut("slow");
-			});
-			$( "#apellidos_usuario" ).focus(function() {
-				$("#mensaje_apellidos").fadeOut("slow");
-			});
-			
-			$( "#paises" ).focus(function() {
-				$("#mensaje_paises").fadeOut("slow");
-			});
-			$( "#provincias" ).focus(function() {
-				$("#mensaje_provincias").fadeOut("slow");
-			});
-			$( "#correo_usuario" ).focus(function() {
-					$("#mensaje_correo").fadeOut("slow");
-    		});
-			$( "#mensaje" ).focus(function() {
-				$("#mensaje_mensaje").fadeOut("slow");
-		});
-		
-		      
-				    
-		}); 
-	</script>
+	 
  		
    	 </head>
    
@@ -259,7 +115,7 @@
      <body class="cuerpo" >
      <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">	
     	
-    <form action="<?php echo $helper->url("Mensajes","Inserta"); ?>" method="post" class="col-lg-12">
+    <form id="form-mensajes" action="<?php echo $helper->url("Mensajes","index"); ?>" method="post" class="col-lg-12">
    	
    			<div class="row" style="margin-top: 40px;" >
 			  <div class="col-xs-1 col-md-1">
@@ -330,12 +186,12 @@
 			<div class="row">
 		    <div class="col-xs-6 col-md-6">
 		    <div class="form-group">
-                             <label id="nombres_usuario_label"  class="control-label">Nombres:</label></br>
+                             <label id="nombres_usuario"  class="control-label">Nombres:</label></br>
                              <div class="input-group margin-bottom-sm">
-                             <span class="input-group-addon" id="nombres_usuario_span"><i class="fa fa-address-book" ></i></span>
+                             <span class="input-group-addon"><i class="fa fa-address-book" ></i></span>
 							  <input class="form-control" type="text" id="nombres_usuario" name="nombres_usuario" placeholder="Nombres">
 							</div>
-							<span class="help-block errorprueba" id="mensaje_nombres" ></span>
+							<span class="help-block"></span>
 							</div>
             
             
@@ -348,7 +204,7 @@
                              <span class="input-group-addon"><i class="fa fa-address-book-o"></i></span>
 							  <input class="form-control" type="text" id="apellidos_usuario" name="apellidos_usuario" placeholder="Apellidos">
 							</div>
-                        	<span class="help-block errores" id="mensaje_apellidos" ></span>
+                        	<span class="help-block" ></span>
 							</div>
             
 		    </div>
@@ -367,7 +223,7 @@
 										<option value="<?php echo $res->id_pais; ?>" ><?php echo $res->nombre_pais; ?> </option>
 							        <?php } ?>
 								   </select> 
-                                  <div id="mensaje_paises" class="errores"></div>
+                                 <span class="help-block" ></span>
             </div>
             
             </div>
@@ -378,7 +234,7 @@
                                   <select name="provincias" id="provincias"  class="form-control" >
                                   <option value=""> -- SIN ESPECIFICAR -- </option>
 								   </select> 
-                             <div id="mensaje_provincias" class="errores"></div>
+                            <span class="help-block" ></span>
             </div>
             
             </div>
@@ -421,7 +277,7 @@
                              <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
 							  <input class="form-control" type="email" id="correo_usuario" name="correo_usuario" placeholder="Email">
 							</div>
-                        	<span class="help-block errores" id="mensaje_correo" ></span>
+                        	<span class="help-block" ></span>
 							</div>
             
 		    </div>        	
@@ -432,19 +288,28 @@
 		     <div class="form-group ">
 		                          <label for="mensaje" class="control-label">Mensaje:</label>
                                   <textarea type="text"  class="form-control" id="mensaje" name="mensaje" value=""  placeholder="Mensaje"></textarea>
-                                  <div id="mensaje_mensaje" class="errores"></div>
+                                  <span class="help-block" ></span>
 			 
              </div>
 		     </div>
 	  		 </div> 
            
-	   		 <div class="row">
-		    <div class="col-xs-12 col-md-12 col-lg-12" style="text-align: center; margin-top: 20px;">
-		    <div class="form-group">
-                                  <button type="submit" id="btn_guardar" name="btn_guardar" class="btn btn-info"><i class="fa fa-envelope fa-spin" aria-hidden="true"></i> Enviar</button>
-            </div>
-		    </div>
-		    </div>
+	   		
+		    
+		    
+		     <div class="col-xs-12 col-md-12 col-lg-12" style="text-align: center; ">
+						    <div class="col-xs-4 col-md-4 col-lg-4" style="text-align: center;">
+						    </div>
+						     <div class="col-xs-4 col-md-4 col-lg-4" style="text-align: center;">
+						      <div class="form-group">
+						      
+				                    <button type="submit" id="btn_guardar" value="" name="btn_guardar" class="btn btn-info btn-block" ><i class="fa fa-unlock fa-spin" aria-hidden="true"></i> Enviar</button>
+				          
+				            </div>
+						    </div>
+						     <div class="col-xs-4 col-md-4 col-lg-4" style="text-align: center;">
+						    </div>
+						    </div>
 		     	  </div>
 				  </div>
 				  </div>

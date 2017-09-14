@@ -23,7 +23,7 @@ class PreguntasController extends ControladorBase{
 		$where = "nombre_fichas LIKE '%%' ORDER by consultas_fichas DESC LIMIT 4";
 		$resultVis = $fichas->getBy($where);
 		
-		if(isset($_POST["btn_guardar"])){
+		if(isset($_POST["nombres_usuario"])){
 			
 			$_id_tipo_documentos  = 1;
 			$_nombres_mensajes = $_POST["nombres_usuario"];

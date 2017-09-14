@@ -72,21 +72,19 @@
           <?php if (isset($resultado)) {?>
         	<?php if ($resultado == "true") {?>
         	
-	        	<div class="alert alert-success" role="alert">
-				  <div class="alert alert-success" role="alert">Tu envio se realizo <strong> correctamente </strong>, Enviamos a tu emil la ficha que seleccionaste.</div>
-				</div>
+	        	  <div class="alert alert-success" role="alert">Tu envio se realizo <strong> correctamente </strong>, Enviamos a tu emil la ficha que seleccionaste.</div>
+				
 			<?php }else {?>
-				<div class="alert alert-success" role="alert">
 				  <div class="alert alert-danger" role="alert">No pudimos enviar la ficha a su email, vuelva a intentarlo.</div>
-				</div>
+				
 			<?php }} ?>
-            
+            <br><br><br><br><br><br><br>
          </div>      
            
 		</form>            
       
     
-   		 <div style="margin-top: 20px; background-color: #4bae4f;">
+   		 <div class="col-xs-12 col-md-12">
    		 
    		 <?php include("view/modulos/small_slide.php"); ?>
    		 
