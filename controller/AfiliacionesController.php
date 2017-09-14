@@ -52,6 +52,15 @@ public function index(){
 			$afiliaciones = new UsuariosModel();
 			$res="";
 			session_start();
+			
+			$paises=new PaisesModel();
+			$resultPais = $paises->getAll("nombre_pais");
+			
+			$provincias=new ProvinciasModel();
+			$resultProv = $provincias->getAll("nombre_provincia");
+			
+			$ocupaciones = new OcupacionesModel();
+			$resultOcu = $ocupaciones->getAll("nombre_ocupaciones");
 			$afiliaciones = new UsuariosModel();
 			$fichas = new FichasModel();
 			$where = "nombre_fichas LIKE '%%' ORDER by consultas_fichas DESC LIMIT 4";
@@ -144,7 +153,7 @@ public function index(){
 					if (mail("$destino","Afiliaciones","$resumen","$cabeceras"))
 					{
 						$this->view("Afiliaciones",array(
-								"resultSet"=>"", "resultPais"=>"", "resultProv" =>"", "resultEdit" =>"", "resultado"=>"true", "resultVis"=>$resultVis
+								 "resultPais"=>$resultPais, "resultProv" =>$resultProv, "resultOcu"=>$resultOcu, "resultEdit" =>"", "resultado"=>"true", "resultVis"=>$resultVis
 						));
 					
 						die();
@@ -153,7 +162,7 @@ public function index(){
 					else
 					{
 						$this->view("Afiliaciones",array(
-								"resultSet"=>"", "resultPais"=>"", "resultProv" =>"", "resultEdit" =>"", "resultado"=>"false", "resultVis"=>$resultVis
+								 "resultPais"=>$resultPais, "resultProv" =>$resultProv, "resultOcu"=>$resultOcu, "resultado"=>"false", "resultVis"=>$resultVis
 						));
 					
 						die();
@@ -163,7 +172,7 @@ public function index(){
 				}else{
 					
 					$this->view("Afiliaciones",array(
-							"resultSet"=>"", "resultPais"=>"", "resultProv" =>"", "resultEdit" =>"", "resultado"=>"false", "resultVis"=>$resultVis
+							 "resultPais"=>$resultPais, "resultProv" =>$resultProv, "resultOcu"=>$resultOcu, "resultado"=>"false", "resultVis"=>$resultVis
 					));
 					die();
 					
@@ -173,6 +182,10 @@ public function index(){
 				
 					
 				
+				
+			}else{
+				
+				$this->redirect("Afiliaciones", "index");
 				
 			}
 			
