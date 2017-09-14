@@ -462,7 +462,7 @@ public function index(){
 	
 	public function ValidarAfiliado()
 	{
-		session_start();
+		
 		$afiliaciones = new UsuariosModel();
 		$resultSet = "";
 		
@@ -475,10 +475,10 @@ public function index(){
 		{
 			$_clave_activacion = $_GET["clave_activacion"];
 			
-			$where = "clave_activacion_usuario = '$_clave_activacion'";
+			$where1 = "clave_activacion_usuario = '$_clave_activacion'";
 		   
 			try {
-				$resultSet = $afiliaciones->getBy($where);
+				$resultSet = $afiliaciones->getBy($where1);
 				
 				$this->view("ValidaAfiliado",array(
 						"resultSet"=>$resultSet, "resultVis"=>$resultVis

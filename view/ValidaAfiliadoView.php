@@ -85,7 +85,7 @@
            ?>
            <?php if (!empty($resultSet)) {?>
            
-           <?php $registros = count($resultSet);  ?>
+           
            
             <?php foreach($resultSet as $res) { 
             	
@@ -125,8 +125,12 @@
 			
 			
 			<?php }else {?>
-				<div class="alert alert-success" role="alert">
-				  <div class="alert alert-danger" role="alert">Ocurrio un error al realizar su validación.</div>
+			
+			  <div class="col-lg-12 col-md-12 division" style="-webkit-box-shadow: 0px 2px 2px 2px rgba(0,0,0,0.69); border-radius: 24px 24px 24px 24px; margin-top: 20px">
+           
+            <hr/>
+								  <div class="alert alert-danger" role="alert">Ocurrio un error al realizar su validación.</div>
+				
 				</div>
 			<?php } ?>
 	        
