@@ -16,13 +16,17 @@ public function index(){
 	$laboratorios = new LaboratoriosModel();
 	$fichas = new FichasModel();
 	
-	$columnas="fichas.id_fichas";
+	$fichas_service = new FichaServiceModel();
+	
+	$columnas="*";
 	$tablas="fichas";
 	$where8="fichas.id_fichas>0 AND fichas.tipo_ficha = 'P'";
 	$id8="fichas.id_fichas";
 	$resultActual=$fichas->getCondiciones($columnas, $tablas, $where8, $id8);
 	
 	
+	$resulta = $fichas_service->ActualizaFichaService($resultActual);
+		
 	
 	if(!empty($resultActual)){
 		
@@ -53,7 +57,6 @@ public function index(){
 					
 					
 					if(!empty($resultGet10)){
-					
 						
 						foreach($resultGet10 as $res)
 						{
@@ -80,16 +83,10 @@ public function index(){
 				
 				$tablaLab="";
 				
-				
 			}
-			
-			
 			
 		}
 		
-		
-		
-	
 	}
 	
 	
