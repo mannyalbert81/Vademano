@@ -11,7 +11,7 @@ class DB_Functions {
 
 	// constructor
 	function __construct() {
-		require_once 'Conectar.php';
+		require_once 'ConectarService.php';
 		// connecting to database
 		$db = new Conectar();
 		$this->conn = $db->conexion();

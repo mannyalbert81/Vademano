@@ -577,5 +577,39 @@ public function index(){
 				"resultSet"=>"", "resultPais"=>$resultPais, "resultProv" =>$resultProv, "resultEdit" =>$resultEdit, "resultOcu"=>$resultOcu
 		));
 	}	
+	
+	public function registraAfiliadoMobil(){
+	
+		if(isset($_POST['action']))
+		{
+			switch ($_POST['action'])
+			{
+				case 'insertar' :
+					$array=array('id'=>1);
+					echo json_encode($array);
+				break;
+			}
+		}else {
+			$arrayUsuario = array('USER1'=>'clave1','USER2'=>'clave2','USER3'=>'clave3','USER4'=>'clave4','USER5'=>'clave5');
+			
+			$objUsuario = new stdClass();
+			$listUsuario = [];
+			
+			foreach($arrayUsuario as $key=>$value)
+			{
+				$usuario = new stdClass();
+			
+				$usuario->nombre=$key;
+				$usuario->clave=$value;
+			
+				$listUsuario[]= $usuario;
+			}
+			
+			$objUsuario->listaUsuario=$listUsuario;
+			
+			echo json_encode($objUsuario);
+		}
+		
+	}
 }
 ?>
