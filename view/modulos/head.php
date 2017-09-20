@@ -5,7 +5,7 @@
   <link rel="shortcut icon" href="favicon.ico" />
   <link rel="stylesheet" href="view/css/estilos.css">
  
-
+<?php require_once 'config/global.php';?> 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   
@@ -86,6 +86,14 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#42992a', end
 		<a href="index.php?controller=Usuarios&action=cerrar_sesion"><img src="view/images/logo_vademano.png" class="img-responsive zoom" alt="Vademano"></a>
  	</div>
  	
+ 	 <?php if  (isset( $_SESSION['nombres_usuario'] )){  ?> 
+ 	 
+ 	<button type="image"  class="pull-right" style="margin-top: 0px ; margin-left: 5px" data-toggle="modal" data-target="#myModal">
+						<img type="image" src="view/images/qr-code.jpg" width="40" height="45"></img>
+	</button>
+	<?php  }?>    
+   
+ 	
  	<div class="pull-right" >
 
    		<nav class="navbar" style="background-color: #77CD6A;">
@@ -122,23 +130,16 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#42992a', end
 			          <ul class="dropdown-menu">
 			        	<li><a href="<?php echo $helper->url("FichasFavoritos","index"); ?>"><span class="glyphicon glyphicon-star-empty" style="color: #000000;" ><?php echo " Productos Favoritos" ;?></span> </a>
 					  	</li>
-					  
-					  	
-					  	<li><a href="<?php echo $helper->url("Afiliaciones","VistaActualizarDatos"); ?>"><span class="glyphicon glyphicon-list-alt" style="color: #000000;"><?php echo " Actualizar Datos" ;?></span> </a>
+					    <li><a href="<?php echo $helper->url("Afiliaciones","VistaActualizarDatos"); ?>"><span class="glyphicon glyphicon-list-alt" style="color: #000000;"><?php echo " Actualizar Datos" ;?></span> </a>
 					  	</li>
-					  	
-					  	<li><a href="<?php echo $helper->url("Qr","index"); ?>"><span class="glyphicon glyphicon-lock" style="color: #000000;" ><?php echo " Sincronizar" ;?></span> </a>
-					  	</li>
-					  	
 					  	<li><a href="<?php echo $helper->url("Usuarios","cerrar_sesion"); ?>"><span class="glyphicon glyphicon-lock" style="color: #000000;" ><?php echo " Cerrar Sesion" ;?></span> </a>
 					  	</li>
-										  	
-					  	
+							
 					  </ul>
 			        </li>
 			 	  
-			 		
-				 
+			 	  
+			 	 
 			 	 <?php } else { ?>	
 			 	
 			 		   	<li><a href="<?php echo $helper->url("Usuarios","Loguear"); ?>"><span class="glyphicon glyphicon-lock" style="color: #ffffff;;"><?php echo " Login" ;?></span> </a>
@@ -149,16 +150,14 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#42992a', end
 			 		
 		   
 		      </ul>
-		 
-		 	
+		  	
 		 	     
 		    </div><!-- /.navbar-collapse -->
+		    
 		  </div><!-- /.container-fluid -->
 		</nav>
- 	
- 	
+ 		
  	</div>  
-           
 </div>
 
 
