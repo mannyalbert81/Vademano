@@ -85,6 +85,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#42992a', end
     	  
 		<a href="index.php?controller=Usuarios&action=cerrar_sesion"><img src="view/images/logo_vademano.png" class="img-responsive zoom" alt="Vademano"></a>
  	</div>
+ 	
  	<div class="pull-right" >
 
    		<nav class="navbar" style="background-color: #77CD6A;">
@@ -125,9 +126,13 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#42992a', end
 					  	
 					  	<li><a href="<?php echo $helper->url("Afiliaciones","VistaActualizarDatos"); ?>"><span class="glyphicon glyphicon-list-alt" style="color: #000000;"><?php echo " Actualizar Datos" ;?></span> </a>
 					  	</li>
-					  	<li><a href="<?php echo $helper->url("Usuarios","cerrar_sesion"); ?>"><span class="glyphicon glyphicon-lock" style="color: #000000;" ><?php echo " Cerrar Sesion" ;?></span> </a>
+					  	
+					  	<li><a href="<?php echo $helper->url("Qr","index"); ?>"><span class="glyphicon glyphicon-lock" style="color: #000000;" ><?php echo " Sincronizar" ;?></span> </a>
 					  	</li>
 					  	
+					  	<li><a href="<?php echo $helper->url("Usuarios","cerrar_sesion"); ?>"><span class="glyphicon glyphicon-lock" style="color: #000000;" ><?php echo " Cerrar Sesion" ;?></span> </a>
+					  	</li>
+										  	
 					  	
 					  </ul>
 			        </li>
@@ -150,6 +155,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#42992a', end
 		    </div><!-- /.navbar-collapse -->
 		  </div><!-- /.container-fluid -->
 		</nav>
+ 	
+ 	
  	</div>  
            
 </div>

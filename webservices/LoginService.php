@@ -3,46 +3,57 @@
 require_once '../core/DB_Functions.php';
 $db = new DB_Functions();
 
-
-if (isset($_POST['usuario']) && isset($_POST['password']) ) {
-
-	// receiving the post params
-	$usuario = $_POST['usuario'];
-	$password = $_POST['password'];
-
-	//$resultado["error"] = FALSE;
-	$resultado = $db->Loguear($usuario, $password);
-	echo json_encode($resultado);
-	//print(json_encode(array("usuario_usuarios" => $usuario)));
+$accion=(isset($_POST['action']))?$_POST['action']:'';
 	
-}; 
+
+if($accion=="consulta"){
+
+	
+$columnas = "fichas_service.id_fichas, 
+  fichas_service.nombre_fichas, 
+  fichas_service.encabezado_tabla_fichas, 
+  fichas_service.farmacocinetica_fichas, 
+  fichas_service.accion_terapeutica_fichas, 
+  fichas_service.clasificacion_farmacologica_fichas, 
+  fichas_service.forma_terapeutica_fichas, 
+  fichas_service.indicaciones_uso_fichas, 
+  fichas_service.interacciones_fichas, 
+  fichas_service.contraindicaciones_fichas, 
+  fichas_service.periodo_retiro_fichas, 
+  fichas_service.advertencias_fichas, 
+  fichas_service.presentacion_fichas, 
+  fichas_service.registro_sanitario_fichas, 
+  fichas_service.id_fichas_fotos, 
+  fichas_service.consultas_fichas, 
+  fichas_service.buscador, 
+  fichas_service.mecanismo_accion_fichas, 
+  fichas_service.conservacion_fichas, 
+  fichas_service.efectos_colaterales_fichas, 
+  fichas_service.ingredientes_fichas, 
+  fichas_service.tipo_alimento_fichas, 
+  fichas_service.encabezado_dosificacion_fichas, 
+  fichas_service.tipo_ficha, 
+  fichas_service.tabla_formas_administracion, 
+  fichas_service.tabla_laboratorios, 
+  fichas_service.tabla_distribuidores, 
+  fichas_service.tabla_composicion, 
+  fichas_service.tabla_dosificacion";
+
+
+$talba = "public.fichas_service";
+$where = "1=1";
+$resultado = $db->getCondiciones($columnas, $talba, $where);
+
+
+echo json_encode($resultado);
+}
+else{
+	
+	
+	echo "no entro";
+}
 
 
 
 
-if (isset($_POST['accion']) && isset($_POST['cliente'])   ) {
-
-	// receiving the post params
-	$accion = $_POST['accion'];
-	$cliente = $_POST['cliente'];
-	if ($accion == 'CONSULTAR')
-	{
-		$columnas = " rc_pedidos_cab.numero_pedidos_cab, fc_clientes.ruc_clientes, rc_pedidos_cab.fcha_pedidos_cab, COUNT(rc_pedidos_det.id_productos) AS registros";
-		$talba = "public.rc_pedidos_cab, public.rc_pedidos_det, public.fc_clientes";
-		$where = " rc_pedidos_det.id_pedidos_cab = rc_pedidos_cab.id_pedidos_cab AND fc_clientes.id_clientes = rc_pedidos_cab.id_clientes  AND fc_clientes.razon_social_clientes = '$cliente'
-		GROUP BY rc_pedidos_cab.numero_pedidos_cab, fc_clientes.ruc_clientes, rc_pedidos_cab.fcha_pedidos_cab
-		ORDER BY rc_pedidos_cab.numero_pedidos_cab";
-		$resultado = $db->getCondiciones($columnas, $talba, $where);
-	}
-	echo json_encode($resultado);
-
-	};
 	
-	
-	
-	
-	
-	
-	
-	
-?>

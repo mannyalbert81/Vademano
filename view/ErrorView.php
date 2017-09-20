@@ -32,6 +32,6 @@
             	
      </form>
   
-  		  <?php include("view/modulos/footer.php"); ?>
+  		  <?php include("modulos/footer.php"); ?>
      </body>  
     </html>
