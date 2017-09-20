@@ -13,7 +13,7 @@ class DB_Functions {
 	function __construct() {
 		require_once 'ConectarService.php';
 		// connecting to database
-		$db = new Conectar();
+		$db = new ConectarService();
 		$this->conn = $db->conexion();
 	}
 
@@ -150,6 +150,19 @@ class DB_Functions {
 		return $resultSet;
 	}
 	
+	public function insertar($funcion,$parametros)
+	{
+		$query = "SELECT ".$funcion."(".$parametros.")";
+		
+		try{
+			pg_query($this->conn, $query);
+			$resultSet=1;
+		}catch (Exception $Ex)
+		{
+			$resultSet = "0";		
+		}		 
+		return $resultSet;
+	}
 	
 }
 

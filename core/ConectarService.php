@@ -1,5 +1,5 @@
 <?php
-class Conectar{
+class ConectarService{
 	
      private $driver = "";
      private $host = "";
