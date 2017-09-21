@@ -577,10 +577,10 @@ class EntidadBase{
     			
     			if (!empty($dtComposicion))
     			{
-    				$tablaComp = "<table";
-    				$tablaComp.= "<tr>";
+    				$tablaComp ="<table border=1>";
+    				$tablaComp.="<tr>";
     				$tablaComp.="<th><font size=1>";
-    				$tablaComp.= "<b>Principio Activo</b>";
+    				$tablaComp.="<b>Principio Activo</b>";
     				$tablaComp.="</font></th>";
     				$tablaComp.="<th><font size=1>";
     				$tablaComp.="<b>Dosis</b>";
@@ -604,6 +604,7 @@ class EntidadBase{
     					$tablaComp.="</font></td>";
     					$tablaComp.="</tr>";
     				}
+    				$tablaComp.="</table>";
     					
     			}
     			
@@ -618,10 +619,10 @@ class EntidadBase{
    			
    			if (!empty($dtDosificacion))
    			{
-   				$tablaDosi = "<table>";
+   				$tablaDosi = "<table border=1>";
    				$tablaDosi.= "<tr>";
    				$tablaDosi.="<th><font size=1>";
-   				$tablaDosi.= "<b>Nombre Especie</b>";
+   				$tablaDosi.="<b>Nombre Especie</b>";
    				$tablaDosi.="</font></th>";
    				$tablaDosi.="<th><font size=1>";
    				$tablaDosi.="<b>Dosis</b>";
@@ -639,7 +640,8 @@ class EntidadBase{
    					$tablaDosi.="</font></td>";
    					$tablaDosi.="</tr>";
    				}
-   					
+   				
+   				$tablaDosi.="</table>";
    			}
     			
     			$funcion = "ins_fichas_service";
