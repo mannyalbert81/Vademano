@@ -4,7 +4,58 @@ $db = new DB_Functions();
 
 if(isset($_GET['imagen']))
 {
-	$dtImagen = $db->getCondiciones('id_fichas,foto_fichas_fotos', 'fichas_fotos', '1=1');
+	if($_GET['imagen']=='fichas')
+	{
+		$dtImagen = $db->getCondiciones('id_fichas,foto_fichas_fotos', 'fichas_fotos', '1=1');
+	
+		
+		if(!empty($dtImagen))
+		{
+			$listfotos = [];
+			
+			foreach ($dtImagen as $res)
+			{
+				$rowfoto = new stdClass();
+				$rowfoto->id_fichas = $res->id_fichas;
+				$rowfoto->foto_fichas_fotos=base64_encode(pg_unescape_bytea($res->foto_fichas_fotos));//$res->foto_fichas_fotos;
+				$listfotos[]=$rowfoto;
+			}
+			
+	 		$resultadosJson = json_encode($listfotos);
+		   
+	 	}
+		
+		echo $_GET['jsoncallback'] . '(' . $resultadosJson . ');';
+	}
+	
+	if($_GET['imagen']=='especies')
+	{
+		$dtImagen = $db->getCondiciones('fe.id_fichas_especies,fe.id_fichas,es.id_especies,es.nombre_especies,es.logo_especies', 'especies es INNER JOIN fichas_especies fe on fe.id_especies = es.id_especies', '1=1 ORDER BY fe.id_fichas_especies');
+		
+		if(!empty($dtImagen))
+		{
+			$listfotos = [];
+				
+			foreach ($dtImagen as $res)
+			{
+				$rowfoto = new stdClass();
+				$rowfoto->id_fichas_especies = $res->id_fichas_especies;
+				$rowfoto->id_fichas = $res->id_fichas;
+				$rowfoto->id_especies = $res->id_especies;
+				$rowfoto->nombre_especies = $res->nombre_especies;
+				$rowfoto->logo_especies=base64_encode(pg_unescape_bytea($res->logo_especies));//$res->foto_fichas_fotos;
+				$listfotos[]=$rowfoto;
+			}
+				
+			$resultadosJson = json_encode($listfotos);
+			 
+		}
+		
+		echo $_GET['jsoncallback'] . '(' . $resultadosJson . ');';
+	}
+}
+
+/******************************PARA FALLOS*************************************/
 // 	$imagen='iVBORw0KGgoAAAANSUhEUgAAAA4AAAATCAYAAACgADyUAAAAAXNSR0IArs4c6QAAAARnQU1BAACx
 // jwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAK7SURBVDhPbZJbSFRBGIDHIoJ6DXoIquee6rHH
 // 6C0IK0xLuomE5a1S1+u6uqbupsl6azdT024klBGolVaWJhYtopalbiWmqV1OF121cnf9mrPneKUf
@@ -22,23 +73,4 @@ if(isset($_GET['imagen']))
 // SUVORK5CYII=';
 	
 // 	$resultadosJson = json_encode(array( array('id_fichas'=>0,'foto_fichas_fotos'=>$imagen)));
-	
-	if(!empty($dtImagen))
-	{
-		$listfotos = [];
-		
-		foreach ($dtImagen as $res)
-		{
-			$rowfoto = new stdClass();
-			$rowfoto->id_fichas = $res->id_fichas;
-			$rowfoto->foto_fichas_fotos=base64_encode(pg_unescape_bytea($res->foto_fichas_fotos));//$res->foto_fichas_fotos;
-			$listfotos[]=$rowfoto;
-		}
-		
- 		$resultadosJson = json_encode($listfotos);
-	   
- 	}
-	
-	echo $_GET['jsoncallback'] . '(' . $resultadosJson . ');';
-}
 ?>
