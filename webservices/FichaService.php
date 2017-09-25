@@ -49,7 +49,53 @@ $where = "1=1";
 $resultado = $db->getCondiciones($columnas, $talba, $where);
 
 
-echo json_encode($resultado);
+if(!empty($resultado)){
+	
+	foreach ($resultado as $res)
+			{
+				$rowfoto = new stdClass();
+				$rowfoto->id_fichas= $res->id_fichas;
+				$rowfoto->nombre_fichas= $res->nombre_fichas;
+				$rowfoto->encabezado_tabla_fichas= $res->encabezado_tabla_fichas;
+				$rowfoto->farmacocinetica_fichas= $res->farmacocinetica_fichas;
+				$rowfoto->accion_terapeutica_fichas= $res->accion_terapeutica_fichas;
+				$rowfoto->clasificacion_farmacologica_fichas= $res->clasificacion_farmacologica_fichas;
+				$rowfoto->forma_terapeutica_fichas= $res->forma_terapeutica_fichas;
+				$rowfoto->indicaciones_uso_fichas= $res->indicaciones_uso_fichas;
+				$rowfoto->interacciones_fichas= $res->interacciones_fichas;
+				$rowfoto->contraindicaciones_fichas= $res->contraindicaciones_fichas;
+				$rowfoto->periodo_retiro_fichas= $res->periodo_retiro_fichas;
+				$rowfoto->advertencias_fichas= $res->advertencias_fichas;
+				$rowfoto->presentacion_fichas= $res->presentacion_fichas;
+				$rowfoto->presentacion_fichas= $res->registro_sanitario_fichas;
+				$rowfoto->id_fichas_fotos= $res->id_fichas_fotos;
+				$rowfoto->consultas_fichas= $res->consultas_fichas;
+				$rowfoto->buscador= $res->buscador;
+				$rowfoto->mecanismo_accion_fichas= $res->mecanismo_accion_fichas;
+				$rowfoto->efectos_colaterales_fichas= $res->efectos_colaterales_fichas;
+				$rowfoto->conservacion_fichas= $res->conservacion_fichas;
+				$rowfoto->ingredientes_fichas= $res->ingredientes_fichas;
+				$rowfoto->tipo_alimento_fichas= $res->tipo_alimento_fichas;
+				$rowfoto->encabezado_dosificacion_fichas= $res->encabezado_dosificacion_fichas;
+				$rowfoto->tipo_ficha= $res->tipo_ficha;
+				$rowfoto->tabla_formas_administracion= $res->tabla_formas_administracion;
+				$rowfoto->tabla_laboratorios= $res->tabla_laboratorios;
+				$rowfoto->tabla_distribuidores= $res->tabla_distribuidores;
+				$rowfoto->tabla_composicion= $res->tabla_composicion;
+				$rowfoto->tabla_dosificacion= $res->tabla_dosificacion;
+				$rowfoto->foto_fichas_fotos= base64_encode(pg_unescape_bytea($res->foto_fichas_fotos));
+				
+				$listfotos[]=$rowfoto;
+				
+			} 
+			
+			$resultadosJson = json_encode($listfotos);
+	}
+
+	
+
+echo $resultadosJson;
+
 }
 else{
 	
