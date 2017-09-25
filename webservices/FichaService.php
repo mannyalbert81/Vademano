@@ -48,6 +48,7 @@ $talba = "public.fichas_service f
 $where = "1=1";
 $resultado = $db->getCondiciones($columnas, $talba, $where);
 
+//var_dump($resultado);
 
 echo json_encode($resultado);
 }
