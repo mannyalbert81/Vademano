@@ -9,38 +9,42 @@ $accion=(isset($_POST['action']))?$_POST['action']:'';
 if($accion=="consulta"){
 
 	
-$columnas = "fichas_service.id_fichas, 
-  fichas_service.nombre_fichas, 
-  fichas_service.encabezado_tabla_fichas, 
-  fichas_service.farmacocinetica_fichas, 
-  fichas_service.accion_terapeutica_fichas, 
-  fichas_service.clasificacion_farmacologica_fichas, 
-  fichas_service.forma_terapeutica_fichas, 
-  fichas_service.indicaciones_uso_fichas, 
-  fichas_service.interacciones_fichas, 
-  fichas_service.contraindicaciones_fichas, 
-  fichas_service.periodo_retiro_fichas, 
-  fichas_service.advertencias_fichas, 
-  fichas_service.presentacion_fichas, 
-  fichas_service.registro_sanitario_fichas, 
-  fichas_service.id_fichas_fotos, 
-  fichas_service.consultas_fichas, 
-  fichas_service.buscador, 
-  fichas_service.mecanismo_accion_fichas, 
-  fichas_service.conservacion_fichas, 
-  fichas_service.efectos_colaterales_fichas, 
-  fichas_service.ingredientes_fichas, 
-  fichas_service.tipo_alimento_fichas, 
-  fichas_service.encabezado_dosificacion_fichas, 
-  fichas_service.tipo_ficha, 
-  fichas_service.tabla_formas_administracion, 
-  fichas_service.tabla_laboratorios, 
-  fichas_service.tabla_distribuidores, 
-  fichas_service.tabla_composicion, 
-  fichas_service.tabla_dosificacion";
+$columnas = " f.id_fichas_service, 
+  f.id_fichas, 
+  f.nombre_fichas, 
+  f.encabezado_tabla_fichas, 
+  f.farmacocinetica_fichas, 
+  f.accion_terapeutica_fichas, 
+  f.clasificacion_farmacologica_fichas, 
+  f.forma_terapeutica_fichas, 
+  f.indicaciones_uso_fichas, 
+  f.interacciones_fichas, 
+  f.contraindicaciones_fichas, 
+  f.periodo_retiro_fichas, 
+  f.advertencias_fichas, 
+  f.presentacion_fichas, 
+  f.registro_sanitario_fichas, 
+  f.id_fichas_fotos, 
+  f.consultas_fichas, 
+  f.buscador, 
+  f.mecanismo_accion_fichas, 
+  f.efectos_colaterales_fichas, 
+  f.conservacion_fichas, 
+  f.ingredientes_fichas, 
+  f.tipo_alimento_fichas, 
+  f.encabezado_dosificacion_fichas, 
+  f.tipo_ficha, 
+  f.tabla_formas_administracion, 
+  f.tabla_laboratorios, 
+  f.tabla_distribuidores, 
+  f.tabla_composicion, 
+  f.tabla_dosificacion, 
+  ff.foto_fichas_fotos";
 
 
-$talba = "public.fichas_service";
+$talba = "public.fichas_service f
+  LEFT JOIN public.fichas_fotos ff
+  ON ff.id_fichas = f.id_fichas";
 $where = "1=1";
 $resultado = $db->getCondiciones($columnas, $talba, $where);
 
