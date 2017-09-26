@@ -13,7 +13,7 @@ $columnas = "estado.nombre_estado,
   			usuarios.id_usuario,
 			usuarios.nombres_usuario, 
  			usuarios.apellidos_usuario, 
- 			 usuarios.usuario_usuario, 
+ 			usuarios.usuario_usuario, 
   			usuarios.celular_usuario, 
   			usuarios.telefono_usuario";
 
