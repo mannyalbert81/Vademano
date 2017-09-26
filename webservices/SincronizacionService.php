@@ -6,6 +6,17 @@ $db = new DB_Functions();
 $accion=(isset($_POST['action']))?$_POST['action']:'';
 $_id_usuario  = (isset($_POST['id_usuario']))?$_POST['id_usuario']:'';	
 
+if(isset($_GET['idusuario']))
+{
+	Consulta
+	
+
+	$resultadosJson = json_encode($listfotos);
+
+echo $_GET['jsoncallback'] . '(' . $resultadosJson . ');';
+	
+}
+
 if($accion=="consulta"){
 
 	

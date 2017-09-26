@@ -3,7 +3,7 @@
 require_once '../core/DB_Functions.php';
 $db = new DB_Functions();
 
-$accion=(isset($_POST['action']))?$_POST['action']:'';
+$accion=(isset($_GET['action']))?$_GET['action']:'';
 	
 
 if($accion=="consulta"){
@@ -93,9 +93,7 @@ if(!empty($resultado)){
 			$resultadosJson = json_encode($listfotos);
 	}
 
-	
-
-echo $resultadosJson;
+echo $_GET['jsoncallback'] . '(' . $resultadosJson . ');';
 
 }
 else{
