@@ -19,6 +19,7 @@ if(isset($_GET['id_usuario']))
 	$tabla = "public.usuarios,
   		  public.estado";
 	$where = " id_usuario = '$_id_usuario'  ";
+	
 	$resultado = $db->getCondiciones($columnas, $tabla, $where);
 	$resultadosJson = json_encode($resultado);
 	echo $_GET['jsoncallback'] . '(' . $resultadosJson . ');';
