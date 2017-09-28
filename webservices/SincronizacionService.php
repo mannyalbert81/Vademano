@@ -15,9 +15,12 @@ if(isset($_GET['id_usuario']))
   				us.telefono_usuario";
 	
 	
+
 	$tabla = "usuarios us INNER JOIN  estado es
 				ON us.id_estado = es.id_estado";
 	$where = " es.nombre_estado='ACTIVO'  AND  us.id_usuario = '$_id_usuario'  ";
+	
+	
 	$resultado = $db->getCondiciones($columnas, $tabla, $where);
 	$resultadosJson="";
 	
