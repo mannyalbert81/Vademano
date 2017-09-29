@@ -35,6 +35,7 @@ if(isset($_GET['id_usuario']))
 			$rowlist->usuario = $res->usuario_usuario;
 			$rowlist->celular = $res->celular_usuario;
 			$rowlist->telefono = $res->telefono_usuario;
+			$rowlist->estado = $res->nombre_estado;
 			$listusuario[]=$rowlist;
 		}
 		$resultadosJson = json_encode($listusuario);
