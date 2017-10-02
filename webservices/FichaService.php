@@ -68,7 +68,7 @@ if(!empty($resultado)){
 				$rowfoto->periodo_retiro_fichas= $res->periodo_retiro_fichas;
 				$rowfoto->advertencias_fichas= $res->advertencias_fichas;
 				$rowfoto->presentacion_fichas= $res->presentacion_fichas;
-				$rowfoto->presentacion_fichas= $res->registro_sanitario_fichas;
+				$rowfoto->registro_sanitario_fichas= $res->registro_sanitario_fichas;
 				$rowfoto->id_fichas_fotos= $res->id_fichas_fotos;
 				$rowfoto->consultas_fichas= $res->consultas_fichas;
 				$rowfoto->buscador= $res->buscador;
