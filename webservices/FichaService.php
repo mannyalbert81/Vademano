@@ -39,6 +39,8 @@ $columnas = " f.id_fichas_service,
   f.tabla_distribuidores, 
   f.tabla_composicion, 
   f.tabla_dosificacion, 
+	f.nombre_laboratorios, 
+    f.nombre_distribuidores,	
   ff.foto_fichas_fotos";
 
 
@@ -84,6 +86,8 @@ if(!empty($resultado)){
 				$rowfoto->tabla_distribuidores= $res->tabla_distribuidores;
 				$rowfoto->tabla_composicion= $res->tabla_composicion;
 				$rowfoto->tabla_dosificacion= $res->tabla_dosificacion;
+				$rowfoto->nombre_laboratorios= $res->nombre_laboratorios;
+				$rowfoto->nombre_distribuidores= $res->nombre_distribuidores;
 				$rowfoto->foto_fichas_fotos= base64_encode(pg_unescape_bytea($res->foto_fichas_fotos));
 				
 				$listfotos[]=$rowfoto;
