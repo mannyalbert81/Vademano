@@ -376,6 +376,25 @@ class EntidadBase{
     			}
     				
     			
+    			$_periodo_retiro_fichas_html = "";
+    			try{
+    				$arrayPeriodo_Retiro = explode(".",$_periodo_retiro_fichas);
+    				if(!empty($arrayPeriodo_Retiro))
+    				{
+    					for($i=0; $i<count($arrayPeriodo_Retiro)-1; $i++)
+    					{
+    						$_periodo_retiro_fichas_html.="&nbsp;";
+    						$_periodo_retiro_fichas_html.=trim($arrayPeriodo_Retiro[$i]).".";
+    						$_periodo_retiro_fichas_html.="<br>";
+    					}
+    			
+    				}
+    			}catch(Execption $e)
+    			{
+    				$_periodo_retiro_fichas_html="";
+    			}
+    			
+    			
     			$presentaciones_html = "";
     			try{
     				$arrayPres = explode(".",$_presentacion_fichas);
@@ -416,6 +435,7 @@ class EntidadBase{
     				foreach($resultLab as $res)
     				{
     					$id_laboratorios =$res->id_laboratorios;
+    					$nombre_laboratorios =$res->nombre_laboratorios;
     			
     					$columnaslabDir = "d.direccion_direcciones,d.telefono_direcciones,d.celular_direcciones,
 						           ca.nombre_canton,pr.cod_telefono";
@@ -487,6 +507,7 @@ class EntidadBase{
     				foreach($resultDistri as $res)
     				{
     					$id_distribuidores =$res->id_distribuidores;
+    					$nombre_distribuidores =$res->nombre_distribuidores;
     					 
     					$columnaslabDir = "d.direccion_direcciones,d.telefono_direcciones,d.celular_direcciones,
 						           ca.nombre_canton,pr.cod_telefono";
@@ -650,7 +671,7 @@ class EntidadBase{
     			'$_clasificacion_farmacologica_fichas', '$_forma_terapeutica_fichas',
     			'$_indicaciones_uso_fichas',
     			'$_interacciones_fichas', '$_contraindicaciones_fichas',
-    			'$_periodo_retiro_fichas', '$advertencias_html',
+    			'$_periodo_retiro_fichas_html', '$advertencias_html',
     			'$presentaciones_html', '$_registro_sanitario_fichas',
     			'$_id_fichas_fotos',
     			'$_consultas_fichas',
@@ -660,7 +681,7 @@ class EntidadBase{
     			'$_conservacion_fichas',
     			'$_encabezado_dosificacion_fichas','$_tipo_ficha', '$tablaLab',
     			'$tablaDis', '$tablaAdministracion',
-    			'$tablaComp', '$tablaDosi'";
+    			'$tablaComp', '$tablaDosi', '$nombre_laboratorios', '$nombre_distribuidores'";
     			$fichas_service->setFuncion($funcion);
     			$fichas_service->setParametros($parametros);
     			$resultado=$fichas_service->Insert();
