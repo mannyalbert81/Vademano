@@ -17,13 +17,14 @@ public function index(){
 	    $laboratorios = new LaboratoriosModel();
 	   
 	    
-	    $columnas="fichas.id_fichas";
+	    $columnas="*";
 	    $tablas="fichas";
 	    $where8="fichas.id_fichas>0 AND fichas.tipo_ficha = 'A'";
 	    $id8="fichas.id_fichas";
 	    $resultActual=$fichas->getCondiciones($columnas, $tablas, $where8, $id8);
 	    
-	    
+	    $fichas_service = new FichaServiceModel();
+	    $resulta = $fichas_service->ActualizaFichaService($resultActual);
 	    
 	    if(!empty($resultActual)){
 	    

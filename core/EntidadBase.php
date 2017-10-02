@@ -323,6 +323,9 @@ class EntidadBase{
 	
 	
 	$fichas_service = new FichaServiceModel();
+	
+	$nombre_distribuidores='';
+	$nombre_laboratorios='';
     
     	if(!empty($resultActual)){
     		foreach($resultActual as $res)
