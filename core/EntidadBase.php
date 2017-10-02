@@ -350,7 +350,7 @@ class EntidadBase{
     			$_efectos_colaterales_fichas=$res->efectos_colaterales_fichas;
     			$_conservacion_fichas=$res->conservacion_fichas;
     			$_encabezado_dosificacion_fichas=$res->encabezado_dosificacion_fichas;
-    			$_tipo_ficha='P';
+    			$_tipo_ficha=$res->tipo_ficha;
     			
     			$tablaLab="";
     			$tablaDis="";
