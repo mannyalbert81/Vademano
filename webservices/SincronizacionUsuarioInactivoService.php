@@ -19,7 +19,7 @@ if(isset($_GET['id_usuario']))
 
 	$tabla = "usuarios us INNER JOIN  estado es
 				ON us.id_estado = es.id_estado";
-	$where = "us.id_usuario = '$_id_usuario' AND es.nombre_estado='ACTIVO' ";
+	$where = "us.id_usuario = '$_id_usuario'";
 	
 	
 	$resultado = $db->getCondiciones($columnas, $tabla, $where);
