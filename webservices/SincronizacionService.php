@@ -6,19 +6,20 @@ $db = new DB_Functions();
 if(isset($_GET['id_usuario']))
 {
 	$_id_usuario=trim($_GET['id_usuario']);
-	$columnas = "es.nombre_estado,
+	$columnas = "
   				us.id_usuario,
 				us.nombres_usuario,
  				us.apellidos_usuario,
  			 	us.usuario_usuario,
   				us.celular_usuario,
-  				us.telefono_usuario";
+  				us.telefono_usuario,
+			    es.nombre_estado";
 	
 	
 
 	$tabla = "usuarios us INNER JOIN  estado es
 				ON us.id_estado = es.id_estado";
-	$where = " es.nombre_estado='ACTIVO'  AND  us.id_usuario = '$_id_usuario'  ";
+	$where = "us.id_usuario = '$_id_usuario'  ";
 	
 	
 	$resultado = $db->getCondiciones($columnas, $tabla, $where);
@@ -29,18 +30,22 @@ if(isset($_GET['id_usuario']))
 		$listusuario = [];
 		foreach ($resultado as $res)
 		{
-			$rowlist = new stdClass();			
-			$rowlist->nombres = $res->nombres_usuario;
-			$rowlist->apellidos = $res->apellidos_usuario;
-			$rowlist->usuario = $res->usuario_usuario;
-			$rowlist->celular = $res->celular_usuario;
-			$rowlist->telefono = $res->telefono_usuario;
-			$rowlist->estado = $res->nombre_estado;
+			$rowlist = new stdClass();	
+			$rowlist->id_usuario = $res->id_usuario;
+			$rowlist->nombres_usuario = $res->nombres_usuario;
+			$rowlist->apellidos_usuario = $res->apellidos_usuario;
+			$rowlist->usuario_usuario = $res->usuario_usuario;
+			$rowlist->celular_usuario = $res->celular_usuario;
+			$rowlist->telefono_usuario = $res->telefono_usuario;
+			$rowlist->nombre_estado = $res->nombre_estado;
 			$listusuario[]=$rowlist;
 		}
+		
 		$resultadosJson = json_encode($listusuario);
+		
 	}else{ 
-		$resultadosJson=json_encode(array(array('nombres'=>1,'apellidos'=>1,'usuario'=>1,'celular'=>1,'telefono'=>1)));
+		//$resultadosJson=json_encode(array(array('nombres'=>1,'apellidos'=>1,'usuario'=>1,'celular'=>1,'telefono'=>1)));
+		echo "No existe Usuario";
 	}
 	
 	echo $_GET['jsoncallback'] . '(' . $resultadosJson . ');';
