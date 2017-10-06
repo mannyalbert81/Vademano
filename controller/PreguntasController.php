@@ -65,6 +65,8 @@ class PreguntasController extends ControladorBase{
 			<tr style='background:#1C1C1C'><td WIDTH='1000' HEIGHT='50' align='center'><font color='white'>Vademano. - <a href='http://www.vademano.com'><FONT COLOR='#7acb5a'>www.vademano.com</FONT></a> - Copyright © 2017-</font></td></tr>
 			</table>";
 			
+			
+			
 			if (mail("$destino","Pregunta Frecuente","$resumen","$cabeceras"))
 			{
 				

@@ -1,20 +1,13 @@
 <?php
 
 require_once '../core/DB_Functions.php';
+require_once '../core/EntidadBase.php';
 $db = new DB_Functions();
 
 if(isset($_GET['id_usuario']))
 {
 	$_email_mensajes="steven@masoft.net"; //viene de ajax
 	$_mensaje_mensajes="probando"; //viene de ajax
-	
-	/*
-	$funcion = "ins_mensajes";
-	$parametros = " '$_id_tipo_documentos', '$_nombres_mensajes', '$_apellidos_mensajes' , '$_id_pais' , '$_id_provincia', '$_telefono_mensajes' , '$_celular_mensajes' , '$_email_mensajes' , '$_mensaje_mensajes' ";
-	$mensajes->setFuncion($funcion);
-	$mensajes->setParametros($parametros);
-	$resultado=$mensajes->Insert();
-	*/
 	
 	$resultadosJson ="";
 	
@@ -38,14 +31,21 @@ if(isset($_GET['id_usuario']))
 	<tr style='background:#1C1C1C'><td WIDTH='1000' HEIGHT='50' align='center'><font color='white'>Vademano. - <a href='http://www.vademano.com'><FONT COLOR='#7acb5a'>www.vademano.com</FONT></a> - Copyright © 2017-</font></td></tr>
 	</table>";
 	
-	if (mail("$destino","Mensaje","$resumen","$cabeceras"))
-	{
-		$resultadosJson=json_encode(array(array("mensaje"=>'Se ha enviado su mensaje',"estatus"=>'1')));
-	}else {
-		$resultadosJson=json_encode(array(array("mensaje"=>'Problemas al enviar su correo',"estatus"=>'0')));
-	}
+	try {
+		mail("$destino","Mensaje","$resumen","$cabeceras");
+		
+	} catch (Exception $e) {
+		echo "entro" + $e;
+		die();
+	} 
+	
 	
 	echo $_GET['jsoncallback'] . '(' . $resultadosJson . ');';
+}else{
+	
+	echo "no entro";
+	die();
+	
 }
 
 ?>
