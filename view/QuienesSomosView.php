@@ -115,15 +115,15 @@
      <body class="cuerpo" >
      <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">	
     	
-    <form id="form-mensajes" action="<?php echo $helper->url("Mensajes","index"); ?>" method="post" class="col-lg-12">
+    <form id="form-mensajes" action="<?php echo $helper->url("Mensajes","index"); ?>" method="post" class="col-lg-12 col-md-12 col-xs-12">
    	
    			<div class="row" style="margin-top: 40px;" >
-			  <div class="col-xs-1 col-md-1">
+			  <div class="col-xs-12 col-md-1 col-lg-1">
 			  </div>
 			  
 			  <div>
-			  <div class="col-xs-10 col-md-10" style=" background-color: #fbfbfb; border-radius: 5px 5px 5px 5px;"> 
-				  <div class="col-xs-6 col-md-6" style="margin-top: 20px; " >
+			  <div class="col-xs-12 col-md-10 col-lg-10" style=" background-color: #fbfbfb; border-radius: 5px 5px 5px 5px;"> 
+				  <div class="col-xs-12 col-md-6 col-lg-6" style="margin-top: 20px; " >
 				  	<div style="text-align:justify; ">
 				    	<div class="media">
 				
@@ -153,11 +153,11 @@
 					</div>   
 					<hr> 
 					 <div class="row">
-		            	<div class="col-xs-6 col-md-6">
+		            	<div class="col-xs-12 col-md-6 col-lg-6">
 		            	  <div id="mapa" name="mapa" style="height:200px;border:2px solid green;"></div>
 		
 		            	</div>
-		            	<div class="col-xs-6 col-md-6">
+		            	<div class="col-xs-12 col-md-6 col-lg-6">
 		            		<hr>
 		            	  	<p class="contacto">   <span class="glyphicon glyphicon-road" aria-hidden="true"></span>  Edif. MAGAP Piso 9</p>
 					  		<p class="contacto">   <span class="glyphicon glyphicon-globe" aria-hidden="true"></span> Quito – Ecuador</p>
@@ -169,7 +169,7 @@
 		            </div>	
 				  	<hr>
 				  </div>
-				  <div class="col-lg-6 col-md-6 col-xs-6">
+				  <div class="col-lg-6 col-md-6 col-xs-12">
 				  
            <h4 >Enviar Mensaje</h4>
             <hr/>
@@ -184,7 +184,7 @@
 			<?php }} ?>
 			
 			<div class="row">
-		    <div class="col-xs-6 col-md-6">
+		    <div class="col-xs-12 col-md-6 col-lg-6">
 		    <div class="form-group">
                              <label id="nombres_usuario"  class="control-label">Nombres:</label></br>
                              <div class="input-group margin-bottom-sm">
@@ -197,7 +197,7 @@
             
             </div>
 		    
-		    <div class="col-xs-6 col-md-6">
+		    <div class="col-xs-12 col-md-6 col-lg-6">
 		    <div class="form-group">
                              <label for="apellidos_usuario" class="control-label">Apellidos:</label></br>
                              <div class="input-group margin-bottom-sm">
@@ -214,7 +214,7 @@
 		
 		    
 		    <div class="row">
-			<div class="col-xs-6 col-md-6">
+			<div class="col-xs-12 col-md-6 col-lg-6">
 		    <div class="form-group">
                                   <label for="paises" class="control-label">Pais:</label>
                                   <select name="paises" id="paises"  class="form-control" >
@@ -228,7 +228,7 @@
             
             </div>
 			
-		    <div class="col-xs-6 col-md-6">
+		    <div class="col-xs-12 col-md-6 col-lg-6">
 		    <div class="form-group">
                                   <label for="provincias" class="control-label">Provincia:</label>
                                   <select name="provincias" id="provincias"  class="form-control" >
@@ -241,7 +241,7 @@
 			</div>		
 	  		
 	  		<div class="row">
-		    <div class="col-xs-6 col-md-6">
+		    <div class="col-xs-12 col-md-6 col-lg-6">
 		    <div class="form-group">
                              <label for="telefono_usuario" class="control-label">Teléfono:</label></br>
                              <div class="input-group margin-bottom-sm">
@@ -253,7 +253,7 @@
             
             </div>
 		    
-		    <div class="col-xs-6 col-md-6">
+		    <div class="col-xs-12 col-md-6 col-lg-6">
 		    <div class="form-group">
                              <label for="celular_usuario" class="control-label">Celular:</label></br>
                              <div class="input-group margin-bottom-sm">
@@ -270,7 +270,7 @@
         			
         	<div class="row">        	
         	  
-		    <div class="col-xs-6 col-md-12">
+		    <div class="col-xs-12 col-md-12 col-lg-12">
 		    <div class="form-group">
                              <label for="correo_usuario" class="control-label">Email:</label></br>
                              <div class="input-group margin-bottom-sm">
@@ -284,7 +284,7 @@
             </div>
             
              <div class="row">
-	         <div class="col-xs-12 col-md-12">
+	         <div class="col-xs-12 col-md-12 col-lg-12">
 		     <div class="form-group ">
 		                          <label for="mensaje" class="control-label">Mensaje:</label>
                                   <textarea type="text"  class="form-control" id="mensaje" name="mensaje" value=""  placeholder="Mensaje"></textarea>
@@ -298,16 +298,16 @@
 		    
 		    
 		     <div class="col-xs-12 col-md-12 col-lg-12" style="text-align: center; ">
-						    <div class="col-xs-4 col-md-4 col-lg-4" style="text-align: center;">
+						    <div class="col-xs-12 col-md-4 col-lg-4" style="text-align: center;">
 						    </div>
-						     <div class="col-xs-4 col-md-4 col-lg-4" style="text-align: center;">
+						     <div class="col-xs-12 col-md-4 col-lg-4" style="text-align: center;">
 						      <div class="form-group">
 						      
 				                    <button type="submit" id="btn_guardar" value="" name="btn_guardar" class="btn btn-info btn-block" ><i class="fa fa-unlock fa-spin" aria-hidden="true"></i> Enviar</button>
 				          
 				            </div>
 						    </div>
-						     <div class="col-xs-4 col-md-4 col-lg-4" style="text-align: center;">
+						     <div class="col-xs-12 col-md-4 col-lg-4" style="text-align: center;">
 						    </div>
 						    </div>
 		     	  </div>
@@ -315,16 +315,16 @@
 				  </div>
 				  
 			  
-			  <div class="col-xs-1 col-md-1">
+			  <div class="col-xs-12 col-md-1 col-lg-1">
 			  </div>
 			</div>
    	
    	  </form>
    	
-   	 
+   	 <br>
    	 
    		  
-   		 <div class="col-xs-12 col-md-12">
+   		  <div style="margin-top: 20px; background-color: #4bae4f;">
    		 <?php include("view/modulos/small_slide.php"); ?>
    		 </div>
    		 

@@ -30,10 +30,7 @@
 	  }
 	</style>
 	
-	
-	
-		
- 		<script>
+		<script>
 		$(document).ready(function(){
 		    $fecha=$('#fecha_nacimiento_usuario');
 		    if ($fecha[0].type!="date"){
@@ -166,16 +163,16 @@
     </head>
     
     <body class="cuerpo">
-    <form  id="form-afiliaciones" action="<?php echo $helper->url("Afiliaciones","InsertaAfiliados"); ?>" method="post" class="col-lg-12">
+    <form  id="form-afiliaciones" action="<?php echo $helper->url("Afiliaciones","InsertaAfiliados"); ?>" method="post" class="col-lg-12 col-md-12 col-xs-12">
       
     	  <div class="row" style="margin-top: 20px;" >
     	 
-			  <div class="col-xs-1 col-md-1">
+			  <div class="col-xs-12 col-md-1 col-lg-1">
 			  </div>
 			  
 			  <div>
-			  <div class="col-xs-10 col-md-10" style=" background-color: #fbfbfb; border-radius: 5px 5px 5px 5px;"> 
-				  <div class="col-xs-6 col-md-6" style="margin-top: 30px; " >
+			  <div class="col-xs-12 col-md-10 col-lg-10" style=" background-color: #fbfbfb; border-radius: 5px 5px 5px 5px;"> 
+				  <div class="col-xs-12 col-md-6 col-lg-6" style="margin-top: 30px; " >
 				  	<div style="text-align:justify; ">
 				    	<div class="media">
 				
@@ -205,11 +202,11 @@
 					</div>   
 					<hr> 
 					 <div class="row">
-		            	<div class="col-xs-6 col-md-6">
+		            	<div class="col-xs-12 col-md-6 col-lg-6">
 		            	  <div id="mapa" name="mapa" style="height:200px;border:2px solid green;"></div>
 		
 		            	</div>
-		            	<div class="col-xs-6 col-md-6">
+		            	<div class="col-xs-12 col-md-6 col-lg-6">
 		            		<hr>
 		            	  	<p class="contacto">   <span class="glyphicon glyphicon-road" aria-hidden="true"></span>  Edif. MAGAP Piso 9</p>
 					  		<p class="contacto">   <span class="glyphicon glyphicon-globe" aria-hidden="true"></span> Quito – Ecuador</p>
@@ -221,7 +218,7 @@
 		            </div>	
 				  	<hr>
 				  </div>
-			  <div class="col-lg-6 division" style=" margin-top: 20px">
+			  <div class="col-lg-6 col-md-6 col-xs-12 division" style=" margin-top: 20px">
             <h4>Afiliación</h4>
          
            <?php if (isset($resultado)) {?>
@@ -241,7 +238,7 @@
            
            
   			<div class="row">
-		    <div class="col-xs-6 col-md-6">
+		    <div class="col-xs-12 col-md-6 col-lg-6">
 		    <div class="form-group ">
 		                          <label for="correo_usuario" class="control-label">Email:</label>
                                   <input type="email" class="form-control" id="correo_usuario" name="correo_usuario" value="<?php echo $resEdit->correo_usuario; ?>"  placeholder="Email">
@@ -250,7 +247,7 @@
             
 		    </div>
 		    
-		    <div class="col-xs-6 col-md-6">
+		    <div class="col-xs-12 col-md-6 col-lg-6">
 		    <div class="form-group ">
 		                          <label for="ccorreo_usuario" class="control-label">Confirme Email:</label>
                                   <input type="email" class="form-control" id="ccorreo_usuario" name="ccorreo_usuario" value="<?php echo $resEdit->correo_usuario; ?>"  placeholder="Confirme Email">
@@ -262,7 +259,7 @@
            
            
            <div class="row">
-		    <div class="col-xs-6 col-md-6">
+		    <div class="col-xs-12 col-md-6 col-lg-6">
 		    <div class="form-group ">
 		                          <label for="nombres_usuario" class="control-label">Nombres:</label>
                                   <input type="text" class="form-control" id="nombres_usuario" name="nombres_usuario" value="<?php echo $resEdit->nombres_usuario; ?>"  placeholder="Nombres">
@@ -270,7 +267,7 @@
             </div>
 		    </div>
 		    
-		    <div class="col-xs-6 col-md-6">
+		    <div class="col-xs-12 col-md-6 col-lg-6">
 		    <div class="form-group ">
 		                          <label for="apellidos_usuario" class="control-label">Apellidos:</label>
                                   <input type="text" class="form-control" id="apellidos_usuario" name="apellidos_usuario" value="<?php echo $resEdit->apellidos_usuario; ?>"  placeholder="Apellidos">
@@ -281,7 +278,7 @@
          
 			
 			<div class="row">
-			<div class="col-xs-6 col-md-6">
+			<div class="col-xs-12 col-md-6 col-lg-6">
 		    <div class="form-group">
                                   <label for="ocupaciones" class="control-label">Ocupación:</label>
                                   <select name="ocupaciones" id="ocupaciones"  class="form-control" >
@@ -294,7 +291,7 @@
             </div>
             </div>
             
-            <div class="col-xs-6 col-md-6" id="div_extra_ocupaciones_usuario" style="display: none;" >
+            <div class="col-xs-12 col-md-6 col-lg-6" id="div_extra_ocupaciones_usuario" style="display: none;" >
 		    <div class="form-group ">
 		                          <label for="extra_ocupaciones_usuario" class="control-label">Especifique su Ocupación:</label>
                                   <input type="text" class="form-control" id="extra_ocupaciones_usuario" name="extra_ocupaciones_usuario" value="<?php echo $resEdit->extra_ocupacion_usuario; ?>"  placeholder="Ocupación">
@@ -306,7 +303,7 @@
 			
 			 
             <div class="row">
-		    <div class="col-xs-6 col-md-6">
+		    <div class="col-xs-12 col-md-6 col-lg-6">
 		    <div class="form-group ">
 		                          <label for="clave_usuario" class="control-label">Clave Usuario:</label>
                                   <input type="password" class="form-control" id="clave_usuario" name="clave_usuario" value=""  placeholder="Clave">
@@ -314,7 +311,7 @@
             </div>
 		    </div>
 		    
-		    <div class="col-xs-6 col-md-6">
+		    <div class="col-xs-12 col-md-6 col-lg-6">
 		    <div class="form-group ">
 		                          <label for="cclave_usuario" class="control-label">Confirme Clave:</label>
                                   <input type="password" class="form-control" id="cclave_usuario" name="cclave_usuario" value=""  placeholder="Confirme Clave">
@@ -329,7 +326,7 @@
 			
 			
             <div class="row">
-			<div class="col-xs-6 col-md-6">
+			<div class="col-xs-12 col-md-6 col-lg-6">
 		    <div class="form-group">
                                   <label for="paises" class="control-label">Pais:</label>
                                   <select name="paises" id="paises"  class="form-control" >
@@ -342,7 +339,7 @@
             </div>
             </div>
 			
-		    <div class="col-xs-6 col-md-6">
+		    <div class="col-xs-12 col-md-6 col-lg-6">
 		    <div class="form-group">
                                   <label for="provincias" class="control-label">Provincia:</label>
                                   <select name="provincias" id="provincias"  class="form-control" >
@@ -355,7 +352,7 @@
 			
 			
 			<div class="row">
-		    <div class="col-xs-6 col-md-6">
+		    <div class="col-xs-12 col-md-6 col-lg-6">
 		    <div class="form-group ">
 		                          <label for="fecha_nacimiento_usuario" class="control-label">Fecha Nacimiento:</label>
                                   <input type="date" class="form-control" id="fecha_nacimiento_usuario" name="fecha_nacimiento_usuario" data-date-format="YYYY-MM-DD" value="<?php echo $resEdit->fecha_nacimiento_usuario; ?>"  placeholder="Fecha Nacimiento">
@@ -363,7 +360,7 @@
             </div>
 		    </div>
 		    
-		    <div class="col-xs-6 col-md-6">
+		    <div class="col-xs-12 col-md-6 col-lg-6">
 		    <div class="form-group ">
 		                          <label for="telefono_usuario" class="control-label">Teléfono:</label>
                                   <input type="text" class="form-control" id="telefono_usuario" name="telefono_usuario" value="<?php echo $resEdit->telefono_usuario; ?>"  placeholder="Teléfono">
@@ -373,7 +370,7 @@
 		    </div>
            
           <div class="row">
-           <div class="col-xs-6 col-md-6">
+           <div class="col-xs-12 col-md-6 col-lg-6">
 		    <div class="form-group ">
 		                          <label for="celular_usuario" class="control-label">Celular:</label>
                                   <input type="text" class="form-control" id="celular_usuario" name="celular_usuario" value="<?php echo $resEdit->celular_usuario; ?>"  placeholder="Celular">
@@ -398,7 +395,7 @@
 			 
 
   			<div class="row">
-		    <div class="col-xs-6 col-md-6">
+		    <div class="col-xs-12 col-md-6 col-lg-6">
 		    <div class="form-group">
                              <label for="correo_usuario" class="control-label">Email:</label></br>
                              <div class="input-group margin-bottom-sm">
@@ -411,7 +408,7 @@
             
             </div>
 		    
-		    <div class="col-xs-6 col-md-6">
+		    <div class="col-xs-12 col-md-6 col-lg-6">
 		    <div class="form-group">
                              <label for="ccorreo_usuario" class="control-label">Confirme Email:</label></br>
                              <div class="input-group margin-bottom-sm">
@@ -427,7 +424,7 @@
            
            
            <div class="row">
-		    <div class="col-xs-6 col-md-6">
+		    <div class="col-xs-12 col-md-6 col-lg-6">
 		    
 		    <div class="form-group">
                              <label for="nombres_usuario" class="control-label">Nombres:</label></br>
@@ -439,7 +436,7 @@
 							</div>
 		    </div>
 		    
-		    <div class="col-xs-6 col-md-6">
+		    <div class="col-xs-12 col-md-6 col-lg-6">
 		    <div class="form-group">
                              <label for="apellidos_usuario" class="control-label">Apellidos:</label></br>
                              <div class="input-group margin-bottom-sm">
@@ -454,7 +451,7 @@
          
 			
 			<div class="row">
-			<div class="col-xs-6 col-md-6">
+			<div class="col-xs-12 col-md-6 col-lg-6">
 		    <div class="form-group">
                                   <label for="ocupaciones" class="control-label">Ocupación:</label>
                                   <select name="ocupaciones" id="ocupaciones"  class="form-control" >
@@ -468,7 +465,7 @@
             
             </div>
             
-            <div class="col-xs-6 col-md-6" id="div_extra_ocupaciones_usuario" style="display: none;" >
+            <div class="col-xs-12 col-md-6 col-lg-6" id="div_extra_ocupaciones_usuario" style="display: none;" >
 		    <div class="form-group">
                              <label for="extra_ocupaciones_usuario" class="control-label">Especifique su Ocupación:</label></br>
                              <div class="input-group margin-bottom-sm">
@@ -483,7 +480,7 @@
 				
 			 
             <div class="row">
-		    <div class="col-xs-6 col-md-6">
+		    <div class="col-xs-12 col-md-6 col-lg-6">
 		    <div class="form-group">
                              <label for="clave_usuario" class="control-label">Clave Usuario:</label></br>
                              <div class="input-group margin-bottom-sm">
@@ -495,7 +492,7 @@
 		    
 		    </div>
 		    
-		    <div class="col-xs-6 col-md-6">
+		    <div class="col-xs-12 col-md-6 col-lg-6">
 		    <div class="form-group">
                              <label for="cclave_usuario" class="control-label">Confirme Usuario:</label></br>
                              <div class="input-group margin-bottom-sm">
@@ -514,7 +511,7 @@
 			
 			
             <div class="row">
-			<div class="col-xs-6 col-md-6">
+			<div class="col-xs-12 col-md-6 col-lg-6">
 		    <div class="form-group">
                                   <label for="paises" class="control-label">Pais:</label>
                                   <select name="paises" id="paises"  class="form-control" >
@@ -528,7 +525,7 @@
             
             </div>
 			
-		    <div class="col-xs-6 col-md-6">
+		    <div class="col-xs-12 col-md-6 col-lg-6">
 		    <div class="form-group">
                                   <label for="provincias" class="control-label">Provincia:</label>
                                   <select name="provincias" id="provincias"  class="form-control" >
@@ -542,7 +539,7 @@
 			
 			
 			<div class="row">
-		    <div class="col-xs-6 col-md-6">
+		    <div class="col-xs-12 col-md-6 col-lg-6">
 		    <div class="form-group">
                              <label for="fecha_nacimiento_usuario" class="control-label">Fecha Nacimiento:</label></br>
                              <div class="input-group margin-bottom-sm">
@@ -554,7 +551,7 @@
 		    
 		    </div>
 		    
-		    <div class="col-xs-6 col-md-6">
+		    <div class="col-xs-12 col-md-6 col-lg-6">
 		    
 		    <div class="form-group">
                              <label for="telefono_usuario" class="control-label">Teléfono:</label></br>
@@ -569,7 +566,7 @@
 		    </div>
            
           <div class="row">
-           <div class="col-xs-6 col-md-6">
+           <div class="col-xs-12 col-md-6 col-lg-6">
 		     <div class="form-group">
                              <label for="celular_usuario" class="control-label">Celular:</label></br>
                              <div class="input-group margin-bottom-sm">
@@ -585,16 +582,16 @@
           
 		    
 		     <div class="col-xs-12 col-md-12 col-lg-12" style="text-align: center; ">
-						    <div class="col-xs-4 col-md-4 col-lg-4" style="text-align: center;">
+						    <div class="col-xs-12 col-md-4 col-lg-4" style="text-align: center;">
 						    </div>
-						     <div class="col-xs-4 col-md-4 col-lg-4" style="text-align: center;">
+						     <div class="col-xs-12 col-md-4 col-lg-4" style="text-align: center;">
 						      <div class="form-group">
 						      
 				                    <button type="submit" id="btn_guardar" name="btn_guardar" class="btn btn-success btn-block"><i class="fa fa-lock fa-spin" aria-hidden="true"></i> Afiliarse</button>
            
 				            </div>
 						    </div>
-						     <div class="col-xs-4 col-md-4 col-lg-4" style="text-align: center;">
+						     <div class="col-xs-12 col-md-4 col-lg-4" style="text-align: center;">
 						    </div>
 						    </div>
 		    
@@ -611,7 +608,7 @@
 				  </div>
 				  
 			  
-			  <div class="col-xs-1 col-md-1">
+			  <div class="col-xs-12 col-md-1 col-lg-1">
 			  
 			  </div>
 			</div>

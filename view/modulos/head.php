@@ -53,6 +53,10 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#42992a', end
 		-o-transform : scale(1.2); /* Opera */
 		-ms-transform : scale(1.2); /* IE9 */
 	}
+	
+	navbar.navbar {
+    background-color: #CC1414;
+}
 </style>
 			
 	 <script>
@@ -96,7 +100,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#42992a', end
  	
  	<div class="pull-right" >
 
-   		<nav class="navbar" style="background-color: #77CD6A;">
+   		<nav class="navbar navbar-default" role="navigation" style="background-color: #77CD6A;">
 		  <div class="container-fluid">
 		    <!-- Brand and toggle get grouped for better mobile display -->
 			 <div class="navbar-header">

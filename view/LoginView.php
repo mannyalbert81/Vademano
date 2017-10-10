@@ -8,10 +8,8 @@
 <head>
 	<meta charset="utf-8">
 	<title>Login Pasantias</title>
-		<link rel="stylesheet" href="view/css/bootstrap.css">
-    
+  <link rel="stylesheet" href="view/css/bootstrap.css">
   <script src="view/js/jquery.js"></script>
-  
   <script src="view/js/bootstrapValidator.min.js"></script>
   <script src="view/js/noty.js"></script>
   <script src="view/js/ValidarLogin.js"></script>
@@ -58,15 +56,15 @@
 
     <body class="cuerpo">
      <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
-    	<form id="form-login"  action="<?php echo $helper->url("Usuarios","Loguear"); ?>" method="post" class="col-lg-12" >
+    	<form id="form-login"  action="<?php echo $helper->url("Usuarios","Loguear"); ?>" method="post" class="col-lg-12 col-md-12 col-xs-12" >
   
     	  <div class="row" style="margin-top: 20px;" >
-			  <div class="col-xs-1 col-md-1">
+			  <div class="col-xs-12 col-md-1 col-lg-1">
 			  </div>
 			  
 			  <div>
-			  <div class="col-xs-10 col-md-10" style=" background-color: #fbfbfb; border-radius: 5px 5px 5px 5px;"> 
-				  <div class="col-xs-6 col-md-6" style="margin-top: 30px; " >
+			  <div class="col-xs-12 col-md-10 col-lg-10" style=" background-color: #fbfbfb; border-radius: 5px 5px 5px 5px;"> 
+				  <div class="col-xs-12 col-md-6 col-lg-6" style="margin-top: 30px; " >
 				  	<div style="text-align:justify; ">
 				    	<div class="media">
 				
@@ -96,11 +94,11 @@
 					</div>   
 					<hr> 
 					 <div class="row">
-		            	<div class="col-xs-6 col-md-6">
+		            	<div class="col-xs-12 col-md-6 col-lg-6">
 		            	  <div id="mapa" name="mapa" style="height:200px;border:2px solid green;"></div>
 		
 		            	</div>
-		            	<div class="col-xs-6 col-md-6">
+		            	<div class="col-xs-12 col-md-6 col-lg-6">
 		            		<hr>
 		            	  	<p class="contacto">   <span class="glyphicon glyphicon-road" aria-hidden="true"></span>  Edif. MAGAP Piso 9</p>
 					  		<p class="contacto">   <span class="glyphicon glyphicon-globe" aria-hidden="true"></span> Quito – Ecuador</p>
@@ -112,7 +110,7 @@
 		            </div>	
 				  	<hr>
 				  </div>
-			  <div class="col-lg-6 division" style=" margin-top: 20px">
+			  <div class="col-lg-6 col-md-6 col-xs-12 division" style=" margin-top: 20px">
    
      <h4>Login</h4>
      
@@ -133,7 +131,7 @@
           <div class="well">        
         <div class="row" style="padding-top: 10px">
     
-               <div class="col-lg-6 col-md-3" >
+               <div class="col-lg-6 col-md-6 col-xs-12" >
                              <div class="form-group">
                              <label for="usuario_usuario" class="control-label">Usuario</label></br>
                              <div class="input-group margin-bottom-sm">
@@ -155,21 +153,21 @@
                              <p><a href="<?php echo $helper->url("Usuarios","Reset"); ?>" >Olvidaste tu Cuenta</a> </p>
                             
 						    <div class="col-xs-12 col-md-12 col-lg-12" style="text-align: center; ">
-						    <div class="col-xs-2 col-md-2 col-lg-2" style="text-align: center;">
+						    <div class="col-xs-12 col-md-2 col-lg-2" style="text-align: center;">
 						    </div>
-						    <div class="col-xs-8 col-md-8 col-lg-8" style="text-align: center;">
+						    <div class="col-xs-12 col-md-8 col-lg-8" style="text-align: center;">
 						    <div class="form-group">
 				                                 <button type="submit" class="btn btn-success btn-block"><i class="fa fa-unlock fa-spin" aria-hidden="true"></i> Login</button>
 				          
 				            </div>
 						    </div>
-						    <div class="col-xs-2 col-md-2 col-lg-2" style="text-align: center;">
+						    <div class="col-xs-12 col-md-2 col-lg-2" style="text-align: center;">
 						    </div>
 						    </div>
 						     
                   </div>
                   
-                		  <div class="col-lg-6 col-md-3">
+                		  <div class="col-lg-6 col-md-6 col-xs-12">
 		                      <p class="lead">Consejos de Seguridad <span class="text-success"></span></p>
 		                      <ul class="list-unstyled" style="line-height: 2">
 		                          <li><span class="fa fa-check text-success"></span> Recuerda tu usuario y tu clave.</li>
@@ -190,7 +188,7 @@
 				  </div>
 				  
 			  
-			  <div class="col-xs-1 col-md-1">
+			  <div class="col-xs-12 col-md-1 col-lg-1">
 			  
 			  </div>
 			</div>
