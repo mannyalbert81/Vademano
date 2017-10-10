@@ -2469,11 +2469,14 @@ public function index(){
    						"resultado"=>"true", "resultVis"=>$resultVis
    				));
    				
+   				die();
+   				
    			}else {
    				$this->view('RespuestaEnvioFicha',array(
    						"resultado"=>"false", "resultVis"=>$resultVis
    				));
    				
+   				die();
    			}
    			
    			
