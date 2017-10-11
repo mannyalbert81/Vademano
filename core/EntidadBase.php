@@ -357,7 +357,7 @@ class EntidadBase{
     			$tablaAdministracion="";
     			$tablaComp="";
     			$tablaDosi="";
-    			
+    			$_buscador_final="";
     			
     			
     			$advertencias_html = "";
@@ -576,8 +576,12 @@ class EntidadBase{
     			
     			if(!empty($dtAdministracion))
     			{
+    				$nombre_formas_administracion="";
     				foreach($dtAdministracion as $res)
     				{
+    					
+    					$nombre_formas_administracion .=$res->nombre_formas_administracion;
+    					
     					$tablaAdministracion.=" &nbsp;&nbsp;&nbsp;- &nbsp;";
     					$tablaAdministracion.=$res->nombre_formas_administracion;
     					$tablaAdministracion.="<br>";
@@ -614,8 +618,12 @@ class EntidadBase{
     				$tablaComp.="</font></th>";
     				$tablaComp.="</tr>";
     					
+    				$nombre_composiciones="";
+    				
     				foreach($dtComposicion as $res)
     				{
+    					$nombre_composiciones .=$res->nombre_composiciones.' ';
+    					
     					$tablaComp.="<tr>";
     					$tablaComp.="<td><font size=1>";
     					$tablaComp.=$res->nombre_composiciones;
@@ -627,6 +635,8 @@ class EntidadBase{
     					$tablaComp.=$res->nombre_unidades_medida;
     					$tablaComp.="</font></td>";
     					$tablaComp.="</tr>";
+    					
+    					
     				}
     				$tablaComp.="</table>";
     					
@@ -668,6 +678,10 @@ class EntidadBase{
    				$tablaDosi.="</table>";
    			}
     			
+   			
+   			$_buscador_final= $_buscador.' '.$nombre_laboratorios.' '.$nombre_distribuidores.' '.$nombre_formas_administracion.' '.$nombre_composiciones;
+   			
+   			
     			$funcion = "ins_fichas_service";
     			$parametros = " '$_id_fichas', '$_nombre_fichas', '$_encabezado_tabla_fichas',
     			'$_accion_terapeutica_fichas',
@@ -678,7 +692,7 @@ class EntidadBase{
     			'$presentaciones_html', '$_registro_sanitario_fichas',
     			'$_id_fichas_fotos',
     			'$_consultas_fichas',
-    			'$_buscador',
+    			'$_buscador_final',
     			'$_mecanismo_accion_fichas',
     			'$_efectos_colaterales_fichas',
     			'$_conservacion_fichas',
