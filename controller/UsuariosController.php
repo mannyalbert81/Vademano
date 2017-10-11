@@ -605,11 +605,17 @@ public function index(){
     	$usuarios=new UsuariosModel();
     	
     	//Conseguimos todos los usuarios
-    	$allusers=$usuarios->getLogin();
+    	//$allusers=$usuarios->getLogin();
+    	
+    	$fichas = new FichasModel();
+    	
+    	$where = "nombre_fichas LIKE '%%' ORDER by consultas_fichas DESC LIMIT 4";
+    	$resultVis = $fichas->getBy($where);
+    	 
     	
     	//Cargamos la vista index y l e pasamos valores
     	$this->view("Bienvenida",array(
-    			"allusers"=>$allusers
+    			"resultVis"=>$resultVis
     	));
     }
     

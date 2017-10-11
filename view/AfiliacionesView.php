@@ -615,11 +615,10 @@
     	
      
 </form>     
-        <div> 
-   		 <?php include("view/modulos/servicios.php"); ?>	
-   		  </div>
+       
+       <br>
    		  
-   		 <div style="margin-top: 20px; background-color: #4bae4f;">
+   		 <div class="col-xs-12 col-md-12 col-lg-12">
    		 <?php include("view/modulos/small_slide.php"); ?>
    		 </div>
    		 

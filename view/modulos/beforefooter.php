@@ -48,8 +48,8 @@
 	      	 <?php $status = session_status();  ?>
 		        <?php if  (isset( $_SESSION['nombres_usuario'] )){  ?> 
 			 	
-	      		<a href="#" class="before-footer-texto" ><span class="glyphicon glyphicon-star-empty" ><?php echo " Productos Favoritos" ;?></span> </a><br>
-				<a href="#" class="before-footer-texto" ><span class="glyphicon glyphicon-heart" ><?php echo " Productos Recientes" ;?></span> </a><br>
+	      		<a href="<?php echo $helper->url("FichasFavoritos","index"); ?>" class="before-footer-texto" ><span class="glyphicon glyphicon-star-empty" ><?php echo " Productos Favoritos" ;?></span> </a><br>
+				<a href="<?php echo $helper->url("Usuarios","Bienvenida"); ?>" class="before-footer-texto" ><span class="glyphicon glyphicon-heart" ><?php echo " Productos Recientes" ;?></span> </a><br>
 				<a href="<?php echo $helper->url("Afiliaciones","VistaActualizarDatos"); ?>" class="before-footer-texto" ><span class="glyphicon glyphicon-list-alt" ><?php echo " Actualizar Datos de Usuario" ;?></span> </a>
 				
 				
