@@ -6,7 +6,7 @@
 			<?php foreach($resultVis as $res) {?>
 	      		<div class="media">
 				  <div class="media-left">
-				    <a href="<?php echo $helper->url("FichasProductos","ReporteFicha"); ?>&id_fichas=<?php echo $res->id_fichas; ?>&nombre_fichas=<?php echo $res->nombre_fichas; ?>">
+				    <a href="<?php echo $helper->url("FichasProductos","verFichaOnline"); ?>&id_fichas=<?php echo $res->id_fichas; ?>&nombre_fichas=<?php echo $res->nombre_fichas; ?>" target="_blank">
 				      <img class="media-object" src="view/DevuelveImagen.php?id_valor=<?php echo $res->id_fichas; ?>&id_nombre=id_fichas&tabla=fichas_fotos&campo=foto_fichas_fotos" <?php echo $res->nombre_fichas; ?>" width="40" height="30">
 				    </a>
 				  </div>
