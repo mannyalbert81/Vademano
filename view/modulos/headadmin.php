@@ -20,6 +20,9 @@
         <script src="http://jqueryvalidation.org/files/dist/jquery.validate.min.js"></script>
         <script src="http://jqueryvalidation.org/files/dist/additional-methods.min.js"></script>
  
+ <link rel="stylesheet" href="view/css/pace-theme-big-counter.css" />
+		 <script src="view/js/pace.js"></script>
+ 
  	<style type="text/css">
 	.zoom{
 		transition: 1.5s ease;

@@ -22,6 +22,8 @@
         <script src="http://jqueryvalidation.org/files/dist/jquery.validate.min.js"></script>
         <script src="http://jqueryvalidation.org/files/dist/additional-methods.min.js"></script>
  
+ <link rel="stylesheet" href="view/css/pace-theme-big-counter.css" />
+		 <script src="view/js/pace.js"></script>
 	
 </head>
 <body>
@@ -52,7 +54,7 @@
 		        <li class="dropdown">
 		          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-briefcase" ><?php echo " Nosotros" ;?></span> <span class="caret"></span></a>
 		          <ul class="dropdown-menu">
-		        	<li><a href="index.php?controller=Usuarios&action=QuienesSomos">Quienes Somos</a>
+		        	<li><a href="index.php?controller=Mensajes&action=index">Quienes Somos</a>
 				    </li>
 					
 				  </ul>

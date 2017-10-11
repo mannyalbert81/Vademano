@@ -1,7 +1,7 @@
 <?php
 
 require_once '../core/DB_Functions.php';
-require_once '../core/EntidadBase.php';
+
 $db = new DB_Functions();
 
 if(isset($_GET['id_usuario']))

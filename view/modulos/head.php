@@ -24,6 +24,8 @@
         <script src="http://jqueryvalidation.org/files/dist/jquery.validate.min.js"></script>
         <script src="http://jqueryvalidation.org/files/dist/additional-methods.min.js"></script>
 	
+	<link rel="stylesheet" href="view/css/pace-theme-big-counter.css" />
+		 <script src="view/js/pace.js"></script>
 		
 		<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
 		<script type="text/javascript" src="https://raw.github.com/HPNeo/gmaps/master/gmaps.js"></script>
