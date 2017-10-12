@@ -1702,7 +1702,7 @@ public function index(){
    					$tablaLab.="<td>";
    					$tablaLab.="<table>";
    					$tablaLab.="<tr>";
-   					$tablaLab.="<td colspan='2' style='background-color:#999E9A; color:#FFFFFF; font-family: verdana; font-size:75%; width:100%;'>&nbsp;";
+   					$tablaLab.="<td colspan='2' style='color:#000000; font-family: verdana; font-size:95%; width:100%;'>&nbsp;";
    					$tablaLab.="<strong>FABRICADO POR:   </strong>";
    					$tablaLab.="</td>";
    					$tablaLab.="</tr>";
