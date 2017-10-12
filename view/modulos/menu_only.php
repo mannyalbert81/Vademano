@@ -1,5 +1,5 @@
 
-
+<?php include("view/css/modal/sincronizar.php");?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,7 +21,7 @@
 		<link rel="stylesheet" href="http://jqueryvalidation.org/files/demo/site-demos.css">
         <script src="http://jqueryvalidation.org/files/dist/jquery.validate.min.js"></script>
         <script src="http://jqueryvalidation.org/files/dist/additional-methods.min.js"></script>
- 
+ <script type="text/javascript" src="view/css/modal/VentanaCentrada.js"></script>
          <link rel="stylesheet" href="view/css/pace-theme-big-counter.css" />
 		 <script src="view/js/pace.js"></script>
 		 
@@ -68,7 +68,15 @@
  	
  	<div class="pull-right" >
    
-   		<nav class="navbar" style="height: 40px;" >
+    <?php $status = session_status();  ?>
+ 	 <?php if  (isset( $_SESSION['nombres_usuario'] )){  ?> 
+ 	 
+ 	<button type="image"  class="pull-right" style="margin-top: 0px ; margin-left: 5px" data-toggle="modal" data-target="#myModal">
+						<img type="image" src="view/images/qr-code.jpg" width="40" height="45"></img>
+	</button>
+	<?php  }?>  
+   
+   		<nav class="navbar" style="margin-right: 40px;">
 		
 		  <div class="container-fluid">
 		    <!-- Brand and toggle get grouped for better mobile display -->
@@ -151,8 +159,12 @@
 		    </div><!-- /.navbar-collapse -->
 		    
 		  </div><!-- /.container-fluid -->
+		  
+		  
+		  
+		  
 		</nav>
-   		
+   	
    
    
  	</div>  

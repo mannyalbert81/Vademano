@@ -1,7 +1,7 @@
  <div class="head menu" style=" -webkit-box-shadow: 0px 2px 2px 4px rgba(0,0,0,0.69);">
  <?php include("view/modulos/head.php"); ?>
  </div>
-<?php include("view/css/modal/sincronizar.php");?>
+
 
 <!DOCTYPE HTML>
 <html lang="es">
@@ -13,7 +13,7 @@
   <script src="view/js/jquery.js"></script>
   <script src="view/js/bootstrapValidator.min.js"></script>
   <script src="view/js/noty.js"></script>
- <script type="text/javascript" src="view/css/modal/VentanaCentrada.js"></script>
+
 	     
    
     
