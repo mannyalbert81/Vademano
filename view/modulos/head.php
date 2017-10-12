@@ -108,27 +108,43 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#42992a', end
 			 <div class="navbar-header">
 		      <button type="button" class="navbar-toggle collapsed"  data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
 		        <span class="sr-only"    >Toggle navigation</span>
-		        <span class="icon-bar"></span>
-		        <span class="icon-bar"></span>
-		        <span class="icon-bar"></span>
+		       
 		      </button>
 		      <a class="nav navbar-brand" href="#"></a>
 		    </div>
 			
 		    <!-- Collect the nav links, forms, and other content for toggling -->
-		    <div class="collapse navbar-collapse" style="background-color: #77CD6A; " id="bs-example-navbar-collapse-1">
+		    <div class="collapse navbar-collapse" style="background-color: #77CD6A; " id="bs-example-navbar-collapse-1" >
 		      <ul class="nav navbar-nav" >
-		        <li  ><a href="index.php?controller=Usuarios&action=cerrar_sesion"  ><span class="glyphicon glyphicon-home" style="color: #ffffff;"><?php echo " Inicio" ;?></span> <span class="sr-only">(current)</span></a></li>
-		        <li  ><a href="index.php?controller=Buscador&action=index" ><span class="glyphicon glyphicon-folder-open" style="color: #ffffff;"><?php echo " Vademécum" ;?></span> <span class="sr-only">(current)</span></a></li>
-		        <li class="dropdown">
-		          <a href="#" class="dropdown-toggle"  data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-briefcase" style="color: #ffffff;;"><?php echo " Nosotros" ;?></span> <span class="caret"></span></a>
+		         <li class="dropdown">
+		          <a href="#" class="dropdown-toggle"  data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-home" style="color: #ffffff;;"><?php echo "" ;?></span> <span class="caret"></span></a>
 		          <ul class="dropdown-menu" style="color: #000000;" >
-		        	<li ><a href="index.php?controller=Mensajes&action=index" style="color: #000000;">Quienes Somos</a>
+		        	<li ><a style="background-color:powderblue" href="index.php?controller=Usuarios&action=cerrar_sesion" style="color: #000000;" >Inicio</a>
 				    </li>
 				  </ul>
 		        </li>
-		        <li  ><a href="index.php?controller=Afiliaciones&action=index"><span class="glyphicon glyphicon-folder-open" style="color: #ffffff;;"><?php echo " Afiliarse" ;?></span> <span class="sr-only">(current)</span></a></li>  
-		       	
+		        <li class="dropdown">
+		          <a href="#" class="dropdown-toggle"  data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-folder-open" style="color: #ffffff;;"><?php echo "" ;?></span> <span class="caret"></span></a>
+		          <ul class="dropdown-menu" style="color: #000000;" >
+		        	<li ><a href="index.php?controller=Buscador&action=index" style="color: #000000;">Vademecum</a>
+				    </li>
+				  </ul>
+		        </li>
+		        <li class="dropdown">
+		          <a href="#" class="dropdown-toggle"  data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-briefcase" style="color: #ffffff;;"><?php echo "" ;?></span> <span class="caret"></span></a>
+		          <ul class="dropdown-menu" style="color: #000000;" >
+		        	<li ><a href="index.php?controller=Mensajes&action=index" style="color: #000000;">Nosotros</a>
+				    </li>
+				  </ul>
+		        </li>
+		         <li class="dropdown">
+		          <a href="#" class="dropdown-toggle"  data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user" style="color: #ffffff;;"><?php echo "" ;?></span> <span class="caret"></span></a>
+		          <ul class="dropdown-menu" style="color: #000000;" >
+		        	<li ><a href="index.php?controller=Afiliaciones&action=index" style="color: #000000;">Afiliarse</a>
+				    </li>
+				  </ul>
+		        </li>
+		        	
 		        <?php $status = session_status();  ?>
 		        <?php if  (isset( $_SESSION['nombres_usuario'] )){  ?> 
 			 		<li class="dropdown">
@@ -147,9 +163,14 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#42992a', end
 			 	  
 			 	 
 			 	 <?php } else { ?>	
-			 	
-			 		   	<li><a href="<?php echo $helper->url("Usuarios","Loguear"); ?>"><span class="glyphicon glyphicon-lock" style="color: #ffffff;;"><?php echo " Login" ;?></span> </a>
-					  	</li>
+			 	<li class="dropdown">
+		          <a href="#" class="dropdown-toggle"  data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-lock" style="color: #ffffff;;"><?php echo "" ;?></span> <span class="caret"></span></a>
+		          <ul class="dropdown-menu" style="color: #000000;" >
+		        	<li ><a href="<?php echo $helper->url("Usuarios","Loguear"); ?>" style="color: #000000;">Login</a>
+				    </li>
+				  </ul>
+		        </li>
+			 		   
 				 
 			 	 	
 			 	 <?php  }?>
