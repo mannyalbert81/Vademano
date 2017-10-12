@@ -457,7 +457,7 @@ class EntidadBase{
     			
     						$tablaLab="<table>";
     						$tablaLab.="<tr>";
-    						$tablaLab.="<td><font size=1>";
+    						$tablaLab.="<td><font size=2>";
     						$tablaLab.="";
     			
     						foreach($dtLabDireccion as $resd)
@@ -529,7 +529,7 @@ class EntidadBase{
     			
     						$tablaDis="<table>";
     						$tablaDis.="<tr>";
-    						$tablaDis.="<td><font size=1>";
+    						$tablaDis.="<td><font size=2>";
     						$tablaDis.="";
     			
     						foreach($dtLabDireccion as $resd)
@@ -607,13 +607,13 @@ class EntidadBase{
     			{
     				$tablaComp ="<table border=1>";
     				$tablaComp.="<tr>";
-    				$tablaComp.="<th><font size=1>";
+    				$tablaComp.="<th><font size=2>";
     				$tablaComp.="<b>Principio Activo</b>";
     				$tablaComp.="</font></th>";
-    				$tablaComp.="<th><font size=1>";
+    				$tablaComp.="<th><font size=2>";
     				$tablaComp.="<b>Dosis</b>";
     				$tablaComp.="</font></th>";
-    				$tablaComp.="<th><font size=1>";
+    				$tablaComp.="<th><font size=2>";
     				$tablaComp.="<b>U/M</b>";
     				$tablaComp.="</font></th>";
     				$tablaComp.="</tr>";
@@ -625,13 +625,13 @@ class EntidadBase{
     					$nombre_composiciones .=$res->nombre_composiciones.' ';
     					
     					$tablaComp.="<tr>";
-    					$tablaComp.="<td><font size=1>";
+    					$tablaComp.="<td><font size=2>";
     					$tablaComp.=$res->nombre_composiciones;
     					$tablaComp.="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font></td>";
-    					$tablaComp.="<td><font size=1>";
+    					$tablaComp.="<td><font size=2>";
     					$tablaComp.=$res->cantidad_fichas_composiciones;
     					$tablaComp.="</font></td>";
-    					$tablaComp.="<td><font size=1>";
+    					$tablaComp.="<td><font size=2>";
     					$tablaComp.=$res->nombre_unidades_medida;
     					$tablaComp.="</font></td>";
     					$tablaComp.="</tr>";
@@ -655,10 +655,10 @@ class EntidadBase{
    			{
    				$tablaDosi = "<table border=1>";
    				$tablaDosi.= "<tr>";
-   				$tablaDosi.="<th><font size=1>";
+   				$tablaDosi.="<th><font size=2>";
    				$tablaDosi.="<b>Nombre Especie</b>";
    				$tablaDosi.="</font></th>";
-   				$tablaDosi.="<th><font size=1>";
+   				$tablaDosi.="<th><font size=2>";
    				$tablaDosi.="<b>Dosis</b>";
    				$tablaDosi.="</font></th>";
    				$tablaDosi.="</tr>";
@@ -666,10 +666,10 @@ class EntidadBase{
    				foreach($dtDosificacion as $resdo)
    				{
    					$tablaDosi.="<tr>";
-   					$tablaDosi.="<td><font size=1>";
+   					$tablaDosi.="<td><font size=2>";
    					$tablaDosi.=$resdo->nombre_especies;
    					$tablaDosi.="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font></td>";
-   					$tablaDosi.="<td><font size=1>";
+   					$tablaDosi.="<td><font size=2>";
    					$tablaDosi.=$resdo->dosis_fichas_dosificacion;
    					$tablaDosi.="</font></td>";
    					$tablaDosi.="</tr>";
