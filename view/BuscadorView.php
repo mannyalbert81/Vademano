@@ -374,21 +374,21 @@
          
    
     	 <div class="row" style=" margin-top:50px; text-align: center;"  >
-			  <div class="col-xs-5 col-md-5">
+			  <div class="col-xs-12 col-md-5 col-lg-5">
 			  	
 			  </div>
-			  <div class="col-xs-4 col-md-4">
+			  <div class="col-xs-12 col-md-4 col-lg-4">
 			    	<a href="index.php?controller=Usuarios&action=cerrar_sesion"><img src="view/images/logo_vademano.png" class="img-responsive zoom" alt="Responsive image"></a>
 			  </div>
-			  <div class="col-xs-3 col-md-3">
+			  <div class="col-xs-12 col-md-3 col-lg-3">
 			  	
 			  </div>
 		 </div>
 	     <div class="row" style="text-align: center;"  >
-	     <div class="col-xs-4 col-md-4">
+	     <div class="col-xs-12 col-md-4 col-lg-4">
 		 </div>
 		 
-			  <div class="col-xs-4 col-md-4">
+			  <div class="col-xs-12 col-md-4 col-lg-4">
 			  	<div class="input-group">
 			      <input type="text" name="contenido_busqueda" id="contenido_busqueda" value="<?php if ($sel_contenido_busqueda != ""){echo $sel_contenido_busqueda;} ?>" class="form-control" placeholder="Texto a buscar...">
 			      <div id="mensaje_contenido" class="errores"></div>	
@@ -397,7 +397,7 @@
 			      </span>
 			    </div>
 			  </div>
-			  <div class="col-xs-4 col-md-4">
+			  <div class="col-xs-12 col-md-4 col-lg-4">
 			  	
 			</div>
 			 
@@ -405,15 +405,15 @@
 	
     	  <div class="row" style="text-align: center; margin-top: 15px;"  >
 			 	
-			  <div class="col-xs-5 col-md-5">
+			  <div class="col-xs-12 col-md-5 col-lg-5">
 			  	
 			  </div>
 			  
-			  <div class="col-xs-2 col-md-2" >
+			  <div class="col-xs-12 col-md-2 col-lg-2" >
 			        <input type="checkbox"  name="chk_busquedaavanzada" id="chk_busquedaavanzada"  value="bavanzada" > Busqueda Avanzada
 			  </div>
 			  
-			  <div class="col-xs-5 col-md-5">
+			  <div class="col-xs-12 col-md-5 col-lg-5">
 			  	
 			  </div>	
 
@@ -421,45 +421,45 @@
     	 <hr>
     	  <div  id="div-container-avanzado" style="display: none;" >
     	  <div class="row"   >
-    	  	<div class="col-xs-6 col-md-1">
+    	  	<div class="col-xs-12 col-md-1">
 			</div>
-    	    <div class="col-xs-6 col-md-10">
+    	    <div class="col-xs-12 col-md-10">
 			  
     	  
-	    	  	<div class="col-xs-6 col-md-3">
+	    	  	<div class="col-xs-12 col-md-3">
 	    	  		<p class="calibri-bold" >Clasificacion Farmacologica</p>
 				</div>
 	    	  
-	    	  	<div class="col-xs-6 col-md-2">
+	    	  	<div class="col-xs-12 col-md-2">
 				  	<p class="calibri-bold" >Especies</p>
 				  	
 				</div>
-	    	  	<div class="col-xs-6 col-md-3">
+	    	  	<div class="col-xs-12 col-md-3">
 				  	<p class="calibri-bold">Principios Activos</p>
 				</div>
-	    	  	<div class="col-xs-6 col-md-2">
+	    	  	<div class="col-xs-12 col-md-2">
 				  	<p class="calibri-bold">Forma de Administracion</p>
 				
 				</div>
-	    	  	<div class="col-xs-6 col-md-2">
+	    	  	<div class="col-xs-12 col-md-2">
 				  	<p class="calibri-bold">Laboratorio</p>
 				
 				</div>
 	    	  
 	    	  	
     	  	</div>
-			<div class="col-xs-6 col-md-1">
+			<div class="col-xs-12 col-md-1">
 	    	</div>
 			    	  	
     	  </div>
 
 		  <div class="row">
-    	  	<div class="col-xs-6 col-md-1">
+    	  	<div class="col-xs-12 col-md-1">
     	  	</div>
-    	  	<div class="col-xs-6 col-md-10">
+    	  	<div class="col-xs-12 col-md-10">
 	    	 
 	    	  
-	    	  	<div class="col-xs-6 col-md-3">
+	    	  	<div class="col-xs-12 col-md-3">
 	    	  	<select name="categoria_farmacologica" id="categoria_farmacologica"  class="form-control" size="5" style="font-family: calibri; " >
 							<option value="0"  > --SELECCIONE--</option>
 							<?php foreach($resultCat as $resCat) {?>
@@ -469,7 +469,7 @@
 					</select> 
 				</div>
 	    	  
-	    	  	<div class="col-xs-6 col-md-2" >
+	    	  	<div class="col-xs-12 col-md-2" >
 				  	<select name="id_especies" id="id_especies"  class="form-control" size="5" style="font-family: calibri; " >
 							<option value="0"  > --SELECCIONE--</option>
 							<?php foreach($resultEsp as $resEsp) {?>
@@ -479,7 +479,7 @@
 					</select> 
 				  	
 				</div>
-	    	  	<div class="col-xs-6 col-md-3" >
+	    	  	<div class="col-xs-12 col-md-3" >
 				  	<select name="id_composiciones" id="id_composiciones"  class="form-control" size="5" style="font-family: calibri; ">
 							<option value="0"  > --SELECCIONE--</option>
 							<?php foreach($resultCom as $resCom) {?>
@@ -488,7 +488,7 @@
 				        	<?php } ?>
 					</select>
 				</div>
-	    	  	<div class="col-xs-6 col-md-2" style="height: 60px;">
+	    	  	<div class="col-xs-12 col-md-2" style="height: 60px;">
 				  	<select name="forma_administracion" id="forma_administracion"  class="form-control" size="5" style="font-family: calibri;">
 							<option value="0"  > --SELECCIONE--</option>
 							<?php foreach($resultFor as $resFor) {?>
@@ -497,7 +497,7 @@
 				        	<?php } ?>
 					</select>
 				</div>
-	    	  	<div class="col-xs-6 col-md-2" style="height: 60px;">
+	    	  	<div class="col-xs-12 col-md-2" style="height: 60px;">
 				  		<select name="id_laboratorios" id="id_laboratorios"  class="form-control" size="5" style="font-family: calibri;">
 							<option value="0"  > --SELECCIONE--</option>	
 							<?php foreach($resultLab as $resLab) {?>
@@ -509,35 +509,35 @@
 	    	  	
 			</div>
 			
-    	  	<div class="col-xs-6 col-md-1">
+    	  	<div class="col-xs-12 col-md-1">
     	  	</div>	
     	  </div>
     	  <hr>
     	  <div class="row">
-	    		<div class="col-xs-6 col-md-1">
+	    		<div class="col-xs-12 col-md-1">
     	  	</div>
-    	  	<div class="col-xs-6 col-md-10" >
-    	  		<div class="col-xs-1 col-md-1">
+    	  	<div class="col-xs-12 col-md-10" >
+    	  		<div class="col-xs-12 col-md-1">
     	  		</div>
-    	  		<div class="col-xs-2 col-md-2">
+    	  		<div class="col-xs-12 col-md-2">
     	  		</div>
-    	  		<div class="col-xs-2 col-md-2">
+    	  		<div class="col-xs-12 col-md-2">
     	  		
     	  		</div>
-    	  		<div class="col-xs-2 col-md-2">
+    	  		<div class="col-xs-12 col-md-2">
     	  				<button type="submit" id="btn_filtrar" name="btn_filtrar" class="btn btn-primary" style="width: 100%;"  ><span class="glyphicon glyphicon-filter" ><?php echo " Filtrar" ;?> </span></button>
     	  		</div>
-    	  		<div class="col-xs-2 col-md-2">
+    	  		<div class="col-xs-12 col-md-2">
     	  		</div>
-    	  		<div class="col-xs-2 col-md-2">
+    	  		<div class="col-xs-12 col-md-2">
     	  		</div>
     	  		  		
-	    	   	<div class="col-xs-1 col-md-1">
+	    	   	<div class="col-xs-12 col-md-1">
     	  		</div>	
 	    	 
     	  			
     	  	</div>
-    	  	<div class="col-xs-6 col-md-1">
+    	  	<div class="col-xs-12 col-md-1">
     	  	</div>  		
 	    	  		
 			</div>
@@ -546,9 +546,9 @@
     	 	
     	  </div>
     	  <div class="row" >
-    	 	<div class="col-xs-3 col-md-3">
+    	 	<div class="col-xs-12 col-md-3">
     	 	</div>
-    	 	<div class="col-xs-9 col-md-9" >
+    	 	<div class="col-xs-12 col-md-9" >
     	 	
     	 	<ul class="nav nav-pills" role="tablist" >
 			  <li role="presentation" id="option-productos" class="active"><a href="#">Productos <span class="badge"><?php echo $CantProductos;?></span></a></li>
@@ -560,15 +560,15 @@
 			</ul>
     	 	
     	 	</div>
-    	 	<div class="col-xs-3 col-md-3">
+    	 	<div class="col-xs-12 col-md-3">
     	 	<input type="hidden" name="controlador" id="controlador" value="">
     	 	</div>
     	 	</div>
     	  <div  class="row " id= "div-productos"   style="margin-top:50px; text-align: center; display: none;"  >
-    	    <div class="col-xs-1 col-md-1">
+    	    <div class="col-xs-12 col-md-1">
     	    <span id="respuesta"></span>
     	    </div>
-    	    <div   class="col-md-11 col-xs-11" style="margin-top:50px; text-align: center; "  > 	
+    	    <div   class="col-md-11 col-xs-12" style="margin-top:50px; text-align: center; "  > 	
     	  	
     	   <?php $celdas = 0;
     	   
@@ -615,9 +615,9 @@
     	  </div>
     	  
     	  <div id= "div-principios" class="row" style="margin-top:50px; text-align: center; display: none;"   > 
-		   <div class="col-xs-1 col-md-1">
+		   <div class="col-xs-12 col-md-1">
     	    </div>	
-	      <div  class="col-md-11 col-xs-11" style="margin-top:50px; text-align: center;"   > 
+	      <div  class="col-md-11 col-xs-12" style="margin-top:50px; text-align: center;"   > 
 		  
     	  	
     	   <?php $celdas = 0;?>
@@ -641,9 +641,9 @@
 		 </div>
 	
 		<div id= "div-laboratorios" class="row" style="margin-top:50px; text-align: center; display: none;"  >	
-		   <div class="col-xs-1 col-md-1">
+		   <div class="col-xs-12 col-md-1">
     	    </div>	
-	      <div  class="col-md-11 col-xs-11" style="margin-top:50px; text-align: center;"   > 
+	      <div  class="col-md-11 col-xs-12" style="margin-top:50px; text-align: center;"   > 
     	   <?php $celdas = 0;?>
     		<?php if ($resultLabBus !="") { ?>
     	    <?php foreach($resultLabBus as $res) {?>
@@ -664,9 +664,9 @@
 		  </div>
 		  
 	     <div  id= "div-distribuidores" class="row" style="margin-top:50px; text-align: center; display: none;"  >
-	      <div class="col-xs-1 col-md-1">
+	      <div class="col-xs-12 col-md-1">
     	    </div>	
-	      <div  class="col-md-11 col-xs-11" style="margin-top:50px; text-align: center;"   > 
+	      <div  class="col-md-11 col-xs-12" style="margin-top:50px; text-align: center;"   > 
     	   <?php $celdas = 0;?>
     		<?php if ($resultDisBus !="") { ?>
     	    <?php foreach($resultDisBus as $res) {?>
@@ -684,9 +684,9 @@
     	   </div>
     	  </div>		
 		 <div  id= "div-alimentos" class="row" style="margin-top:50px; text-align: center; display: none;"  >
-	       <div class="col-xs-1 col-md-1">
+	       <div class="col-xs-12 col-md-1">
     	    </div>	
-	       <div  class="col-md-11 col-xs-11" style="margin-top:50px; text-align: center;"   > 
+	       <div  class="col-md-11 col-xs-12" style="margin-top:50px; text-align: center;"   > 
     	   <?php $celdas = 0;?>
     		<?php if ($resultAli !="") { ?>
     	    <?php foreach($resultAli as $res) {?>

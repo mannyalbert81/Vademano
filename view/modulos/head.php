@@ -23,7 +23,7 @@
 		<link rel="stylesheet" href="http://jqueryvalidation.org/files/demo/site-demos.css">
         <script src="http://jqueryvalidation.org/files/dist/jquery.validate.min.js"></script>
         <script src="http://jqueryvalidation.org/files/dist/additional-methods.min.js"></script>
-	
+	  <link rel="stylesheet" href="view/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="view/css/pace-theme-big-counter.css" />
 		 <script src="view/js/pace.js"></script>
 		
@@ -34,13 +34,13 @@
 		<style type="text/css">
 		
 		.menu{
-	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#42992a+0,42992a+100 */
-background: rgb(66,153,42); /* Old browsers */
-background: -moz-linear-gradient(top,  rgba(66,153,42,1) 0%, rgba(66,153,42,1) 100%); /* FF3.6-15 */
-background: -webkit-linear-gradient(top,  rgba(66,153,42,1) 0%,rgba(66,153,42,1) 100%); /* Chrome10-25,Safari5.1-6 */
-background: linear-gradient(to bottom,  rgba(66,153,42,1) 0%,rgba(66,153,42,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#42992a', endColorstr='#42992a',GradientType=0 ); /* IE6-9 */
-	
+			/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#42992a+0,42992a+100 */
+		background: rgb(66,153,42); /* Old browsers */
+		background: -moz-linear-gradient(top,  rgba(66,153,42,1) 0%, rgba(66,153,42,1) 100%); /* FF3.6-15 */
+		background: -webkit-linear-gradient(top,  rgba(66,153,42,1) 0%,rgba(66,153,42,1) 100%); /* Chrome10-25,Safari5.1-6 */
+		background: linear-gradient(to bottom,  rgba(66,153,42,1) 0%,rgba(66,153,42,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#42992a', endColorstr='#42992a',GradientType=0 ); /* IE6-9 */
+			
 		}
 	.zoom{
 		transition: 1.5s ease;
@@ -54,11 +54,12 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#42992a', end
 		-webkit-transform : scale(1.2); /* Chrome - Safari */
 		-o-transform : scale(1.2); /* Opera */
 		-ms-transform : scale(1.2); /* IE9 */
+		
 	}
 	
-	navbar.navbar {
-    background-color: #CC1414;
-}
+	
+	
+	
 </style>
 			
 	 <script>
@@ -91,7 +92,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#42992a', end
     	  
 		<a href="index.php?controller=Usuarios&action=cerrar_sesion"><img src="view/images/logo_vademano.png" class="img-responsive zoom" alt="Vademano"></a>
  	</div>
- 	
+ 	 <?php $status = session_status();  ?>
  	 <?php if  (isset( $_SESSION['nombres_usuario'] )){  ?> 
  	 
  	<button type="image"  class="pull-right" style="margin-top: 0px ; margin-left: 5px" data-toggle="modal" data-target="#myModal">
@@ -102,11 +103,11 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#42992a', end
  	
  	<div class="pull-right" >
 
-   		<nav class="navbar navbar-default" role="navigation" style="background-color: #77CD6A;">
+   		<nav class="navbar">
 		  <div class="container-fluid">
 		    <!-- Brand and toggle get grouped for better mobile display -->
 			 <div class="navbar-header">
-		      <button type="button" class="navbar-toggle collapsed"  data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+		      <button type="button" class="navbar-toggle collapsed "  data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
 		        <span class="sr-only"    >Toggle navigation</span>
 		       
 		      </button>
@@ -114,47 +115,47 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#42992a', end
 		    </div>
 			
 		    <!-- Collect the nav links, forms, and other content for toggling -->
-		    <div class="collapse navbar-collapse" style="background-color: #77CD6A; " id="bs-example-navbar-collapse-1" >
+		    <div class="collapse navbar-collapse"  id="bs-example-navbar-collapse-1">
 		      <ul class="nav navbar-nav" >
-		         <li class="dropdown">
-		          <a href="#" class="dropdown-toggle"  data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-home" style="color: #ffffff;;"><?php echo "" ;?></span> <span class="caret"></span></a>
-		          <ul class="dropdown-menu" style="color: #000000;" >
-		        	<li ><a style="background-color:powderblue" href="index.php?controller=Usuarios&action=cerrar_sesion" style="color: #000000;" >Inicio</a>
+		         <li class="dropdown"  style="background-color: #3498DB;">
+		          <a href="#" class="dropdown-toggle"  data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="fa fa-home fa-2x zoom" style="color: #ffffff;;"><?php echo "" ;?></span> <span class="caret"></span></a>
+		          <ul class="dropdown-menu" style="background-color: #3498DB;" >
+		        	<li ><a  href="index.php?controller=Usuarios&action=cerrar_sesion" style="color: #ffffff;" >Inicio</a>
 				    </li>
 				  </ul>
 		        </li>
-		        <li class="dropdown">
-		          <a href="#" class="dropdown-toggle"  data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-folder-open" style="color: #ffffff;;"><?php echo "" ;?></span> <span class="caret"></span></a>
-		          <ul class="dropdown-menu" style="color: #000000;" >
-		        	<li ><a href="index.php?controller=Buscador&action=index" style="color: #000000;">Vademecum</a>
+		        <li class="dropdown" style="background-color: #D2691E;">
+		          <a href="#" class="dropdown-toggle"  data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="fa fa-folder-open fa-2x zoom" style="color: #ffffff;;"><?php echo "" ;?></span> <span class="caret"></span></a>
+		          <ul class="dropdown-menu" style="background-color: #D2691E;" >
+		        	<li ><a href="index.php?controller=Buscador&action=index" style="color: #ffffff;">Vademécum</a>
 				    </li>
 				  </ul>
 		        </li>
-		        <li class="dropdown">
-		          <a href="#" class="dropdown-toggle"  data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-briefcase" style="color: #ffffff;;"><?php echo "" ;?></span> <span class="caret"></span></a>
-		          <ul class="dropdown-menu" style="color: #000000;" >
-		        	<li ><a href="index.php?controller=Mensajes&action=index" style="color: #000000;">Nosotros</a>
+		        <li class="dropdown" style="background-color: #800080;">
+		          <a href="#" class="dropdown-toggle"  data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="fa fa-briefcase fa-2x zoom" style="color: #ffffff;;"><?php echo "" ;?></span> <span class="caret"></span></a>
+		          <ul class="dropdown-menu" style="background-color: #800080;" >
+		        	<li ><a href="index.php?controller=Mensajes&action=index" style="color: #ffffff;">Nosotros</a>
 				    </li>
 				  </ul>
 		        </li>
-		         <li class="dropdown">
-		          <a href="#" class="dropdown-toggle"  data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user" style="color: #ffffff;;"><?php echo "" ;?></span> <span class="caret"></span></a>
-		          <ul class="dropdown-menu" style="color: #000000;" >
-		        	<li ><a href="index.php?controller=Afiliaciones&action=index" style="color: #000000;">Afiliarse</a>
+		         <li class="dropdown" style="background-color: #9ACD32;" >
+		          <a href="#" class="dropdown-toggle"  data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="fa fa-user fa-2x zoom" style="color: #ffffff;;"><?php echo "" ;?></span> <span class="caret"></span></a>
+		          <ul class="dropdown-menu" style="background-color: #9ACD32;" >
+		        	<li ><a href="index.php?controller=Afiliaciones&action=index" style="color: #ffffff;">Afiliarse</a>
 				    </li>
 				  </ul>
 		        </li>
 		        	
 		        <?php $status = session_status();  ?>
 		        <?php if  (isset( $_SESSION['nombres_usuario'] )){  ?> 
-			 		<li class="dropdown">
-			          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="color: #ffffff;"><span class="glyphicon glyphicon-user" ><?php echo " " . $_SESSION['nombres_usuario'] ;?></span> <span class="caret"></span></a>
-			          <ul class="dropdown-menu">
-			        	<li><a href="<?php echo $helper->url("FichasFavoritos","index"); ?>"><span class="glyphicon glyphicon-star-empty" style="color: #000000;" ><?php echo " Productos Favoritos" ;?></span> </a>
+			 		<li class="dropdown" style="background-color: #000000;">
+			          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="color: #ffffff;"><span class="fa fa-user-circle-o fa-2x zoom" ></span><?php echo " " . $_SESSION['nombres_usuario'] ;?> <span class="caret"></span></a>
+			          <ul class="dropdown-menu"  style="background-color: #000000;">
+			        	<li><a href="<?php echo $helper->url("FichasFavoritos","index"); ?>"><span class="glyphicon glyphicon-star-empty"  style="color: #ffffff;" ><?php echo " Productos Favoritos" ;?></span> </a>
 					  	</li>
-					    <li><a href="<?php echo $helper->url("Afiliaciones","VistaActualizarDatos"); ?>"><span class="glyphicon glyphicon-list-alt" style="color: #000000;"><?php echo " Actualizar Datos" ;?></span> </a>
+					    <li><a href="<?php echo $helper->url("Afiliaciones","VistaActualizarDatos"); ?>"><span class="glyphicon glyphicon-list-alt"  style="color: #ffffff;"><?php echo " Actualizar Datos" ;?></span> </a>
 					  	</li>
-					  	<li><a href="<?php echo $helper->url("Usuarios","cerrar_sesion"); ?>"><span class="glyphicon glyphicon-lock" style="color: #000000;" ><?php echo " Cerrar Sesion" ;?></span> </a>
+					  	<li><a href="<?php echo $helper->url("Usuarios","cerrar_sesion"); ?>"><span class="glyphicon glyphicon-lock"  style="color: #ffffff;" ><?php echo " Cerrar Sesion" ;?></span> </a>
 					  	</li>
 							
 					  </ul>
@@ -163,10 +164,10 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#42992a', end
 			 	  
 			 	 
 			 	 <?php } else { ?>	
-			 	<li class="dropdown">
-		          <a href="#" class="dropdown-toggle"  data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-lock" style="color: #ffffff;;"><?php echo "" ;?></span> <span class="caret"></span></a>
-		          <ul class="dropdown-menu" style="color: #000000;" >
-		        	<li ><a href="<?php echo $helper->url("Usuarios","Loguear"); ?>" style="color: #000000;">Login</a>
+			 	<li class="dropdown" style="background-color: #000000;">
+		          <a href="#" class="dropdown-toggle"  data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="fa fa-sign-in fa-2x zoom" style="color: #ffffff;;"><?php echo "" ;?></span> <span class="caret"></span></a>
+		          <ul class="dropdown-menu" style="background-color: #000000;" >
+		        	<li ><a href="<?php echo $helper->url("Usuarios","Loguear"); ?>" style="color: #ffffff;">Login</a>
 				    </li>
 				  </ul>
 		        </li>
@@ -174,7 +175,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#42992a', end
 				 
 			 	 	
 			 	 <?php  }?>
-			 		
+			 	
+			 	
 		   
 		      </ul>
 		  	
