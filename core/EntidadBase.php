@@ -357,7 +357,7 @@ class EntidadBase{
     			$tablaAdministracion="";
     			$tablaComp="";
     			$tablaDosi="";
-    			
+    			$_buscador_final="";
     			
     			
     			$advertencias_html = "";
@@ -457,7 +457,7 @@ class EntidadBase{
     			
     						$tablaLab="<table>";
     						$tablaLab.="<tr>";
-    						$tablaLab.="<td><font size=1>";
+    						$tablaLab.="<td><font size=2>";
     						$tablaLab.="";
     			
     						foreach($dtLabDireccion as $resd)
@@ -529,7 +529,7 @@ class EntidadBase{
     			
     						$tablaDis="<table>";
     						$tablaDis.="<tr>";
-    						$tablaDis.="<td><font size=1>";
+    						$tablaDis.="<td><font size=2>";
     						$tablaDis.="";
     			
     						foreach($dtLabDireccion as $resd)
@@ -576,8 +576,12 @@ class EntidadBase{
     			
     			if(!empty($dtAdministracion))
     			{
+    				$nombre_formas_administracion="";
     				foreach($dtAdministracion as $res)
     				{
+    					
+    					$nombre_formas_administracion .=$res->nombre_formas_administracion;
+    					
     					$tablaAdministracion.=" &nbsp;&nbsp;&nbsp;- &nbsp;";
     					$tablaAdministracion.=$res->nombre_formas_administracion;
     					$tablaAdministracion.="<br>";
@@ -603,30 +607,36 @@ class EntidadBase{
     			{
     				$tablaComp ="<table border=1>";
     				$tablaComp.="<tr>";
-    				$tablaComp.="<th><font size=1>";
+    				$tablaComp.="<th><font size=2>";
     				$tablaComp.="<b>Principio Activo</b>";
     				$tablaComp.="</font></th>";
-    				$tablaComp.="<th><font size=1>";
+    				$tablaComp.="<th><font size=2>";
     				$tablaComp.="<b>Dosis</b>";
     				$tablaComp.="</font></th>";
-    				$tablaComp.="<th><font size=1>";
+    				$tablaComp.="<th><font size=2>";
     				$tablaComp.="<b>U/M</b>";
     				$tablaComp.="</font></th>";
     				$tablaComp.="</tr>";
     					
+    				$nombre_composiciones="";
+    				
     				foreach($dtComposicion as $res)
     				{
+    					$nombre_composiciones .=$res->nombre_composiciones.' ';
+    					
     					$tablaComp.="<tr>";
-    					$tablaComp.="<td><font size=1>";
+    					$tablaComp.="<td><font size=2>";
     					$tablaComp.=$res->nombre_composiciones;
     					$tablaComp.="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font></td>";
-    					$tablaComp.="<td><font size=1>";
+    					$tablaComp.="<td><font size=2>";
     					$tablaComp.=$res->cantidad_fichas_composiciones;
     					$tablaComp.="</font></td>";
-    					$tablaComp.="<td><font size=1>";
+    					$tablaComp.="<td><font size=2>";
     					$tablaComp.=$res->nombre_unidades_medida;
     					$tablaComp.="</font></td>";
     					$tablaComp.="</tr>";
+    					
+    					
     				}
     				$tablaComp.="</table>";
     					
@@ -645,10 +655,10 @@ class EntidadBase{
    			{
    				$tablaDosi = "<table border=1>";
    				$tablaDosi.= "<tr>";
-   				$tablaDosi.="<th><font size=1>";
+   				$tablaDosi.="<th><font size=2>";
    				$tablaDosi.="<b>Nombre Especie</b>";
    				$tablaDosi.="</font></th>";
-   				$tablaDosi.="<th><font size=1>";
+   				$tablaDosi.="<th><font size=2>";
    				$tablaDosi.="<b>Dosis</b>";
    				$tablaDosi.="</font></th>";
    				$tablaDosi.="</tr>";
@@ -656,10 +666,10 @@ class EntidadBase{
    				foreach($dtDosificacion as $resdo)
    				{
    					$tablaDosi.="<tr>";
-   					$tablaDosi.="<td><font size=1>";
+   					$tablaDosi.="<td><font size=2>";
    					$tablaDosi.=$resdo->nombre_especies;
    					$tablaDosi.="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font></td>";
-   					$tablaDosi.="<td><font size=1>";
+   					$tablaDosi.="<td><font size=2>";
    					$tablaDosi.=$resdo->dosis_fichas_dosificacion;
    					$tablaDosi.="</font></td>";
    					$tablaDosi.="</tr>";
@@ -668,6 +678,10 @@ class EntidadBase{
    				$tablaDosi.="</table>";
    			}
     			
+   			
+   			$_buscador_final= $_buscador.' '.$nombre_laboratorios.' '.$nombre_distribuidores.' '.$nombre_formas_administracion.' '.$nombre_composiciones;
+   			
+   			
     			$funcion = "ins_fichas_service";
     			$parametros = " '$_id_fichas', '$_nombre_fichas', '$_encabezado_tabla_fichas',
     			'$_accion_terapeutica_fichas',
@@ -678,7 +692,7 @@ class EntidadBase{
     			'$presentaciones_html', '$_registro_sanitario_fichas',
     			'$_id_fichas_fotos',
     			'$_consultas_fichas',
-    			'$_buscador',
+    			'$_buscador_final',
     			'$_mecanismo_accion_fichas',
     			'$_efectos_colaterales_fichas',
     			'$_conservacion_fichas',
