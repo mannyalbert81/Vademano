@@ -41,7 +41,7 @@
 	    		changeMonth: true,
 	    		changeYear: true,
 	    		dateFormat: "yy-mm-dd",
-	    		yearRange: "1990:2017"
+	    		yearRange: "1900:2017"
 	    		});
 		    }
 
