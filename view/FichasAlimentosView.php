@@ -343,7 +343,7 @@ transform: translateY(0px);
 		               
 		               <td>
 			           		<div class="right">
-			                    <a href="<?php echo $helper->url("FichasAlimentos","verFichaOnline"); ?>&id_fichas=<?php echo $res->id_fichas; ?>" class="btn btn-info" target="_blank"><i class="glyphicon glyphicon-print"></i></a>
+			                    <a href="<?php echo $helper->url("FichasAlimentos","verFichaOnline"); ?>&id_fichas=<?php echo $res->id_fichas; ?>" class="btn btn-info" target="_blank"><i class="glyphicon glyphicon-eye-open"></i></a>
 			                </div>
 			            
 			             </td>
