@@ -172,7 +172,7 @@
 						</div>
 				    	
 					</div>   
-					<hr> 
+				
 					 <div class="row">
 		            	<div class="col-xs-12 col-md-6 col-lg-6">
 		            	  <div id="mapa" name="mapa" style="height:200px;border:2px solid green;"></div>
@@ -188,7 +188,7 @@
 					        <hr>    	  	
 		            	</div>
 		            </div>	
-				  	<hr>
+				  	
 				  </div>
 				  <div class="col-lg-6 col-md-6 col-xs-12">
 				  
