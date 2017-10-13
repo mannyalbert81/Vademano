@@ -68,25 +68,46 @@
 				  	<div style="text-align:justify; ">
 				    	<div class="media">
 				
-						  <div class="media-body">
+						   <div class="media-body">
 						    <div>
-						    	<h4 class="media-heading"    > Vademano</h4>
+						    	<h4 class="media-heading"    >Quienes Somos </h4>
+						    	<br>
 						    </div>
 						    	<p>
-								    Somos un equipo de trabajo comprometido en <strong> PROMOVER SU NEGOCIO AGROPECUARIO  </strong> 
-								    como página de contacto y donde usted y su empresa pueden promover  e 
-								    informar sus productos y servicios generando un beneficio entre la oferta 
-								    y la demanda, a nuestros clientes. 
-								    Queremos ser facilitadores de negocios, con Actitud positiva, 
-								    Disfrutamos de lo que hacemos y permanecemos en una permanente 
-								    <strong>  búsqueda de oportunidades para usted </strong>, trabajamos en equipo con 
-								    actitud de servicio integrado y organizado, que comienza con la evaluación 
-								    de sus necesidades de promoción empresarial y concluye en la satisfacción 
-								    de sus requerimientos, nuestros profesionales exponen su información en las 
-								    mejores condiciones de presentación e imagen corporativa, ingenieros de sistemas
-								    y representantes de ventas permanentemente mantienen con amabilidad, oportunidad
-								    y eficiencia, el servicio de <strong>promoción empresarial</strong> en nuestro portal.
+						    	  <strong>VADEMANO</strong>, somos un equipo de profesionales ecuatorianos comprometidos con el sector productivo
+						    	  nacional en el desarrollo de servicios y herramientas para satisfacer las necesidades de nuestros
+						    	  clientes con eficiencia y eficacia.
+						    	  
+						    	  <br><br>
+								  <strong>MISIÓN:</strong>
+								  <br><br>
+								  <strong>VADEMANO</strong> es una empresa proveedora de servicios de información científico-técnica actualizada permanentemente,
+								   alcanzando la excelencia en nuestras actividades, con productos innovadores que respondan en forma rápida y sensible a las
+								   necesidades de los clientes; favoreciendo el crecimiento integral de nuestros proveedores, de la comunidad ecuatoriana;
+								   promoviendo la protección medio ambiental.
+								  
+								  <br><br>
+								  <strong>VISIÓN:</strong>
+								  <br><br>
+								  Para el año 2025 seremos una empresa con servicio y atención de categoría internacional,
+								  líderes en la innovación y presentación de productos digitales,
+								  con una planificación y organización adecuada que responda a los retos de los usuarios y de la competencia,
+								  siendo preferidos por la calidad, disponibilidad, confiabilidad de la información entregada.
 								    
+								  <br><br>
+								  <strong>VALORES CORPORATIVOS:</strong>
+								     <br><br>  
+					                ·         Ética profesional
+									 <br>
+									·         Responsabilidad
+									 <br>
+									·         Lealtad
+									 <br>
+									·         Puntualidad
+									 <br>
+									·         Liderazgo
+									 <br>
+									·         Excelencia en el servicio
 							    </p>
 						  </div>
 						</div>
