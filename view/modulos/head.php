@@ -136,6 +136,8 @@
 		          <ul class="dropdown-menu" style="background-color: #800080;" >
 		        	<li ><a href="index.php?controller=Mensajes&action=index" style="color: #ffffff;" onMouseout="this.style.color='white'" onMouseover="this.style.color='black'">Nosotros</a>
 				    </li>
+				    <li ><a href="index.php?controller=PoliticaSeguridad&action=index" style="color: #ffffff;" onMouseout="this.style.color='white'" onMouseover="this.style.color='black'">Política Seguridad</a>
+				    </li>
 				  </ul>
 		        </li>
 		         <li class="dropdown" style="background-color: #9ACD32;" >
