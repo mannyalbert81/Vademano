@@ -573,7 +573,7 @@ class EntidadBase{
     			
     			
     			$dtAdministracion=$fichas_formas_administracion->getCondiciones($columnasAdm, $tablasAdm, $whereAdm, $id_adm);
-    			
+    			$nombre_formas_administracion="";
     			if(!empty($dtAdministracion))
     			{
     				$nombre_formas_administracion="";
@@ -602,7 +602,7 @@ class EntidadBase{
     			
     			
     			$dtComposicion = $fichas_composiciones->getCondiciones($columnasComp, $tablasComp, $whereComp, $idComp);
-    			
+    			$nombre_composiciones="";
     			if (!empty($dtComposicion))
     			{
     				$tablaComp ="<table border=1>";

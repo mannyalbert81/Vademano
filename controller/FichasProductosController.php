@@ -2792,7 +2792,8 @@ public function index(){
    		
    		
    			
-   			
+
+   			$html="";
    			
    			
    			if(!empty($dtLaboratorio))

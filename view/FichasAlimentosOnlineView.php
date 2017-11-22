@@ -429,9 +429,9 @@
 	 	
 	 	  
 	 	   <div class="row">
-	 		<div class=" col-lg-4 col-md-4 col-xs-6" style="background-color: #D2691E;">
+	 		<div class=" col-lg-4 col-md-4 col-xs-6" >
 	 		 
-	 	   <h4><button type="submit" name="imprimirficha" id="imprimirficha" value="" style="color: #ffffff; background-color: #3498DB; -webkit-box-shadow: 0px 1px 1px 1px #3498DB; border-radius: 15px 15px 15px 15px; width: 150; height: 100" class='glyphicon glyphicon-print zoom'><h4 style = "color: #ffffff;"> Imprimir Ficha Alimento</h4></button></h4>
+	 	   <h4><button type="submit" name="imprimirficha" id="imprimirficha" onclick="this.form.action='<?php echo $helper->url("FichasAlimentos","verFicha"); ?>'" value="" style="color: #ffffff; background-color: #3498DB; -webkit-box-shadow: 0px 1px 1px 1px #3498DB; border-radius: 15px 15px 15px 15px; width: 150; height: 100" class='glyphicon glyphicon-print zoom'><h4 style = "color: #ffffff;"> Imprimir Ficha Alimento</h4></button></h4>
 	 			<input type="hidden" id="id_fichas" name="id_fichas" value="<?php if($dicContenido['IDFICHA']!=""){echo $dicContenido['IDFICHA'];}else{/*{DISTIBUIDOPOR}*/}?>"/>
 	 		
 	 		
