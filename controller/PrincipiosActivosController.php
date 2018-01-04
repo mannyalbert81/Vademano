@@ -64,7 +64,7 @@ public function index(){
 		
 		
 			$criterio = $_POST["criterio_busqueda"];
-			$contenido = mb_strtoupper($_POST["contenido_busqueda"]);
+			$contenido = $_POST["contenido_busqueda"];
 		
 		
 		
@@ -82,7 +82,7 @@ public function index(){
 						break;
 					case 1:
 		
-						$where_2 = " AND composiciones.nombre_composiciones LIKE '$contenido%'  ";
+						$where_2 = " AND composiciones.nombre_composiciones LIKE '%$contenido%'  ";
 						break;
 						 
 				}
