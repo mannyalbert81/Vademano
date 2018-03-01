@@ -2422,7 +2422,11 @@ public function index(){
    			 
    	
    	
+<<<<<<< HEAD
    	$html="";
+=======
+   			$html="";
+>>>>>>> branch 'master' of https://github.com/mannyalbert81/Vademano.git
    	
    			if(!empty($dtLaboratorio))
    			{

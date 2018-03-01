@@ -1,4 +1,8 @@
 eclipse.preferences.version=1
+<<<<<<< HEAD
 include_path=0;/FrameworkMVC
+=======
+include_path=0;/vademano
+>>>>>>> branch 'master' of https://github.com/mannyalbert81/Vademano.git
 phpVersion=php5.4
 use_asp_tags_as_php=false

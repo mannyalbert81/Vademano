@@ -1,0 +1,4 @@
+repository "default@186.71.172.100:8087"
+  path "/"
+    br "/main"
+    co "/main"
