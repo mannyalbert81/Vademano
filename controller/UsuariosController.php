@@ -377,6 +377,7 @@ public function index(){
 			
 			
 			$where = "usuario_usuario = '$_usuario_usuario' AND clave_usuario = '$encryp_pass' AND id_estado=1";
+			//$where = "suario_usuario = '$_usuario_usuario' AND clave_usuario = '$encryp_pass' AND id_estado=1";
 			//$where = "usuario_usuario = '$_usuario_usuario' ";
 			
 			$resultado =  $usuarios->getBy($where);
