@@ -145,6 +145,7 @@ public function index(){
 	
 		session_start();
 		$resultado=0;
+		
 		if(isset($_POST["id_fichas"]))
 		{
 			$fichas_favoritos = new FichasFavoritosModel();

@@ -349,7 +349,6 @@
 			
 			
 			
-			
    	 </head>
    
      
@@ -589,6 +588,8 @@
 		        
                  <img src="view/DevuelveImagen.php?id_valor=<?php echo $res->id_fichas; ?>&id_nombre=id_fichas&tabla=fichas_fotos&campo=foto_fichas_fotos" width="200" height="150"  alt="<?php echo $res->nombre_fichas; ?>" />
                  <div class="mascara">
+                 
+                
                  <a class="linkfavorito" href="<?php echo $helper->url("FichasFavoritos","AgregarFavoritos"); ?>" id="a_imagen_favorito" data-producto="<?php echo $res->id_fichas; ?>" data-nomproducto="<?php echo $res->nombre_fichas; ?>" >
 	  	      		<img  id="imagen_favorito" name="imagen_favorito" width="10px;" height="10px;" src="view/images/icono_heart.png" alt="Agregar a Favoritos" >
 	  	         </a>
