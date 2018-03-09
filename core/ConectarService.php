@@ -24,7 +24,7 @@ class ConectarService{
         
         if($this->driver=="pgsql" || $this->driver==null){
        
-        	$con = pg_connect("host=192.168.10.10 port=5432 dbname=vademano user=postgres password=.Romina.2012 ");
+        	$con = pg_connect("host=13.58.185.239 port=5432 dbname=vademano user=postgres password=.Vademano.2018 ");
         	if(!$con){
         		echo "No se puedo Conectar a la Base";
         	} else {
